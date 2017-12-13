@@ -8,7 +8,7 @@
 </head>
 <body>
 	<hr>
-	<h3>Incluir Produto</h3>
+	<h3>Cadastrar Usuário</h3>
 	<hr>
 	<form action="cadastrarUsuario" method="post">
 		<p>

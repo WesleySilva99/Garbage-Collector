@@ -8,7 +8,7 @@ public class ConnectionFactory {
 	public Connection getConnection() throws SQLException {
 		String nomeBanco = "gc";
 		String usuario = "root";
-		String senha = "bd123";
+		String senha = "@luno1fpe";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e) {

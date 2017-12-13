@@ -1,3 +1,5 @@
+package br.com.nasa.model;
+
 import java.util.Date;
 
 public class Motorista {
