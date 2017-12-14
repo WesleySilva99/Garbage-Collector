@@ -17,7 +17,7 @@
 		<p>
 			Nome do Usuário: <br /> <input type="text" name="nomeUsuario" />
 		</p>
-			CPF: <br /> <input type="text" name="cpf" />
+			CPF: <br /> <input type="text" name="cpf"  />
 		<p>
 		</p>
 			Data de Nascimento: <br /> <input type="text" name="dataNascimento" />
