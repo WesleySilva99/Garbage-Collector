@@ -1,9 +1,12 @@
 package br.com.nasa.model;
 
 
-import java.sql.Connection;
+
+
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import com.mysql.jdbc.Connection;
 
 import br.com.nasa.util.ConnectionFactory;
 
@@ -13,7 +16,7 @@ public class UsuarioDao {
 	
 	public UsuarioDao() {
 		try {
-			this.connection = new ConnectionFactory().getConnection();
+			this.connection = (Connection) new ConnectionFactory().getConnection();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
