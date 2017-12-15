@@ -30,15 +30,15 @@
 
 		</div>
 		<br>
-
+		
 		<div class="form-group">
-			<label for="exampleInputName">Nome do Usuário:</label> <input
-				type="text" class="form-control" id="exampleInputName"
-				placeholder="João15" pattern="[a-zA-Z0-9]+" required="required"
-				maxlength="15" name="nomeUsuario">
+		<label for="sexo">Sexo</label>
+		<select class="form-control" name="sexo">
+			<option value="M">Masculino</option>
+			<option value="F">Feminino</option>
+			<option value="O">Outros</option>
+		</select>
 		</div>
-		<br>
-
 		<div class="form-group">
 			<label for="exampleInputCpf">CPF:</label> <input type="text"
 				class="form-control" id="exampleInputCpf"
@@ -48,16 +48,31 @@
 		<br>
 
 		<div class="form-group">
-			<label for="exampleInputData">Data de Nascimento:</label> <input
-				type="text" class="form-control" id="exampleInputData"
-				required="required" name="dataNascimento">
+			<label for="exampleInputName">RG:</label> <input type="text"
+				class="form-control" id="exampleInputName" placeholder="João15"
+				required="required" maxlength="15" name="nomeUsuario">
 		</div>
 		<br>
 
 		<div class="form-group">
-			<label for="exampleInputCep">CEP:</label> <input type="text"
-				class="form-control" id="exampleInputCep" placeholder="00000-000"
-				maxlength="9" required="required" maxlength="9" name="cep">
+			<label for="exampleInputTelefone">Telefone:</label> <input
+				type="text" class="form-control" id="exampleInputTelefone"
+				placeholder="(00) 00000-0000" required="required" maxlength="15"
+				name="telefone">
+		</div>
+		<br>
+
+		<div class="form-group">
+			<label for="exampleInputEndereco">Estado:</label> <input type="text"
+				class="form-control" id="exampleInputEndereco" required="required"
+				maxlength="50" name="endereco">
+		</div>
+		<br>
+
+		<div class="form-group">
+			<label for="exampleInputEndereco">Cidade:</label> <input type="text"
+				class="form-control" id="exampleInputEndereco" required="required"
+				maxlength="50" name="endereco">
 		</div>
 		<br>
 
@@ -69,13 +84,69 @@
 		</div>
 		<br>
 
+
+
 		<div class="form-group">
-			<label for="exampleInputTelefone">Telefone:</label> <input
-				type="text" class="form-control" id="exampleInputTelefone"
-				placeholder="(00) 00000-0000" required="required" maxlength="15"
-				name="telefone">
+			<label for="exampleInputEndereco">Bairro:</label> <input type="text"
+				class="form-control" id="exampleInputEndereco" required="required"
+				maxlength="50" name="endereco">
 		</div>
 		<br>
+
+		<div class="form-group">
+			<label for="exampleInputCep">CEP:</label> <input type="text"
+				class="form-control" id="exampleInputCep" placeholder="00000-000"
+				maxlength="9" required="required" maxlength="9" name="cep">
+		</div>
+		<br>
+
+		<div class="form-group">
+			<label for="exampleInputCep">Numero da Habilitação:</label> <input
+				type="number" class="form-control" id="exampleInputCep"
+				required="required" name="cep">
+		</div>
+		<br>
+		
+		<div class="form-group">
+			<label for="exampleInputCep">Categoria:</label> <input
+				type="text" class="form-control" id="exampleInputCep"
+				required="required" name="cep">
+		</div>
+		<br>
+
+		<div class="form-group">
+			<label for="exampleInputData">Data de vencimento da carteira:</label>
+			<input type="text" class="form-control" id="exampleInputData"
+				required="required" name="dataNascimento">
+		</div>
+		<br>
+		
+		<div class="form-group">
+			<label for="exampleInputCep">Placa do veiculo:</label> <input
+				type="text" class="form-control" id="exampleInputCep"
+				required="required" name="cep">
+		</div>
+		<br>
+		
+		<div class="form-group">
+			<label for="exampleInputCep">Marca:</label> <input
+				type="text" class="form-control" id="exampleInputCep"
+				required="required" name="cep">
+		</div>
+		<br>
+		
+		<div class="form-group">
+			<label for="exampleInputCep">Ano do veiculo:</label> <input
+				type="text" class="form-control" id="exampleInputCep"
+				required="required" name="cep">
+		</div>
+		<br>
+
+
+
+
+
+
 
 		<div class="form-group">
 			<label for="exampleInputEmail">E-mail:</label> <input type="email"
