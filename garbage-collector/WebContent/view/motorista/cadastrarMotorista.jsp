@@ -7,10 +7,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>Cadastro de Usuário</title>
+<title>Cadastro de Motorista</title>
 
 <!-- Bootstrap -->
-<link href="view/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="view/bootstrap/css/bootstrap.css" rel="stylesheet">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,9 +20,13 @@
     <![endif]-->
 </head>
 <body>
-	<!-- Formulario -->
 
+	<h1>Cadastro de Motorista</h1>
+	<!-- Formulario -->
+	<fieldset>
+    <legend>Informações Pessoais</legend>
 	<form class="form-inline" action="cadastrarUsuario" method="post">
+	
 		<div class="form-group">
 			<label for="exampleInputName">Nome Completo:</label> <input
 				type="text" class="form-control" id="exampleInputName"
@@ -34,11 +38,13 @@
 		<div class="form-group">
 		<label for="sexo">Sexo</label>
 		<select class="form-control" name="sexo">
+			<option value="">Escolha seu sexo</option>
 			<option value="M">Masculino</option>
 			<option value="F">Feminino</option>
 			<option value="O">Outros</option>
 		</select>
 		</div>
+		<br>
 		<div class="form-group">
 			<label for="exampleInputCpf">CPF:</label> <input type="text"
 				class="form-control" id="exampleInputCpf"
@@ -61,6 +67,7 @@
 				name="telefone">
 		</div>
 		<br>
+		
 
 		<div class="form-group">
 			<label for="exampleInputEndereco">Estado:</label> <input type="text"
@@ -102,7 +109,7 @@
 
 		<div class="form-group">
 			<label for="exampleInputCep">Numero da Habilitação:</label> <input
-				type="number" class="form-control" id="exampleInputCep"
+				type="text" class="form-control" id="exampleInputCep"
 				required="required" name="cep">
 		</div>
 		<br>
@@ -142,20 +149,6 @@
 		</div>
 		<br>
 
-
-
-
-
-
-
-		<div class="form-group">
-			<label for="exampleInputEmail">E-mail:</label> <input type="email"
-				class="form-control" id="exampleInputEmail"
-				placeholder="João@exemplo.com" required="required"
-				pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" maxlength="50"
-				name="email">
-		</div>
-		<br>
 		<div class="form-group">
 			<label for="exampleInputPassword1">Senha:</label> <input
 				type="password" class="form-control" id="exampleInputPassword1"
@@ -176,8 +169,9 @@
 
 
 		<button type="submit" class="btn btn-default">Submit</button>
+		
 	</form>
-
+		</fieldset>
 	<!-- jQuery (necessario para Bootsrap plungins Java Script) -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

@@ -53,26 +53,25 @@ public class UsuarioDao {
 	public List<Usuario> listar() {
 		try {
 			List<Usuario> listaUsuario = new ArrayList<Usuario>();
-			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM produto ORDER BY descricao");
+			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM usuario ORDER BY nome");
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
 				Usuario usuario = new Usuario();
 				usuario.setNome(rs.getString("nome"));
-				usuario.setNomeUsuario(rs.getString("nome_usuario"));
+				usuario.setNomeUsuario(rs.getString("nome_usu"));
 				usuario.setCpf(rs.getString("cpf"));
-				usuario.setDataNascimento(rs.getDate("dt_nasc"));
+				usuario.setDataNascimento(rs.getDate("dataNascimento"));
 				usuario.setCep(rs.getString("cep"));
 				usuario.setEndereco(rs.getString("endereco"));
 				usuario.setTelefone(rs.getString("telefone"));
 				usuario.setEmail(rs.getString("email"));
-				usuario.setImagem(rs.getString("imagem"));
 				listaUsuario.add(usuario);
 
 			}
-
-			rs.close();
+			stmt.execute();
 			stmt.close();
+			rs.close();
 			connection.close();
 
 			return listaUsuario;

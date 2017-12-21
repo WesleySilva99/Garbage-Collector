@@ -166,12 +166,12 @@ input[type="search"]::-webkit-search-decoration {
 }
 fieldset {
   padding: .35em .625em .75em;
-  margin: 0 2px;
-  border: 1px solid #c0c0c0;
+  margin: 10px;
+  border: 2px solid #c0c0c0;
 }
 legend {
-  padding: 0;
-  border: 0;
+  padding: 10px;
+  border: none;
 }
 textarea {
   overflow: auto;
@@ -2491,20 +2491,20 @@ table th[class*="col-"] {
 }
 fieldset {
   min-width: 0;
-  padding: 0;
-  margin: 0;
-  border: 0;
+  padding: 10px;
+  margin: 10px;
+  border: 2;
 }
 legend {
   display: block;
-  width: 100%;
-  padding: 0;
+  width: auto;
+  padding: 10px;
   margin-bottom: 20px;
   font-size: 21px;
   line-height: inherit;
   color: #333;
-  border: 0;
-  border-bottom: 1px solid #e5e5e5;
+  border: none;
+ 
 }
 label {
   display: inline-block;
