@@ -3,6 +3,7 @@ package br.com.nasa.model;
 import java.util.Date;
 
 public class Usuario {
+	private int id;
 	private String nome;
 	private String nomeUsuario;
 	private String cpf;
