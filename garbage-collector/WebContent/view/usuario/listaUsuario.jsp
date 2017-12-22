@@ -37,6 +37,7 @@
 				<th>Endereço</th>
 				<th>Telefone</th>
 				<th>Email</th>
+				<th>Complemento</th>
 			</tr>
 
 
@@ -54,6 +55,7 @@
 					<td>${u.endereco}</td>
 					<td>${u.telefone}</td>
 					<td>${u.email}</td>
+					<td>${u.complemento}</td>
 				</tr>
 
 			</c:forEach>

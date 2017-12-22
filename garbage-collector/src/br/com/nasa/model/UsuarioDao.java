@@ -25,8 +25,8 @@ public class UsuarioDao {
 	public void Inserir(Usuario usuario) {
 
 		String sql = "INSERT INTO usuario"
-				+ "(nome, nome_usu, email, endereco, dataNascimento, cpf, cep, senha, telefone)"
-				+ "VALUES (?,?,?,?,?,?,?,?,?)";
+				+ "(nome, nome_usu, email, endereco, dataNascimento, cpf, cep, senha, telefone, complemento)"
+				+ "VALUES (?,?,?,?,?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
@@ -40,6 +40,7 @@ public class UsuarioDao {
 			stmt.setString(7, usuario.getCep());
 			stmt.setString(8, usuario.getSenha());
 			stmt.setString(9, usuario.getTelefone());
+			stmt.setString(10, usuario.getComplemento());
 
 			stmt.execute();
 			stmt.close();
@@ -66,6 +67,7 @@ public class UsuarioDao {
 				usuario.setEndereco(rs.getString("endereco"));
 				usuario.setTelefone(rs.getString("telefone"));
 				usuario.setEmail(rs.getString("email"));
+				usuario.setComplemento(rs.getString("complemento"));
 				listaUsuario.add(usuario);
 
 			}

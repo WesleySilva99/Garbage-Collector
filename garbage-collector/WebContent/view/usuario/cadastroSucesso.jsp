@@ -10,6 +10,6 @@
 	<hr>
 	<h3>Cadastro Sucesso!</h3>
 	<hr>
-	<h2>Cadastro Feito com Sucesso !</h2>
+	<h2>Usuário cadastro com sucesso !</h2>
 </body>
 </html>

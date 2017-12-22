@@ -107,6 +107,15 @@ label.hora {
 				name="endereco" style="width: 200px;">
 		</div>
 		<br> <br>
+		
+		<div class="form-group">
+			<label for="exampleInputName" class="hora">Complemento:</label> <input
+				type="text" class="form-control" id="exampleInputName"
+				placeholder="Casa" pattern="[a-zA-Z0-9]+" style="width: 200px;"
+				required="Para realizar o cadastro preencha este campo com o seu complemento"
+				maxlength="15" name="complemento">
+		</div>
+		<br> <br>
 
 		<div class="form-group" >
 			<label for="exampleInputTelefone" class="hora">Telefone:</label> <input

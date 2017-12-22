@@ -1,4 +1,4 @@
-package br.com.nasa.model;
+ package br.com.nasa.model;
 
 import java.util.Date;
 
@@ -12,6 +12,15 @@ public class Usuario {
 	private String endereco;
 	private String telefone;
 	private String email;
+	private String complemento;
+	
+	public String getComplemento() {
+		return complemento;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
 
 	public String getNome() {
 		return nome;

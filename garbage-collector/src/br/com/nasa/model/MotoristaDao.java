@@ -44,11 +44,11 @@ public class MotoristaDao {
 				stmt.setString(10, motorista.getSexo());
 				stmt.setInt(11, motorista.getNumHabilitacao());
 				stmt.setDate(12, new java.sql.Date(motorista.getValidade().getTime()));
-				stmt.setString(10, motorista.getCategoria());
-				stmt.setString(10, motorista.getChasi());
-				stmt.setString(10, motorista.getPlacaVeiculo());
-				stmt.setString(10, motorista.getMarcaVeiculo());
-				stmt.setString(10, motorista.getAnoVeiculo());
+				stmt.setString(13, motorista.getCategoria());
+				stmt.setString(14, motorista.getChasi());
+				stmt.setString(15, motorista.getPlacaVeiculo());
+				stmt.setString(16, motorista.getMarcaVeiculo());
+				stmt.setString(17, motorista.getAnoVeiculo());
 
 				stmt.execute();
 				stmt.close();
