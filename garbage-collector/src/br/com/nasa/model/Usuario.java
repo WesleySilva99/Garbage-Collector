@@ -3,7 +3,6 @@ package br.com.nasa.model;
 import java.util.Date;
 
 public class Usuario {
-	private int id;
 	private String nome;
 	private String nomeUsuario;
 	private String cpf;
@@ -13,15 +12,6 @@ public class Usuario {
 	private String endereco;
 	private String telefone;
 	private String email;
-	private String imagem;
-
-	public String getImagem() {
-		return imagem;
-	}
-
-	public void setImagem(String imagem) {
-		this.imagem = imagem;
-	}
 
 	public String getNome() {
 		return nome;
