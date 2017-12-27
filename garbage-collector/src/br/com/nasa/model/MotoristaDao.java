@@ -25,8 +25,8 @@ public class MotoristaDao {
 
 		public void Inserir(Motorista motorista) {
 
-			String sql = "INSERT INTO usuario"
-					+ "(nome, nome_usu, email, endereco, dataNascimento, cpf, cep, senha, telefone)"
+			String sql = "INSERT INTO motorista"
+					+ "(nome, telefone, cpf, rg, endereco, bairro, estado, cidade, cep, sexo, numHabilitacao, validade, categoria, chassi, placa, marca, anoVeiculo)"
 					+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 			try {

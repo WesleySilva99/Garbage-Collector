@@ -45,12 +45,13 @@ label.hora {
 
 	<br>
 	<hr>
-	<h1 align="center">Cadastro de Usuário</h1>
+	<h1 align="center">Cadastro de Cliente</h1>
 	<hr>
 	<br>
 
-	<center>
-	<form class="form-inline" action="cadastrarUsuario" method="post" onsubmit="return validarSenha();" name="formulario">
+	<fieldset>
+    <legend>Informações Pessoais</legend>
+	<form class="form-inline" action="cadastrarCliente" method="post" onsubmit="return validarSenha();" name="formulario">
 		<div class="form-group">
 			<label for="exampleInputName" class="hora">Nome Completo:</label> <input
 				type="text" class="form-control" id="exampleInputName"
@@ -161,7 +162,7 @@ label.hora {
 		<button type="reset" class="btn btn-warning"> &nbsp; Limpar &nbsp;</button> &nbsp;
 		<button type="submit" class="btn btn-success">Cadastrar</button>
 	</form>
-	</center>
+	</fieldset>
 
 	<!-- jQuery (necessario para Bootsrap plungins Java Script) -->
 	<script

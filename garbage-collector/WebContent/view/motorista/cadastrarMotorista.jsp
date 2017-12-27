@@ -34,7 +34,7 @@ label.hora {
 	<!-- Formulario -->
 	<fieldset>
     <legend>Informações Pessoais</legend>
-	<form class="form-inline" action="" method="post">
+	<form class="form-inline" action="cadastrarMotorista" method="post">
 	
 		<div class="form-group">
 			<label for="exampleInputName" class="hora">Nome Completo:</label> <input
@@ -66,7 +66,7 @@ label.hora {
 		<div class="form-group">
 			<label for="exampleInputName" class="hora">RG:</label> <input type="text"
 				class="form-control" id="exampleInputName" placeholder="João15"
-				required="required" maxlength="15" name="nomeUsuario"
+				required="required" maxlength="15" name="rg"
 				style="width: 200px;">
 		</div>
 		<br>
@@ -83,14 +83,14 @@ label.hora {
 		<div class="form-group">
 			<label for="exampleInputEndereco" class="hora">Estado:</label> <input type="text"
 				class="form-control" id="exampleInputEndereco" required="required"
-				maxlength="50" name="endereco" style="width: 200px;">
+				maxlength="50" name="estado" style="width: 200px;">
 		</div>
 		<br>
 
 		<div class="form-group">
 			<label for="exampleInputEndereco" class="hora">Cidade:</label> <input type="text"
 				class="form-control" id="exampleInputEndereco" required="required"
-				maxlength="50" name="endereco" style="width: 200px;">
+				maxlength="50" name="cidade" style="width: 200px;">
 		</div>
 		<br>
 
@@ -107,7 +107,7 @@ label.hora {
 		<div class="form-group">
 			<label for="exampleInputEndereco" class="hora">Bairro:</label> <input type="text"
 				class="form-control" id="exampleInputEndereco" required="required"
-				maxlength="50" name="endereco" style="width: 200px;">
+				maxlength="50" name="bairro" style="width: 200px;">
 		</div>
 		<br>
 
@@ -121,22 +121,22 @@ label.hora {
 
 		<div class="form-group">
 			<label for="exampleInputCep" class="hora">Numero da Habilitação:</label> <input
-				type="text" class="form-control" id="exampleInputCep"
-				required="required" name="cep" style="width: 200px;">
+				type="number" class="form-control" id="exampleInputCep"
+				required="required" name="numHabilitacao" style="width: 200px;">
 		</div>
 		<br>
 		
 		<div class="form-group">
 			<label for="exampleInputCep" class="hora">Categoria:</label> <input
 				type="text" class="form-control" id="exampleInputCep"
-				required="required" name="cep" style="width: 200px;">
+				required="required" name="categoria" style="width: 200px;">
 		</div>
 		<br>
 
 		<div class="form-group" class="hora">
 			<label for="exampleInputData" class="hora">Data de vencimento da carteira:</label>
 			<input type="text" class="form-control" id="exampleInputData"
-				required="required" name="dataNascimento" style="width: 200px;">
+				required="required" name="validade" style="width: 200px;">
 		</div>
 		<br>
 		<div class="form-group">
@@ -162,21 +162,21 @@ label.hora {
 		<div class="form-group" class="hora">
 			<label for="exampleInputCep">Placa do veiculo:</label> <input
 				type="text" class="form-control" id="exampleInputCep"
-				required="required" name="cep" style="width: 200px;">
+				required="required" name="placaVeiculo" style="width: 200px;">
 		</div>
 		<br>
 		
 		<div class="form-group">
 			<label for="exampleInputCep" class="hora">Marca:</label> <input
 				type="text" class="form-control" id="exampleInputCep"
-				required="required" name="cep" style="width: 200px;">
+				required="required" name="marcaVeiculo" style="width: 200px;">
 		</div>
 		<br>
 		
 		<div class="form-group">
 			<label for="exampleInputCep" class="hora">Ano do veiculo:</label> <input
 				type="text" class="form-control" id="exampleInputCep"
-				required="required" name="cep" style="width: 200px;">
+				required="required" name="anoVeiculo" style="width: 200px;">
 		</div>
 		<br>
 		</fieldset>

@@ -11,7 +11,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>Cadastro de Motorista</title>
+<title>Lista de Clientes</title>
 
 <!-- Bootstrap -->
 <link href="view/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -35,13 +35,14 @@
 				<th>Data de Nascimento</th>
 				<th>CEP</th>
 				<th>Endereço</th>
+				<th>Complemento</th>
 				<th>Telefone</th>
 				<th>Email</th>
-				<th>Complemento</th>
+				
 			</tr>
 
 
-			<jsp:useBean id="dao" class="br.com.nasa.model.UsuarioDao" />
+			<jsp:useBean id="dao" class="br.com.nasa.model.ClienteDao" />
 			<c:forEach var="u" items="${dao.listar()}">
 
 
@@ -53,9 +54,10 @@
 							pattern="dd/MM/yyyy" /></td>
 					<td>${u.cep}</td>
 					<td>${u.endereco}</td>
+					<td>${u.complemento}</td>
 					<td>${u.telefone}</td>
 					<td>${u.email}</td>
-					<td>${u.complemento}</td>
+					
 				</tr>
 
 			</c:forEach>

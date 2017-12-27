@@ -2,7 +2,7 @@
 
 import java.util.Date;
 
-public class Usuario {
+public class Cliente {
 	private String nome;
 	private String nomeUsuario;
 	private String cpf;
