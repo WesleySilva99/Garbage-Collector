@@ -19,15 +19,25 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 <script type="text/javascript">
-function validarSenha(form){
+function validarCadastro(form){
 	var senha = document.formulario.senha.value;
 	var senhaRepetida = document.formulario.passwd2.value;
+	var email = document.formulario.email.value;
 	if (senha != senhaRepetida){ 
 	alert("As senhas não conferem. Repita a senha corretamente!");
 	document.formulario.passwd2.focus();
 	return false;
-	
 	}
+	if (senha.length < 8 || senha.length > 32) {
+    	alert("As senhas estão abaixo ou acima do limite de caracteres! Senhas de 8 até 32 caracteres!");
+        document.formulario.passwd2.focus();
+        return false;
+    }
+	if (email == "" || email.indexOf('@')==-1 || email.indexOf('.')==-1 ){
+    	alert ("Preencha corretamente o campo email!");
+    	document.formulario.email.focus();
+    	return false;
+    }
 }
 
 </script>
@@ -154,7 +164,7 @@ label.hora {
 				required="Para realizar o cadastro preencha este campo repetindo novamente sua senha"
 				pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  style="width: 200px;"
 				maxlength="32" title="A senha deve ser igual a da campo anterior."
-				oninput="validaSenha(this)" name="passwd2">
+				oninput="validaCadastro(this)" name="passwd2">
 		</div>
 		<br> <br>
 

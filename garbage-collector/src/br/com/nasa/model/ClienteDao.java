@@ -25,8 +25,8 @@ public class ClienteDao {
 	public void Inserir(Cliente cliente) {
 
 		String sql = "INSERT INTO cliente"
-				+ "(nome, nome_usu, email, endereco, dataNascimento, cpf, cep, senha, telefone, complemento)"
-				+ "VALUES (?,?,?,?,?,?,?,?,?,?)";
+				+ "(nome, nome_usu, email, dataNascimento, cpf,  senha, telefone)"
+				+ "VALUES (?,?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
@@ -34,13 +34,11 @@ public class ClienteDao {
 			stmt.setString(1, cliente.getNome());
 			stmt.setString(2, cliente.getNomeUsuario());
 			stmt.setString(3, cliente.getEmail());
-			stmt.setString(4, cliente.getEndereco());
-			stmt.setDate(5, new java.sql.Date(cliente.getDataNascimento().getTime()));
-			stmt.setString(6, cliente.getCpf());
-			stmt.setString(7, cliente.getCep());
-			stmt.setString(8, cliente.getSenha());
-			stmt.setString(9, cliente.getTelefone());
-			stmt.setString(10, cliente.getComplemento());
+			stmt.setDate(4, new java.sql.Date(cliente.getDataNascimento().getTime()));
+			stmt.setString(5, cliente.getCpf());
+			stmt.setString(6, cliente.getSenha());
+			stmt.setString(7, cliente.getTelefone());
+			
 
 			stmt.execute();
 			stmt.close();
@@ -64,10 +62,10 @@ public class ClienteDao {
 				cliente.setCpf(rs.getString("cpf"));
 				cliente.setDataNascimento(rs.getDate("dataNascimento"));
 				cliente.setCep(rs.getString("cep"));
-				cliente.setEndereco(rs.getString("endereco"));
+				//cliente.setEndereco(rs.getString("endereco"));
 				cliente.setTelefone(rs.getString("telefone"));
 				cliente.setEmail(rs.getString("email"));
-				cliente.setComplemento(rs.getString("complemento"));
+				//cliente.setComplemento(rs.getString("complemento"));
 				listaCliente.add(cliente);
 
 			}

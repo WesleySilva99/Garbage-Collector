@@ -1,4 +1,4 @@
- package br.com.nasa.model;
+package br.com.nasa.model;
 
 import java.util.Date;
 
@@ -9,19 +9,19 @@ public class Cliente {
 	private Date dataNascimento;
 	private String senha;
 	private String cep;
-	private String endereco;
+	private Endereco endereco;
 	private String telefone;
 	private String email;
-	private String complemento;
+
 	
-	public String getComplemento() {
-		return complemento;
+	public Endereco getEndereco() {
+		return endereco;
 	}
 
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
-
+	
 	public String getNome() {
 		return nome;
 	}
@@ -68,14 +68,6 @@ public class Cliente {
 
 	public void setCep(String cep) {
 		this.cep = cep;
-	}
-
-	public String getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
 	}
 
 	public String getTelefone() {
