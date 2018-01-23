@@ -25,12 +25,12 @@ public class ClienteDao {
 	public void Inserir(Cliente cliente) {
 
 		String sql = "INSERT INTO cliente"
-				+ "(nome, nome_usu, email, dataNascimento, cpf,  senha, telefone)"
+				+ "(nome, login, email, dt_nasc, cpf,  senha, telefone)"
 				+ "VALUES (?,?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
-
+			
 			stmt.setString(1, cliente.getNome());
 			stmt.setString(2, cliente.getNomeUsuario());
 			stmt.setString(3, cliente.getEmail());
@@ -38,16 +38,16 @@ public class ClienteDao {
 			stmt.setString(5, cliente.getCpf());
 			stmt.setString(6, cliente.getSenha());
 			stmt.setString(7, cliente.getTelefone());
-			
 
 			stmt.execute();
 			stmt.close();
-			connection.close();
+
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
 
 	}
+
 	
 	public List<Cliente> listar() {
 		try {
@@ -58,14 +58,11 @@ public class ClienteDao {
 			while (rs.next()) {
 				Cliente cliente = new Cliente();
 				cliente.setNome(rs.getString("nome"));
-				cliente.setNomeUsuario(rs.getString("nome_usu"));
+				cliente.setNomeUsuario(rs.getString("login"));
 				cliente.setCpf(rs.getString("cpf"));
-				cliente.setDataNascimento(rs.getDate("dataNascimento"));
-				cliente.setCep(rs.getString("cep"));
-				//cliente.setEndereco(rs.getString("endereco"));
+				cliente.setDataNascimento(rs.getDate("dt_nasc"));
 				cliente.setTelefone(rs.getString("telefone"));
 				cliente.setEmail(rs.getString("email"));
-				//cliente.setComplemento(rs.getString("complemento"));
 				listaCliente.add(cliente);
 
 			}

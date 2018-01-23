@@ -24,8 +24,8 @@ public class EnderecoDao {
 	
 	public void inserir(Endereco e){
 		
-		String sql = "insert into endereco(rua, cep, bairro, numero, complemento, ponto_referencia)"+
-		"values (?,?,?,?,?,?)";
+		String sql = "insert into endereco(rua, cep, bairro, numero, complemento)"+
+		"values (?,?,?,?,?)";
 		
 
 		try {
@@ -34,8 +34,8 @@ public class EnderecoDao {
 			stmt.setString(1, e.getRua());
 			stmt.setString(2, e.getCep());
 			stmt.setString(3, e.getBairro());
-			stmt.setString(5, e.getNumero());
-			stmt.setString(6, e.getComplemento());
+			stmt.setString(4, e.getNumero());
+			stmt.setString(5, e.getComplemento());
 			stmt.execute();
 			stmt.close();
 			connection.close();

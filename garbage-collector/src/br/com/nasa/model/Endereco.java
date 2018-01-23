@@ -9,7 +9,7 @@ public class Endereco {
 	public String cep;
 	public String numero;
 	public String complemento;
-	public String pontoDeReferencia;
+
 	
 	public String getRua() {
 		return rua;
@@ -41,11 +41,7 @@ public class Endereco {
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
 	}
-	public String getPontoDeReferencia() {
-		return pontoDeReferencia;
-	}
-	public void setPontoDeReferencia(String pontoDeReferencia) {
-		this.pontoDeReferencia = pontoDeReferencia;
-	}
+
+	
 
 }

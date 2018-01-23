@@ -102,31 +102,7 @@ label.hora {
 		</div>
 		<br> <br>
 
-		<div class="form-group" >
-			<label for="exampleInputCep" class="hora">CEP:</label> <input type="text"
-				class="form-control" id="exampleInputCep" placeholder="00000-000"
-				maxlength="9" style="width: 200px;"
-				required="Para realizar o cadastro preencha este campo com o cep da sua rua"
-				maxlength="9" name="cep" pattern="\d{5}-?\d{3}">
-		</div>
-		<br> <br>
-
-		<div class="form-group">
-			<label for="exampleInputEndereco" class="hora">Endereço:</label> <input
-				type="text" class="form-control" id="exampleInputEndereco"
-				placeholder="Rua Don Juno nº 425" required="required" maxlength="50"
-				name="endereco" style="width: 200px;">
-		</div>
-		<br> <br>
 		
-		<div class="form-group">
-			<label for="exampleInputName" class="hora">Complemento:</label> <input
-				type="text" class="form-control" id="exampleInputName"
-				placeholder="Casa" pattern="[a-zA-Z0-9]+" style="width: 200px;"
-				required="Para realizar o cadastro preencha este campo com o seu complemento"
-				maxlength="15" name="complemento">
-		</div>
-		<br> <br>
 
 		<div class="form-group" >
 			<label for="exampleInputTelefone" class="hora">Telefone:</label> <input
@@ -145,6 +121,47 @@ label.hora {
 				required="Para realizar o cadastro preencha este campo com o seu email"
 				pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" maxlength="50"
 				name="email">
+		</div>
+		<br> <br>
+		
+		<div class="form-group" >
+			<label for="exampleInputCep" class="hora">CEP:</label> <input type="text"
+				class="form-control" id="exampleInputCep" placeholder="00000-000"
+				maxlength="9" style="width: 200px;"
+				required="Para realizar o cadastro preencha este campo com o cep da sua rua"
+				maxlength="9" name="cep" pattern="\d{5}-?\d{3}">
+		</div>
+		<br> <br>
+		
+		<div class="form-group">
+			<label for="exampleInputEndereco" class="hora">Endereço:</label> <input
+				type="text" class="form-control" id="exampleInputEndereco"
+				placeholder="Rua Don Juno nº 425" required="required" maxlength="50"
+				name="rua" style="width: 200px;">
+		</div>
+		<br> <br>
+		
+		<div class="form-group">
+			<label for="exampleInputEndereco" class="hora">Número:</label> <input
+				type="text" class="form-control" id="exampleInputEndereco"
+				placeholder="Rua Don Juno nº 425" required="required" maxlength="50"
+				name="numero" style="width: 200px;">
+		</div>
+		<br> <br>
+		
+		<div class="form-group">
+			<label for="exampleInputEndereco" class="hora">Bairro:</label> <input
+				type="text" class="form-control" id="exampleInputEndereco"
+				placeholder="Rua Don Juno nº 425" required="required" maxlength="50"
+				name="bairro" style="width: 200px;">
+		</div>
+		<br> <br>
+		<div class="form-group">
+			<label for="exampleInputName" class="hora">Complemento:</label> <input
+				type="text" class="form-control" id="exampleInputName"
+				placeholder="Casa" pattern="[a-zA-Z0-9]+" style="width: 200px;"
+				required="Para realizar o cadastro preencha este campo com o seu complemento"
+				maxlength="15" name="complemento">
 		</div>
 		<br> <br>
 
@@ -172,6 +189,7 @@ label.hora {
 		<button type="reset" class="btn btn-warning"> &nbsp; Limpar &nbsp;</button> &nbsp;
 		<button type="submit" class="btn btn-success">Cadastrar</button>
 	</form>
+	
 	</fieldset>
 
 	<!-- jQuery (necessario para Bootsrap plungins Java Script) -->
