@@ -25,7 +25,8 @@
 </head>
 <body>
 	<div class="container">
-		<h2 align="middle">Lista de Usuários</h2><br>
+		<h2 align="middle">Lista de Usuários</h2>
+		<br>
 		<table class="table table-striped">
 
 			<tr>
@@ -38,7 +39,7 @@
 				<th>Complemento</th>
 				<th>Telefone</th>
 				<th>Email</th>
-				
+
 			</tr>
 
 
@@ -52,12 +53,9 @@
 					<td>${u.cpf}</td>
 					<td><fmt:formatDate value="${u.dataNascimento}"
 							pattern="dd/MM/yyyy" /></td>
-					<td>${u.cep}</td>
-					<td>${u.endereco}</td>
-					<td>${u.complemento}</td>
 					<td>${u.telefone}</td>
 					<td>${u.email}</td>
-					
+
 				</tr>
 
 			</c:forEach>

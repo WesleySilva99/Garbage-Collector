@@ -24,13 +24,12 @@ public class ClienteDao {
 
 	public void Inserir(Cliente cliente) {
 
-		String sql = "INSERT INTO cliente"
-				+ "(nome, login, email, dt_nasc, cpf,  senha, telefone)"
+		String sql = "INSERT INTO cliente" + "(nome, login, email, dt_nasc, cpf,  senha, telefone)"
 				+ "VALUES (?,?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			
+
 			stmt.setString(1, cliente.getNome());
 			stmt.setString(2, cliente.getNomeUsuario());
 			stmt.setString(3, cliente.getEmail());
@@ -48,7 +47,6 @@ public class ClienteDao {
 
 	}
 
-	
 	public List<Cliente> listar() {
 		try {
 			List<Cliente> listaCliente = new ArrayList<Cliente>();
@@ -63,8 +61,8 @@ public class ClienteDao {
 				cliente.setDataNascimento(rs.getDate("dt_nasc"));
 				cliente.setTelefone(rs.getString("telefone"));
 				cliente.setEmail(rs.getString("email"));
-				listaCliente.add(cliente);
 
+				listaCliente.add(cliente);
 			}
 			stmt.execute();
 			stmt.close();
@@ -76,5 +74,5 @@ public class ClienteDao {
 			throw new RuntimeException(e);
 		}
 	}
-			
+
 }

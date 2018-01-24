@@ -1,6 +1,9 @@
 package br.com.nasa.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.nasa.model.Cliente;
@@ -27,9 +30,12 @@ public class ClienteController {
 		return "cliente/cadastroSucesso";
 	}
 	
-	@RequestMapping("/exibirListaClientes")
-	public String listarUsuarios() {
-		System.out.println("Exibindo lista de clientes.");
+	@RequestMapping("/listarClientes")
+	public String listarUsuario(Model model) {
+		ClienteDao dao = new ClienteDao();
+		List<Cliente> listaCliente = dao.listar();
+		model.addAttribute("listaCliente", listaCliente);
 		return "cliente/listaCliente";
 	}
+
 }
