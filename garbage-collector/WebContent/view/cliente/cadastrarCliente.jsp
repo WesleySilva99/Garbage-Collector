@@ -144,7 +144,7 @@ label.hora {
 		<div class="form-group">
 			<label for="exampleInputEndereco" class="hora">Número:</label> <input
 				type="text" class="form-control" id="exampleInputEndereco"
-				placeholder="Rua Don Juno nº 425" required="required" maxlength="50"
+				placeholder="Ex: 0000" required="required" maxlength="50"
 				name="numero" style="width: 200px;">
 		</div>
 		<br> <br>
@@ -152,7 +152,7 @@ label.hora {
 		<div class="form-group">
 			<label for="exampleInputEndereco" class="hora">Bairro:</label> <input
 				type="text" class="form-control" id="exampleInputEndereco"
-				placeholder="Rua Don Juno nº 425" required="required" maxlength="50"
+				placeholder="Ex: COHAB" required="required" maxlength="50"
 				name="bairro" style="width: 200px;">
 		</div>
 		<br> <br>

@@ -26,8 +26,8 @@ public class MotoristaDao {
 		public void Inserir(Motorista motorista) {
 
 			String sql = "INSERT INTO motorista"
-					+ "(nome, telefone, cpf, rg, endereco, bairro, estado, cidade, cep, sexo, numHabilitacao, validade, categoria, chassi, placa, marca, anoVeiculo)"
-					+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+					+ "(nome, telefone, cpf, rg, sexo, numHabilitacao, validade, categoria, chassi, placa, marca, anoVeiculo, login, senha)"
+					+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 
 			try {
 				PreparedStatement stmt = connection.prepareStatement(sql);
@@ -36,19 +36,16 @@ public class MotoristaDao {
 				stmt.setString(2, motorista.getTelefone());
 				stmt.setString(3, motorista.getCpf());
 				stmt.setString(4, motorista.getRg());
-				stmt.setString(5, motorista.getEndereco());
-				stmt.setString(6, motorista.getBairro());
-				stmt.setString(7, motorista.getEstado());
-				stmt.setString(8, motorista.getCidade());
-				stmt.setString(9, motorista.getCep());
-				stmt.setString(10, motorista.getSexo());
-				stmt.setInt(11, motorista.getNumHabilitacao());
-				stmt.setDate(12, new java.sql.Date(motorista.getValidade().getTime()));
-				stmt.setString(13, motorista.getCategoria());
-				stmt.setString(14, motorista.getChasi());
-				stmt.setString(15, motorista.getPlacaVeiculo());
-				stmt.setString(16, motorista.getMarcaVeiculo());
-				stmt.setString(17, motorista.getAnoVeiculo());
+				stmt.setString(5, motorista.getSexo());
+				stmt.setInt(6, motorista.getNumHabilitacao());
+				stmt.setDate(7, new java.sql.Date(motorista.getValidade().getTime()));
+				stmt.setString(8, motorista.getCategoria());
+				stmt.setString(9, motorista.getChasi());
+				stmt.setString(10, motorista.getPlacaVeiculo());
+				stmt.setString(11, motorista.getMarcaVeiculo());
+				stmt.setString(12, motorista.getAnoVeiculo());
+				stmt.setString(13, motorista.getLogin());
+				stmt.setString(14, motorista.getSenha());
 
 				stmt.execute();
 				stmt.close();
@@ -71,19 +68,16 @@ public class MotoristaDao {
 					motorista.setRg(rs.getString("rg"));
 					motorista.setCpf(rs.getString("cpf"));
 					motorista.setValidade(rs.getDate("validade"));
-					motorista.setCep(rs.getString("cep"));
 					motorista.setEndereco(rs.getString("endereco"));
 					motorista.setTelefone(rs.getString("telefone"));
-					motorista.setBairro(rs.getString("bairro"));
-					motorista.setEstado(rs.getString("estado"));
-					motorista.setCidade(rs.getString("cidade"));
-					motorista.setSexo(rs.getString("sexo"));
 					motorista.setNumHabilitacao(rs.getInt("numHabilitacao"));
 					motorista.setCategoria(rs.getString("categoria"));
 					motorista.setChasi(rs.getString("chasi"));
 					motorista.setPlacaVeiculo(rs.getString("placaVeiculo"));
 					motorista.setMarcaVeiculo(rs.getString("marcaVeiculo"));
 					motorista.setAnoVeiculo(rs.getString("anoVeiculo"));
+					motorista.setLogin(rs.getString("login"));
+					motorista.setSenha(rs.getString("senha"));
 					listaMotorista.add(motorista);
 
 				}

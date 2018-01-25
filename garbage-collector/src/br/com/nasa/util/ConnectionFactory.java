@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
 	public Connection getConnection() throws SQLException {
-		String nomeBanco = "gc";
+		String nomeBanco = "GC";
 		String usuario = "root";
 		String senha = "ifpe1234";
 		try {

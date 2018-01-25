@@ -53,19 +53,19 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank">
+                        <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="" target="_blank">
                             <i class="fa fa-twitter"></i>
                             <p class="d-lg-none d-xl-none">Twitter</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank">
+                        <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="" target="_blank">
                             <i class="fa fa-facebook-square"></i>
                             <p class="d-lg-none d-xl-none">Facebook</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
+                        <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="" target="_blank">
                             <i class="fa fa-instagram"></i>
                             <p class="d-lg-none d-xl-none">Instagram</p>
                         </a>
@@ -87,10 +87,10 @@
                     <h3>Sistema Integrado de Coleta Seletiva .</h3>
                 </div>
                 <h6 class="category category-absolute">Designed by
-                    <a href="http://invisionapp.com/" target="_blank">
+                    <a href="" target="_blank">
                         <img src="view/assets/img/logooo.png" class="invision-logo" />
                     </a>. Coded by
-                    <a href="https://www.creative-tim.com" target="_blank">
+                    <a href="" target="_blank">
                         <img src="view/assets/img/nasa.png" class="creative-tim-logo" />
                     </a>.</h6>
             </div>
