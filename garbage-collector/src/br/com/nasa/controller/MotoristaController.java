@@ -3,8 +3,8 @@ package br.com.nasa.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.com.nasa.dao.MotoristaDao;
 import br.com.nasa.model.Motorista;
-import br.com.nasa.model.MotoristaDao;
 
 @Controller
 public class MotoristaController {

@@ -6,10 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.com.nasa.dao.ClienteDao;
+import br.com.nasa.dao.EnderecoDao;
 import br.com.nasa.model.Cliente;
-import br.com.nasa.model.ClienteDao;
 import br.com.nasa.model.Endereco;
-import br.com.nasa.model.EnderecoDao;
 
 @Controller
 public class ClienteController {

@@ -1,4 +1,4 @@
-package br.com.nasa.model;
+package br.com.nasa.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.mysql.jdbc.Connection;
 
+import br.com.nasa.model.Cliente;
 import br.com.nasa.util.ConnectionFactory;
 
 public class ClienteDao {

@@ -1,4 +1,4 @@
-package br.com.nasa.model;
+package br.com.nasa.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.mysql.jdbc.Connection;
 
+import br.com.nasa.model.Motorista;
 import br.com.nasa.util.ConnectionFactory;
 
 public class MotoristaDao {
@@ -36,7 +37,7 @@ public class MotoristaDao {
 				stmt.setString(2, motorista.getTelefone());
 				stmt.setString(3, motorista.getCpf());
 				stmt.setString(4, motorista.getRg());
-				stmt.setString(5, motorista.getSexo());
+				stmt.setString(5, motorista.getSexo()+"");
 				stmt.setInt(6, motorista.getNumHabilitacao());
 				stmt.setDate(7, new java.sql.Date(motorista.getValidade().getTime()));
 				stmt.setString(8, motorista.getCategoria());
