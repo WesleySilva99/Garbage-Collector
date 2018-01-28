@@ -39,7 +39,55 @@ function validarCadastro(form){
     	return false;
     }
 }
+function validaCpf(){
+	var cpf = document.formulario.cpf;
+	if (cpf.value.length == 3 || cpf.value.length == 7) {
+		cpf.value += ".";
+	}
+	if(cpf.value.length == 11){
+		cpf.value += "-";
+	}
+}
 
+function validaRG(){
+	
+	var rg = document.formulario.rg;
+	if (rg.value.length == 1 || rg.value.length == 5) {
+		rg.value += ".";
+	}
+}
+
+function validaTelefone(){
+	
+	var tel = document.formulario.telefone;
+	if (tel.value.length == 0) {
+		tel.value += "(";
+	}
+	if (tel.value.length == 3) {
+		tel.value += ")";
+	}
+	if (tel.value.length == 9) {
+		tel.value += "-";
+	}
+}
+function validaCep(){
+
+var cep = document.formulario.cep;
+if (cep.value.length == 5) {
+	cep.value += "-";
+}
+}
+
+function validaData(){
+
+	var data = document.formulario.dataNascimento;
+	if (data.value.length == 2) {
+		data.value += "/";
+	}
+	if (data.value.length == 5) {
+		data.value += "/";
+	}
+}
 </script>
 <style type="text/css">
 label.hora {
@@ -88,14 +136,14 @@ label.hora {
 				placeholder="000.000.000-00" min="14" maxlength="14"
 				required="Para realizar o cadastro preencha este campo com seu CPF"
 				name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-				onkeypress="this.value = mascaraCpf(event)">
+				onkeypress="validaCpf()">
 		</div>
 		<br> <br>
 
 		<div class="form-group">
 			<label for="exampleInputData" class="hora" >Data de Nascimento:</label> <input
 				type="text" class="form-control date-time-mask"
-				id="exampleInputData" style="width: 200px;"
+				id="exampleInputData" style="width: 200px;" onkeypress="validaData()"
 				required="Para realizar o cadastro preencha este campo com sua data de nascimento"
 				name="dataNascimento" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$"
 				maxlength="10" min="1943-01-01" max="2008-12-12" placeholder="00/00/0000">
@@ -109,7 +157,7 @@ label.hora {
 				type="text" class="form-control" id="exampleInputTelefone"
 				placeholder="(00) 00000-0000" style="width: 200px;"
 				required="Para realizar o cadastro preencha este campo com o endereço da sua rua"
-				maxlength="15" name="telefone"
+				maxlength="14" name="telefone" onkeypress="validaTelefone()"
 				pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$">
 		</div>
 		<br> <br>
@@ -129,7 +177,7 @@ label.hora {
 				class="form-control" id="exampleInputCep" placeholder="00000-000"
 				maxlength="9" style="width: 200px;"
 				required="Para realizar o cadastro preencha este campo com o cep da sua rua"
-				maxlength="9" name="cep" pattern="\d{5}-?\d{3}">
+				maxlength="9" name="cep" pattern="\d{5}-?\d{3}" onkeypress="validaCep()">
 		</div>
 		<br> <br>
 		

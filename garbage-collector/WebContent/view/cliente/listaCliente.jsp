@@ -43,8 +43,7 @@
 			</tr>
 
 
-			<jsp:useBean id="dao" class="br.com.nasa.model.ClienteDao" />
-			<c:forEach var="u" items="${dao.listar()}">
+			<c:forEach var="u" items="${listaCliente}">
 
 
 				<tr>
