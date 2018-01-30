@@ -23,8 +23,8 @@ public class SolicitarColetaDao {
 
 	public void Inserir(SolicitarColeta solicitarcoleta) {
 
-		String sql = "INSERT INTO pedido" + "(tipoColeta, descricao, quantidade, endereco)"
-				+ "VALUES (?,?,?,?)";
+		String sql = "INSERT INTO pedido" + "(tipoColeta, descricao, quantidade, endereco, numero, cep)"
+				+ "VALUES (?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
@@ -33,7 +33,8 @@ public class SolicitarColetaDao {
 			stmt.setString(2, solicitarcoleta.getDescricao());
 			stmt.setShort(3, solicitarcoleta.getQuantidade());
 			stmt.setString(4, solicitarcoleta.getEndereco());
-			
+			stmt.setString(5, solicitarcoleta.getNumero());
+			stmt.setString(6, solicitarcoleta.getCep());
 			stmt.execute();
 			stmt.close();
 
