@@ -7,6 +7,6 @@ public class IndexController {
 	@RequestMapping("/Index")
 	public String exibirIndex() {
 		System.out.println("tela de inicio.");
-	return "/index";
+	return "index";
 	}
 }
