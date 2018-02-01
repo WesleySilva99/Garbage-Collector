@@ -69,7 +69,7 @@ public class MotoristaDao {
 					motorista.setRg(rs.getString("rg"));
 					motorista.setCpf(rs.getString("cpf"));
 					motorista.setValidade(rs.getDate("validade"));
-					motorista.setEndereco(rs.getString("endereco"));
+					//motorista.setEndereco(rs.getClass("endereco"));
 					motorista.setTelefone(rs.getString("telefone"));
 					motorista.setNumHabilitacao(rs.getInt("numHabilitacao"));
 					motorista.setCategoria(rs.getString("categoria"));

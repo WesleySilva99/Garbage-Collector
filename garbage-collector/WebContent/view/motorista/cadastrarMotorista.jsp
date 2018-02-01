@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,7 +68,13 @@ function validaCep(){
 	}
 	
 }
-	
+	function validaEmail(){
+		 if (document.formulario.email.value == "" || document.formulario.email.value.indexOf('@')==-1 || document.formulario.email.value.indexOf('.')==-1 ){
+		    	alert ("Preencha corretamente o campo email!");
+		    	document.formulario.email.focus();
+		    	return false;
+		    }
+	}
 </script>
 
 
@@ -76,6 +86,8 @@ label.hora {
 </style>
 </head>
 <body>
+
+	${msg}
 
 	<h1>Cadastro de Motorista</h1>
 	<!-- Formulario -->
@@ -192,12 +204,18 @@ label.hora {
 					style="width: 200px;">
 			</div>
 			<br>
+			<label for="exampleInputPassword1" class="hora">Email:</label> <input
+					type="email" class="form-control" id="exampleInputPassword1"
+					required="required" maxlength="80" name="email" style="width: 200px;"
+					onsubmit="validaEmail();">
+			</div>
+			<br>
 			<div class="form-group">
 				<label for="exampleInputPassword1" class="hora">Senha:</label> <input
 					type="password" class="form-control" id="exampleInputPassword1"
 					required="required" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-					maxlength="30" name="senha" style="width: 200px;"
-					title="A senha deve ter no mínimo 8 e 30 no máximo, que sejam de pelo menos um número e uma letra maiúscula e minúscula:">
+					maxlength="32" name="senha" style="width: 200px;"
+					title="A senha deve ter no mínimo 8 e 32 no máximo, que sejam de pelo menos um número e uma letra maiúscula e minúscula:">
 			</div>
 			<br>
 
