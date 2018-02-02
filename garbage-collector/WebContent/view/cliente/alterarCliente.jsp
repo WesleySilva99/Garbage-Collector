@@ -29,7 +29,7 @@
 		
 		<div class="form-group">
 			<label for="inputDescricao">CPF</label>
-			<input type="text" id="inputDescricao" class="form-control" name="cpf" style="width: 500px;" maxlength="100" required="required" value="${p.cpf}" />
+			<input type="text" id="inputDescricao" class="form-control" name="cpf" style="width: 500px;" maxlength="100" required="required" value="${p.descricao}" />
 		</div>
 		
 		<p>
