@@ -50,8 +50,8 @@ foreign key(id_endereco) references endereco(id)
 create table pedido(
 
 id int auto_increment,
-tipoColeta varchar(30) not null,
-descricao varchar(20) not null,
+tipoColeta varchar(8) not null,
+descricao varchar(100) not null,
 quantidade int not null,
 endereco varchar(50) not null,
 numero varchar(6) not null,
@@ -62,3 +62,4 @@ primary key (id)
 );
 
 select * from pedido;
+select * from cliente;

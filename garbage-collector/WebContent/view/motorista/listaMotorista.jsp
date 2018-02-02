@@ -11,7 +11,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>Lista de Clientes</title>
+<title>Lista de Motorista</title>
 
 <!-- Bootstrap -->
 <link href="view/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,49 +25,55 @@
 </head>
 <body>
 	<div class="container">
-		<h2 align="middle">Lista de Usuários</h2>
+		<h2 align="middle">Lista de Motorista</h2>
 		<br>
 		<table class="table table-striped">
 
 			<tr>
-			   <th>ID</th>
 				<th>Nome</th>
-				<th>Cpf</th>
-				<th>Data de Nascimento</th>
-<<<<<<< HEAD
-				<th>login</th>
-				<th>telefone</th>
-				<th>Email</th>
-				<th>Alterar/Remover </th>
-=======
 				<th>Telefone</th>
-				<th>Email</th>
+				<th>CPF</th>
+				<th>Rg</th>
+				<th>Cpf</th>
+				<th>Sexo</th>
+				<th>Número da Habilitação</th>
+				<th>Validade da Habilitação</th>
+				<th>Categoria</th>
+				<th>Chassi</th>
+				<th>Placa do veiculo</th>
+				<th>Marca do veiculo</th>
+				<th>Ano do veiculo</th>
+				<th>Login</th>
 				<th>Senha</th>
 				<th>Rua</th>
 				<th>Bairro</th>
 				<th>Cep</th>
 				<th>Número</th>
 				<th>Complemento</th>
->>>>>>> 87e170f4f5787d0d0947a59f48086e87bf7a7768
+				
+				
 
 			</tr>
 
 
-			<c:forEach var="u" items="${listaCliente}">
+			<c:forEach var="u" items="${listaMotorista}">
 
 
 				<tr>
-					<td>${u.id}</td>
 					<td>${u.nome}</td>
-					<td>${u.cpf}</td>
-					<td><fmt:formatDate value="${u.dataNascimento}"
-							pattern="dd/MM/yyyy" /></td>
-							<td>${u.nomeUsuario}</td>
 					<td>${u.telefone}</td>
-					<td>${u.email}</td>
-<<<<<<< HEAD
-                    <td> <a href="alterarCliente?id=${u.id}">Alterar</a> &nbsp; </td>
-=======
+					<td>${u.cpf}</td>
+					<td>${u.rg}</td>
+					<td>${u.sexo}</td>
+					<td>${u.numHabilitacao}</td>
+					<td><fmt:formatDate value="${u.validade}"
+							pattern="dd/MM/yyyy" /></td>
+					<td>${u.categoria}</td>
+					<td>${u.chasi}</td>
+					<td>${u.placaVeiculo}</td>
+					<td>${u.marcaVeiculo}</td>
+					<td>${u.anoVeiculo}</td>
+					<td>${u.login}</td>
 					<td>${u.senha}</td>
 					<td>${u.rua}</td>
 					<td>${u.bairro}</td>
@@ -75,7 +81,6 @@
 					<td>${u.numero}</td>
 					<td>${u.complemento}</td>
 
->>>>>>> 87e170f4f5787d0d0947a59f48086e87bf7a7768
 				</tr>
 
 			</c:forEach>

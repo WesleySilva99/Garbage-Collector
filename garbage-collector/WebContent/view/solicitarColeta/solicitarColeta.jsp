@@ -24,7 +24,7 @@ label.hora {
 </head>
 <body class="index-page sidebar-collapse">
 
-	<c:import url="/view/util/menu.jsp"/>
+	<c:import url="/view/util/menu.jsp" />
 
 	<h1 align="center">Solicite sua coleta</h1>
 	<div align="center">
@@ -32,16 +32,37 @@ label.hora {
 	</div>
 	<form class="form-inline" action="CadastraSolicitarColeta"
 		method="post" name="formulario">
+		
+				<div class="row" id="checkRadios">
+			<div class="col-sm-6 col-lg-3">
+				<p class="category">Material</p>
+				<div class="checkbox">
+					<input id="checkbox1" type="checkbox" name="tipoColeta"
+						value="Papel"> <label for="checkbox1"> Papel </label>
+				</div>
+				<div class="checkbox">
+					<input id="checkbox3" type="checkbox" name="tipoColeta"
+						value="Ferro"> <label for="checkbox3"> Plastico </label>
+				</div>
+				<div class="checkbox">
+					<input id="checkbox3" type="checkbox" name="tipoColeta"
+						value="Ferro"> <label for="checkbox3"> Vidro </label>
+				</div>
+				<div class="checkbox">
+					<input id="checkbox2" type="checkbox" name="tipoColeta"
+						value="Metal"> <label for="checkbox2"> Metal </label>
+				</div>
+				<div class="checkbox">
+					<input id="checkbox3" type="checkbox" name="tipoColeta"
+						value="Ferro"> <label for="checkbox3"> Ferro </label>
+				</div>
+			</div>
+		</div>
+		<br><br>
 
-
-		<br> <br>
 		<div class="form-group">
-			<label for="exampleInputDescricao" class="hora">Descrição:</label> <input
-				type="text" class="form-control" id="exampleInputDescricao"
-				placeholder="Garrafa pet"
-				required="Para realizar a coleta preencha este campo com a descrição do material"
-				style="width: 200px;" required="required" name="descricao"
-				maxlength="30">
+			<label for="comment">Descrição:</label>
+			<textarea class="form-control" rows="3" id="descricao" name="descricao" maxlength="100"></textarea>
 		</div>
 		<br> <br>
 		<div class="form-group">
@@ -78,26 +99,7 @@ label.hora {
 		</div>
 
 		<br> <br>
-		<div class="row" id="checkRadios">
-			<div class="col-sm-6 col-lg-3">
-				<p class="category">Material</p>
-				<div class="checkbox">
-					<input id="checkbox1" type="checkbox" name="tipoColeta"
-						value="Papel"> <label for="checkbox1"> Papel </label>
-				</div>
-				<div class="checkbox">
-					<input id="checkbox2" type="checkbox" name="tipoColeta"
-						value="Metal"> <label for="checkbox2"> Metal </label>
-				</div>
-				<div class="checkbox">
-					<input id="checkbox3" type="checkbox" name="tipoColeta"
-						value="Ferro"> <label for="checkbox3"> Ferro </label>
-				</div>
 
-
-			</div>
-		</div>
-		<br> <br>
 		<button type="submit" class="btn btn-success">Doar</button>
 	</form>
 

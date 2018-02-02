@@ -9,7 +9,6 @@ public class Cliente {
 	private String cpf;
 	private Date dataNascimento;
 	private String senha;
-	private String cep;
 	private Endereco endereco;
 	private String telefone;
 	private String email;
@@ -69,14 +68,6 @@ public class Cliente {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-
-	public String getCep() {
-		return cep;
-	}
-
-	public void setCep(String cep) {
-		this.cep = cep;
 	}
 
 	public String getTelefone() {
