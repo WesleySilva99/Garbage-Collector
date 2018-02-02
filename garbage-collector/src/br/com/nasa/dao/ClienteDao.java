@@ -56,6 +56,7 @@ public class ClienteDao {
 
 			while (rs.next()) {
 				Cliente cliente = new Cliente();
+				cliente.setId(rs.getInt("id"));
 				cliente.setNome(rs.getString("nome"));
 				cliente.setNomeUsuario(rs.getString("login"));
 				cliente.setCpf(rs.getString("cpf"));
@@ -75,5 +76,63 @@ public class ClienteDao {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public void alterar(Cliente cliente) {
+
+		String sql = "UPDATE cliente SET nome = ?, cpf = ?, dt_nasc = ?, login = ?, senha = ?, telefone = ?, email=? WHERE id = ?";
+		PreparedStatement stmt;
+		try {
+
+			stmt = connection.prepareStatement(sql);
+
+			stmt.setString(1, cliente.getNome());
+			stmt.setString(2, cliente.getCpf());
+			stmt.setDate(3, new java.sql.Date(cliente.getDataNascimento().getTime()));
+			stmt.setString(4, cliente.getNomeUsuario());
+			stmt.setString(5, cliente.getSenha());
+			stmt.setString(6, cliente.getTelefone());
+			stmt.setString(7, cliente.getEmail());
+
+			stmt.execute();
+			connection.close();
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public Cliente pegarId(int id) {
+
+		try {
+
+			Cliente clienteCompleto = new Cliente();
+
+			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM cliente WHERE id =  ?");
+			stmt.setInt(1, id);
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+
+				clienteCompleto.setId(rs.getInt("id"));
+				clienteCompleto.setNome(rs.getString("nome"));
+				clienteCompleto.setCpf(rs.getString("cpf"));
+				clienteCompleto.setDataNascimento(rs.getDate("dt_nasc"));
+				clienteCompleto.setNomeUsuario(rs.getString("login"));
+				clienteCompleto.setSenha(rs.getString("senha"));
+				clienteCompleto.setTelefone(rs.getString("telefone"));
+				clienteCompleto.setEmail(rs.getString("email"));
+			}
+
+			rs.close();
+			stmt.close();
+			connection.close();
+
+			return clienteCompleto;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
 
 }

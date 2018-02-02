@@ -37,5 +37,26 @@ public class ClienteController {
 		model.addAttribute("listaCliente", listaCliente);
 		return "cliente/listaCliente";
 	}
+	
+	@RequestMapping("alterarCliente")
+    public String alterarProduto(Cliente cliente, Model model) {
+    	
+    	ClienteDao dao = new ClienteDao();
+    	Cliente clienteCompleto = dao.pegarId(cliente.getId());
+    	model.addAttribute("p", clienteCompleto);
+    	
+    	return "cliente/alterarCliente";
+    }
+	
+	 @RequestMapping("alterarCliente2")
+	    public String alterarProduto2(Cliente cliente, Model model) {
+	    	
+	    	ClienteDao dao = new ClienteDao();
+	    	dao.alterar(cliente);
+	    	model.addAttribute("msg", "cliente alterado.");
+	    	
+	    	return "forward:listaCliente";
+	    }
+
 
 }

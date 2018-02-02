@@ -30,15 +30,14 @@
 		<table class="table table-striped">
 
 			<tr>
+			   <th>ID</th>
 				<th>Nome</th>
-				<th>Nome de Usuario</th>
-				<th>CPF</th>
+				<th>Cpf</th>
 				<th>Data de Nascimento</th>
-				<th>CEP</th>
-				<th>Endereço</th>
-				<th>Complemento</th>
-				<th>Telefone</th>
+				<th>login</th>
+				<th>telefone</th>
 				<th>Email</th>
+				<th>Alterar/Remover </th>
 
 			</tr>
 
@@ -47,14 +46,15 @@
 
 
 				<tr>
+					<td>${u.id}</td>
 					<td>${u.nome}</td>
-					<td>${u.nomeUsuario}</td>
 					<td>${u.cpf}</td>
 					<td><fmt:formatDate value="${u.dataNascimento}"
 							pattern="dd/MM/yyyy" /></td>
+							<td>${u.nomeUsuario}</td>
 					<td>${u.telefone}</td>
 					<td>${u.email}</td>
-
+                    <td> <a href="alterarCliente?id=${u.id}">Alterar</a> &nbsp; </td>
 				</tr>
 
 			</c:forEach>
