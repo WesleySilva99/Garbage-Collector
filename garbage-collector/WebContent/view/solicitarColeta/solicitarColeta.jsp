@@ -1,23 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>Cadastro de Usuário</title>
-
-<!-- Bootstrap -->
-<link href="view/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>Solicitar Coleta</title>
 <script type="text/javascript">
 	function validaCep() {
 
@@ -35,7 +22,9 @@ label.hora {
 </style>
 
 </head>
-<body>
+<body class="index-page sidebar-collapse">
+
+	<c:import url="/view/util/menu.jsp" />
 
 	<h1 align="center">Solicite sua coleta</h1>
 	<div align="center">
@@ -43,22 +32,37 @@ label.hora {
 	</div>
 	<form class="form-inline" action="CadastraSolicitarColeta"
 		method="post" name="formulario">
-		<div class="checkbox">
-			<label> <input type="checkbox" name="tipoColeta"
-				value="Papel"> Papel <input type="checkbox"
-				name="tipoColeta" value="Plastico"> Plástico <input
-				type="checkbox" name="tipoColeta" value="Metal"> Metal <input
-				type="checkbox" name="tipoColeta" value="Ferro"> Ferro
-			</label>
+		
+				<div class="row" id="checkRadios">
+			<div class="col-sm-6 col-lg-3">
+				<p class="category">Material</p>
+				<div class="checkbox">
+					<input id="checkbox1" type="checkbox" name="tipoColeta"
+						value="Papel"> <label for="checkbox1"> Papel </label>
+				</div>
+				<div class="checkbox">
+					<input id="checkbox3" type="checkbox" name="tipoColeta"
+						value="Ferro"> <label for="checkbox3"> Plastico </label>
+				</div>
+				<div class="checkbox">
+					<input id="checkbox3" type="checkbox" name="tipoColeta"
+						value="Ferro"> <label for="checkbox3"> Vidro </label>
+				</div>
+				<div class="checkbox">
+					<input id="checkbox2" type="checkbox" name="tipoColeta"
+						value="Metal"> <label for="checkbox2"> Metal </label>
+				</div>
+				<div class="checkbox">
+					<input id="checkbox3" type="checkbox" name="tipoColeta"
+						value="Ferro"> <label for="checkbox3"> Ferro </label>
+				</div>
+			</div>
 		</div>
-		<br> <br>
+		<br><br>
+
 		<div class="form-group">
-			<label for="exampleInputDescricao" class="hora">Descrição:</label> <input
-				type="text" class="form-control" id="exampleInputDescricao"
-				placeholder="Garrafa pet"
-				required="Para realizar a coleta preencha este campo com a descrição do material"
-				style="width: 200px;" required="required" name="descricao"
-				maxlength="30">
+			<label for="comment">Descrição:</label>
+			<textarea class="form-control" rows="3" id="descricao" name="descricao" maxlength="100"></textarea>
 		</div>
 		<br> <br>
 		<div class="form-group">
@@ -93,7 +97,9 @@ label.hora {
 				maxlength="9" name="cep" pattern="\d{5}-?\d{3}"
 				onkeypress="validaCep()">
 		</div>
+
 		<br> <br>
+
 		<button type="submit" class="btn btn-success">Doar</button>
 	</form>
 

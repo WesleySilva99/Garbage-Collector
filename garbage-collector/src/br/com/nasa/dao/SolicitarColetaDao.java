@@ -5,7 +5,6 @@ import java.sql.SQLException;
 
 import com.mysql.jdbc.Connection;
 
-import br.com.nasa.model.Cliente;
 import br.com.nasa.model.SolicitarColeta;
 import br.com.nasa.util.ConnectionFactory;
 

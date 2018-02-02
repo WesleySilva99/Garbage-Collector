@@ -4,10 +4,10 @@ import java.util.Date;
 
 public class Motorista {
 	private String nome;
-	private String telefone;
 	private String cpf;
 	private String rg;
-	private String endereco;
+	private String telefone;
+	private Endereco endereco;
 	private char sexo;
 	private int numHabilitacao;
 	private Date validade;
@@ -16,9 +16,18 @@ public class Motorista {
 	private String placaVeiculo;
 	private String marcaVeiculo;
 	private String anoVeiculo;
+	private String email;
 	private String login;
 	private String senha;
 	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public char getSexo() {
 		return sexo;
 	}
@@ -75,11 +84,11 @@ public class Motorista {
 		this.rg = rg;
 	}
 
-	public String getEndereco() {
+	public Endereco getEndereco() {
 		return endereco;
 	}
 
-	public void setEndereco(String endereco) {
+	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
 
