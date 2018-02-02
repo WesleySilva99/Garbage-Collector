@@ -57,6 +57,12 @@
 						class="now-ui-icons files_paper"></i>
 						<p>Solicita Coleta</p>
 				</a></li>
+				</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="listarClientes"> <i
+						class="now-ui-icons files_paper"></i>
+						<p>Lista Cliente</p>
+				</a></li>
 				<li class="nav-item"><a class="nav-link btn btn-neutral"
 					href="#"> <i class="now-ui-icons users_single-02"></i>
 						<p>Login</p>

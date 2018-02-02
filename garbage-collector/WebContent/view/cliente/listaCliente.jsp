@@ -24,6 +24,8 @@
     <![endif]-->
 </head>
 <body>
+
+<c:import url="/view/util/menu.jsp"/>
 	<div class="container">
 		<h2 align="middle">Lista de Usuários</h2>
 		<br>
