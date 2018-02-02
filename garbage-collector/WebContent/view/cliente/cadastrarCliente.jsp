@@ -142,11 +142,11 @@ label.hora {
 
 		<div class="form-group">
 			<label for="exampleInputData" class="hora" >Data de Nascimento:</label> <input
-				type="text" class="form-control date-time-mask"
+				type="text" class="form-control"
 				id="exampleInputData" style="width: 200px;" onkeypress="validaData()"
 				required="Para realizar o cadastro preencha este campo com sua data de nascimento"
 				name="dataNascimento" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$"
-				maxlength="10" min="1943-01-01" max="2008-12-12" placeholder="00/00/0000">
+				maxlength="10" placeholder="00/00/0000">
 		</div>
 		<br> <br>
 
@@ -157,7 +157,7 @@ label.hora {
 				type="text" class="form-control" id="exampleInputTelefone"
 				placeholder="(00) 00000-0000" style="width: 200px;"
 				required="Para realizar o cadastro preencha este campo com o endereço da sua rua"
-				maxlength="14" name="telefone" onkeypress="validaTelefone()"
+				maxlength="15" name="telefone" onkeypress="validaTelefone()"
 				pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$">
 		</div>
 		<br> <br>
@@ -172,14 +172,6 @@ label.hora {
 		</div>
 		<br> <br>
 		
-		<div class="form-group" >
-			<label for="exampleInputCep" class="hora">CEP:</label> <input type="text"
-				class="form-control" id="exampleInputCep" placeholder="00000-000"
-				maxlength="9" style="width: 200px;"
-				required="Para realizar o cadastro preencha este campo com o cep da sua rua"
-				maxlength="9" name="cep" pattern="\d{5}-?\d{3}" onkeypress="validaCep()">
-		</div>
-		<br> <br>
 		
 		<div class="form-group">
 			<label for="exampleInputEndereco" class="hora">Endereço:</label> <input
@@ -190,7 +182,16 @@ label.hora {
 		<br> <br>
 		
 		<div class="form-group">
-			<label for="exampleInputEndereco" class="hora">Número:</label> <input
+			<label for="exampleInputName" class="hora">Complemento:</label> <input
+				type="text" class="form-control" id="exampleInputName"
+				placeholder="Casa" pattern="[a-zA-Z0-9]+" style="width: 200px;"
+				required="Para realizar o cadastro preencha este campo com o seu complemento"
+				maxlength="15" name="complemento">
+		</div>
+		<br> <br>
+		
+		<div class="form-group">
+			<label for="exampleInputEndereco" class="hora">Número do complemento:</label> <input
 				type="text" class="form-control" id="exampleInputEndereco"
 				placeholder="Ex: 0000" required="required" maxlength="50"
 				name="numero" style="width: 200px;">
@@ -204,12 +205,13 @@ label.hora {
 				name="bairro" style="width: 200px;">
 		</div>
 		<br> <br>
-		<div class="form-group">
-			<label for="exampleInputName" class="hora">Complemento:</label> <input
-				type="text" class="form-control" id="exampleInputName"
-				placeholder="Casa" pattern="[a-zA-Z0-9]+" style="width: 200px;"
-				required="Para realizar o cadastro preencha este campo com o seu complemento"
-				maxlength="15" name="complemento">
+		
+		<div class="form-group" >
+			<label for="exampleInputCep" class="hora">CEP:</label> <input type="text"
+				class="form-control" id="exampleInputCep" placeholder="00000-000"
+				maxlength="9" style="width: 200px;"
+				required="Para realizar o cadastro preencha este campo com o cep da sua rua"
+				maxlength="9" name="cep" pattern="\d{5}-?\d{3}" onkeypress="validaCep()">
 		</div>
 		<br> <br>
 
