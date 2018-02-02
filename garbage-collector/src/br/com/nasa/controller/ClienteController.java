@@ -55,7 +55,7 @@ public class ClienteController {
 	    	dao.alterar(cliente);
 	    	model.addAttribute("msg", "cliente alterado.");
 	    	
-	    	return "forward:listaCliente";
+	    	return "forward:listarClientes";
 	    }
 
 

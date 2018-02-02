@@ -34,12 +34,12 @@
 				<th>Nome</th>
 				<th>Cpf</th>
 				<th>Data de Nascimento</th>
-<<<<<<< HEAD
+
 				<th>login</th>
 				<th>telefone</th>
 				<th>Email</th>
 				<th>Alterar/Remover </th>
-=======
+
 				<th>Telefone</th>
 				<th>Email</th>
 				<th>Senha</th>
@@ -48,7 +48,7 @@
 				<th>Cep</th>
 				<th>Número</th>
 				<th>Complemento</th>
->>>>>>> 87e170f4f5787d0d0947a59f48086e87bf7a7768
+
 
 			</tr>
 
@@ -65,17 +65,12 @@
 							<td>${u.nomeUsuario}</td>
 					<td>${u.telefone}</td>
 					<td>${u.email}</td>
-<<<<<<< HEAD
-                    <td> <a href="alterarCliente?id=${u.id}">Alterar</a> &nbsp; </td>
-=======
-					<td>${u.senha}</td>
-					<td>${u.rua}</td>
-					<td>${u.bairro}</td>
-					<td>${u.cep}</td>
-					<td>${u.numero}</td>
-					<td>${u.complemento}</td>
 
->>>>>>> 87e170f4f5787d0d0947a59f48086e87bf7a7768
+                    <td> <a href="alterarCliente?id=${u.id}">Alterar</a> &nbsp; </td>
+
+					<td>${u.senha}</td>
+					
+
 				</tr>
 
 			</c:forEach>

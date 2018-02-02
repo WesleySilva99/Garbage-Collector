@@ -45,7 +45,7 @@ ${msg}
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="exampleInputQuantidade">quantidade:</label>  
+  <label class="col-md-4 control-label" for="exampleInputQuantidade">Quantidade:</label>  
   <div class="col-md-4">
   <input  placeholder="" class="form-control input-md" type="text" id="exampleInputQuantidade"
 				required="Para realizar a coleta preencha este campo com a quantidade de materiais que você vai doar"
@@ -56,22 +56,7 @@ ${msg}
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label"  for="exampleInputNumero"> Número:</label>  
-  <div class="col-md-2">
-  <input  class="form-control input-md" type="text" id="exampleInputNumero"
-				placeholder="A222"
-				required="Para realizar a coleta preencha este campo com o número da sua casa"
-				style="width: 90px;" required="required" name="numero" minlegth="2"
-				maxlength="6">
-    
-  </div>
-</div>
-
-
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="exampleInputEndereco">Endereço da coleta</label>  
+  <label class="col-md-4 control-label" for="exampleInputEndereco">Endereço da coleta:</label>  
   <div class="col-md-4">
   <input   class="form-control input-md" type="text" required="Para realizar a coleta preencha este campo com o endereço desejado da coleta"
 				id="exampleInputEndereco" style="width: 200px;" maxlength="50"
@@ -82,7 +67,18 @@ ${msg}
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="exampleInputCep">CEP</label>  
+  <label class="col-md-4 control-label" for="exampleInputNumero">Número da casa:</label>  
+  <div class="col-md-4">
+  <input   class="form-control input-md" type="text" required="Para realizar a coleta preencha este campo com o número da casa desejada da coleta"
+				id="exampleInputNumero" style="width: 200px;" minlength="2" maxlength="6"
+				name="numero" placeholder="Rua joão de barros">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="exampleInputCep">CEP:</label>  
   <div class="col-md-4">
   <input  class="form-control input-md"  type="text" id="exampleInputCep"
 				placeholder="00000-000" maxlength="9" style="width: 200px;"

@@ -19,7 +19,7 @@
 
 	<hr><h3>Alterar Produto</h3><hr>
 	
-	<form action="alterarProduto" method="post" enctype="multipart/form-data">
+	<form action="alterarCliente2" method="post" enctype="multipart/form-data">
 
 		<div class="form-group">
 			<label for="inputCodigo">Nome</label>
@@ -29,27 +29,31 @@
 		
 		<div class="form-group">
 			<label for="inputDescricao">CPF</label>
-			<input type="text" id="inputDescricao" class="form-control" name="cpf" style="width: 500px;" maxlength="100" required="required" value="${p.descricao}" />
+			<input type="text" id="inputDescricao" class="form-control" name="cpf" style="width: 500px;" maxlength="100" required="required" value="${p.cpf}" />
 		</div>
 		
 		<p>
-			Preco de Custo: <br />
-			<input type="text" name="precoCusto" value="${produto.precoCusto}" />
+			Data de Nascimento: <br />
+			<input type="text" name="dataNascimento" value="<fmt:formatDate value="${p.dataNascimento}" pattern="dd/MM/yyyy" />" />
 		</p>
 		
 		<p>
-			Preco de Venda: <br />
-			<input type="text" name="precoVenda" value="${produto.precoVenda}" />
+			Login: <br />
+			<input type="text" name="nomeUsuario" value="${p.nomeUsuario}" />
 		</p>
 		
 		<p>
-			Garantia: <br />
-			<input type="text" name="garantia" value="<fmt:formatDate value="${produto.garantia}" pattern="dd/MM/yyyy" />" />
+			senha: <br />
+			<input type="text" name="senha" value="${p.senha}"/>
 		</p>
 		
 		<p>
-			Quantidade: <br />
-			<input type="text" name="quantidade" value="${produto.quantidade}" />
+			Telefone: <br />
+			<input type="text" name="telefone" value="${p.telefone}" />
+		</p>
+			<p>
+			Email: <br />
+			<input type="text" name="email" value="${p.email}" />
 		</p>
 		
 		<p> <input type="submit" class="btn btn-primary" value="Alterar"> </p>

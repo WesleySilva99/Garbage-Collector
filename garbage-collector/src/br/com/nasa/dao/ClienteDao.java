@@ -84,7 +84,7 @@ public class ClienteDao {
 		try {
 
 			stmt = connection.prepareStatement(sql);
-
+            
 			stmt.setString(1, cliente.getNome());
 			stmt.setString(2, cliente.getCpf());
 			stmt.setDate(3, new java.sql.Date(cliente.getDataNascimento().getTime()));
@@ -92,7 +92,7 @@ public class ClienteDao {
 			stmt.setString(5, cliente.getSenha());
 			stmt.setString(6, cliente.getTelefone());
 			stmt.setString(7, cliente.getEmail());
-
+			stmt.setInt(8, cliente.getId());
 			stmt.execute();
 			connection.close();
 
