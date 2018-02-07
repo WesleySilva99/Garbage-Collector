@@ -8,19 +8,33 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-
-<link rel="stylesheet" type="text/css" href="view/bootstrap/css/bootstrap.min.css" />
-<script type="text/javascript" src="view/bootstrap/js/bootstrap.min.js"></script>
-
+<link rel="apple-touch-icon" sizes="76x76"
+	href="view/assets/img/apple-icon.png">
+<link rel="icon" type="image/png" href="view/assets/img/favicon.png">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>Garbage Collector</title>
+<meta
+	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+	name='viewport' />
+<!--     Fonts and icons     -->
+<link
+	href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+<!-- CSS Files -->
+<link href="view/assets/css/bootstrap.min.css" rel="stylesheet" />
+<link href="view/assets/css/now-ui-kit.css" rel="stylesheet" />
+<!-- CSS Just for demo purpose, don't include it in your project -->
+<link href="view/assets/css/demo.css" rel="stylesheet" />
 </head>
 <body>
 
-
+	<c:import url="/view/util/menu.jsp" />
 	<hr><h3>Alterar Produto</h3><hr>
 	
-<<<<<<< HEAD
-	<form  class="form-horizontal" action="alterarProduto" method="post" enctype="multipart/form-data">
+
+	<form  class="form-horizontal" action="alterarCliente2" method="post" enctype="multipart/form-data">
 
 	<form action="alterarCliente2" method="post" enctype="multipart/form-data">
 
@@ -34,9 +48,8 @@
 		<div class="form-group">
 			<label for="inputDescricao">CPF</label>
 
-			<input type="text" id="inputDescricao" class="form-control" name="cpf" style="width: 25%;" maxlength="100" required="required" value="${p.descricao}" />
 
-			<input type="text" id="inputDescricao" class="form-control" name="cpf" style="width: 500px;" maxlength="100" required="required" value="${p.cpf}" />
+			<input type="text" id="inputDescricao" class="form-control" name="cpf" style="width: 25%;" maxlength="100" required="required" value="${p.cpf}" />
 
 		</div>
 		

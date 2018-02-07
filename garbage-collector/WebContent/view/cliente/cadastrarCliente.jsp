@@ -33,23 +33,14 @@
 function validarCadastro(form){
 	var senha = document.formulario.senha.value;
 	var senhaRepetida = document.formulario.passwd2.value;
-
-	if (senha != passwd2){ 
+	if (senha.value != passwd2.value){ 
 	alert("As senhas não conferem. Repita a senha corretamente!");
 	document.formulario.passwd2.focus();
 	return false;
 	}
-	if (senha.length < 8 || senha.length > 32) {
-    	alert("As senhas estão abaixo ou acima do limite de caracteres! Senhas de 8 até 32 caracteres!");
-        document.formulario.passwd2.focus();
-        return false;
-    }
-	if (email == "" || email.indexOf('@')==-1 || email.indexOf('.')==-1 ){
-    	alert ("Preencha corretamente o campo email!");
-    	document.formulario.email.focus();
-    	return false;
-    }
+	return true;
 }
+
 function validaCpf(){
 	var cpf = document.formulario.cpf;
 	if (cpf.value.length == 3 || cpf.value.length == 7) {
@@ -59,9 +50,6 @@ function validaCpf(){
 		cpf.value += "-";
 	}
 }
-
-
-
 function validaTelefone(){
 	
 	var tel = document.formulario.telefone;
@@ -76,15 +64,12 @@ function validaTelefone(){
 	}
 }
 function validaCep(){
-
 var cep = document.formulario.cep;
 if (cep.value.length == 5) {
 	cep.value += "-";
 }
 }
-
 function validaData(){
-
 	var data = document.formulario.dataNascimento;
 	if (data.value.length == 2) {
 		data.value += "/";
