@@ -19,17 +19,25 @@
 
 	<hr><h3>Alterar Produto</h3><hr>
 	
+<<<<<<< HEAD
+	<form  class="form-horizontal" action="alterarProduto" method="post" enctype="multipart/form-data">
+
 	<form action="alterarCliente2" method="post" enctype="multipart/form-data">
+
 
 		<div class="form-group">
 			<label for="inputCodigo">Nome</label>
-			<input type="text" id="inputCodigo" class="form-control" name="Nome" style="width: 100px;" maxlength="100" required="required" value="${p.nome}" />
+			<input type="text" id="inputCodigo" class="form-control" name="nome" style="width: 25%;" maxlength="100" required="required" value="${p.nome}" />
 			<input type="hidden" name="id" value="${p.id}" />
 		</div>
 		
 		<div class="form-group">
 			<label for="inputDescricao">CPF</label>
+
+			<input type="text" id="inputDescricao" class="form-control" name="cpf" style="width: 25%;" maxlength="100" required="required" value="${p.descricao}" />
+
 			<input type="text" id="inputDescricao" class="form-control" name="cpf" style="width: 500px;" maxlength="100" required="required" value="${p.cpf}" />
+
 		</div>
 		
 		<p>

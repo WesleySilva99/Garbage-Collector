@@ -1,26 +1,5 @@
 
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="apple-touch-icon" sizes="76x76"
-	href="view/assets/img/apple-icon.png">
-<link rel="icon" type="image/png" href="view/assets/img/favicon.png">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Garbage Collector</title>
-<meta
-	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-	name='viewport' />
-<!--     Fonts and icons     -->
- <link
-	href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
-	rel="stylesheet" /> 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-<!-- CSS Files -->
-<link href="view/assets/css/bootstrap.min.css" rel="stylesheet" /> 
-<link href="view/assets/css/now-ui-kit.css" rel="stylesheet" />
-<!-- CSS Just for demo purpose, don't include it in your project -->
- <link href="view/assets/css/demo.css" rel="stylesheet" />
-</head>
+
 
 <br><br><br><br>
 <nav class="navbar navbar-expand-lg bg-primary fixed-top  "
@@ -51,6 +30,11 @@
 					href="exibirIncluirCliente"> <i
 						class="now-ui-icons files_paper"></i>
 						<p>Cadastrar</p>
+				</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="exibirCadastrarMotorista"> <i
+						class="now-ui-icons files_paper"></i>
+						<p>CadastrarMotorista</p>
 				</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="exibirSolicitarColeta"> <i

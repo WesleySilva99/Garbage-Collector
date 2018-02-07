@@ -5,9 +5,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -32,18 +32,14 @@
 		<table class="table table-striped">
 
 			<tr>
-			   <th>ID</th>
+				<th>ID</th>
 				<th>Nome</th>
 				<th>Cpf</th>
 				<th>Data de Nascimento</th>
-
 				<th>login</th>
 				<th>telefone</th>
 				<th>Email</th>
-				<th>Alterar/Remover </th>
-
-				<th>Telefone</th>
-				<th>Email</th>
+				<th>Alterar/Remover</th>
 				<th>Senha</th>
 				<th>Rua</th>
 				<th>Bairro</th>
@@ -64,13 +60,16 @@
 					<td>${u.cpf}</td>
 					<td><fmt:formatDate value="${u.dataNascimento}"
 							pattern="dd/MM/yyyy" /></td>
-							<td>${u.nomeUsuario}</td>
+					<td>${u.nomeUsuario}</td>
 					<td>${u.telefone}</td>
 					<td>${u.email}</td>
 
-                    <td> <a href="alterarCliente?id=${u.id}">Alterar</a> &nbsp; </td>
-
+					<td><a href="alterarCliente?id=${u.id}">Alterar</a> &nbsp;</td>
+					
 					<td>${u.senha}</td>
+				
+
+
 					
 
 				</tr>
