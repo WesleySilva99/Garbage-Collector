@@ -92,22 +92,27 @@ public class MotoristaDao {
 		}
 	}
 
-	public boolean verificaLoginExistente(String login) throws Exception {
+	public boolean verificaLoginExistente(String login){
 		boolean existe = true;
+		String sql = "SELECT login FROM motorista WHERE login = ?";
 
 		try {
 
-			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM motorista WHERE login like ?");
-			stmt.setString(1, "%" + login + "%");
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
+			stmt.setString(1, login);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
-				if ((rs.getString("login") == null) || (rs.getString("login").equals(""))) {
+				if ((rs.getString("login").equals(login))) {
 					existe = false;
+					break;
 				} else {
 					existe = true;
+					break;
 				}
 			}
-			connection.close();
+			rs.close();
+			stmt.close();
+			
 			return existe;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);

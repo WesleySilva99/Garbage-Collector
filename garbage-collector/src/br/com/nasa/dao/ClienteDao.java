@@ -136,23 +136,25 @@ public class ClienteDao {
 
 	public boolean verificaLoginExistente(String login){
 		boolean existe = true;
-		String sql = "SELECT login FROM cliente WHERE login like ?";
+		String sql = "SELECT login FROM cliente WHERE login = ?";
 
 		try {
 
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
-			stmt.setString(1, "%" + login + "%");
+			stmt.setString(1, login);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
-				if ((rs.getString("login") == null)) {
+				if ((rs.getString("login").equals(login))) {
 					existe = false;
+					break;
 				} else {
 					existe = true;
+					break;
 				}
 			}
 			rs.close();
 			stmt.close();
-			connection.close();
+			
 			return existe;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
