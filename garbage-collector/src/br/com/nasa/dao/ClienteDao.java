@@ -76,7 +76,7 @@ public class ClienteDao {
 			throw new RuntimeException(e);
 		}
 	}
-	
+
 	public void alterar(Cliente cliente) {
 
 		String sql = "UPDATE cliente SET nome = ?, cpf = ?, dt_nasc = ?, login = ?, senha = ?, telefone = ?, email=? WHERE id = ?";
@@ -84,7 +84,7 @@ public class ClienteDao {
 		try {
 
 			stmt = connection.prepareStatement(sql);
-            
+
 			stmt.setString(1, cliente.getNome());
 			stmt.setString(2, cliente.getCpf());
 			stmt.setDate(3, new java.sql.Date(cliente.getDataNascimento().getTime()));
@@ -100,7 +100,7 @@ public class ClienteDao {
 			throw new RuntimeException(e);
 		}
 	}
-	
+
 	public Cliente pegarId(int id) {
 
 		try {
@@ -134,5 +134,29 @@ public class ClienteDao {
 		}
 	}
 
+	public boolean verificaLoginExistente(String login){
+		boolean existe = true;
+		String sql = "SELECT login FROM cliente WHERE login like ?";
+
+		try {
+
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
+			stmt.setString(1, "%" + login + "%");
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				if ((rs.getString("login") == null)) {
+					existe = false;
+				} else {
+					existe = true;
+				}
+			}
+			rs.close();
+			stmt.close();
+			connection.close();
+			return existe;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 }

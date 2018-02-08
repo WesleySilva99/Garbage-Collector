@@ -152,7 +152,7 @@ function validaData(){
 					;
 				required="Para realizar o cadastro preencha este campo com o endereço da sua rua"
 					maxlength="15" name="telefone" onkeypress="validaTelefone()"
-					pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$">
+					>
 			</div>
 
 
