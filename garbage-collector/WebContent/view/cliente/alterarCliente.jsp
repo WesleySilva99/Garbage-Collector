@@ -31,130 +31,132 @@
 <body>
 
 	<c:import url="/view/util/menu.jsp" />
-	<hr><h3>Alterar Produto</h3><hr>
 	
+<div align="center">
+	<hr><h3>Alterar Produto</h3><hr>
+	</div>
 
-	<form  class="form-horizontal" action="alterarCliente2" method="post" enctype="multipart/form-data">
+	<form  class="" action="alterarCliente2" method="post" enctype="multipart/form-data">
 
 	<form action="alterarCliente2" method="post" enctype="multipart/form-data">
 
-<div class="form-group" align="left">
-				<label for="exampleInputName" class="hora">Nome Completo:</label> <input
-					type="text" class="form-control" id="exampleInputName"
-					placeholder="João Melo Silva" style="width: 25%"
+
+<div align="center">
+  <div class="form-row">
+    <div class="col-4">
+    <label for="exampleInputName" class="hora">Nome Completo:</label>
+      <input type="text" class="form-control" id="exampleInputName"
+					placeholder="João Melo Silva" style="width: 50%"
 					; value="${p.nome}"
 					required="Para realizar o cadastro preencha este campo com o seu nome completo"
 					maxlength="40" name="nome"
-					pattern="[AÁÉÍÓÚÂÊÎÔÛ-ZáéíóúâêîôûçÁÉÍÓÚÂÊÎÔÛa-z ]+">
-
-			</div>
-
-
-			<div class="form-group">
-				<label for="exampleInputName" class="hora">Nome do Usuário:</label>
-				<input type="text" class="form-control" id="exampleInputName"
-					placeholder="Mario15" pattern="[a-zA-Z0-9]+" style="width: 25%"
-					;value="${p.nomeUsuario}"
-					required="Para realizar o cadastro preencha este campo com seu nome de usuário"
-					maxlength="15" name="nomeUsuario">
-			</div>
-
-
-			<div class="form-group">
-				<label for="exampleInputCpf" class="hora">CPF:</label> <input
-					type="text" class="form-control" id="exampleInputCpf"
+					pattern="[AÁÉÍÓÚÂÊÎÔÛ-ZáéíóúâêîôûçÁÉÍÓÚÂÊÎÔÛa-z ]+" >
+    </div>
+  <div class="col-4">
+    <label for="exampleInputCpf" class="hora">CPF:</label>
+      <input type="text" class="form-control" id="exampleInputCpf"
 					placeholder="000.000.000-00" min="14" maxlength="14"
-					style="width: 25%"
+					style="width: 50%"
 					; value="${p.cpf}"
 					required="Para realizar o cadastro preencha este campo com seu CPF"
 					name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-					onkeypress="validaCpf()">
-			</div>
-			<br> <br>
-
-			<div class="form-group">
-				<label for="exampleInputData">Data de Nascimento:</label> <input
-					type="text" class="form-control" style="width: 25%"
+					onkeypress="validaCpf()" >
+    </div>
+    
+    <div class="col-4">
+ <label for="exampleInputData">Data de Nascimento:</label>
+      <input type="text" class="form-control"style="width: 50%"
 					;
 				id="exampleInputData"
 					required="Para realizar o cadastro preencha este campo com sua data de nascimento"
 					name="dataNascimento" onkeypress="validaData()" maxlength="10"
-					placeholder="00/00/0000" value="<fmt:formatDate value="${p.garantia}" pattern="dd/MM/yyyy" />">
-			</div>
-
-
-
-
-			<div class="form-group">
-				<label for="exampleInputTelefone" class="hora">Telefone:</label> <input
-					type="text" class="form-control" id="exampleInputTelefone"
-					placeholder="(00) 00000-0000" style="width: 25%"
+					placeholder="00/00/0000" value="<fmt:formatDate value="${p.dataNascimento}" pattern="dd/MM/yyyy" />">
+    </div>
+    
+  </div>
+  <!--     Fonts and icons     -->
+  <div class="form-row">
+    <div class="col-4">
+    <label for="exampleInputTelefone" class="hora">Telefone:</label>
+      <input type="text" class="form-control"  id="exampleInputTelefone"
+					placeholder="(00) 00000-0000" style="width: 50%"
 					; value="${p.telefone}"
 				required="Para realizar o cadastro preencha este campo com o endereço da sua rua"
 					maxlength="15" name="telefone" onkeypress="validaTelefone()"
-					pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$">
-			</div>
-
-
-			<div class="form-group">
-				<label for="exampleInputEmail" class="hora">E-mail:</label> <input
+					pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" >
+    </div>
+    <div class="col-4">
+    <label for="exampleInputEndereco" class="hora">Bairro:</label> <input
+					type="text" class="form-control" id="exampleInputEndereco"
+					style="width: 50%" ; value=""
+				placeholder="Ex: COHAB"
+					required="required" maxlength="50" name="bairro">
+    </div>
+    
+<div class="col-4">
+    <label for="exampleInputEndereco" class="hora">Endereço:</label> <input
+					type="text" class="form-control" id="exampleInputEndereco"
+					style="width: 50%" ; value="${p.endereco}"
+				placeholder="Rua Don Juno nº 425"
+					required="required" maxlength="50" name="rua">
+    </div>
+  </div>
+  
+  
+  <!--     Fonts and icons     -->
+  <div class="form-row">
+ <div class="col-4">
+    <label for="exampleInputName" class="hora">Complemento:</label> <input
+					type="text" class="form-control" id="exampleInputName"
+					style="width: 50%" ; value=""
+				placeholder="Casa" pattern="[a-zA-Z0-9]+"
+					required="Para realizar o cadastro preencha este campo com o seu complemento"
+					maxlength="15" name="complemento">
+    </div>
+ <div class="col-4">
+    <label for="exampleInputEndereco" class="hora">Número do
+					complemento:</label> <input type="text" class="form-control"
+					id="exampleInputEndereco" style="width: 50%"
+					; value=""
+				placeholder="Ex: 0000" required="required" maxlength="50"
+					name="numero">
+    </div>
+    <div class="col">
+    <label for="exampleInputCep" class="hora">CEP:</label> <input
+					type="text" class="form-control" id="exampleInputCep"
+					placeholder="00000-000" style="width: 50%"
+					; value=""
+				required="Para realizar o cadastro preencha este campo com o cep da sua rua"
+					maxlength="9" name="cep" pattern="\d{5}-?\d{3}"
+					onkeypress="validaCep()">
+    </div>
+  </div>
+  <!--     Fonts and icons     -->
+  
+  <div class="form-row">
+  
+    <div class="col-4">
+    <label for="exampleInputName" class="hora">Nome do Usuário:</label>
+      <input type="text" class="form-control" id="exampleInputName"
+					placeholder="Mario15" pattern="[a-zA-Z0-9]+" style="width: 50%"
+					; value="${p.nomeUsuario}"
+					required="Para realizar o cadastro preencha este campo com seu nome de usuário"
+					maxlength="15" name="nomeUsuario">
+    </div>
+    <div class="col-4">
+    <label for="exampleInputEmail" class="hora">E-mail:</label> <input
 					type="email" class="form-control" id="exampleInputEmail"
-					style="width: 25%" ;
+					style="width: 50%" ;
 				placeholder="João@exemplo.com" value="${p.email}"
 					required="Para realizar o cadastro preencha este campo com o seu email"
 					pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" maxlength="50"
 					name="email">
-			</div>
-
-
-
-			<div class="form-group">
-				<label for="exampleInputEndereco" class="hora">Endereço:</label> <input
-					type="text" class="form-control" id="exampleInputEndereco"
-					style="width: 25%" ; value="${p.endereco}"
-				placeholder="Rua Don Juno nº 425"
-					required="required" maxlength="50" name="rua">
-			</div>
-
-
-			<div class="form-group">
-				<label for="exampleInputName" class="hora">Complemento:</label> <input
-					type="text" class="form-control" id="exampleInputName"
-					style="width: 25%" ; value="${p.complemento}"
-				placeholder="Casa" pattern="[a-zA-Z0-9]+"
-					required="Para realizar o cadastro preencha este campo com o seu complemento"
-					maxlength="15" name="complemento">
-			</div>
-
-
-			<div class="form-group">
-				<label for="exampleInputEndereco" class="hora">Número do
-					complemento:</label> <input type="text" class="form-control"
-					id="exampleInputEndereco" style="width: 25%"
-					; value="${p.número}"
-				placeholder="Ex: 0000" required="required" maxlength="50"
-					name="numero">
-			</div>
-
-
-			<div class="form-group">
-				<label for="exampleInputEndereco" class="hora">Bairro:</label> <input
-					type="text" class="form-control" id="exampleInputEndereco"
-					style="width: 25%" ; value="${p.bairro}"
-				placeholder="Ex: COHAB"
-					required="required" maxlength="50" name="bairro">
-			</div>
-
-
-			<div class="form-group">
-				<label for="exampleInputCep" class="hora">CEP:</label> <input
-					type="text" class="form-control" id="exampleInputCep"
-					placeholder="00000-000" style="width: 25%"
-					; value="${p.cep}"
-				required="Para realizar o cadastro preencha este campo com o cep da sua rua"
-					maxlength="9" name="cep" pattern="\d{5}-?\d{3}"
-					onkeypress="validaCep()">
-			</div>
+    </div>
+  </div>
+  
+     
+     <button type="submit" class="btn btn-success">Alterar</button>
+</form>
 	</form>
 
 </body>
