@@ -46,9 +46,19 @@
                             <p>Cadastrar</p>
                         </a>
                         <li class="nav-item"><a class="nav-link"
+					href="exibirCadastrarMotorista"> <i
+						class="now-ui-icons files_paper"></i>
+						<p>CadastrarMotorista</p>
+				</a></li>
+                        <li class="nav-item"><a class="nav-link"
 					href="exibirSolicitarColeta"> <i
 						class="now-ui-icons files_paper"></i>
 						<p>Solicita Coleta</p>
+				</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="listarClientes"> <i
+						class="now-ui-icons files_paper"></i>
+						<p>Lista Cliente</p>
 				</a></li>
                     </li>
                     <li class="nav-item">
