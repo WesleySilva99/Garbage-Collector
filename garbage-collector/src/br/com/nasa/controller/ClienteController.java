@@ -21,13 +21,14 @@ public class ClienteController {
 	}
 
 	@RequestMapping("/cadastrarCliente")
-	public String cadastrarCliente(Cliente cliente, Endereco e) {
+	public String cadastrarCliente(Cliente cliente, Endereco e, Model model) {
 		ClienteDao dao = new ClienteDao();
 		dao.Inserir(cliente);
 		EnderecoDao dao2 = new EnderecoDao();
 		dao2.inserir(e);
+		model.addAttribute("msg", "Você foi cadastrado com sucesso!");
 		System.out.println("Cadastrando Clientes");
-		return "cliente/cadastroSucesso";
+		return "forward:exibirIncluirCliente";
 	}
 	
 	@RequestMapping("/listarClientes")

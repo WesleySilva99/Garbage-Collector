@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=iso-8859-1"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="apple-touch-icon" sizes="76x76"
 	href="view/assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="view/assets/img/favicon.png">
@@ -30,10 +30,10 @@
 <title>Cadastro de Usuário</title>
 
 <script type="text/javascript">
-function validarCadastro(form){
+function validarCadastro(){
 	var senha = document.formulario.senha.value;
-	var senhaRepetida = document.formulario.passwd2.value;
-	if (senha.value != passwd2.value){ 
+	var passwd2 = document.formulario.passwd2.value;
+	if (senha != passwd2){ 
 	alert("As senhas não conferem. Repita a senha corretamente!");
 	document.formulario.passwd2.focus();
 	return false;
@@ -94,7 +94,8 @@ function validaData(){
 
 	<fieldset>
 		<legend>Informações Pessoais</legend>
-
+		
+		<div align="center"><h4 style="color:blue";>${msg}</h4></div>
 		<form class="form-horizontal" action="cadastrarCliente" method="post"
 			onsubmit="return validarCadastro();" name="formulario" id="formulario">
 			<div class="form-group" align="left">
@@ -235,7 +236,7 @@ function validaData(){
 					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" style="width: 25%";
 				 minlength="8" maxlength="32" id="passwd2"
 					title="A senha deve ser igual a da campo anterior."
-					oninput="validarCadastro(this)" name="passwd2">
+					name="passwd2">
 			</div>
 
 
@@ -244,7 +245,7 @@ function validaData(){
 			<button type="reset" class="btn btn-warning">&nbsp; Limpar
 				&nbsp;</button>
 			&nbsp;
-			<button type="submit" class="btn btn-success">Cadastrar</button>
+			<button type="submit" class="btn btn-success" onClick="validarCadastro()">Cadastrar</button>
 		</form>
 
 	</fieldset>

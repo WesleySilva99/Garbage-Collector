@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=iso-8859-1"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="apple-touch-icon" sizes="76x76"
 	href="view/assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="view/assets/img/favicon.png">
@@ -50,7 +50,7 @@ ${msg}
 
 	<h1 align="center">Solicite sua coleta</h1>
 
-					<div align="center">${msg}</div>
+					<div align="center"><h4 style="color:blue";>${msg}</h4></div>
 					<form class="form-horizontal" action="CadastraSolicitarColeta"
 						method="post" name="formulario" style="border: 2px;">
 						<fieldset>

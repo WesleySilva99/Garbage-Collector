@@ -2,12 +2,12 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=iso-8859-1"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="apple-touch-icon" sizes="76x76"
 	href="view/assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="view/assets/img/favicon.png">
@@ -30,29 +30,28 @@
 </head>
 <body>
 
-<c:import url="/view/util/menu.jsp"/>
+	<c:import url="/view/util/menu.jsp" />
 	<div class="container">
-		<h2 align="middle">Lista de Usuários</h2>
+		<hr>
+		<h2 align="center">Lista de Usuários</h2>
+		<hr>
 		<br>
 		<table class="table table-striped">
 
 			<tr>
-				<th>ID</th>
 				<th>Nome</th>
 				<th>Cpf</th>
 				<th>Data de Nascimento</th>
 				<th>login</th>
 				<th>telefone</th>
 				<th>Email</th>
-				<th>Alterar/Remover</th>
 				<th>Senha</th>
 				<th>Rua</th>
 				<th>Bairro</th>
 				<th>Cep</th>
 				<th>Número</th>
 				<th>Complemento</th>
-
-
+				<th>Alterar/Remover</th>
 			</tr>
 
 
@@ -60,7 +59,6 @@
 
 
 				<tr>
-					<td>${u.id}</td>
 					<td>${u.nome}</td>
 					<td>${u.cpf}</td>
 					<td><fmt:formatDate value="${u.dataNascimento}"
@@ -68,15 +66,13 @@
 					<td>${u.nomeUsuario}</td>
 					<td>${u.telefone}</td>
 					<td>${u.email}</td>
-
-					<td><a href="alterarCliente?id=${u.id}">Alterar</a> &nbsp;</td>
-					
 					<td>${u.senha}</td>
-				
-
-
-					
-
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><a href="alterarCliente?id=${u.id}">Alterar</a> &nbsp;</td>
 				</tr>
 
 			</c:forEach>
