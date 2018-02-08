@@ -1,4 +1,4 @@
-create database gc;
+CREATE DATABASE gc;
 use gc;
 
 
@@ -32,7 +32,7 @@ create table motorista(
 
 id int auto_increment,
 nome varchar(45) not null,
-cpf varchar(11) not null,
+cpf varchar(14) not null,
 rg varchar(10) not null,
 telefone varchar(14) not null,
 n_abilitacao varchar(11) not null,
@@ -42,6 +42,8 @@ placa varchar(7) not null,
 marca varchar(20) not null,
 ano_veiculo date not null,
 email varchar(45) not null,
+login varchar(10) not null,
+senha varchar(32) not null,
 id_endereco int not null,
 primary key (id),
 foreign key(id_endereco) references endereco(id)
@@ -50,7 +52,7 @@ foreign key(id_endereco) references endereco(id)
 create table pedido(
 
 id int auto_increment,
-tipoColeta varchar(50) not null,
+tipoColeta varchar(8) not null,
 descricao varchar(100) not null,
 quantidade int not null,
 endereco varchar(50) not null,
@@ -61,5 +63,3 @@ primary key (id)
 
 );
 
-select * from pedido;
-select * from cliente;
