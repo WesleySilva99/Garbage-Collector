@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Motorista {
 	private String nome;
+	private String login;
 	private String cpf;
 	private String rg;
 	private String telefone;
@@ -17,7 +18,6 @@ public class Motorista {
 	private String marcaVeiculo;
 	private String anoVeiculo;
 	private String email;
-	private String login;
 	private String senha;
 	
 	public String getEmail() {

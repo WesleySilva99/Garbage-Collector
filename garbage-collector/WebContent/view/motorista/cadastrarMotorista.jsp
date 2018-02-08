@@ -106,7 +106,16 @@
 			<div class="form-group">
 				<label for="exampleInputName" class="hora">Nome Completo:</label> <input
 					type="text" class="form-control" id="exampleInputName"
-					placeholder="" required="required" maxlength="50" name="nome"
+					placeholder="" required="required" maxlength="45" name="nome"
+					style="width: 25%;">
+
+			</div>
+			<br>
+			
+			<div class="form-group">
+				<label for="exampleInputLogin" class="hora">Login:</label> <input
+					type="text" class="form-control" id="exampleInputLogin"
+					placeholder="" required="required" maxlength="10" name="login"
 					style="width: 25%;">
 
 			</div>
@@ -151,7 +160,7 @@
 				<label for="exampleInputEndereco" class="hora">Endereço:</label> <input
 					type="text" class="form-control" id="exampleInputEndereco"
 					placeholder="Rua Don Juno nº 425" required="required"
-					maxlength="50" name="endereco" style="width: 25%;">
+					maxlength="50" name="rua" style="width: 25%;">
 			</div>
 			<br>
 

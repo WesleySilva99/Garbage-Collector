@@ -31,7 +31,6 @@ public class MotoristaDao {
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
-
 			stmt.setString(1, motorista.getNome());
 			stmt.setString(2, motorista.getTelefone());
 			stmt.setString(3, motorista.getCpf());

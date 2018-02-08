@@ -55,7 +55,7 @@ ${msg}
 		method="post" name="formulario" style="border: 2px;">
 		<fieldset>
 			<div align="center">
-				<legend>Materiais de Coleta</legend>
+				<h3>Materiais de Coleta</h3>
 
 
 				<!-- Select Basic -->
@@ -105,7 +105,7 @@ ${msg}
 		</fieldset>
 		<fieldset>
 			<div align="center">
-				<legend>Dados de Entrega</legend>
+				<h3>Dados de Entrega</h3>
 
 				<!-- Text input-->
 				<div class="form-group">
