@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=iso-8859-1"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -30,54 +32,54 @@
 <title>Cadastro de Usuário</title>
 
 <script type="text/javascript">
-function validarCadastro(){
-	var senha = document.formulario.senha.value;
-	var passwd2 = document.formulario.passwd2.value;
-	if (senha != passwd2){ 
-	alert("As senhas não conferem. Repita a senha corretamente!");
-	document.formulario.passwd2.focus();
-	return false;
+	function validarCadastro() {
+		var senha = document.formulario.senha.value;
+		var passwd2 = document.formulario.passwd2.value;
+		if (senha != passwd2) {
+			alert("As senhas não conferem. Repita a senha corretamente!");
+			document.formulario.passwd2.focus();
+			return false;
+		}
+		return true;
 	}
-	return true;
-}
 
-function validaCpf(){
-	var cpf = document.formulario.cpf;
-	if (cpf.value.length == 3 || cpf.value.length == 7) {
-		cpf.value += ".";
+	function validaCpf() {
+		var cpf = document.formulario.cpf;
+		if (cpf.value.length == 3 || cpf.value.length == 7) {
+			cpf.value += ".";
+		}
+		if (cpf.value.length == 11) {
+			cpf.value += "-";
+		}
 	}
-	if(cpf.value.length == 11){
-		cpf.value += "-";
+	function validaTelefone() {
+
+		var tel = document.formulario.telefone;
+		if (tel.value.length == 0) {
+			tel.value += "(";
+		}
+		if (tel.value.length == 3) {
+			tel.value += ")";
+		}
+		if (tel.value.length == 9) {
+			tel.value += "-";
+		}
 	}
-}
-function validaTelefone(){
-	
-	var tel = document.formulario.telefone;
-	if (tel.value.length == 0) {
-		tel.value += "(";
+	function validaCep() {
+		var cep = document.formulario.cep;
+		if (cep.value.length == 5) {
+			cep.value += "-";
+		}
 	}
-	if (tel.value.length == 3) {
-		tel.value += ")";
+	function validaData() {
+		var data = document.formulario.dataNascimento;
+		if (data.value.length == 2) {
+			data.value += "/";
+		}
+		if (data.value.length == 5) {
+			data.value += "/";
+		}
 	}
-	if (tel.value.length == 9) {
-		tel.value += "-";
-	}
-}
-function validaCep(){
-var cep = document.formulario.cep;
-if (cep.value.length == 5) {
-	cep.value += "-";
-}
-}
-function validaData(){
-	var data = document.formulario.dataNascimento;
-	if (data.value.length == 2) {
-		data.value += "/";
-	}
-	if (data.value.length == 5) {
-		data.value += "/";
-	}
-}
 </script>
 
 
@@ -94,18 +96,22 @@ function validaData(){
 
 	<fieldset>
 		<legend>Informações Pessoais</legend>
-		
-		<div align="center"><h4 style="color:blue";>${msg}</h4></div>
+
+		<div align="center">
+			<h4 style="color: blue";>${msg}</h4>
+		</div>
 		<form class="form-horizontal" action="cadastrarCliente" method="post"
-			onsubmit="return validarCadastro();" name="formulario" id="formulario">
+			onsubmit="return validarCadastro();" name="formulario"
+			id="formulario">
 			<div class="form-group" align="left">
 				<label for="exampleInputName" class="hora">Nome Completo:</label> <input
 					type="text" class="form-control" id="exampleInputName"
 					placeholder="João Melo Silva" style="width: 25%"
-					;
+					''
 					required="Para realizar o cadastro preencha este campo com o seu nome completo"
 					maxlength="40" name="nome"
-					pattern="[AÁÉÍÓÚÂÊÎÔÛ-ZáéíóúâêîôûçÁÉÍÓÚÂÊÎÔÛa-z ]+">
+					pattern="[AÁÉÍÓÚÂÊÎÔÛ-ZáéíóúâêîôûçÁÉÍÓÚÂÊÎÔÛa-z ]+"
+					value="${c.nome}">
 
 			</div>
 
@@ -116,7 +122,7 @@ function validaData(){
 					placeholder="Mario15" pattern="[a-zA-Z0-9]+" style="width: 25%"
 					;
 					required="Para realizar o cadastro preencha este campo com seu nome de usuário"
-					maxlength="15" name="nomeUsuario">
+					maxlength="15" name="nomeUsuario" value="${c.nomeUsuario}">
 			</div>
 
 
@@ -128,18 +134,37 @@ function validaData(){
 					;
 					required="Para realizar o cadastro preencha este campo com seu CPF"
 					name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-					onkeypress="validaCpf()">
+					onkeypress="validaCpf()" value="${c.cpf}">
 			</div>
 			<br> <br>
 
 			<div class="form-group">
-				<label for="exampleInputData">Data de Nascimento:</label> <input
-					type="text" class="form-control" style="width: 25%"
-					;
+				<label for="exampleInputData">Data de Nascimento:</label>
+
+
+				<c:choose>
+					<c:when test="${empty c.dataNascimento}">
+						<input type="text" class="form-control" style="width: 25%;"
+					
 				id="exampleInputData"
 					required="Para realizar o cadastro preencha este campo com sua data de nascimento"
 					name="dataNascimento" onkeypress="validaData()" maxlength="10"
 					placeholder="00/00/0000">
+    
+  					</c:when>
+					
+					<c:otherwise>
+							
+								<input type="text" class="form-control" style="width: 25%;"
+					id="exampleInputData" 
+					required="Para realizar o cadastro preencha este campo com sua data de nascimento"
+					name="dataNascimento" onkeypress="validaData()" maxlength="10"
+					placeholder="00/00/0000" value="<fmt:formatDate value="${c.dataNascimento}" pattern="dd/MM/yyyy" />">
+							    
+  					</c:otherwise>
+				</c:choose>
+
+				
 			</div>
 
 
@@ -151,8 +176,7 @@ function validaData(){
 					placeholder="(00) 00000-0000" style="width: 25%"
 					;
 				required="Para realizar o cadastro preencha este campo com o endereço da sua rua"
-					maxlength="15" name="telefone" onkeypress="validaTelefone()"
-					>
+					maxlength="15" name="telefone" onkeypress="validaTelefone()" value="${c.telefone}">
 			</div>
 
 
@@ -163,7 +187,7 @@ function validaData(){
 				placeholder="João@exemplo.com"
 					required="Para realizar o cadastro preencha este campo com o seu email"
 					pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" maxlength="50"
-					name="email">
+					name="email" value="${c.email}">
 			</div>
 
 
@@ -173,7 +197,7 @@ function validaData(){
 					type="text" class="form-control" id="exampleInputEndereco"
 					style="width: 25%" ;
 				placeholder="Rua Don Juno nº 425"
-					required="required" maxlength="50" name="rua">
+					required="required" maxlength="50" name="rua" value="${e.rua}">
 			</div>
 
 
@@ -183,7 +207,7 @@ function validaData(){
 					style="width: 25%" ;
 				placeholder="Casa" pattern="[a-zA-Z0-9]+"
 					required="Para realizar o cadastro preencha este campo com o seu complemento"
-					maxlength="15" name="complemento">
+					maxlength="15" name="complemento" value="${e.complemento}">
 			</div>
 
 
@@ -193,7 +217,7 @@ function validaData(){
 					id="exampleInputEndereco" style="width: 25%"
 					;
 				placeholder="Ex: 0000" required="required" maxlength="50"
-					name="numero">
+					name="numero" value="${e.numero}">
 			</div>
 
 
@@ -202,7 +226,7 @@ function validaData(){
 					type="text" class="form-control" id="exampleInputEndereco"
 					style="width: 25%" ;
 				placeholder="Ex: COHAB"
-					required="required" maxlength="50" name="bairro">
+					required="required" maxlength="50" name="bairro" value="${e.bairro}">
 			</div>
 
 
@@ -213,7 +237,7 @@ function validaData(){
 					;
 				required="Para realizar o cadastro preencha este campo com o cep da sua rua"
 					maxlength="9" name="cep" pattern="\d{5}-?\d{3}"
-					onkeypress="validaCep()">
+					onkeypress="validaCep()" value="${e.cep}">
 			</div>
 
 
@@ -221,8 +245,8 @@ function validaData(){
 				<label for="exampleInputPassword1" class="hora">Senha:</label> <input
 					type="password" class="form-control" id="exampleInputPassword1"
 					required="Para realizar o cadastro preencha este campo com sua senha"
-					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  minlength= "8" maxlength="32"
-					name="senha" style="width: 25%" ; id="senha"
+					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8"
+					maxlength="32" name="senha" style="width: 25%" ; id="senha"
 					title="A senha deve ter no mínimo 8 e 32 no máximo, que sejam de pelo menos um número e uma letra maiúscula e minúscula.">
 			</div>
 
@@ -233,10 +257,10 @@ function validaData(){
 					senha:</label> <input type="password" class="form-control"
 					id="exampleInputPassword1"
 					required="Para realizar o cadastro preencha este campo repetindo novamente sua senha"
-					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" style="width: 25%";
+					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" style="width: 25%"
+					;
 				 minlength="8" maxlength="32" id="passwd2"
-					title="A senha deve ser igual a da campo anterior."
-					name="passwd2">
+					title="A senha deve ser igual a da campo anterior." name="passwd2">
 			</div>
 
 
@@ -245,7 +269,8 @@ function validaData(){
 			<button type="reset" class="btn btn-warning">&nbsp; Limpar
 				&nbsp;</button>
 			&nbsp;
-			<button type="submit" class="btn btn-success" onClick="validarCadastro()">Cadastrar</button>
+			<button type="submit" class="btn btn-success"
+				onClick="validarCadastro()">Cadastrar</button>
 		</form>
 
 	</fieldset>

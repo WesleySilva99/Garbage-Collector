@@ -35,7 +35,10 @@ public class ClienteController {
 		}else {
 			
 			model.addAttribute("msg", "O login já existe!");
+			model.addAttribute("c", cliente);
+			model.addAttribute("e", e);
 			System.out.println("Tente novamente, Login já existente");
+			return "cliente/cadastrarCliente";
 			
 		}
 		return "forward:exibirIncluirCliente";
