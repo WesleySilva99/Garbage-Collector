@@ -16,7 +16,7 @@ public class Motorista {
 	private String chasi;
 	private String placaVeiculo;
 	private String marcaVeiculo;
-	private String anoVeiculo;
+	private int anoVeiculo;
 	private String email;
 	private String senha;
 	
@@ -140,11 +140,11 @@ public class Motorista {
 		this.marcaVeiculo = marcaVeiculo;
 	}
 
-	public String getAnoVeiculo() {
+	public int getAnoVeiculo() {
 		return anoVeiculo;
 	}
 
-	public void setAnoVeiculo(String anoVeiculo) {
+	public void setAnoVeiculo(int anoVeiculo) {
 		this.anoVeiculo = anoVeiculo;
 	}
 

@@ -26,8 +26,8 @@ public class MotoristaDao {
 	public void Inserir(Motorista motorista) {
 
 		String sql = "INSERT INTO motorista"
-				+ "(nome, telefone, cpf, rg, sexo, numHabilitacao, validade, categoria, chassi, placa, marca, anoVeiculo, login, senha)"
-				+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+				+ "(nome, telefone, cpf, rg, sexo, n_abilitacao, validade_hablitacao, cat_abilitacao, CHASI, placa, marca, ano_veiculo, login, senha)"
+				+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
@@ -42,7 +42,7 @@ public class MotoristaDao {
 			stmt.setString(9, motorista.getChasi());
 			stmt.setString(10, motorista.getPlacaVeiculo());
 			stmt.setString(11, motorista.getMarcaVeiculo());
-			stmt.setString(12, motorista.getAnoVeiculo());
+			stmt.setInt(12, motorista.getAnoVeiculo());
 			stmt.setString(13, motorista.getLogin());
 			stmt.setString(14, motorista.getSenha());
 
@@ -74,7 +74,7 @@ public class MotoristaDao {
 				motorista.setChasi(rs.getString("chasi"));
 				motorista.setPlacaVeiculo(rs.getString("placaVeiculo"));
 				motorista.setMarcaVeiculo(rs.getString("marcaVeiculo"));
-				motorista.setAnoVeiculo(rs.getString("anoVeiculo"));
+				motorista.setAnoVeiculo(rs.getInt("anoVeiculo"));
 				motorista.setLogin(rs.getString("login"));
 				motorista.setSenha(rs.getString("senha"));
 				listaMotorista.add(motorista);

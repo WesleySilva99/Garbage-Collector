@@ -265,6 +265,12 @@
 						required="required" name="anoVeiculo" style="width: 25%;">
 				</div>
 				<br>
+				
+				<div class="form-group" class="hora">
+				<label for="exampleInputData" class="hora">Chassí:</label> <input type="text" class="form-control"
+					id="exampleInputData" required="required" name="chasi"
+					style="width: 25%;">
+			</div>
 			</fieldset>
 
 
