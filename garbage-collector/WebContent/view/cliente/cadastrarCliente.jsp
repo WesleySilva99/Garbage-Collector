@@ -90,7 +90,7 @@
 
 	<br>
 	<hr>
-	<h1 align="center">Cadastro de Cliente</h1>
+	<h1 align="center">Cadastro de Pessoas Para o Clan Uchiha</h1>
 	<hr>
 	<br>
 
