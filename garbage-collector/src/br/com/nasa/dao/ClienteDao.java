@@ -1,5 +1,6 @@
 package br.com.nasa.dao;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -34,7 +35,7 @@ public class ClienteDao {
 			stmt.setString(1, cliente.getNome());
 			stmt.setString(2, cliente.getNomeUsuario());
 			stmt.setString(3, cliente.getEmail());
-			stmt.setDate(4, new java.sql.Date(cliente.getDataNascimento().getTime()));
+			stmt.setDate(4, new Date(cliente.getDataNascimento().getTime()));
 			stmt.setString(5, cliente.getCpf());
 			stmt.setString(6, cliente.getSenha());
 			stmt.setString(7, cliente.getTelefone());

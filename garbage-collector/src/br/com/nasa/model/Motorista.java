@@ -9,7 +9,7 @@ public class Motorista {
 	private String rg;
 	private String telefone;
 	private Endereco endereco;
-	private char sexo;
+	private String sexo;
 	private int numHabilitacao;
 	private Date validade;
 	private String categoria;
@@ -28,11 +28,11 @@ public class Motorista {
 		this.email = email;
 	}
 
-	public char getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(char sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
 

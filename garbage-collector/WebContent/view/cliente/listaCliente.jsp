@@ -67,12 +67,22 @@
 					<td>${u.telefone}</td>
 					<td>${u.email}</td>
 					<td>${u.senha}</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					
+				 <c:forEach items="${listaEndereco}" var="obj">
+						
+							<c:if test="${obj.id eq u.id}">
+						
+					<td>${obj.rua}</td>
+					<td>${obj.bairro}</td>
+					<td>${obj.cep}</td>
+					<td>${obj.complemento}</td>
+					<td>${obj.numero}</td>
+					</c:if>	
+					</c:forEach>
+					
+					
 					<td><a href="alterarCliente?id=${u.id}">Alterar</a> &nbsp;</td>
+					
 				</tr>
 
 			</c:forEach>

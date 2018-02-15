@@ -26,8 +26,8 @@ public class MotoristaDao {
 	public void Inserir(Motorista motorista) {
 
 		String sql = "INSERT INTO motorista"
-				+ "(nome, telefone, cpf, rg, sexo, n_abilitacao, validade_hablitacao, cat_abilitacao, CHASI, placa, marca, ano_veiculo, login, senha)"
-				+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				+ "(nome, telefone, cpf, rg, sexo, n_abilitacao, dataVencimento, cat_abilitacao, CHASI, placa, marca, ano_veiculo, login, senha, email)"
+				+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
@@ -35,7 +35,7 @@ public class MotoristaDao {
 			stmt.setString(2, motorista.getTelefone());
 			stmt.setString(3, motorista.getCpf());
 			stmt.setString(4, motorista.getRg());
-			stmt.setString(5, motorista.getSexo() + "");
+			stmt.setString(5, motorista.getSexo());
 			stmt.setInt(6, motorista.getNumHabilitacao());
 			stmt.setDate(7, new java.sql.Date(motorista.getValidade().getTime()));
 			stmt.setString(8, motorista.getCategoria());
@@ -45,6 +45,7 @@ public class MotoristaDao {
 			stmt.setInt(12, motorista.getAnoVeiculo());
 			stmt.setString(13, motorista.getLogin());
 			stmt.setString(14, motorista.getSenha());
+			stmt.setString(15, motorista.getEmail());
 
 			stmt.execute();
 			stmt.close();

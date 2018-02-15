@@ -52,6 +52,10 @@ public class ClienteController {
 		ClienteDao dao = new ClienteDao();
 		List<Cliente> listaCliente = dao.listar();
 		model.addAttribute("listaCliente", listaCliente);
+		
+		EnderecoDao dao1 = new EnderecoDao();
+		List<Endereco> listaEndereco = dao1.listar();
+		model.addAttribute("listaEndereco", listaEndereco);
 		return "cliente/listaCliente";
 	}
 

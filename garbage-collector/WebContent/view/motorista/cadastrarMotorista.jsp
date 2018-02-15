@@ -143,7 +143,7 @@
 			<div class="form-group">
 				<label for="exampleInputName" class="hora">RG:</label> <input
 					type="text" class="form-control" id="exampleInputName"
-					placeholder="0.000.000" required="required" maxlength="9" name="rg"
+					placeholder="0.000.000" required="required" maxlength="10" name="rg"
 					style="width: 25%;" onkeypress="validaRG()">
 			</div>
 			<br>
@@ -169,7 +169,7 @@
 			<div class="form-group">
 				<label for="exampleInputEndereco" class="hora">Bairro:</label> <input
 					type="text" class="form-control" id="exampleInputEndereco"
-					required="required" maxlength="50" name="bairro"
+					required="required" maxlength="20" name="bairro"
 					style="width: 25%;">
 			</div>
 			<br>
@@ -185,7 +185,7 @@
 			<div class="form-group">
 				<label for="exampleInputEndereco" class="hora">Complemento:</label> <input
 					type="text" class="form-control" id="exampleInputEndereco"
-					required="required" maxlength="12" name="complemento"
+					required="required" maxlength="10" name="complemento"
 					style="width: 25%;">
 			</div>
 			<br>
@@ -201,14 +201,14 @@
 				<label for="exampleInputCep" class="hora">Numero da
 					Habilitação:</label> <input type="number" class="form-control"
 					id="exampleInputCep" required="required" name="numHabilitacao"
-					style="width: 25%;">
+					style="width: 25%;" maxlength="11">
 			</div>
 			<br>
 
 			<div class="form-group">
 				<label for="exampleInputCep" class="hora">Categoria:</label> <input
 					type="text" class="form-control" id="exampleInputCep"
-					required="required" name="categoria" style="width: 25%;">
+					required="required" name="categoria" style="width: 25%;" maxlength="4">
 			</div>
 			<br>
 
@@ -216,11 +216,11 @@
 				<label for="exampleInputData" class="hora">Data de
 					vencimento da carteira:</label> <input type="text" class="form-control"
 					id="exampleInputData" required="required" name="validade"
-					style="width: 25%;">
+					style="width: 25%;" maxlength="10">
 			</div>
 			<br> <label for="exampleInputPassword1" class="hora">Email:</label>
 			<input type="email" class="form-control" id="exampleInputPassword1"
-				required="required" maxlength="80" name="email" style="width: 25%;"
+				required="required" maxlength="45" name="email" style="width: 25%;"
 				onsubmit="validaEmail();">
 			</div>
 			<br>
@@ -228,7 +228,7 @@
 				<label for="exampleInputPassword1" class="hora">Senha:</label> <input
 					type="password" class="form-control" id="exampleInputPassword1"
 					required="required" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-					maxlength="32" name="senha" style="width: 25%;"
+					maxlength="32" name="senha" style="width: 25%;" minlength="8"
 					title="A senha deve ter no mínimo 8 e 32 no máximo, que sejam de pelo menos um número e uma letra maiúscula e minúscula:">
 			</div>
 			<br>
@@ -236,7 +236,7 @@
 			<div class="form-group">
 				<label for="exampleInputPassword1" class="hora">Repita sua
 					senha:</label> <input type="password" class="form-control"
-					id="exampleInputPassword1" required="required"
+					id="exampleInputPassword1" required="required" minlength="8"
 					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" maxlength="32"
 					style="width: 25%;">
 			</div>
