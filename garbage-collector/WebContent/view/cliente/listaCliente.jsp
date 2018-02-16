@@ -45,7 +45,6 @@
 				<th>login</th>
 				<th>telefone</th>
 				<th>Email</th>
-				<th>Senha</th>
 				<th>Rua</th>
 				<th>Bairro</th>
 				<th>Cep</th>
@@ -66,7 +65,6 @@
 					<td>${u.nomeUsuario}</td>
 					<td>${u.telefone}</td>
 					<td>${u.email}</td>
-					<td>${u.senha}</td>
 					
 				 <c:forEach items="${listaEndereco}" var="obj">
 						
