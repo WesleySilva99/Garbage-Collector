@@ -33,7 +33,7 @@
 	<c:import url="/view/util/menu.jsp" />
 	
 <div align="center">
-	<hr><h3>Alterar Produto</h3><hr>
+	<hr><h3>Alterar Cliente</h3><hr>
 	</div>
 
 	<form  class="" action="alterarCliente2" method="post" enctype="multipart/form-data">

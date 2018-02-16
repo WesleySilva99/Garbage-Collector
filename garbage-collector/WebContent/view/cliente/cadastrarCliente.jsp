@@ -52,6 +52,15 @@
 			cpf.value += "-";
 		}
 	}
+
+	function validaRG() {
+
+		var rg = document.formulario.rg;
+		if (rg.value.length == 1 || rg.value.length == 5) {
+			rg.value += ".";
+		}
+	}
+
 	function validaTelefone() {
 
 		var tel = document.formulario.telefone;
@@ -61,14 +70,30 @@
 		if (tel.value.length == 3) {
 			tel.value += ")";
 		}
-		if (tel.value.length == 9) {
+		if (tel.value.length == 4) {
+			tel.value += " ";
+		}
+		
+		if (tel.value.length == 10) {
 			tel.value += "-";
 		}
 	}
 	function validaCep() {
+
 		var cep = document.formulario.cep;
+		
 		if (cep.value.length == 5) {
 			cep.value += "-";
+		}
+
+	}
+	function validaEmail() {
+		if (document.formulario.email.value == ""
+				|| document.formulario.email.value.indexOf('@') == -1
+				|| document.formulario.email.value.indexOf('.') == -1) {
+			alert("Preencha corretamente o campo email!");
+			document.formulario.email.focus();
+			return false;
 		}
 	}
 	function validaData() {
@@ -90,20 +115,20 @@
 
 	<br>
 	<hr>
-	<h1 align="center">Cadastro de Pessoas Para o Clan Uchiha</h1>
+	<h1 align="center">Cadastro de Clientes</h1>
 	<hr>
 	<br>
-
+	<center>
 	<fieldset>
 		<legend>Informações Pessoais</legend>
 
-		<div align="center">
+		
 			<h4 style="color: blue";>${msg}</h4>
 		</div>
 		<form class="form-horizontal" action="cadastrarCliente" method="post"
 			onsubmit="return validarCadastro();" name="formulario"
 			id="formulario">
-			<div class="form-group" align="left">
+			<div class="form-group">
 				<label for="exampleInputName" class="hora">Nome Completo:</label> <input
 					type="text" class="form-control" id="exampleInputName"
 					placeholder="João Melo Silva" style="width: 25%"
@@ -272,9 +297,9 @@
 			<button type="submit" class="btn btn-success"
 				onClick="validarCadastro()">Cadastrar</button>
 		</form>
-
+		
 	</fieldset>
-
+	</center>
 	<!-- jQuery (necessario para Bootsrap plungins Java Script) -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

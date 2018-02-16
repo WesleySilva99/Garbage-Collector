@@ -60,17 +60,19 @@
 		if (tel.value.length == 3) {
 			tel.value += ")";
 		}
-		if (tel.value.length == 9) {
+		if (tel.value.length == 4) {
+			tel.value += " ";
+		}
+		
+		if (tel.value.length == 10) {
 			tel.value += "-";
 		}
 	}
 	function validaCep() {
 
 		var cep = document.formulario.cep;
-		if (cep.value.length == 2) {
-			cep.value += ".";
-		}
-		if (cep.value.length == 6) {
+		
+		if (cep.value.length == 5) {
 			cep.value += "-";
 		}
 
@@ -96,7 +98,7 @@
 	<hr>
 	
 	<br>
-	
+	<center>
 	<!-- Formulario -->
 	<fieldset>
 		<legend>Informações Pessoais</legend>
@@ -143,7 +145,7 @@
 			<div class="form-group">
 				<label for="exampleInputName" class="hora">RG:</label> <input
 					type="text" class="form-control" id="exampleInputName"
-					placeholder="0.000.000" required="required" maxlength="10" name="rg"
+					placeholder="0.000.000" required="required" maxlength="9" name="rg"
 					style="width: 25%;" onkeypress="validaRG()">
 			</div>
 			<br>
@@ -198,9 +200,9 @@
 			</div>
 			<br>
 			<div class="form-group">
-				<label for="exampleInputCep" class="hora">Numero da
+				<label for="exampleInputHabilitacao" class="hora">Numero da
 					Habilitação:</label> <input type="number" class="form-control"
-					id="exampleInputCep" required="required" name="numHabilitacao"
+					id="exampleInputHabilitacao" required="required" name="numHabilitacao"
 					style="width: 25%;" maxlength="11">
 			</div>
 			<br>
@@ -282,6 +284,7 @@
 
 		</form>
 	</fieldset>
+	</center>
 	<br>
 	<!-- jQuery (necessario para Bootsrap plungins Java Script) -->
 	<script
