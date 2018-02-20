@@ -105,174 +105,171 @@
 		<form class="form-horizontal" action="cadastrarMotorista"
 			method="post" name="formulario">
 			<fieldset>
-			<div class="form-group">
-				<label for="exampleInputName" class="hora">Nome Completo:</label> <input
+			
+				<div align="center">
+  <div class="form-row">
+    <div class="col-4">
+    <label for="exampleInputName" class="hora">Nome Completo:</label> <input
 					type="text" class="form-control" id="exampleInputName"
 					placeholder="" required="required" maxlength="45" name="nome"
-					style="width: 25%;">
-
-			</div>
-			<br>
-			
-			<div class="form-group">
-				<label for="exampleInputLogin" class="hora">Login:</label> <input
+					style="width: 50%;">
+    </div>
+  <div class="col-4">
+    <label for="exampleInputLogin" class="hora">Login:</label> <input
 					type="text" class="form-control" id="exampleInputLogin"
 					placeholder="" required="required" maxlength="10" name="login"
-					style="width: 25%;">
-
-			</div>
-			<br>
-
-			<div class="form-group">
-				<label for="sexo" class="hora">Sexo</label> <select
-					class="form-control" name="sexo" style="width: 25%;">
+					style="width: 50%;">
+    </div>
+    
+    <div class="col-4">
+ <label for="sexo" class="hora">Sexo</label> <select
+					class="form-control" name="sexo" style="width: 50%;">
 					<option value="">Escolha seu sexo</option>
 					<option value="M">Masculino</option>
 					<option value="F">Feminino</option>
 					<option value="O">Outros</option>
 				</select>
-			</div>
-			<br>
-			<div class="form-group">
-				<label for="exampleInputCpf" class="hora">CPF:</label> <input
+    </div>
+    
+  </div>
+  <!--     Fonts and icons     -->
+  <div class="form-row">
+    <div class="col-4">
+    <label for="exampleInputCpf" class="hora">CPF:</label> <input
 					type="text" class="form-control" id="exampleInputCpf"
-					style="width: 25%;" placeholder="000.000.000-00" min="14"
+					style="width: 50%;" placeholder="000.000.000-00" min="14"
 					maxlength="14" required="required" name="cpf"
 					onkeypress="validaCpf();">
-			</div>
-			<br>
-
-			<div class="form-group">
-				<label for="exampleInputName" class="hora">RG:</label> <input
+    </div>
+    <div class="col-4">
+    <label for="exampleInputName" class="hora">RG:</label> <input
 					type="text" class="form-control" id="exampleInputName"
 					placeholder="0.000.000" required="required" maxlength="9" name="rg"
-					style="width: 25%;" onkeypress="validaRG()">
-			</div>
-			<br>
-
-			<div class="form-group">
-				<label for="exampleInputTelefone" class="hora">Telefone:</label> <input
+					style="width: 50%;" onkeypress="validaRG()">
+    </div>
+    
+<div class="col-4">
+    <label for="exampleInputTelefone" class="hora">Telefone:</label> <input
 					type="text" class="form-control" id="exampleInputTelefone"
 					placeholder="(00) 00000-0000" required="required" maxlength="15"
-					name="telefone" style="width: 25%;" onkeypress="validaTelefone()">
-			</div>
-			<br>
-
-			<div class="form-group">
-				<label for="exampleInputEndereco" class="hora">Endereço:</label> <input
+					name="telefone" style="width: 50%;" onkeypress="validaTelefone()">
+    </div>
+  </div>
+  
+  
+  <!--     Fonts and icons     -->
+  <div class="form-row">
+ <div class="col-4">
+    <label for="exampleInputEndereco" class="hora">Endereço:</label> <input
 					type="text" class="form-control" id="exampleInputEndereco"
 					placeholder="Rua Don Juno nº 425" required="required"
-					maxlength="50" name="rua" style="width: 25%;">
-			</div>
-			<br>
-
-
-
-			<div class="form-group">
-				<label for="exampleInputEndereco" class="hora">Bairro:</label> <input
+					maxlength="50" name="rua" style="width: 50%;">
+    </div>
+ <div class="col-4">
+    <label for="exampleInputEndereco" class="hora">Bairro:</label> <input
 					type="text" class="form-control" id="exampleInputEndereco"
 					required="required" maxlength="20" name="bairro"
-					style="width: 25%;">
-			</div>
-			<br>
-
-			<div class="form-group">
-				<label for="exampleInputCep" class="hora">CEP:</label> <input
+					style="width: 50%;">
+    </div>
+    <div class="col">
+    <label for="exampleInputCep" class="hora">CEP:</label> <input
 					type="text" class="form-control" id="exampleInputCep"
 					placeholder="00.000-000" maxlength="9" required="required"
-					name="cep" style="width: 25%;" onkeypress="validaCep()">
-			</div>
-			<br>
-
-			<div class="form-group">
-				<label for="exampleInputEndereco" class="hora">Complemento:</label> <input
+					name="cep" style="width: 50%;" onkeypress="validaCep()">
+    </div>
+  </div>
+  <!--     Fonts and icons     -->
+  
+  <div class="form-row">
+  
+    <div class="col-4">
+    <label for="exampleInputEndereco" class="hora">Complemento:</label> <input
 					type="text" class="form-control" id="exampleInputEndereco"
 					required="required" maxlength="10" name="complemento"
-					style="width: 25%;">
-			</div>
-			<br>
-
-			<div class="form-group">
-				<label for="exampleInputEndereco" class="hora">Número do Complemento:</label> <input
+					style="width: 50%;">
+    </div>
+    <div class="col-4">
+    <label for="exampleInputEndereco" class="hora">Número do Complemento:</label> <input
 					type="text" class="form-control" id="exampleInputEndereco"
 					required="required" maxlength="6" name="numero"
-					style="width: 25%;">
-			</div>
-			<br>
-			<div class="form-group">
-				<label for="exampleInputHabilitacao" class="hora">Numero da
+					style="width: 50%;" >
+    </div>
+    <div class="col-4">
+    <label for="exampleInputHabilitacao" class="hora">Numero da
 					Habilitação:</label> <input type="number" class="form-control"
 					id="exampleInputHabilitacao" required="required" name="numHabilitacao"
-					style="width: 25%;" maxlength="11">
-			</div>
-			<br>
-
-			<div class="form-group">
-				<label for="exampleInputCep" class="hora">Categoria:</label> <input
+					style="width: 50%;" maxlength="11">
+    </div>
+  </div>
+   <!--     Fonts and icons     -->
+  
+  <div class="form-row">
+  
+    <div class="col-4">
+    <label for="exampleInputCep" class="hora">Categoria:</label> <input
 					type="text" class="form-control" id="exampleInputCep"
-					required="required" name="categoria" style="width: 25%;" maxlength="4">
-			</div>
-			<br>
-
-			<div class="form-group" class="hora">
-				<label for="exampleInputData" class="hora">Data de
+					required="required" name="categoria" style="width: 50%;" maxlength="4">
+    </div>
+    
+    <div class="col-4">
+    <label for="exampleInputData" class="hora">Data de
 					vencimento da carteira:</label> <input type="text" class="form-control"
 					id="exampleInputData" required="required" name="validade"
-					style="width: 25%;" maxlength="10">
-			</div>
-			<br> <label for="exampleInputPassword1" class="hora">Email:</label>
+					style="width: 50%;" maxlength="10">
+    </div>
+    <div class="col-4">
+    <label for="exampleInputPassword1" class="hora">Email:</label>
 			<input type="email" class="form-control" id="exampleInputPassword1"
-				required="required" maxlength="45" name="email" style="width: 25%;"
+				required="required" maxlength="45" name="email" style="width: 50%;"
 				onsubmit="validaEmail();">
-			</div>
-			<br>
-			<div class="form-group">
-				<label for="exampleInputPassword1" class="hora">Senha:</label> <input
+    </div>
+</div>
+
+ <!--     Fonts and icons     -->
+  
+  <div class="form-row">
+  
+    <div class="col-4">
+    <label for="exampleInputPassword1" class="hora">Senha:</label> <input
 					type="password" class="form-control" id="exampleInputPassword1"
 					required="required" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-					maxlength="32" name="senha" style="width: 25%;" minlength="8"
+					maxlength="32" name="senha" style="width: 50%;" minlength="8"
 					title="A senha deve ter no mínimo 8 e 32 no máximo, que sejam de pelo menos um número e uma letra maiúscula e minúscula:">
-			</div>
-			<br>
-
-			<div class="form-group">
-				<label for="exampleInputPassword1" class="hora">Repita sua
+    </div>
+    <div class="col-4">
+    <label for="exampleInputPassword1" class="hora">Repita sua
 					senha:</label> <input type="password" class="form-control"
 					id="exampleInputPassword1" required="required" minlength="8"
 					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" maxlength="32"
-					style="width: 25%;">
-			</div>
-			<br>
-
-			</fieldset>
-			<fieldset>
-				<legend>Informações da Empresa</legend>
-				<div class="form-group" class="hora">
-					<label for="exampleInputCep">Placa do veiculo:</label> <input
+					style="width: 50%;">
+    </div>
+    <div class="col-4">
+    <label for="exampleInputCep">Placa do veiculo:</label> <input
 						type="text" class="form-control" id="exampleInputCep"
-						required="required" name="placaVeiculo" style="width: 25%;">
-				</div>
-				<br>
-
-				<div class="form-group">
-					<label for="exampleInputCep" class="hora">Marca:</label> <input
+						required="required" name="placaVeiculo" style="width: 50%;">
+    </div>
+    </div>
+    
+    <!--     Fonts and icons     -->
+  
+  <div class="form-row">
+  
+    <div class="col-4">
+    <label for="exampleInputCep" class="hora">Marca:</label> <input
 						type="text" class="form-control" id="exampleInputCep"
-						required="required" name="marcaVeiculo" style="width: 25%;">
-				</div>
-				<br>
-
-				<div class="form-group">
-					<label for="exampleInputCep" class="hora">Ano do veiculo:</label> <input
+						required="required" name="marcaVeiculo" style="width: 50%;">
+    </div>
+    <div class="col-4">
+    <label for="exampleInputCep" class="hora">Ano do veiculo:</label> <input
 						type="text" class="form-control" id="exampleInputCep"
-						required="required" name="anoVeiculo" style="width: 25%;">
-				</div>
-				<br>
-				
-				<div class="form-group" class="hora">
-				<label for="exampleInputData" class="hora">Chassí:</label> <input type="text" class="form-control"
+						required="required" name="anoVeiculo" style="width: 50%;">
+    </div>
+    <div class="col-4">
+    <label for="exampleInputData" class="hora">Chassí:</label> <input type="text" class="form-control"
 					id="exampleInputData" required="required" name="chasi"
-					style="width: 25%;">
-			</div>
+					style="width: 50%;">
+    </div>
+    </div>
 			</fieldset>
 
 
