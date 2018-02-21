@@ -54,7 +54,6 @@ foreign key(id_endereco) references endereco(id)
 create table pedido(
 
 id int auto_increment,
-tipoColeta varchar(50) not null,
 descricao varchar(100) not null,
 quantidade int not null,
 endereco varchar(50) not null,
@@ -63,6 +62,14 @@ cep varchar(9) not null,
 busca_material datetime,
 primary key (id)
 
+);
+
+create table tipo_coleta(
+
+id int primary key auto_increment,
+descricao varchar(45),
+id_pedido int,
+foreign key(id_pedido) references pedido(id)
 );
 
 select * from pedido;
