@@ -26,7 +26,7 @@ public class SolicitarColetaController {
 		public String CadastraSolicitarColeta(SolicitarColeta solicitarcoleta, Model model) {
 			SolicitarColetaDao dao = new SolicitarColetaDao();
 			dao.Inserir(solicitarcoleta);
-			model.addAttribute("msg", "Coleta cadastrada vamos mandar alguém passar aí para coletar os materiais");
+			model.addAttribute("msg", "Coleta cadastrada com sucesso!");
 			System.out.println("Cadastrando a coleta");
 			return "forward:exibirSolicitarColeta";
 		}

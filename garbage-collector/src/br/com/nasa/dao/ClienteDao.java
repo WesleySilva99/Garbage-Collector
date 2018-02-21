@@ -28,6 +28,7 @@ public class ClienteDao {
 
 		String sql = "INSERT INTO cliente" + "(nome, login, email, dt_nasc, cpf,  senha, telefone)"
 				+ "VALUES (?,?,?,?,?,?,?)";
+		
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
@@ -39,6 +40,7 @@ public class ClienteDao {
 			stmt.setString(5, cliente.getCpf());
 			stmt.setString(6, cliente.getSenha());
 			stmt.setString(7, cliente.getTelefone());
+		
 
 			stmt.execute();
 			stmt.close();
@@ -64,6 +66,7 @@ public class ClienteDao {
 				cliente.setDataNascimento(rs.getDate("dt_nasc"));
 				cliente.setTelefone(rs.getString("telefone"));
 				cliente.setEmail(rs.getString("email"));
+				
 
 				listaCliente.add(cliente);
 			}
