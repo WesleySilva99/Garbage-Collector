@@ -8,9 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.nasa.dao.ClienteDao;
-import br.com.nasa.dao.SolicitarColetaDao;
+import br.com.nasa.dao.PedidoDao;
 import br.com.nasa.model.Cliente;
-import br.com.nasa.model.SolicitarColeta;
+import br.com.nasa.model.Pedido;
 
 @Controller
 public class SolicitarColetaController {
@@ -23,8 +23,8 @@ public class SolicitarColetaController {
 		}
 		
 		@RequestMapping("/CadastraSolicitarColeta")
-		public String CadastraSolicitarColeta(SolicitarColeta solicitarcoleta, Model model) {
-			SolicitarColetaDao dao = new SolicitarColetaDao();
+		public String CadastraSolicitarColeta(Pedido solicitarcoleta, Model model) {
+			PedidoDao dao = new PedidoDao();
 			dao.Inserir(solicitarcoleta);
 			model.addAttribute("msg", "Coleta cadastrada com sucesso!");
 			System.out.println("Cadastrando a coleta");
@@ -33,15 +33,15 @@ public class SolicitarColetaController {
 		
 		@RequestMapping("/listarColeta")
 		public String listarColeta(Model model) {
-			SolicitarColetaDao dao = new SolicitarColetaDao();
-			List<SolicitarColeta> listaColeta = dao.listar();
+			PedidoDao dao = new PedidoDao();
+			List<Pedido> listaColeta = dao.listar();
 			model.addAttribute("listaColeta", listaColeta);
 			return "solicitarColeta/cancelarColeta";
 		}
 		
 		@RequestMapping("/cancelarColeta")
-		public String cancelarColeta(SolicitarColeta solicitarcoleta, Model model) {
-			SolicitarColetaDao dao = new SolicitarColetaDao();
+		public String cancelarColeta(Pedido solicitarcoleta, Model model) {
+			PedidoDao dao = new PedidoDao();
 			dao.remover(solicitarcoleta);
 			model.addAttribute("msg", "Coleta cancelada com sucesso!");
 			return "forward:listarColeta";
