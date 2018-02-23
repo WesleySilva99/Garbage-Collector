@@ -9,11 +9,10 @@ public class Cliente {
 	private String cpf;
 	private Date dataNascimento;
 	private String senha;
-	private Endereco endereco;
+	private Endereco endereco = new Endereco();
 	private String telefone;
 	private String email;
 
-	
 	public int getId() {
 		return id;
 	}
@@ -29,7 +28,7 @@ public class Cliente {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}

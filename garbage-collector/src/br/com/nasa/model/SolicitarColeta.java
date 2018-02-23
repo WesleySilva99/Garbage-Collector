@@ -8,6 +8,15 @@ public class SolicitarColeta {
 	private String endereco;
 	private String numero;
 	private String cep;
+	private Cliente cliente;
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
 
 	public String getNumero() {
 		return numero;

@@ -21,23 +21,21 @@ public class ClienteController {
 	}
 
 	@RequestMapping("/cadastrarCliente")
-	public String cadastrarCliente(Cliente cliente, Endereco e, Model model) {
+	public String cadastrarCliente(Cliente cliente,Endereco endereco, Model model) {
 		ClienteDao dao = new ClienteDao();
 
 		if (dao.verificaLoginExistente(cliente.getNomeUsuario()) == true) {
-			dao.Inserir(cliente);
-			EnderecoDao dao2 = new EnderecoDao();
-			dao2.inserir(e);
+			dao.Inserir(cliente, endereco);
+			
 
-			model.addAttribute("msg", "VocÃª foi cadastrado com sucesso!");
+			model.addAttribute("msg", "Você foi cadastrado com sucesso!");
 			System.out.println("Cadastrando Clientes");
 			
 		}else {
 			
-			model.addAttribute("msg", "O login jÃ¡ existe!");
+			model.addAttribute("msg", "O login já existe!");
 			model.addAttribute("c", cliente);
-			model.addAttribute("e", e);
-			System.out.println("Tente novamente, Login jÃ¡ existente");
+			System.out.println("Tente novamente, Login já existente");
 			return "cliente/cadastrarCliente";
 			
 		}
@@ -53,9 +51,6 @@ public class ClienteController {
 		List<Cliente> listaCliente = dao.listar();
 		model.addAttribute("listaCliente", listaCliente);
 		
-		EnderecoDao dao1 = new EnderecoDao();
-		List<Endereco> listaEndereco = dao1.listar();
-		model.addAttribute("listaEndereco", listaEndereco);
 		return "cliente/listaCliente";
 	}
 

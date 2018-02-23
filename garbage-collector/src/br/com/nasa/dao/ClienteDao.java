@@ -4,12 +4,15 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import com.mysql.jdbc.Connection;
 
 import br.com.nasa.model.Cliente;
+import br.com.nasa.model.Endereco;
 import br.com.nasa.util.ConnectionFactory;
 
 public class ClienteDao {
@@ -24,8 +27,29 @@ public class ClienteDao {
 		}
 	}
 
-	public void Inserir(Cliente cliente) {
-
+	public void Inserir(Cliente cliente, Endereco endereco) {
+		
+		String sq = "insert into endereco(rua, cep, bairro, numero, complemento)"+
+				"values (?,?,?,?,?)";
+		try {
+			PreparedStatement stmt = connection.prepareStatement(sq);
+			
+			stmt.setString(1, cliente.getEndereco().getRua());
+			stmt.setString(2, cliente.getEndereco().getCep());
+			stmt.setString(3, cliente.getEndereco().getBairro());
+			stmt.setString(4, cliente.getEndereco().getNumero());
+			stmt.setString(5, cliente.getEndereco().getComplemento());
+			
+			stmt.execute();
+			
+			
+			
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		
+		
 		String sql = "INSERT INTO cliente" + "(nome, login, email, dt_nasc, cpf,  senha, telefone)"
 				+ "VALUES (?,?,?,?,?,?,?)";
 		
@@ -35,12 +59,14 @@ public class ClienteDao {
 
 			stmt.setString(1, cliente.getNome());
 			stmt.setString(2, cliente.getNomeUsuario());
-			stmt.setString(3, cliente.getEmail());
+			stmt.setString(3, cliente.getEmail());			
 			stmt.setDate(4, new Date(cliente.getDataNascimento().getTime()));
 			stmt.setString(5, cliente.getCpf());
 			stmt.setString(6, cliente.getSenha());
 			stmt.setString(7, cliente.getTelefone());
-		
+
+			
+			
 
 			stmt.execute();
 			stmt.close();
@@ -66,6 +92,12 @@ public class ClienteDao {
 				cliente.setDataNascimento(rs.getDate("dt_nasc"));
 				cliente.setTelefone(rs.getString("telefone"));
 				cliente.setEmail(rs.getString("email"));
+				cliente.setSenha(rs.getString("senha"));
+				
+				int idEndereco = rs.getInt("id_endereco");
+				EnderecoDao dao = new EnderecoDao();
+				Endereco cp = dao.pegarId(idEndereco);
+				cliente.setEndereco(cp);
 				
 
 				listaCliente.add(cliente);
@@ -164,5 +196,6 @@ public class ClienteDao {
 			throw new RuntimeException(e);
 		}
 	}
+		
 
 }

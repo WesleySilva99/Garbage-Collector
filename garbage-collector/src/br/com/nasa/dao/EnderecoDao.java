@@ -74,6 +74,62 @@ public class EnderecoDao {
 			throw new RuntimeException(e);
 		}
 	}
+	public void alterar(Endereco endereco) {
 
+		String sql = "UPDATE endereco SET rua = ?, bairro = ?, cep = ?, complemento = ?, numero = ? WHERE id = ?";
+		PreparedStatement stmt;
+		try {
+
+			stmt = connection.prepareStatement(sql);
+
+			stmt.setInt(1, endereco.getId());
+			stmt.setString(2, endereco.getRua());
+			stmt.setString(3, endereco.getBairro());
+			stmt.setString(4, endereco.getCep());
+			stmt.setString(5, endereco.getComplemento());
+			stmt.setString(6, endereco.getNumero());
+			
+			stmt.execute();
+			connection.close();
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public Endereco pegarId(int id) {
+
+		try {
+
+			Endereco enderecoCompleto = new Endereco();
+
+			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM endereco WHERE id =  ?");
+			stmt.setInt(1, id);
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+
+				enderecoCompleto.setId(rs.getInt("id"));
+				enderecoCompleto.setRua(rs.getString("rua"));
+				enderecoCompleto.setBairro(rs.getString("bairro"));
+				enderecoCompleto.setCep(rs.getString("cep"));
+				enderecoCompleto.setComplemento(rs.getString("complemento"));
+				enderecoCompleto.setNumero(rs.getString("numero"));
+				
+			}
+
+			rs.close();
+			stmt.close();
+			connection.close();
+
+			return enderecoCompleto;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 
 }
+
+

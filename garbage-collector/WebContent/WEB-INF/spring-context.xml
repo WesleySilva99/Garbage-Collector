@@ -10,7 +10,7 @@ http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<context:component-scan base-package="br.com.nasa" />
-	<mvc:annotation-driven />
+	<mvc:annotation-driven conversion-service="conversionService" />
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -25,4 +25,13 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	<!-- A linha abaixo é necessária para poder carregar nos JSP os arquivos 
 		CSS, imagens, JavaScript e etc -->
 	<mvc:default-servlet-handler />
+
+	<bean id="conversionService"
+		class="org.springframework.context.support.ConversionServiceFactoryBean">
+		<property name="converters">
+			<list>
+				<bean class="br.com.nasa.controller.EnderecoConverter" />
+			</list>
+		</property>
+	</bean>
 </beans>
