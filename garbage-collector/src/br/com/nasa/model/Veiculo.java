@@ -2,11 +2,11 @@ package br.com.nasa.model;
 
 public class Veiculo {
 	
-	int id;
-	String chasi;
-	String placa;
-	String marca;
-	String anoVeiculo;
+	private int id;
+	private String chasi;
+	private String placa;
+	private String marca;
+	private String anoVeiculo;
 	public int getId() {
 		return id;
 	}
