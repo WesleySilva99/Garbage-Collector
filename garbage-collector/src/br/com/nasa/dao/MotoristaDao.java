@@ -23,11 +23,51 @@ public class MotoristaDao {
 		}
 	}
 
-	public void Inserir(Motorista motorista) {
+	public void Inserir(Motorista motorista) throws SQLException {
+		
+		EnderecoDao dao = new EnderecoDao();
+		
+		dao.inserir(motorista.getEndereco());
+		
+		int idEndereco = 0;
+		
+		String sql = "SELECT MAX(id) FROM endereco";
+		
+		PreparedStatement stmt1 = this.connection.prepareStatement(sql);
+		ResultSet rs = stmt1.executeQuery();
 
-		String sql = "INSERT INTO motorista"
-				+ "(nome, telefone, cpf, rg, sexo, n_abilitacao, dataVencimento, cat_abilitacao, CHASI, placa, marca, ano_veiculo, login, senha, email)"
-				+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		while (rs.next()) {
+			
+			idEndereco = rs.getInt("max(id)");
+			
+		}
+		rs.close();
+		stmt1.close();
+		
+		VeiculoDao dao2 = new VeiculoDao();
+		
+		dao2.inserir(motorista.getVeiculo());
+		
+		int idVeiculo = 0;
+		
+		sql = "select max(id) from veiculo";
+		
+		PreparedStatement stmt2 = this.connection.prepareStatement(sql);
+		ResultSet rs1 = stmt2.executeQuery();
+
+		while (rs1.next()) {
+			
+			idVeiculo = rs1.getInt("max(id)");
+			
+		}
+		rs1.close();
+		stmt2.close();
+		
+		
+
+		sql = "INSERT INTO motorista"
+				+ "(nome, telefone, cpf, rg, sexo, n_abilitacao, dataVencimento, cat_abilitacao, login, senha, email, id_endereco, id_veiculo)"
+				+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
@@ -39,13 +79,11 @@ public class MotoristaDao {
 			stmt.setInt(6, motorista.getNumHabilitacao());
 			stmt.setDate(7, new java.sql.Date(motorista.getValidade().getTime()));
 			stmt.setString(8, motorista.getCategoria());
-			stmt.setString(9, motorista.getChasi());
-			stmt.setString(10, motorista.getPlacaVeiculo());
-			stmt.setString(11, motorista.getMarcaVeiculo());
-			stmt.setInt(12, motorista.getAnoVeiculo());
-			stmt.setString(13, motorista.getLogin());
-			stmt.setString(14, motorista.getSenha());
-			stmt.setString(15, motorista.getEmail());
+			stmt.setString(9, motorista.getLogin());
+			stmt.setString(10, motorista.getSenha());
+			stmt.setString(11, motorista.getEmail());
+			stmt.setInt(12, idEndereco);
+			stmt.setInt(13, idVeiculo);
 
 			stmt.execute();
 			stmt.close();
@@ -72,13 +110,16 @@ public class MotoristaDao {
 				motorista.setTelefone(rs.getString("telefone"));
 				motorista.setNumHabilitacao(rs.getInt("numHabilitacao"));
 				motorista.setCategoria(rs.getString("categoria"));
+				/*
 				motorista.setChasi(rs.getString("chasi"));
 				motorista.setPlacaVeiculo(rs.getString("placaVeiculo"));
 				motorista.setMarcaVeiculo(rs.getString("marcaVeiculo"));
 				motorista.setAnoVeiculo(rs.getInt("anoVeiculo"));
+				*/
 				motorista.setLogin(rs.getString("login"));
 				motorista.setSenha(rs.getString("senha"));
 				listaMotorista.add(motorista);
+				
 
 			}
 			stmt.execute();

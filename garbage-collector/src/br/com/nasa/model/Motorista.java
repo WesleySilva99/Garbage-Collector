@@ -13,10 +13,7 @@ public class Motorista {
 	private int numHabilitacao;
 	private Date validade;
 	private String categoria;
-	private String chasi;
-	private String placaVeiculo;
-	private String marcaVeiculo;
-	private int anoVeiculo;
+	private Veiculo veiculo;
 	private String email;
 	private String senha;
 	
@@ -116,36 +113,14 @@ public class Motorista {
 		this.categoria = categoria;
 	}
 
-	public String getChasi() {
-		return chasi;
+	public Veiculo getVeiculo() {
+		return veiculo;
 	}
 
-	public void setChasi(String chasi) {
-		this.chasi = chasi;
+	public void setVeiculo(Veiculo veiculo) {
+		this.veiculo = veiculo;
 	}
 
-	public String getPlacaVeiculo() {
-		return placaVeiculo;
-	}
-
-	public void setPlacaVeiculo(String placaVeiculo) {
-		this.placaVeiculo = placaVeiculo;
-	}
-
-	public String getMarcaVeiculo() {
-		return marcaVeiculo;
-	}
-
-	public void setMarcaVeiculo(String marcaVeiculo) {
-		this.marcaVeiculo = marcaVeiculo;
-	}
-
-	public int getAnoVeiculo() {
-		return anoVeiculo;
-	}
-
-	public void setAnoVeiculo(int anoVeiculo) {
-		this.anoVeiculo = anoVeiculo;
-	}
+	
 
 }

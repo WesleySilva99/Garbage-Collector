@@ -1,5 +1,7 @@
 package br.com.nasa.controller;
 
+import java.sql.SQLException;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +21,7 @@ public class MotoristaController {
 	}
 
 	@RequestMapping("/cadastrarMotorista")
-	public String cadastrarMotorista(Motorista motorista, Endereco e, Model model) {
+	public String cadastrarMotorista(Motorista motorista, Endereco e, Model model) throws SQLException {
 		MotoristaDao dao = new MotoristaDao();
 		EnderecoDao dao2 = new EnderecoDao();
 
