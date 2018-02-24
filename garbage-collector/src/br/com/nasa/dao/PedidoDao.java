@@ -8,12 +8,7 @@ import java.util.List;
 
 import com.mysql.jdbc.Connection;
 
-<<<<<<< HEAD:garbage-collector/src/br/com/nasa/dao/SolicitarColetaDao.java
-import br.com.nasa.model.Cliente;
-import br.com.nasa.model.SolicitarColeta;
-=======
 import br.com.nasa.model.Pedido;
->>>>>>> 8d2070d46e22ff5e1606cee235d064208f2042a6:garbage-collector/src/br/com/nasa/dao/PedidoDao.java
 import br.com.nasa.util.ConnectionFactory;
 
 public class PedidoDao {
@@ -97,63 +92,4 @@ public class PedidoDao {
 		}
 
 	}
-	
-	public void alterar(SolicitarColeta solicitarcoleta) {
-
-		String sql = "UPDATE pedido SET tipoColeta = ?, descricao = ?, quantidade = ?, endereco = ?, numero = ?, cep = ? WHERE id = ?";
-		PreparedStatement stmt;
-		try {
-
-			stmt = connection.prepareStatement(sql);
-
-			stmt.setInt(1, solicitarcoleta.getId());
-			stmt.setString(2, solicitarcoleta.getTipoColeta());
-			stmt.setString(3, solicitarcoleta.getDescricao());
-			stmt.setShort(4, solicitarcoleta.getQuantidade());
-			stmt.setString(5, solicitarcoleta.getEndereco());
-			stmt.setString(6, solicitarcoleta.getNumero());
-			stmt.setString(7, solicitarcoleta.getCep());
-			
-			stmt.execute();
-			connection.close();
-
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
-	}
-
-	public SolicitarColeta pegarId(int id) {
-
-		try {
-
-			SolicitarColeta coletaCompleta = new SolicitarColeta();
-
-			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM pedido WHERE id =  ?");
-			stmt.setInt(1, id);
-			ResultSet rs = stmt.executeQuery();
-
-			while (rs.next()) {
-
-				coletaCompleta.setId(rs.getInt("id"));
-				coletaCompleta.setTipoColeta(rs.getString("tipoColeta"));
-				coletaCompleta.setDescricao(rs.getString("descricao"));
-				coletaCompleta.setQuantidade(rs.getShort("quantidade"));
-				coletaCompleta.setEndereco(rs.getString("endereco"));
-				coletaCompleta.setNumero(rs.getString("numero"));
-				coletaCompleta.setCep(rs.getString("cep"));
-				
-			}
-
-			rs.close();
-			stmt.close();
-			connection.close();
-
-			return coletaCompleta;
-
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
-	}
-
-
 }
