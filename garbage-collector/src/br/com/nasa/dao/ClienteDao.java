@@ -27,46 +27,42 @@ public class ClienteDao {
 		}
 	}
 
-	public void Inserir(Cliente cliente, Endereco endereco) {
-		
-		String sq = "insert into endereco(rua, cep, bairro, numero, complemento)"+
-				"values (?,?,?,?,?)";
-		try {
-			PreparedStatement stmt = connection.prepareStatement(sq);
-			
-			stmt.setString(1, cliente.getEndereco().getRua());
-			stmt.setString(2, cliente.getEndereco().getCep());
-			stmt.setString(3, cliente.getEndereco().getBairro());
-			stmt.setString(4, cliente.getEndereco().getNumero());
-			stmt.setString(5, cliente.getEndereco().getComplemento());
-			
-			stmt.execute();
-			
-			
-			
-			
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
+	public void Inserir(Cliente cliente) throws SQLException {
+
+		EnderecoDao dao = new EnderecoDao();
+
+		dao.inserir(cliente.getEndereco());
+
+		int idEndereco = 0;
+
+		String sql1 = "SELECT MAX(id) FROM endereco";
+
+		PreparedStatement stmt1 = this.connection.prepareStatement(sql1);
+
+		ResultSet rs = stmt1.executeQuery();
+
+		while (rs.next()) {
+
+			idEndereco = rs.getInt("max(id)");
+
 		}
-		
-		
-		String sql = "INSERT INTO cliente" + "(nome, login, email, dt_nasc, cpf,  senha, telefone)"
-				+ "VALUES (?,?,?,?,?,?,?)";
-		
+		stmt1.close();
+		rs.close();
+
+		String sql = "INSERT INTO cliente" + "(nome, login, email, dt_nasc, cpf,  senha, telefone, id_endereco)"
+				+ "VALUES (?,?,?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
 			stmt.setString(1, cliente.getNome());
 			stmt.setString(2, cliente.getNomeUsuario());
-			stmt.setString(3, cliente.getEmail());			
+			stmt.setString(3, cliente.getEmail());
 			stmt.setDate(4, new Date(cliente.getDataNascimento().getTime()));
 			stmt.setString(5, cliente.getCpf());
 			stmt.setString(6, cliente.getSenha());
 			stmt.setString(7, cliente.getTelefone());
-
-			
-			
+			stmt.setInt(8, idEndereco);
 
 			stmt.execute();
 			stmt.close();
@@ -93,12 +89,11 @@ public class ClienteDao {
 				cliente.setTelefone(rs.getString("telefone"));
 				cliente.setEmail(rs.getString("email"));
 				cliente.setSenha(rs.getString("senha"));
-				
+
 				int idEndereco = rs.getInt("id_endereco");
 				EnderecoDao dao = new EnderecoDao();
 				Endereco cp = dao.pegarId(idEndereco);
 				cliente.setEndereco(cp);
-				
 
 				listaCliente.add(cliente);
 			}
@@ -170,7 +165,7 @@ public class ClienteDao {
 		}
 	}
 
-	public boolean verificaLoginExistente(String login){
+	public boolean verificaLoginExistente(String login) {
 		boolean existe = true;
 		String sql = "SELECT login FROM cliente WHERE login = ?";
 
@@ -190,12 +185,11 @@ public class ClienteDao {
 			}
 			rs.close();
 			stmt.close();
-			
+
 			return existe;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
 	}
-		
 
 }

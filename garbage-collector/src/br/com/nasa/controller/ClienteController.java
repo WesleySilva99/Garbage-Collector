@@ -1,5 +1,6 @@
 package br.com.nasa.controller;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -21,11 +22,12 @@ public class ClienteController {
 	}
 
 	@RequestMapping("/cadastrarCliente")
-	public String cadastrarCliente(Cliente cliente,Endereco endereco, Model model) {
+	public String cadastrarCliente(Cliente cliente, Model model) throws SQLException {
 		ClienteDao dao = new ClienteDao();
+		
 
 		if (dao.verificaLoginExistente(cliente.getNomeUsuario()) == true) {
-			dao.Inserir(cliente, endereco);
+			dao.Inserir(cliente);
 			
 
 			model.addAttribute("msg", "Você foi cadastrado com sucesso!");

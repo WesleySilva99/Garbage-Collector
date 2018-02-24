@@ -139,7 +139,7 @@
 					required="Para realizar o cadastro preencha este campo com o seu nome completo"
 								maxlength="40" name="nome"
 								pattern="[AÁÉÍÓÚÂÊÎÔÛ-ZáéíóúâêîôûçÁÉÍÓÚÂÊÎÔÛa-z ]+"
-								value="${c.nome}">
+								>
 						</div>
 						<div class="col-4">
 							<label for="exampleInputData">Data de Nascimento:</label>
@@ -176,7 +176,7 @@
 								;
 					required="Para realizar o cadastro preencha este campo com seu CPF"
 								name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-								onkeypress="validaCpf()" value="${c.cpf}">
+								onkeypress="validaCpf()">
 						</div>
 
 					</div>
@@ -188,8 +188,8 @@
 								placeholder="00000-000" style="width: 50%"
 								;
 				required="Para realizar o cadastro preencha este campo com o cep da sua rua"
-								maxlength="9" name="Endereco.cep" pattern="\d{5}-?\d{3}"
-								onkeypress="validaCep()" value="${e.cep}">
+								maxlength="9" name="endereco.cep" pattern="\d{5}-?\d{3}"
+								onkeypress="validaCep()">
 						</div>
 						<div class="col-4">
 							<label for="exampleInputTelefone" class="hora">Telefone:</label>
@@ -208,7 +208,7 @@
 				placeholder="João@exemplo.com"
 								required="Para realizar o cadastro preencha este campo com o seu email"
 								pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" maxlength="50"
-								name="email" value="${c.email}">
+								name="email">
 						</div>
 					</div>
 
@@ -220,8 +220,8 @@
 							<input type="text" class="form-control" id="exampleInputEndereco"
 								style="width: 50%" ;
 				placeholder="Rua Don Juno nº 425"
-								required="required" maxlength="50" name="Endereco.rua"
-								value="${e.rua}">
+								required="required" maxlength="50" name="endereco.rua"
+								>
 						</div>
 						<div class="col-4">
 							<label for="exampleInputName" class="hora">Complemento:</label> <input
@@ -230,8 +230,8 @@
 				placeholder="Casa"
 								pattern="[a-zA-Z0-9]+"
 								required="Para realizar o cadastro preencha este campo com o seu complemento"
-								maxlength="15" name="Endereco.complemento"
-								value="${e.complemento}">
+								maxlength="15" name="endereco.complemento"
+								>
 						</div>
 						<div class="col">
 							<label for="exampleInputEndereco" class="hora">Número do
@@ -239,7 +239,7 @@
 								id="exampleInputEndereco" style="width: 50%"
 								;
 				placeholder="Ex: 0000" required="required" maxlength="50"
-								name="Endereco.numero" value="${e.numero}">
+								name="endereco.numero">
 						</div>
 					</div>
 					<!--     Fonts and icons     -->
@@ -251,8 +251,8 @@
 								type="text" class="form-control" id="exampleInputEndereco"
 								style="width: 50%" ;
 				placeholder="Ex: COHAB"
-								required="required" maxlength="50" name="Endereco.bairro"
-								value="${e.bairro}">
+								required="required" maxlength="50" name="endereco.bairro"
+								>
 						</div>
 						<div class="col-4">
 							<label for="exampleInputName" class="hora">Nome do
@@ -261,7 +261,7 @@
 								pattern="[a-zA-Z0-9]+" style="width: 50%"
 								;
 					required="Para realizar o cadastro preencha este campo com seu nome de usuário"
-								maxlength="15" name="nomeUsuario" value="${c.nomeUsuario}">
+								maxlength="15" name="nomeUsuario">
 						</div>
 						<div class="col-4">
 							<label for="exampleInputPassword1" class="hora">Senha:</label> <input

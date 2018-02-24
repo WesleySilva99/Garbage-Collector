@@ -67,11 +67,11 @@
 					<td>${u.email}</td>
 					
 						
-					<td>${u.Endereco.rua}</td>
-					<td>${u.Endereco.bairro}</td>
-					<td>${u.Endereco.cep}</td>
-					<td>${u.Endereco.complemento}</td>
-					<td>${u.Endereco.numero}</td>
+					<td>${u.endereco.rua}</td>
+					<td>${u.endereco.bairro}</td>
+					<td>${u.endereco.cep}</td>
+					<td>${u.endereco.complemento}</td>
+					<td>${u.endereco.numero}</td>
 					
 					
 					
