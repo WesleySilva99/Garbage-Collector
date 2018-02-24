@@ -163,19 +163,19 @@
     <label for="exampleInputEndereco" class="hora">Endereço:</label> <input
 					type="text" class="form-control" id="exampleInputEndereco"
 					placeholder="Rua Don Juno nº 425" required="required"
-					maxlength="50" name="rua" style="width: 50%;">
+					maxlength="50" name="endereco.rua" style="width: 50%;">
     </div>
  <div class="col-4">
     <label for="exampleInputEndereco" class="hora">Bairro:</label> <input
 					type="text" class="form-control" id="exampleInputEndereco"
-					required="required" maxlength="20" name="bairro"
+					required="required" maxlength="20" name="endereco.bairro"
 					style="width: 50%;">
     </div>
     <div class="col">
     <label for="exampleInputCep" class="hora">CEP:</label> <input
 					type="text" class="form-control" id="exampleInputCep"
 					placeholder="00.000-000" maxlength="9" required="required"
-					name="cep" style="width: 50%;" onkeypress="validaCep()">
+					name="endereco.cep" style="width: 50%;" onkeypress="validaCep()">
     </div>
   </div>
   <!--     Fonts and icons     -->
@@ -185,13 +185,13 @@
     <div class="col-4">
     <label for="exampleInputEndereco" class="hora">Complemento:</label> <input
 					type="text" class="form-control" id="exampleInputEndereco"
-					required="required" maxlength="10" name="complemento"
+					required="required" maxlength="10" name="endereco.complemento"
 					style="width: 50%;">
     </div>
     <div class="col-4">
     <label for="exampleInputEndereco" class="hora">Número do Complemento:</label> <input
 					type="text" class="form-control" id="exampleInputEndereco"
-					required="required" maxlength="6" name="numero"
+					required="required" maxlength="6" name="endereco.numero"
 					style="width: 50%;" >
     </div>
     <div class="col-4">
@@ -246,7 +246,7 @@
     <div class="col-4">
     <label for="exampleInputCep">Placa do veiculo:</label> <input
 						type="text" class="form-control" id="exampleInputCep"
-						required="required" name="placaVeiculo" style="width: 50%;">
+						required="required" name="veiculo.placa" style="width: 50%;">
     </div>
     </div>
     
@@ -257,16 +257,16 @@
     <div class="col-4">
     <label for="exampleInputCep" class="hora">Marca:</label> <input
 						type="text" class="form-control" id="exampleInputCep"
-						required="required" name="marcaVeiculo" style="width: 50%;">
+						required="required" name="veiculo.marca" style="width: 50%;">
     </div>
     <div class="col-4">
     <label for="exampleInputCep" class="hora">Ano do veiculo:</label> <input
 						type="text" class="form-control" id="exampleInputCep"
-						required="required" name="anoVeiculo" style="width: 50%;">
+						required="required" name="veiculo.anoVeiculo" style="width: 50%;">
     </div>
     <div class="col-4">
     <label for="exampleInputData" class="hora">Chassí:</label> <input type="text" class="form-control"
-					id="exampleInputData" required="required" name="chasi"
+					id="exampleInputData" required="required" name="veiculo.chasi"
 					style="width: 50%;">
     </div>
     </div>

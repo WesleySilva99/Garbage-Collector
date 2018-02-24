@@ -1671,7 +1671,7 @@ fieldset[disabled] .btn-primary.active {
 }
 
 .btn-success {
-    background-color: #18ce0f;
+    background-color: #808080;
     color: #FFFFFF;
 }
 
@@ -1831,7 +1831,7 @@ fieldset[disabled] .btn-info.active {
 }
 
 .btn-warning {
-    background-color: #FFB236;
+    background-color: #dc3545;
     color: #FFFFFF;
 }
 
@@ -3731,7 +3731,7 @@ body {
 }
 
 .bg-primary {
-    background-color: #f96332 !important;
+    background-color: #1f8d80 !important;
 }
 
 .bg-info {

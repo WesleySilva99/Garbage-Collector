@@ -8,15 +8,19 @@ import java.util.List;
 
 import com.mysql.jdbc.Connection;
 
+<<<<<<< HEAD:garbage-collector/src/br/com/nasa/dao/SolicitarColetaDao.java
 import br.com.nasa.model.Cliente;
 import br.com.nasa.model.SolicitarColeta;
+=======
+import br.com.nasa.model.Pedido;
+>>>>>>> 8d2070d46e22ff5e1606cee235d064208f2042a6:garbage-collector/src/br/com/nasa/dao/PedidoDao.java
 import br.com.nasa.util.ConnectionFactory;
 
-public class SolicitarColetaDao {
+public class PedidoDao {
 	
 	private Connection connection;
 
-	public SolicitarColetaDao() {
+	public PedidoDao() {
 		try {
 			this.connection = (Connection) new ConnectionFactory().getConnection();
 		} catch (SQLException e) {
@@ -24,7 +28,7 @@ public class SolicitarColetaDao {
 		}
 	}
 
-	public void Inserir(SolicitarColeta solicitarcoleta) {
+	public void Inserir(Pedido solicitarcoleta) {
 
 		String sql = "INSERT INTO pedido" + "(tipoColeta, descricao, quantidade, endereco, numero, cep)"
 				+ "VALUES (?,?,?,?,?,?)";
@@ -47,14 +51,14 @@ public class SolicitarColetaDao {
 
 	}
 	
-	public List<SolicitarColeta> listar() {
+	public List<Pedido> listar() {
 		try {
-			List<SolicitarColeta> listaColeta = new ArrayList<SolicitarColeta>();
+			List<Pedido> listaColeta = new ArrayList<Pedido>();
 			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM pedido");
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
-				SolicitarColeta coleta = new SolicitarColeta();
+				Pedido coleta = new Pedido();
 				coleta.setId(rs.getInt("id"));
 				coleta.setTipoColeta(rs.getString("tipoColeta"));
 				coleta.setDescricao(rs.getString("descricao"));
@@ -76,7 +80,7 @@ public class SolicitarColetaDao {
 		}
 	}
 	
-	public void remover(SolicitarColeta solicitarcoleta) {
+	public void remover(Pedido solicitarcoleta) {
 
 		String sql = "DELETE FROM pedido where id =?";
 

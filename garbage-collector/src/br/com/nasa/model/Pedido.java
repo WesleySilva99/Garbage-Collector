@@ -1,6 +1,6 @@
 package br.com.nasa.model;
 
-public class SolicitarColeta {
+public class Pedido {
 	private int id;
 	private String tipoColeta;
 	private String descricao;
