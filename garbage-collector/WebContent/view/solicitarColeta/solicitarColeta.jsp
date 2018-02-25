@@ -64,18 +64,15 @@ ${msg}
 				<div id="checkRadios">
 					<div class="col-sm-6 col-lg-3">
 						<p class="category">Material</p>
-						<div class="checkbox">
-							<input id="checkbox1" type="checkbox" name="tipoColeta"
-								value="Papel"> <label for="checkbox1"> Papel </label> <input
-								id="checkbox2" type="checkbox" name="tipoColeta"
-								value="Plastico"> <label for="checkbox2">
-								Plastico </label> <input id="checkbox3" type="checkbox"
-								name="tipoColeta" value="Vidro"> <label for="checkbox3">
-								Vidro </label><br> <input id="checkbox4" type="checkbox" name="tipoColeta"
-								value="Metal"> <label for="checkbox4"> Metal </label> <input
-								id="checkbox5" type="checkbox" name="tipoColeta" value="Ferro">
-							<label for="checkbox5"> Ferro </label>
-
+						<div class="form-group">
+							Tipo da Coleta: <br /> <select id="tipocoleta"
+								name="tipocoleta"
+								style="width: 200px; height: 30px; border: 1px solid #BDC7D8; color: #000000; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;">
+								<option value="">Selecione</option>
+								<c:forEach items="${tc}" var="obj">
+									<option value="${obj.id}">${obj.descricao}</option>
+								</c:forEach>
+							</select>
 						</div>
 					</div>
 				</div>

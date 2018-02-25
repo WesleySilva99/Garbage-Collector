@@ -9,6 +9,7 @@ import java.util.List;
 import com.mysql.jdbc.Connection;
 
 import br.com.nasa.model.Pedido;
+import br.com.nasa.model.TipoColeta;
 import br.com.nasa.util.ConnectionFactory;
 
 public class PedidoDao {
@@ -25,18 +26,19 @@ public class PedidoDao {
 
 	public void Inserir(Pedido solicitarcoleta) {
 
-		String sql = "INSERT INTO pedido" + "(tipoColeta, descricao, quantidade, endereco, numero, cep)"
+		String sql = "INSERT INTO pedido" + "(descricao, quantidade, endereco, numero, cep, id_tp_coleta)"
 				+ "VALUES (?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
-			stmt.setString(1, solicitarcoleta.getTipoColeta());
-			stmt.setString(2, solicitarcoleta.getDescricao());
-			stmt.setShort(3, solicitarcoleta.getQuantidade());
-			stmt.setString(4, solicitarcoleta.getEndereco());
-			stmt.setString(5, solicitarcoleta.getNumero());
-			stmt.setString(6, solicitarcoleta.getCep());
+			
+			stmt.setString(1, solicitarcoleta.getDescricao());
+			stmt.setShort(2, solicitarcoleta.getQuantidade());
+			stmt.setString(3, solicitarcoleta.getEndereco());
+			stmt.setString(4, solicitarcoleta.getNumero());
+			stmt.setString(5, solicitarcoleta.getCep());
+			stmt.setInt(6, solicitarcoleta.getTipocoleta().getId());
 			stmt.execute();
 			stmt.close();
 
@@ -55,12 +57,16 @@ public class PedidoDao {
 			while (rs.next()) {
 				Pedido coleta = new Pedido();
 				coleta.setId(rs.getInt("id"));
-				coleta.setTipoColeta(rs.getString("tipoColeta"));
 				coleta.setDescricao(rs.getString("descricao"));
 				coleta.setQuantidade(rs.getShort("quantidade"));
 				coleta.setEndereco(rs.getString("endereco"));
 				coleta.setNumero(rs.getString("numero"));
 				coleta.setCep(rs.getString("cep"));
+				
+				int idTipoColeta = rs.getInt("id_tp_coleta");
+				TipoColetaDao dao = new TipoColetaDao();
+				TipoColeta cp = dao.pegarId(idTipoColeta);
+				coleta.setTipocoleta(cp);
 
 				listaColeta.add(coleta);
 			}

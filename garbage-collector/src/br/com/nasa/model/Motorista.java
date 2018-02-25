@@ -3,6 +3,8 @@ package br.com.nasa.model;
 import java.util.Date;
 
 public class Motorista {
+	
+	private int id;
 	private String nome;
 	private String login;
 	private String cpf;
@@ -17,6 +19,16 @@ public class Motorista {
 	private String email;
 	private String senha;
 	
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getEmail() {
 		return email;
 	}

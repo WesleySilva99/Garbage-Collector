@@ -34,7 +34,6 @@
 				<th>Telefone</th>
 				<th>CPF</th>
 				<th>Rg</th>
-				<th>Cpf</th>
 				<th>Sexo</th>
 				<th>Número da Habilitação</th>
 				<th>Validade da Habilitação</th>
@@ -50,6 +49,7 @@
 				<th>Cep</th>
 				<th>Número</th>
 				<th>Complemento</th>
+				<th>Ações de Motorista</th>
 				
 				
 
@@ -69,17 +69,19 @@
 					<td><fmt:formatDate value="${u.validade}"
 							pattern="dd/MM/yyyy" /></td>
 					<td>${u.categoria}</td>
-					<td>${u.chasi}</td>
-					<td>${u.placaVeiculo}</td>
-					<td>${u.marcaVeiculo}</td>
-					<td>${u.anoVeiculo}</td>
+					<td>${u.veiculo.chasi}</td>
+					<td>${u.veiculo.placa}</td>
+					<td>${u.veiculo.marca}</td>
+					<td>${u.veiculo.anoVeiculo}</td>
 					<td>${u.login}</td>
 					<td>${u.senha}</td>
-					<td>${u.rua}</td>
-					<td>${u.bairro}</td>
-					<td>${u.cep}</td>
-					<td>${u.numero}</td>
-					<td>${u.complemento}</td>
+					<td>${u.endereco.rua}</td>
+					<td>${u.endereco.bairro}</td>
+					<td>${u.endereco.cep}</td>
+					<td>${u.endereco.numero}</td>
+					<td>${u.endereco.complemento}</td>
+					<td><a href="pegarMotorista?id=${u.id}">Alterar</a> &nbsp;|
+					<a href="removerMotorista?id=${u.id}">Remover</a></td>
 
 				</tr>
 

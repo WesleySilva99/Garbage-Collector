@@ -2,7 +2,7 @@ package br.com.nasa.model;
 
 public class Pedido {
 	private int id;
-	private String tipoColeta;
+	private TipoColeta tipocoleta;
 	private String descricao;
 	private short quantidade;
 	private String endereco;
@@ -50,12 +50,12 @@ public class Pedido {
 		this.id = id;
 	}
 
-	public String getTipoColeta() {
-		return tipoColeta;
+	public TipoColeta getTipocoleta() {
+		return tipocoleta;
 	}
 
-	public void setTipoColeta(String tipoColeta) {
-		this.tipoColeta = tipoColeta;
+	public void setTipocoleta(TipoColeta tipocoleta) {
+		this.tipocoleta = tipocoleta;
 	}
 
 	public String getDescricao() {

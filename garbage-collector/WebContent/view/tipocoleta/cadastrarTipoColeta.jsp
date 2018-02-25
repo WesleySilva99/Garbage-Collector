@@ -1,11 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=iso-8859-1"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
-<%@ page language="java" contentType="text/html; charset=iso-8859-1"
-	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="apple-touch-icon" sizes="76x76"
@@ -28,56 +28,60 @@
 <!-- CSS Just for demo purpose, don't include it in your project -->
 <link href="view/assets/css/demo.css" rel="stylesheet" />
 </head>
+
+<title>Cadastro de Usuário</title>
+
+<script type="text/javascript">
+	
+</script>
+
+
+</head>
 <body>
+	<c:import url="/view/util/menu.jsp" />
+	<!-- Formulario -->
 
-<c:import url="/view/util/menu.jsp"/>
-	<div class="container">
-		<hr>
-		<h2 align="center">Lista de Coletas Solicitadas</h2>
-		<hr>
-		<br>
-		<div align="center"><h4 style="color:blue";>${msg}</h4></div>
-		<table class="table table-striped">
+	<br>
+	<hr>
+	<h1 align="center">Cadastro de Tipos de Coletas</h1>
+	<hr>
+	<br>
+	<center>
 
-			<tr>
-				<th>Tipo da Coleta</th>
-				<th>Descrição</th>
-				<th>Quantidade</th>
-				<th>Endereço da Coleta</th>
-				<th>Número da Casa</th>
-				<th>CEP</th>
-				<th>Opções de coleta</th>
+
+
+		<h4 style="color: blue";>${msg}</h4>
+		</div>
+		<form class="form-horizontal" action="cadastrarTipoColeta"
+			method="post" onsubmit="return validarCadastro();" name="formulario"
+			id="formulario">
+
+			
 				
-
-
-			</tr>
-
-
-			<c:forEach var="u" items="${listaColeta}">
-
-
-				<tr>
-					<td>${u.tipocoleta.descricao}</td>
-					<td>${u.descricao}</td>
-					<td>${u.quantidade}</td>
-					<td>${u.endereco}</td>
-					<td>${u.numero}</td>
-					<td>${u.cep}</td>
-
-					<td><a href="cancelarColeta?id=${u.id}">Cancelar Coleta</a>|
-					<a href="alteraColeta?id=${u.id}">Remarcar Coleta</a> &nbsp;</td>
-					
+					<div class="col-4">
+						<label for="exampleInputName" class="hora">Tipo da Coleta:</label>
+						<input type="text" class="form-control" id="exampleInputName"
+							placeholder="Plástico" style="width: 50%"
+							''
+					required="Para realizar o cadastro preencha este campo com o tipo da coleta desejado"
+							maxlength="40" name="descricao"
+							pattern="[AÁÉÍÓÚÂÊÎÔÛ-ZáéíóúâêîôûçÁÉÍÓÚÂÊÎÔÛa-z ]+">
+					</div>
 				
+			
+			<br><br><br>
 
 
-					
 
-				</tr>
+			<button type="reset" class="btn btn-warning">&nbsp; Limpar
+				&nbsp;</button>
+			&nbsp;
+			<button type="submit" class="btn btn-success"
+				onClick="validarCadastro()">Cadastrar</button>
+		</form>
 
-			</c:forEach>
-		</table>
-	</div>
-
+		
+	</center>
 	<!-- jQuery (necessario para Bootsrap plungins Java Script) -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

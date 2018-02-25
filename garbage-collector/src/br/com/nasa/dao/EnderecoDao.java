@@ -10,6 +10,7 @@ import com.mysql.jdbc.Connection;
 
 import br.com.nasa.model.Cliente;
 import br.com.nasa.model.Endereco;
+import br.com.nasa.model.Veiculo;
 import br.com.nasa.util.ConnectionFactory;
 
 public class EnderecoDao {
@@ -82,13 +83,13 @@ public class EnderecoDao {
 
 			stmt = connection.prepareStatement(sql);
 
-			stmt.setInt(1, endereco.getId());
-			stmt.setString(2, endereco.getRua());
-			stmt.setString(3, endereco.getBairro());
-			stmt.setString(4, endereco.getCep());
-			stmt.setString(5, endereco.getComplemento());
-			stmt.setString(6, endereco.getNumero());
 			
+			stmt.setString(1, endereco.getRua());
+			stmt.setString(2, endereco.getBairro());
+			stmt.setString(3, endereco.getCep());
+			stmt.setString(4, endereco.getComplemento());
+			stmt.setString(5, endereco.getNumero());
+			stmt.setInt(6, endereco.getId());
 			stmt.execute();
 			connection.close();
 
@@ -128,7 +129,23 @@ public class EnderecoDao {
 			throw new RuntimeException(e);
 		}
 	}
-	
+	public void remover(Endereco endereco) {
+
+		String sql = "DELETE FROM endereco where id =?";
+
+		try {
+			PreparedStatement stmt = connection.prepareStatement(sql);
+
+			stmt.setInt(1, endereco.getId());
+
+			stmt.execute();
+			stmt.close();
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
+	}
 
 }
 

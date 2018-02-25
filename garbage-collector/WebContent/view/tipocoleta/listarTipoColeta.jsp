@@ -30,48 +30,28 @@
 </head>
 <body>
 
-<c:import url="/view/util/menu.jsp"/>
+	<c:import url="/view/util/menu.jsp" />
 	<div class="container">
 		<hr>
-		<h2 align="center">Lista de Coletas Solicitadas</h2>
+		<h2 align="center">Lista de Tipo de Coletas</h2>
 		<hr>
 		<br>
-		<div align="center"><h4 style="color:blue";>${msg}</h4></div>
 		<table class="table table-striped">
-
+		<div align="center"><h4 style="color:blue";>${msg}</h4></div>
 			<tr>
-				<th>Tipo da Coleta</th>
 				<th>Descrição</th>
-				<th>Quantidade</th>
-				<th>Endereço da Coleta</th>
-				<th>Número da Casa</th>
-				<th>CEP</th>
-				<th>Opções de coleta</th>
-				
-
-
+				<th>Ações</th>
 			</tr>
 
 
-			<c:forEach var="u" items="${listaColeta}">
+			<c:forEach var="u" items="${tc}">
 
 
 				<tr>
-					<td>${u.tipocoleta.descricao}</td>
 					<td>${u.descricao}</td>
-					<td>${u.quantidade}</td>
-					<td>${u.endereco}</td>
-					<td>${u.numero}</td>
-					<td>${u.cep}</td>
-
-					<td><a href="cancelarColeta?id=${u.id}">Cancelar Coleta</a>|
-					<a href="alteraColeta?id=${u.id}">Remarcar Coleta</a> &nbsp;</td>
+					<td><a href="pegarTipoColeta?id=${u.id}">Alterar</a> &nbsp;|
+					<a href="removerTipoColeta?id=${u.id}">Remover</a></td>
 					
-				
-
-
-					
-
 				</tr>
 
 			</c:forEach>
