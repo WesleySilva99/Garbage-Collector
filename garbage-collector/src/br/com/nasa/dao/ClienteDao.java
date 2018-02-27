@@ -1,15 +1,13 @@
 package br.com.nasa.dao;
 
+import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
-import com.mysql.jdbc.Connection;
 
 import br.com.nasa.model.Cliente;
 import br.com.nasa.model.Endereco;
@@ -107,6 +105,26 @@ public class ClienteDao {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	 private Cliente montarObjeto(ResultSet rs) throws SQLException {
+
+		 Cliente cliente = new Cliente();
+			cliente.setId(rs.getInt("id"));
+			cliente.setNome(rs.getString("nome"));
+			cliente.setNomeUsuario(rs.getString("login"));
+			cliente.setCpf(rs.getString("cpf"));
+			cliente.setDataNascimento(rs.getDate("dt_nasc"));
+			cliente.setTelefone(rs.getString("telefone"));
+			cliente.setEmail(rs.getString("email"));
+			cliente.setSenha(rs.getString("senha"));
+			
+			int idEndereco = rs.getInt("id_endereco");
+			EnderecoDao dao = new EnderecoDao();
+			Endereco cp = dao.pegarId(idEndereco);
+			cliente.setEndereco(cp);
+			
+			return cliente;
+		    }
 
 	public void alterar(Cliente cliente) {
 
@@ -191,5 +209,34 @@ public class ClienteDao {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	
+	public Cliente buscarPorId(Cliente cliente) {
+
+		try {
+
+			Cliente clienteConsultado = null;
+			PreparedStatement stmt = this.connection.prepareStatement("select * from cliente where login = ? and senha = ?");
+			stmt.setString(1, cliente.getNomeUsuario());
+			stmt.setString(2, cliente.getSenha());
+			ResultSet rs = stmt.executeQuery();
+			if (rs.next()) {
+
+				clienteConsultado = montarObjeto(rs);
+			}
+
+			rs.close();
+			stmt.close();
+			
+
+			return clienteConsultado;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		
+	}
+	
+	
 
 }

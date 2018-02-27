@@ -35,4 +35,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 			</list>
 		</property>
 	</bean>
+	<mvc:interceptors>
+		<bean class="br.com.nasa.util.AutorizadorInterceptor" />
+	</mvc:interceptors>
 </beans>

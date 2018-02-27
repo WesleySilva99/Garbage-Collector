@@ -3,17 +3,47 @@ package br.com.nasa.controller;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.nasa.dao.ClienteDao;
-import br.com.nasa.dao.EnderecoDao;
+import br.com.nasa.dao.MotoristaDao;
 import br.com.nasa.model.Cliente;
-import br.com.nasa.model.Endereco;
+import br.com.nasa.model.Motorista;
 
 @Controller
 public class ClienteController {
+
+	@RequestMapping("logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "index";
+	}
+
+	@RequestMapping("/login")
+	public String login() {
+		return "login";
+	}
+
+	@RequestMapping("efetuarLogin")
+	public String efetuarLogin(Cliente cliente, HttpSession session, Model model) {
+		ClienteDao dao = new ClienteDao();
+		Cliente clienteLogado = dao.buscarPorId(cliente);
+		
+		
+		
+		if (clienteLogado != null) {
+			session.setAttribute("clienteLogado", clienteLogado);
+			System.out.println("Cliente logado");
+			return "index";
+		}
+		
+		model.addAttribute("msg", "Não foi encontrado um usuário com o login e senha informados.");
+		return "login";
+	}
 
 	@RequestMapping("/exibirIncluirCliente")
 	public String exibirIncluirCliente() {
@@ -24,27 +54,23 @@ public class ClienteController {
 	@RequestMapping("/cadastrarCliente")
 	public String cadastrarCliente(Cliente cliente, Model model) throws SQLException {
 		ClienteDao dao = new ClienteDao();
-		
 
 		if (dao.verificaLoginExistente(cliente.getNomeUsuario()) == true) {
 			dao.Inserir(cliente);
-			
 
 			model.addAttribute("msg", "Você foi cadastrado com sucesso!");
 			System.out.println("Cadastrando Clientes");
-			
-		}else {
-			
+
+		} else {
+
 			model.addAttribute("msg", "O login já existe!");
 			model.addAttribute("c", cliente);
 			System.out.println("Tente novamente, Login já existente");
 			return "cliente/cadastrarCliente";
-			
+
 		}
 		return "forward:exibirIncluirCliente";
-		
 
-		
 	}
 
 	@RequestMapping("/listarClientes")
@@ -52,7 +78,7 @@ public class ClienteController {
 		ClienteDao dao = new ClienteDao();
 		List<Cliente> listaCliente = dao.listar();
 		model.addAttribute("listaCliente", listaCliente);
-		
+
 		return "cliente/listaCliente";
 	}
 
@@ -75,5 +101,5 @@ public class ClienteController {
 
 		return "forward:listarClientes";
 	}
-	
+
 }

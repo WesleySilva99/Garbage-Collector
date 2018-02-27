@@ -47,8 +47,15 @@
 						class="now-ui-icons files_paper"></i>
 						<p>Listar</p>
 				</a></li>
+					<c:if test="${clienteLogado != null}">
+				<li class="nav-item"><a class="nav-link" href="logout"> <i
+							class="now-ui-icons files_paper"></i>
+							<p>Deslogar</p>
+					</a></li>
+					</li>
+				</c:if>
 				<li class="nav-item"><a class="nav-link btn btn-neutral"
-					href="#"> <i class="now-ui-icons users_single-02"></i>
+					href="login"> <i class="now-ui-icons users_single-02"></i>
 						<p>Login</p>
 				</a></li>
 				<li class="nav-item"><a class="nav-link" rel="tooltip"

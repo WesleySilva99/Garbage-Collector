@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.mysql.jdbc.Connection;
 
+import br.com.nasa.model.Cliente;
 import br.com.nasa.model.Endereco;
 import br.com.nasa.model.Motorista;
 import br.com.nasa.model.TipoColeta;
@@ -159,6 +160,54 @@ public class MotoristaDao {
 			throw new RuntimeException(e);
 		}
 
+	}
+	
+	public Motorista buscarPorId(Motorista motorista) {
+
+		try {
+
+			
+
+			PreparedStatement stmt = this.connection.prepareStatement("select * from motorista where login = ? and senha = ?");
+			stmt.setString(1, motorista.getLogin());
+			stmt.setString(2, motorista.getSenha());
+			ResultSet rs = stmt.executeQuery();
+			if (rs.next()) {
+
+				motorista.setId(rs.getInt("id"));
+				motorista.setNome(rs.getString("nome"));
+				motorista.setRg(rs.getString("rg"));
+				motorista.setCpf(rs.getString("cpf"));
+				motorista.setValidade(rs.getDate("dataVencimento"));
+				motorista.setTelefone(rs.getString("telefone"));
+				motorista.setNumHabilitacao(rs.getInt("n_abilitacao"));
+				motorista.setCategoria(rs.getString("cat_abilitacao"));
+				motorista.setSexo(rs.getString("sexo"));
+				
+				int idEndereco = rs.getInt("id_endereco");
+				EnderecoDao dao = new EnderecoDao();
+				Endereco cp = dao.pegarId(idEndereco);
+				motorista.setEndereco(cp);
+				
+				int idVeiculo = rs.getInt("id_veiculo");
+				VeiculoDao dao1 = new VeiculoDao();
+				Veiculo vCompleto = dao1.pegarId(idVeiculo);
+				motorista.setVeiculo(vCompleto);
+				
+				motorista.setLogin(rs.getString("login"));
+				motorista.setSenha(rs.getString("senha"));
+			}
+
+			rs.close();
+			stmt.close();
+			connection.close();
+
+			return motorista;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		
 	}
 
 	public boolean verificaLoginExistente(String login){
