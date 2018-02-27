@@ -5,7 +5,7 @@ import java.util.Date;
 public class Cliente {
 	private int id;
 	private String nome;
-	private String nomeUsuario;
+	private String login;
 	private String cpf;
 	private Date dataNascimento;
 	private String senha;
@@ -37,12 +37,12 @@ public class Cliente {
 		this.nome = nome;
 	}
 
-	public String getNomeUsuario() {
-		return nomeUsuario;
+	public String getLogin() {
+		return login;
 	}
 
-	public void setNomeUsuario(String nomeUsuario) {
-		this.nomeUsuario = nomeUsuario;
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
 	public String getCpf() {

@@ -261,7 +261,7 @@
 								pattern="[a-zA-Z0-9]+" style="width: 50%"
 								;
 					required="Para realizar o cadastro preencha este campo com seu nome de usuário"
-								maxlength="15" name="nomeUsuario">
+								maxlength="15" name="login">
 						</div>
 						<div class="col-4">
 							<label for="exampleInputPassword1" class="hora">Senha:</label> <input

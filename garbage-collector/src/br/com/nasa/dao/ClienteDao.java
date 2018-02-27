@@ -54,7 +54,7 @@ public class ClienteDao {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
 			stmt.setString(1, cliente.getNome());
-			stmt.setString(2, cliente.getNomeUsuario());
+			stmt.setString(2, cliente.getLogin());
 			stmt.setString(3, cliente.getEmail());
 			stmt.setDate(4, new Date(cliente.getDataNascimento().getTime()));
 			stmt.setString(5, cliente.getCpf());
@@ -81,7 +81,7 @@ public class ClienteDao {
 				Cliente cliente = new Cliente();
 				cliente.setId(rs.getInt("id"));
 				cliente.setNome(rs.getString("nome"));
-				cliente.setNomeUsuario(rs.getString("login"));
+				cliente.setLogin(rs.getString("login"));
 				cliente.setCpf(rs.getString("cpf"));
 				cliente.setDataNascimento(rs.getDate("dt_nasc"));
 				cliente.setTelefone(rs.getString("telefone"));
@@ -111,7 +111,7 @@ public class ClienteDao {
 		 Cliente cliente = new Cliente();
 			cliente.setId(rs.getInt("id"));
 			cliente.setNome(rs.getString("nome"));
-			cliente.setNomeUsuario(rs.getString("login"));
+			cliente.setLogin(rs.getString("login"));
 			cliente.setCpf(rs.getString("cpf"));
 			cliente.setDataNascimento(rs.getDate("dt_nasc"));
 			cliente.setTelefone(rs.getString("telefone"));
@@ -137,7 +137,7 @@ public class ClienteDao {
 			stmt.setString(1, cliente.getNome());
 			stmt.setString(2, cliente.getCpf());
 			stmt.setDate(3, new java.sql.Date(cliente.getDataNascimento().getTime()));
-			stmt.setString(4, cliente.getNomeUsuario());
+			stmt.setString(4, cliente.getLogin());
 			stmt.setString(5, cliente.getSenha());
 			stmt.setString(6, cliente.getTelefone());
 			stmt.setString(7, cliente.getEmail());
@@ -166,7 +166,7 @@ public class ClienteDao {
 				clienteCompleto.setNome(rs.getString("nome"));
 				clienteCompleto.setCpf(rs.getString("cpf"));
 				clienteCompleto.setDataNascimento(rs.getDate("dt_nasc"));
-				clienteCompleto.setNomeUsuario(rs.getString("login"));
+				clienteCompleto.setLogin(rs.getString("login"));
 				clienteCompleto.setSenha(rs.getString("senha"));
 				clienteCompleto.setTelefone(rs.getString("telefone"));
 				clienteCompleto.setEmail(rs.getString("email"));
@@ -217,7 +217,7 @@ public class ClienteDao {
 
 			Cliente clienteConsultado = null;
 			PreparedStatement stmt = this.connection.prepareStatement("select * from cliente where login = ? and senha = ?");
-			stmt.setString(1, cliente.getNomeUsuario());
+			stmt.setString(1, cliente.getLogin());
 			stmt.setString(2, cliente.getSenha());
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next()) {

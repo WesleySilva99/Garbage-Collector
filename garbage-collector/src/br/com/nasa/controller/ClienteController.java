@@ -29,15 +29,22 @@ public class ClienteController {
 	}
 
 	@RequestMapping("efetuarLogin")
-	public String efetuarLogin(Cliente cliente, HttpSession session, Model model) {
+	public String efetuarLogin(Cliente cliente,Motorista motorista, HttpSession session, Model model) {
 		ClienteDao dao = new ClienteDao();
 		Cliente clienteLogado = dao.buscarPorId(cliente);
-		
-		
-		
+				
 		if (clienteLogado != null) {
 			session.setAttribute("clienteLogado", clienteLogado);
 			System.out.println("Cliente logado");
+			return "index";
+		}
+		MotoristaDao dao1 = new MotoristaDao();
+		Motorista motoristaLogado = dao1.buscarPorId(motorista);
+		
+		
+		if (motoristaLogado != null) {
+			session.setAttribute("motoristaLogado", motoristaLogado);
+			System.out.println("Motorista logado");
 			return "index";
 		}
 		
@@ -55,7 +62,7 @@ public class ClienteController {
 	public String cadastrarCliente(Cliente cliente, Model model) throws SQLException {
 		ClienteDao dao = new ClienteDao();
 
-		if (dao.verificaLoginExistente(cliente.getNomeUsuario()) == true) {
+		if (dao.verificaLoginExistente(cliente.getLogin()) == true) {
 			dao.Inserir(cliente);
 
 			model.addAttribute("msg", "Você foi cadastrado com sucesso!");

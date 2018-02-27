@@ -62,7 +62,7 @@
 					<td>${u.cpf}</td>
 					<td><fmt:formatDate value="${u.dataNascimento}"
 							pattern="dd/MM/yyyy" /></td>
-					<td>${u.nomeUsuario}</td>
+					<td>${u.login}</td>
 					<td>${u.telefone}</td>
 					<td>${u.email}</td>
 					

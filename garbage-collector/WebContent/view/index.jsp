@@ -111,7 +111,7 @@
 			<div class="container">
 				<div class="content-center brand">
 					<img class="n-logo" src="view/assets/img/recycling.png" alt="">
-					<p style="float: rigth">Bem vindo ${clienteLogado.nome}</p>
+					<p style="float: rigth">Bem vindo ${clienteLogado.nome} ${motoristaLogado.nome}</p>
 					<h1 class="h1-seo">Garbage Collector</h1>
 					<h3>Sistema Integrado de Coleta Seletiva .</h3>
 				</div>

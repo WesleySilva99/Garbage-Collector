@@ -139,7 +139,7 @@
     <label for="exampleInputName" class="hora">Nome do Usuário:</label>
       <input type="text" class="form-control" id="exampleInputName"
 					placeholder="Mario15" pattern="[a-zA-Z0-9]+" style="width: 50%"
-					; value="${p.nomeUsuario}"
+					; value="${p.login}"
 					required="Para realizar o cadastro preencha este campo com seu nome de usuário"
 					maxlength="15" name="nomeUsuario">
     </div>
