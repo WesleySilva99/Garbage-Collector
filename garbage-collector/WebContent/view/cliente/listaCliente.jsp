@@ -51,6 +51,7 @@
 				<th>Número</th>
 				<th>Complemento</th>
 				<th>Alterar/Remover</th>
+				<th>Detalhes</th>
 			</tr>
 
 
@@ -77,16 +78,62 @@
 					
 					
 					<td><a href="alterarCliente?id=${u.id}">Alterar</a> &nbsp;</td>
-					
+					<td onclick="myFunction(this)"><h4 style="margin-top: 50px;"><span class="label label-success " >detalhes</span></h4></td> 
 				</tr>
+
+<div class="modal fade item_view" id="item_view">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" data-dismiss="modal" class="class pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+                <h3 class="modal-title"> Informações </h3>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    
+                    <div class="col-md-1 item_content">
+                    
+                 nome:   ${u.nome}
+				cpf:	${u.cpf}
+					 data nascimento: <fmt:formatDate value="${u.dataNascimento}"
+							pattern="dd/MM/yyyy" />
+				usuario:${u.login}
+				telefone :	${u.telefone}
+				email:	${u.email}
+					
+						
+				rua:	${u.endereco.rua}
+				bairro:	${u.endereco.bairro}
+				cep:	${u.endereco.cep}
+				complemento:	${u.endereco.complemento}
+				numero:	${u.endereco.numero}
+                  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 			</c:forEach>
 		</table>
 	</div>
 
+
+
+
+
 	<!-- jQuery (necessario para Bootsrap plungins Java Script) -->
+	
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="view/assets/js/now-ui-kit.js"></script>
+		<script src="view/assets/js/plugins/bootstrap-datepicker.js"></script>
+		<script src="view/assets/js/plugins/bootstrap-switch.js"></script>
+		<script src="view/assets/js/plugins/jquery.sharrre.js"></script>
+		<script src="view/assets/js/plugins/nouislider.min.js"></script>
 	<script src="view/bootstrap/js/bootstrap.min.js"></script>
+	
+	
 </body>
 </html>

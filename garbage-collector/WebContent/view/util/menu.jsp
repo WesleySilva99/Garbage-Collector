@@ -41,11 +41,15 @@
 						class="now-ui-icons files_paper"></i>
 						<p>Solicitar Coleta</p>
 				</a></li>
-				</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="listarClientes"> <i
 						class="now-ui-icons files_paper"></i>
-						<p>Listar</p>
+						<p>Listar Usuário</p>
+				</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="listaMotorista"> <i
+						class="now-ui-icons files_paper"></i>
+						<p>Listar Motorista</p>
 				</a></li>
 					<c:if test="${clienteLogado != null}">
 				<li class="nav-item"><a class="nav-link" href="logout"> <i
