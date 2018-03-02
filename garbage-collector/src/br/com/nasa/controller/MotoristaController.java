@@ -42,15 +42,15 @@ public class MotoristaController {
 		
 	} else if(dao.verificaLoginExistente(motorista.getLogin()) == false) {
 
-		model.addAttribute("msg", "O login j· existe!");
+		model.addAttribute("msg", "O login j√° existe!");
 		model.addAttribute("m", motorista);
-		System.out.println("Tente novamente, Login j· existente");
+		System.out.println("Tente novamente, Login j√° existente");
 		return "motorista/cadastrarMotorista";
 
 	}else if (dao.verificaEmailExistente(motorista.getEmail()) == false) {
-		model.addAttribute("msg", "O email j· existe!");
+		model.addAttribute("msg", "O email j√° existe!");
 		model.addAttribute("m", motorista);
-		System.out.println("Tente novamente, email j· existente");
+		System.out.println("Tente novamente, email j√° existente");
 		return "motorista/cadastrarMotorista";
 
 	}
