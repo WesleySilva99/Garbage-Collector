@@ -25,11 +25,20 @@ public class TipoColetaController {
 	@RequestMapping("/cadastrarTipoColeta")
 	public String cadastrarTipoColeta(TipoColeta tc, Model model) {
 		TipoColetaDao dao = new TipoColetaDao();
-		dao.Inserir(tc);
 		
+
+		if (dao.verificaDescricaoExistente(tc.getDescricao()) == true) {
+			
+		dao.Inserir(tc);
 		model.addAttribute("msg", "Tipo da Coleta cadastrado com sucesso!");
 		
-		return "tipocoleta/cadastrarTipoColeta";
+		}else {
+			model.addAttribute("msg", "O tipo da coleta já existe já existe!");
+			model.addAttribute("c", tc);
+			System.out.println("Tente novamente, Login já existente");
+			return "tipocoleta/cadastrarTipoColeta";
+		}
+		return "forward:exibirTipoColeta";
 	}
 	
 	@RequestMapping("/listarTipocoleta")

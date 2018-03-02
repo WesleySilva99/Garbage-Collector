@@ -126,8 +126,9 @@ public class ClienteDao {
 			return cliente;
 		    }
 
-	public void alterar(Cliente cliente) {
-
+	public void alterar(Cliente cliente) throws SQLException {
+		
+		
 		String sql = "UPDATE cliente SET nome = ?, cpf = ?, dt_nasc = ?, login = ?, senha = ?, telefone = ?, email=? WHERE id = ?";
 		PreparedStatement stmt;
 		try {
@@ -170,6 +171,11 @@ public class ClienteDao {
 				clienteCompleto.setSenha(rs.getString("senha"));
 				clienteCompleto.setTelefone(rs.getString("telefone"));
 				clienteCompleto.setEmail(rs.getString("email"));
+				
+				int idEndereco = rs.getInt("id_endereco");
+				EnderecoDao dao = new EnderecoDao();
+				Endereco cp = dao.pegarId(idEndereco);
+				clienteCompleto.setEndereco(cp);
 			}
 
 			rs.close();
@@ -194,6 +200,33 @@ public class ClienteDao {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				if ((rs.getString("login").equals(login))) {
+					existe = false;
+					break;
+				} else {
+					existe = true;
+					break;
+				}
+			}
+			rs.close();
+			stmt.close();
+
+			return existe;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public boolean verificaEmailExistente(String email) {
+		boolean existe = true;
+		String sql = "SELECT email FROM cliente WHERE email = ?";
+
+		try {
+
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
+			stmt.setString(1, email);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				if ((rs.getString("email").equals(email))) {
 					existe = false;
 					break;
 				} else {

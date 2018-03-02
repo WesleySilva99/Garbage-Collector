@@ -32,23 +32,32 @@ public class MotoristaController {
 		MotoristaDao dao = new MotoristaDao();
 		
 
-		if (dao.verificaLoginExistente(motorista.getLogin()) == true) {
+		if (dao.verificaLoginExistente(motorista.getLogin()) == true  && dao.verificaEmailExistente(motorista.getEmail()) == true) {
 
 			dao.Inserir(motorista);
 			
 			System.out.println("Cadastrando Motorista");
 			model.addAttribute("msg", "Motorista Cadastrado!");
 			return "forward:exibirCadastrarMotorista";
-		}else {
-			model.addAttribute("msg", "O login j√° existe!");
-			model.addAttribute("m", motorista);
+		
+	} else if(dao.verificaLoginExistente(motorista.getLogin()) == false) {
 
+		model.addAttribute("msg", "O login j· existe!");
+		model.addAttribute("m", motorista);
+		System.out.println("Tente novamente, Login j· existente");
+		return "motorista/cadastrarMotorista";
 
-			System.out.println("Tente novamente, Login j√° existente");
-			return "motorista/cadastrarMotorista";
-		}
+	}else if (dao.verificaEmailExistente(motorista.getEmail()) == false) {
+		model.addAttribute("msg", "O email j· existe!");
+		model.addAttribute("m", motorista);
+		System.out.println("Tente novamente, email j· existente");
+		return "motorista/cadastrarMotorista";
 
 	}
+			return "forward:exibirCadastrarMotorista";
+}
+
+
 
 	@RequestMapping("/listaMotorista")
 	public String exibirListaMotorista(Model model) {

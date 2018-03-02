@@ -22,6 +22,8 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 				|| uri.endsWith("garbage-collector/login")
 				|| uri.endsWith("garbage-collector/exibirIncluirCliente")
 				|| uri.endsWith("garbage-collector/cadastrarCliente")
+				|| uri.endsWith("garbage-collector/exibirCadastrarMotorista")
+				|| uri.endsWith("garbage-collector/cadastrarMotorista")
 				|| uri.endsWith("efetuarLogin")) {
 		return true;
 		}

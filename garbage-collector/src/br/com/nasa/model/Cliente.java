@@ -2,11 +2,14 @@ package br.com.nasa.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Cliente {
 	private int id;
 	private String nome;
 	private String login;
 	private String cpf;
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date dataNascimento;
 	private String senha;
 	private Endereco endereco = new Endereco();

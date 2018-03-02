@@ -2,6 +2,8 @@ package br.com.nasa.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Motorista {
 	
 	private int id;
@@ -13,6 +15,7 @@ public class Motorista {
 	private Endereco endereco;
 	private String sexo;
 	private int numHabilitacao;
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date validade;
 	private String categoria;
 	private Veiculo veiculo;

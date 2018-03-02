@@ -238,5 +238,32 @@ public class MotoristaDao {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public boolean verificaEmailExistente(String email) {
+		boolean existe = true;
+		String sql = "SELECT email FROM motorista WHERE email = ?";
+
+		try {
+
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
+			stmt.setString(1, email);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				if ((rs.getString("email").equals(email))) {
+					existe = false;
+					break;
+				} else {
+					existe = true;
+					break;
+				}
+			}
+			rs.close();
+			stmt.close();
+
+			return existe;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 }

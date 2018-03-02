@@ -134,5 +134,32 @@ public class TipoColetaDao {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public boolean verificaDescricaoExistente(String descricao) {
+		boolean existe = true;
+		String sql = "SELECT descricao FROM tipo_coleta WHERE descricao = ?";
+
+		try {
+
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
+			stmt.setString(1, descricao);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				if ((rs.getString("descricao").equals(descricao))) {
+					existe = false;
+					break;
+				} else {
+					existe = true;
+					break;
+				}
+			}
+			rs.close();
+			stmt.close();
+
+			return existe;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 }

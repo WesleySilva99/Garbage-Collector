@@ -38,7 +38,6 @@
 
 	<form  class="" action="alterarCliente2" method="post" enctype="multipart/form-data">
 
-	<form action="alterarCliente2" method="post" enctype="multipart/form-data">
 
 
 <div align="center">
@@ -88,7 +87,7 @@
     <div class="col-4">
     <label for="exampleInputEndereco" class="hora">Bairro:</label> <input
 					type="text" class="form-control" id="exampleInputEndereco"
-					style="width: 50%" ; value=""
+					style="width: 50%" ; value="${p.endereco.bairro}"
 				placeholder="Ex: COHAB"
 					required="required" maxlength="50" name="bairro">
     </div>
@@ -96,7 +95,7 @@
 <div class="col-4">
     <label for="exampleInputEndereco" class="hora">Endereço:</label> <input
 					type="text" class="form-control" id="exampleInputEndereco"
-					style="width: 50%" ; value="${p.endereco}"
+					style="width: 50%" ; value="${p.endereco.rua}"
 				placeholder="Rua Don Juno nº 425"
 					required="required" maxlength="50" name="rua">
     </div>
@@ -108,7 +107,7 @@
  <div class="col-4">
     <label for="exampleInputName" class="hora">Complemento:</label> <input
 					type="text" class="form-control" id="exampleInputName"
-					style="width: 50%" ; value=""
+					style="width: 50%" ; value="${p.endereco.complemento}"
 				placeholder="Casa" pattern="[a-zA-Z0-9]+"
 					required="Para realizar o cadastro preencha este campo com o seu complemento"
 					maxlength="15" name="complemento">
@@ -117,7 +116,7 @@
     <label for="exampleInputEndereco" class="hora">Número do
 					complemento:</label> <input type="text" class="form-control"
 					id="exampleInputEndereco" style="width: 50%"
-					; value=""
+					; value="${p.endereco.numero}"
 				placeholder="Ex: 0000" required="required" maxlength="50"
 					name="numero">
     </div>
@@ -125,7 +124,7 @@
     <label for="exampleInputCep" class="hora">CEP:</label> <input
 					type="text" class="form-control" id="exampleInputCep"
 					placeholder="00000-000" style="width: 50%"
-					; value=""
+					; value="${p.endereco.cep}"
 				required="Para realizar o cadastro preencha este campo com o cep da sua rua"
 					maxlength="9" name="cep" pattern="\d{5}-?\d{3}"
 					onkeypress="validaCep()">

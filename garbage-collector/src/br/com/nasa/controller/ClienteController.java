@@ -62,17 +62,24 @@ public class ClienteController {
 	public String cadastrarCliente(Cliente cliente, Model model) throws SQLException {
 		ClienteDao dao = new ClienteDao();
 
-		if (dao.verificaLoginExistente(cliente.getLogin()) == true) {
+		if (dao.verificaLoginExistente(cliente.getLogin()) == true && dao.verificaEmailExistente(cliente.getEmail()) == true) {
 			dao.Inserir(cliente);
 
 			model.addAttribute("msg", "Você foi cadastrado com sucesso!");
 			System.out.println("Cadastrando Clientes");
 
-		} else {
+		} else if(dao.verificaLoginExistente(cliente.getLogin()) == false) {
 
 			model.addAttribute("msg", "O login já existe!");
 			model.addAttribute("c", cliente);
 			System.out.println("Tente novamente, Login já existente");
+			return "cliente/cadastrarCliente";
+		}
+		
+		else if (dao.verificaEmailExistente(cliente.getEmail()) == false) {
+			model.addAttribute("msg", "O email já existe!");
+			model.addAttribute("c", cliente);
+			System.out.println("Tente novamente, email já existente");
 			return "cliente/cadastrarCliente";
 
 		}
@@ -100,12 +107,12 @@ public class ClienteController {
 	}
 
 	@RequestMapping("alterarCliente2")
-	public String alterarProduto2(Cliente cliente, Model model) {
+	public String alterarProduto2(Cliente cliente, Model model) throws SQLException {
 
 		ClienteDao dao = new ClienteDao();
 		dao.alterar(cliente);
 		model.addAttribute("msg", "cliente alterado.");
-
+		System.out.println("cliente alterado com sucesso");
 		return "forward:listarClientes";
 	}
 

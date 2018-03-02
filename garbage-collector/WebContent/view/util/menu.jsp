@@ -1,5 +1,7 @@
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <br><br><br><br>
 <nav class="navbar navbar-expand-lg bg-primary fixed-top  "
@@ -26,32 +28,63 @@
 						class="now-ui-icons files_single-copy-04"></i>
 						<p>Sobre</p>
 				</a></li>
+				<c:if test="${clienteLogado == null || motoristaLogado == null}">
 				<li class="nav-item"><a class="nav-link"
 					href="exibirIncluirCliente"> <i
 						class="now-ui-icons files_paper"></i>
-						<p>Cadastrar</p>
+						<p>Cadastrar Cliente</p>
 				</a></li>
+				</c:if>
+				<c:if test="${clienteLogado == null || motoristaLogado == null}">
 				<li class="nav-item"><a class="nav-link"
 					href="exibirCadastrarMotorista"> <i
 						class="now-ui-icons files_paper"></i>
 						<p>CadastrarMotorista</p>
 				</a></li>
+				</c:if>
+				<c:if test="${clienteLogado != null || motoristaLogado != null}">
 				<li class="nav-item"><a class="nav-link"
 					href="exibirSolicitarColeta"> <i
 						class="now-ui-icons files_paper"></i>
 						<p>Solicitar Coleta</p>
 				</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="listarClientes"> <i
-						class="now-ui-icons files_paper"></i>
-						<p>Listar Usuário</p>
-				</a></li>
+				</c:if>
+				
+				<c:if test="${clienteLogado != null || motoristaLogado != null}">
+					<li class="nav-item"><a class="nav-link" href="listarColeta">
+							<i class="now-ui-icons files_paper"></i>
+							<p>Lista de Coletas Solicitadas</p>
+					</a></li>
+				</c:if>
+
+				<c:if test="${clienteLogado != null || motoristaLogado != null}">
+					<li class="nav-item"><a class="nav-link"
+						href="exibirTipoColeta"> <i class="now-ui-icons files_paper"></i>
+							<p>Cadastrar Tipo Coleta</p>
+					</a></li>
+				</c:if>
+
+				<c:if test="${clienteLogado != null || motoristaLogado != null}">
+					<li class="nav-item"><a class="nav-link"
+						href="listarTipocoleta"> <i class="now-ui-icons files_paper"></i>
+							<p>Lista Tipo Coleta</p>
+					</a></li>
+				</c:if>
+				<c:if test="${clienteLogado != null || motoristaLogado != null}">
+					<li class="nav-item"><a class="nav-link" href="listarClientes">
+							<i class="now-ui-icons files_paper"></i>
+							<p>Listar Clientes</p>
+					</a></li>
+				</c:if>
+		
+				<c:if test="${clienteLogado != null || motoristaLogado != null}">
 				<li class="nav-item"><a class="nav-link"
 					href="listaMotorista"> <i
 						class="now-ui-icons files_paper"></i>
 						<p>Listar Motorista</p>
 				</a></li>
-					<c:if test="${clienteLogado != null}">
+				</c:if>
+				<c:if test="${clienteLogado != null || motoristaLogado != null}">
 				<li class="nav-item"><a class="nav-link" href="logout"> <i
 							class="now-ui-icons files_paper"></i>
 							<p>Deslogar</p>
@@ -60,7 +93,12 @@
 				</c:if>
 				<li class="nav-item"><a class="nav-link btn btn-neutral"
 					href="login"> <i class="now-ui-icons users_single-02"></i>
-						<p>Login</p>
+						<c:if test="${clienteLogado != null || motoristaLogado != null}">
+           			<p>${clienteLogado.nome}</p> 
+           			</c:if>
+           			<c:if test="${clienteLogado == null || motoristaLogado == null}">
+			          <p>Login</p>
+			          </c:if>
 				</a></li>
 				<li class="nav-item"><a class="nav-link" rel="tooltip"
 					title="Follow us on Twitter" data-placement="bottom" href=""> <i
