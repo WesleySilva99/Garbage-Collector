@@ -60,7 +60,7 @@ ${msg}
 
 				<!-- Select Basic -->
 
-
+				
 				<div id="checkRadios">
 					<div class="col-sm-6 col-lg-3">
 						<p class="category">Material</p>

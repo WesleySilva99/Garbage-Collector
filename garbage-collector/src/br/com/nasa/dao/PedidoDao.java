@@ -26,8 +26,8 @@ public class PedidoDao {
 
 	public void Inserir(Pedido solicitarcoleta) {
 
-		String sql = "INSERT INTO pedido" + "(descricao, quantidade, endereco, numero, cep, id_tp_coleta)"
-				+ "VALUES (?,?,?,?,?,?)";
+		String sql = "INSERT INTO pedido" + "(descricao, quantidade, endereco, numero, cep, id_tp_coleta, id_cliente)"
+				+ "VALUES (?,?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
@@ -39,6 +39,7 @@ public class PedidoDao {
 			stmt.setString(4, solicitarcoleta.getNumero());
 			stmt.setString(5, solicitarcoleta.getCep());
 			stmt.setInt(6, solicitarcoleta.getTipocoleta().getId());
+			stmt.setInt(7, solicitarcoleta.getCliente().getId());
 			stmt.execute();
 			stmt.close();
 
