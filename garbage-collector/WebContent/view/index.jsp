@@ -55,7 +55,7 @@
 						<p>Sobre</p>
 				</a></li>
 				<c:if
-					test="${clienteLogado == null || motoristaLogado == null}">
+					test="${clienteLogado.nome ==null || motoristaLogado.nome ==null}">
 					<li class="nav-item"><a class="nav-link"
 						href="exibirIncluirCliente"> <i
 							class="now-ui-icons files_paper"></i>
@@ -103,6 +103,13 @@
 							<i class="now-ui-icons files_paper"></i>
 							<p>Listar Clientes</p>
 					</a></li>
+				</c:if>
+				<c:if test="${clienteLogado != null || motoristaLogado != null}">
+				<li class="nav-item"><a class="nav-link"
+					href="listaMotorista"> <i
+						class="now-ui-icons files_paper"></i>
+						<p>Listar Motorista</p>
+				</a></li>
 				</c:if>
 			
 				<c:if test="${clienteLogado != null || motoristaLogado != null}">

@@ -138,8 +138,7 @@
 								''
 					required="Para realizar o cadastro preencha este campo com o seu nome completo"
 								maxlength="40" name="nome"
-								pattern="[AÁÉÍÓÚÂÊÎÔÛ-ZáéíóúâêîôûçÁÉÍÓÚÂÊÎÔÛa-z ]+"
-								>
+								pattern="[AÁÉÍÓÚÂÊÎÔÛ-ZáéíóúâêîôûçÁÉÍÓÚÂÊÎÔÛa-z ]+">
 						</div>
 						<div class="col-4">
 							<label for="exampleInputData">Data de Nascimento:</label>
@@ -149,6 +148,7 @@
 								<c:when test="${empty c.dataNascimento}">
 									<input type="text" class="form-control" style="width: 50%;"
 										id="exampleInputData"
+										value="<fmt:formatDate value='${c.dataNascimento}' pattern='dd/MM/yyyy' />"
 										required="Para realizar o cadastro preencha este campo com sua data de nascimento"
 										name="dataNascimento" onkeypress="validaData()" maxlength="10"
 										placeholder="00/00/0000">
@@ -162,7 +162,7 @@
 										required="Para realizar o cadastro preencha este campo com sua data de nascimento"
 										name="dataNascimento" onkeypress="validaData()" maxlength="10"
 										placeholder="00/00/0000"
-										value="<fmt:formatDate value="${c.dataNascimento}" pattern="dd/MM/yyyy" />">
+										value="<fmt:formatDate value='${c.dataNascimento}' pattern='dd/MM/yyyy' />">
 
 								</c:otherwise>
 							</c:choose>
@@ -220,8 +220,7 @@
 							<input type="text" class="form-control" id="exampleInputEndereco"
 								style="width: 50%" ;
 				placeholder="Rua Don Juno nº 425"
-								required="required" maxlength="50" name="endereco.rua"
-								>
+								required="required" maxlength="50" name="endereco.rua">
 						</div>
 						<div class="col-4">
 							<label for="exampleInputName" class="hora">Complemento:</label> <input
@@ -230,8 +229,7 @@
 				placeholder="Casa"
 								pattern="[a-zA-Z0-9]+"
 								required="Para realizar o cadastro preencha este campo com o seu complemento"
-								maxlength="15" name="endereco.complemento"
-								>
+								maxlength="15" name="endereco.complemento">
 						</div>
 						<div class="col">
 							<label for="exampleInputEndereco" class="hora">Número do
@@ -251,8 +249,7 @@
 								type="text" class="form-control" id="exampleInputEndereco"
 								style="width: 50%" ;
 				placeholder="Ex: COHAB"
-								required="required" maxlength="50" name="endereco.bairro"
-								>
+								required="required" maxlength="50" name="endereco.bairro">
 						</div>
 						<div class="col-4">
 							<label for="exampleInputName" class="hora">Nome do

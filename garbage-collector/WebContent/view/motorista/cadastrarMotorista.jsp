@@ -144,7 +144,7 @@
     <div class="col-4">
     <label for="exampleInputName" class="hora">RG:</label> <input
 					type="text" class="form-control" id="exampleInputName"
-					placeholder="0.000.000" required="required" maxlength="9" name="rg"
+					placeholder="0.000.000" required="required" maxlength="10" name="rg"
 					style="width: 50%;" onkeypress="validaRG()">
     </div>
     
@@ -215,7 +215,7 @@
     <label for="exampleInputData" class="hora">Data de
 					vencimento da carteira:</label> <input type="text" class="form-control"
 					id="exampleInputData" required="required" name="validade"
-					style="width: 50%;" maxlength="10">
+					style="width: 50%;" maxlength="10" value="<fmt:formatDate value='${m.validade}' pattern='dd/MM/yyyy' />">
     </div>
     <div class="col-4">
     <label for="exampleInputPassword1" class="hora">Email:</label>
@@ -245,7 +245,7 @@
     </div>
     <div class="col-4">
     <label for="exampleInputCep">Placa do veiculo:</label> <input
-						type="text" class="form-control" id="exampleInputCep"
+						type="text" class="form-control" id="exampleInputCep" maxlength="7"
 						required="required" name="veiculo.placa" style="width: 50%;">
     </div>
     </div>
@@ -256,17 +256,17 @@
   
     <div class="col-4">
     <label for="exampleInputCep" class="hora">Marca:</label> <input
-						type="text" class="form-control" id="exampleInputCep"
+						type="text" class="form-control" id="exampleInputCep" maxlength="10"
 						required="required" name="veiculo.marca" style="width: 50%;">
     </div>
     <div class="col-4">
     <label for="exampleInputCep" class="hora">Ano do veiculo:</label> <input
-						type="text" class="form-control" id="exampleInputCep"
+						type="text" class="form-control" id="exampleInputCep" maxlength="4"
 						required="required" name="veiculo.anoVeiculo" style="width: 50%;">
     </div>
     <div class="col-4">
     <label for="exampleInputData" class="hora">Chassí:</label> <input type="text" class="form-control"
-					id="exampleInputData" required="required" name="veiculo.chasi"
+					id="exampleInputData" required="required" name="veiculo.chasi"  maxlength="30"
 					style="width: 50%;">
     </div>
     </div>
