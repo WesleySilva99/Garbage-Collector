@@ -62,10 +62,19 @@
 				</a></li>
 				</c:if>
 				
-				<c:if test="${clienteLogado != null || motoristaLogado != null}">
-					<li class="nav-item"><a class="nav-link" href="listarColeta">
+				<c:if test="${clienteLogado != null}">
+					<li class="nav-item"><a class="nav-link" href="listarColetaCliente">
 							<i class="now-ui-icons files_paper"></i>
 							<p>Lista de Coletas Solicitadas</p>
+					</a></li>
+				</c:if>
+				
+				
+				
+				<c:if test="${motoristaLogado != null}">
+					<li class="nav-item"><a class="nav-link" href="listarColeta">
+							<i class="now-ui-icons files_paper"></i>
+							<p>Lista de Coletas</p>
 					</a></li>
 				</c:if>
 

@@ -94,10 +94,19 @@
 					</a></li>
 				</c:if>
 
-				<c:if test="${clienteLogado != null || motoristaLogado != null}">
-					<li class="nav-item"><a class="nav-link" href="listarColeta">
+				<c:if test="${clienteLogado != null}">
+					<li class="nav-item"><a class="nav-link" href="listarColetaCliente">
 							<i class="now-ui-icons files_paper"></i>
 							<p>Lista de Coletas Solicitadas</p>
+					</a></li>
+				</c:if>
+				
+				
+				
+				<c:if test="${motoristaLogado != null}">
+					<li class="nav-item"><a class="nav-link" href="listarColeta">
+							<i class="now-ui-icons files_paper"></i>
+							<p>Lista de Coletas</p>
 					</a></li>
 				</c:if>
 
@@ -141,7 +150,11 @@
 
 				</a></li>
 
-
+				<li class="nav-item"><a class="nav-link" rel="tooltip"
+					title="Follow us on Twitter" data-placement="bottom" href="listarColetaCliente"> <i
+						class="fa fa-twitter"></i>
+						<p class="d-lg-none d-xl-none">Leandro Vittar</p>
+				</a></li>
 				<li class="nav-item"><a class="nav-link" rel="tooltip"
 					title="Follow us on Twitter" data-placement="bottom" href=""> <i
 						class="fa fa-twitter"></i>

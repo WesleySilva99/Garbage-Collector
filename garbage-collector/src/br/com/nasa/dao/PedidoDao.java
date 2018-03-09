@@ -82,6 +82,39 @@ public class PedidoDao {
 		}
 	}
 	
+	public List<Pedido> listarPorCliente(int id) {
+		try {
+			List<Pedido> listaColeta = new ArrayList<Pedido>();
+			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM pedido WHERE id_cliente = ?");
+			stmt.setInt(1, id);
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				Pedido coleta = new Pedido();
+				coleta.setId(rs.getInt("id"));
+				coleta.setDescricao(rs.getString("descricao"));
+				coleta.setQuantidade(rs.getShort("quantidade"));
+				coleta.setEndereco(rs.getString("endereco"));
+				coleta.setNumero(rs.getString("numero"));
+				coleta.setCep(rs.getString("cep"));
+				
+				int idTipoColeta = rs.getInt("id_tp_coleta");
+				TipoColetaDao dao = new TipoColetaDao();
+				TipoColeta cp = dao.pegarId(idTipoColeta);
+				coleta.setTipocoleta(cp);
+
+				listaColeta.add(coleta);
+			}
+			stmt.execute();
+			stmt.close();
+			rs.close();
+			connection.close();
+
+			return listaColeta;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 	public void remover(Pedido solicitarcoleta) {
 
 		String sql = "DELETE FROM pedido where id =?";

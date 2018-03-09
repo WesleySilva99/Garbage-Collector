@@ -46,6 +46,17 @@ public class SolicitarColetaController {
 		return "solicitarColeta/cancelarColeta";
 	}
 
+	@RequestMapping("/listarColetaCliente")
+	public String listarColetaCliente(HttpSession session,Model model) {
+		PedidoDao dao = new PedidoDao();
+		Cliente cliente = (Cliente) session.getAttribute("clienteLogado");
+		int id = cliente.getId();
+		List<Pedido> listaColeta = dao.listarPorCliente(id);
+		model.addAttribute("listaColeta", listaColeta);
+		System.out.println("Mostrando listar");
+		return "solicitarColeta/listaColetas";
+	}
+
 	@RequestMapping("/cancelarColeta")
 	public String cancelarColeta(Pedido solicitarcoleta, Model model) {
 		PedidoDao dao = new PedidoDao();
