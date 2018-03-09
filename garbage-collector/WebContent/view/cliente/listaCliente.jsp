@@ -36,6 +36,7 @@
 		<h2 align="center">Lista de Usuários</h2>
 		<hr>
 		<br>
+		<h4 style="color: blue";>${msg}</h4>
 		<table class="table table-striped">
 
 			<tr>

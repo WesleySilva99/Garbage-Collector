@@ -97,7 +97,7 @@ public class ClienteController {
 	}
 
 	@RequestMapping("alterarCliente")
-	public String alterarProduto(Cliente cliente, Model model) {
+	public String alterarCliente(Cliente cliente, Model model) {
 
 		ClienteDao dao = new ClienteDao();
 		Cliente clienteCompleto = dao.pegarId(cliente.getId());
@@ -107,7 +107,7 @@ public class ClienteController {
 	}
 
 	@RequestMapping("alterarCliente2")
-	public String alterarProduto2(Cliente cliente, Model model) throws SQLException {
+	public String alterarCliente2(Cliente cliente, Model model) throws SQLException {
 
 		ClienteDao dao = new ClienteDao();
 		dao.alterar(cliente);
