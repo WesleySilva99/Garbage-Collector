@@ -13,75 +13,67 @@
 <link rel="icon" type="image/png" href="view/assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>Garbage Collector</title>
-<meta
-	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-	name='viewport' />
-<!--     Fonts and icons     -->
-<link
-	href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
-	rel="stylesheet" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-<!-- CSS Files -->
-<link href="view/assets/css/bootstrap.min.css" rel="stylesheet" />
-<link href="view/assets/css/now-ui-kit.css" rel="stylesheet" />
-<!-- CSS Just for demo purpose, don't include it in your project -->
-<link href="view/assets/css/demo.css" rel="stylesheet" />
+<meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
+  <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal">
+  <link rel="stylesheet" type="text/css" href="view/novoTemplate/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="view/novoTemplate/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="view/novoTemplate/css/style.css">
+
 </head>
 <body>
 
-	<c:import url="/view/util/menu.jsp" />
-	<div class="container">
-		<hr>
-		<h2 align="center">Lista de Usuários</h2>
-		<hr>
-		<br>
-		<table class="table table-striped">
+	<br>
+  <br>
+  <br>
+ 
 
-			<tr>
-				<th>Nome</th>
-				<th>Cpf</th>
-				<th>Data de Nascimento</th>
-				<th>login</th>
-				<th>telefone</th>
-				<th>Email</th>
-				<th>Rua</th>
-				<th>Bairro</th>
-				<th>Cep</th>
-				<th>Número</th>
-				<th>Complemento</th>
-				<th>Alterar/Remover</th>
-				<th>Detalhes</th>
-			</tr>
+<div style="left: 1000px;">
+<c:import url="/view/util/menu.jsp" />
+  <div class="container">
+    <hr>
+    <h2 align="center">Lista de Usuários</h2>
+    <hr>
+    <br>
+    <table class="table table-striped">
 
-
-			<c:forEach var="u" items="${listaCliente}">
+      <tr>
+        <th>Nome</th>
+        <th>Cpf</th>
+        <th>Data de Nascimento</th>
+        <th>login</th>
+        <th>telefone</th>
+        <th>Email</th>
+        <th>Alterar/Remover</th>
+        <th>Detalhes</th>
+      </tr>
 
 
-				<tr>
-					<td>${u.nome}</td>
-					<td>${u.cpf}</td>
-					<td><fmt:formatDate value="${u.dataNascimento}"
-							pattern="dd/MM/yyyy" /></td>
-					<td>${u.login}</td>
-					<td>${u.telefone}</td>
-					<td>${u.email}</td>
-					
-						
-					<td>${u.endereco.rua}</td>
-					<td>${u.endereco.bairro}</td>
-					<td>${u.endereco.cep}</td>
-					<td>${u.endereco.complemento}</td>
-					<td>${u.endereco.numero}</td>
-					
-					
-					
-					
-					<td><a href="alterarCliente?id=${u.id}">Alterar</a> &nbsp;</td>
-					<td onclick="myFunction(this)"><h4 style="margin-top: 50px;"><span class="label label-success " >detalhes</span></h4></td> 
-				</tr>
+      <c:forEach var="u" items="${listaCliente}">
 
-<div class="modal fade item_view" id="item_view">
+
+        <tr>
+          <td>${u.nome}</td>
+          <td>${u.cpf}</td>
+          <td><fmt:formatDate value="${u.dataNascimento}"
+              pattern="dd/MM/yyyy" /></td>
+          <td>${u.login}</td>
+          <td>${u.telefone}</td>
+          <td>${u.email}</td>
+          
+            
+         
+          
+          
+         
+          
+          
+          <td><a href="alterarCliente?id=${u.id}" class='btn btn-info btn-xs'><span >Alterar</a> &nbsp;</td>
+          <td onclick="myFunction(this)"><h4 style="margin-top: 5px;"><span class="label label-success " >detalhes</span></h4></td> 
+        </tr>
+
+        <div class="modal fade item_view" id="item_view">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -91,23 +83,24 @@
             <div class="modal-body">
                 <div class="row">
                     
-                    <div class="col-md-1 item_content">
-                    
-                 nome:   ${u.nome}
-				cpf:	${u.cpf}
-					 data nascimento: <fmt:formatDate value="${u.dataNascimento}"
-							pattern="dd/MM/yyyy" />
-				usuario:${u.login}
-				telefone :	${u.telefone}
-				email:	${u.email}
-					
-						
-				rua:	${u.endereco.rua}
-				bairro:	${u.endereco.bairro}
-				cep:	${u.endereco.cep}
-				complemento:	${u.endereco.complemento}
-				numero:	${u.endereco.numero}
-                  
+                    <div class="col-md-3 item_content">
+                      
+
+                        nome:   ${u.nome}
+        cpf:  ${u.cpf}
+           data nascimento: <fmt:formatDate value="${u.dataNascimento}"
+              pattern="dd/MM/yyyy" />
+        usuario:${u.login}
+        telefone :  ${u.telefone}
+        email:  ${u.email}
+          
+            
+        rua:  ${u.endereco.rua}
+        bairro: ${u.endereco.bairro}
+        cep:  ${u.endereco.cep}
+        complemento:  ${u.endereco.complemento}
+        numero: ${u.endereco.numero}
+
                     </div>
                 </div>
             </div>
@@ -115,24 +108,22 @@
     </div>
 </div>
 
-			</c:forEach>
-		</table>
-	</div>
+      </c:forEach>
+    </table>
+  </div>
+
+</div>
 
 
 
 
 
 	<!-- jQuery (necessario para Bootsrap plungins Java Script) -->
-	
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="view/assets/js/now-ui-kit.js"></script>
-		<script src="view/assets/js/plugins/bootstrap-datepicker.js"></script>
-		<script src="view/assets/js/plugins/bootstrap-switch.js"></script>
-		<script src="view/assets/js/plugins/jquery.sharrre.js"></script>
-		<script src="view/assets/js/plugins/nouislider.min.js"></script>
-	<script src="view/bootstrap/js/bootstrap.min.js"></script>
+  <script src="view/novoTemplate/js/jquery.min.js"></script>
+  <script src="view/novoTemplate/js/jquery.easing.min.js"></script>
+  <script src="view/novoTemplate/js/bootstrap.min.js"></script>
+  <script src="view/novoTemplate/js/custom.js"></script>
+  <script src="view/novoTemplate/contactform/contactform.js"></script>
 	
 	
 </body>
