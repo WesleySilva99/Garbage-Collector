@@ -48,7 +48,7 @@ public class ClienteController {
 			return "index";
 		}
 		
-		model.addAttribute("msg", "N„o foi encontrado um usu·rio com o login e senha informados.");
+		model.addAttribute("msg", "N√£o foi encontrado um usu√°rio com o login e senha informados.");
 		return "login";
 	}
 
@@ -65,21 +65,21 @@ public class ClienteController {
 		if (dao.verificaLoginExistente(cliente.getLogin()) == true && dao.verificaEmailExistente(cliente.getEmail()) == true) {
 			dao.Inserir(cliente);
 
-			model.addAttribute("msg", "VocÍ foi cadastrado com sucesso!");
+			model.addAttribute("msg", "Voc√™ foi cadastrado com sucesso!");
 			System.out.println("Cadastrando Clientes");
 
 		} else if(dao.verificaLoginExistente(cliente.getLogin()) == false) {
 
-			model.addAttribute("msg", "O login j·° existe!");
+			model.addAttribute("msg", "O login j√° existe!");
 			model.addAttribute("c", cliente);
 			System.out.println("Tente novamente, Login j√° existente");
 			return "cliente/cadastrarCliente";
 		}
 		
 		else if (dao.verificaEmailExistente(cliente.getEmail()) == false) {
-			model.addAttribute("msg", "O email j· existe!");
+			model.addAttribute("msg", "O email j√° existe!");
 			model.addAttribute("c", cliente);
-			System.out.println("Tente novamente, email j· existente");
+			System.out.println("Tente novamente, email j√° existente");
 			return "cliente/cadastrarCliente";
 
 		}
@@ -114,6 +114,12 @@ public class ClienteController {
 		model.addAttribute("msg", "cliente alterado.");
 		System.out.println("cliente alterado com sucesso");
 		return "forward:listarClientes";
+	}
+	
+	@RequestMapping("/painelLogin")
+	public String exebirPainelLogin() {
+		
+		return "painelLogin";
 	}
 
 }

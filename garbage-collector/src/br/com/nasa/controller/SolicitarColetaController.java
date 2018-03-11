@@ -2,8 +2,6 @@ package br.com.nasa.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,10 +26,8 @@ public class SolicitarColetaController {
 	}
 
 	@RequestMapping("/CadastraSolicitarColeta")
-	public String CadastraSolicitarColeta(HttpSession session, Pedido solicitarcoleta, Model model) {
+	public String CadastraSolicitarColeta(Pedido solicitarcoleta, Model model) {
 		PedidoDao dao = new PedidoDao();
-		Cliente cliente = (Cliente) session.getAttribute("clienteLogado");
-		solicitarcoleta.setCliente(cliente);
 		dao.Inserir(solicitarcoleta);
 		model.addAttribute("msg", "Coleta cadastrada com sucesso!");
 		System.out.println("Cadastrando a coleta");
@@ -44,17 +40,6 @@ public class SolicitarColetaController {
 		List<Pedido> listaColeta = dao.listar();
 		model.addAttribute("listaColeta", listaColeta);
 		return "solicitarColeta/cancelarColeta";
-	}
-
-	@RequestMapping("/listarColetaCliente")
-	public String listarColetaCliente(HttpSession session,Model model) {
-		PedidoDao dao = new PedidoDao();
-		Cliente cliente = (Cliente) session.getAttribute("clienteLogado");
-		int id = cliente.getId();
-		List<Pedido> listaColeta = dao.listarPorCliente(id);
-		model.addAttribute("listaColeta", listaColeta);
-		System.out.println("Mostrando listar");
-		return "solicitarColeta/listaColetas";
 	}
 
 	@RequestMapping("/cancelarColeta")
