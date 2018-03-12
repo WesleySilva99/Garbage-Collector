@@ -29,7 +29,7 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 		}
 
 		
-		if (request.getSession().getAttribute("clienteLogado") != null || request.getSession().getAttribute("motoristaLogado") != null) {
+		if (request.getSession().getAttribute("clienteLogado") != null || request.getSession().getAttribute("motoristaLogado") != null || request.getSession().getAttribute("AdmLogado") != null) {
 			return true;
 			}
 		response.sendRedirect("/garbage-collector");

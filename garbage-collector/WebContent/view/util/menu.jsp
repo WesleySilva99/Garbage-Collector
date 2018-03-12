@@ -28,78 +28,107 @@
 						class="now-ui-icons files_single-copy-04"></i>
 						<p>Sobre</p>
 				</a></li>
-				<c:if test="${clienteLogado == null || motoristaLogado == null}">
-				<li class="nav-item"><a class="nav-link"
-					href="exibirIncluirCliente"> <i
-						class="now-ui-icons files_paper"></i>
-						<p>Cadastrar Cliente</p>
-				</a></li>
+						<c:choose>
+
+					<c:when test="${clienteLogado != null || motoristaLogado != null || AdmLogado != null}">
+
+
+
+					</c:when>
+
+					<c:otherwise>
+
+						<li class="nav-item"><a class="nav-link"
+
+							href="exibirIncluirCliente"> <i
+
+								class="now-ui-icons files_paper"></i>
+
+								<p>Cadastrar Cliente</p>
+
+						</a></li>
+
+					</c:otherwise>
+
+				</c:choose>
+
+				<c:if
+					test="${AdmLogado != null}">
+					<li class="nav-item"><a class="nav-link"
+						href="exibirCadastrarMotorista"> <i
+							class="now-ui-icons files_paper"></i>
+							<p>Cadastrar Motorista</p>
+					</a></li>
 				</c:if>
-				<c:if test="${clienteLogado == null || motoristaLogado == null}">
-				<li class="nav-item"><a class="nav-link"
-					href="exibirCadastrarMotorista"> <i
-						class="now-ui-icons files_paper"></i>
-						<p>CadastrarMotorista</p>
-				</a></li>
+				<c:if test="${clienteLogado != null}">
+					<li class="nav-item"><a class="nav-link"
+						href="exibirSolicitarColeta"> <i
+							class="now-ui-icons files_paper"></i>
+							<p>Solicitar Coleta</p>
+					</a></li>
 				</c:if>
-				<c:if test="${clienteLogado != null || motoristaLogado != null}">
-				<li class="nav-item"><a class="nav-link"
-					href="exibirSolicitarColeta"> <i
-						class="now-ui-icons files_paper"></i>
-						<p>Solicitar Coleta</p>
-				</a></li>
-				</c:if>
-				
-				<c:if test="${clienteLogado != null || motoristaLogado != null}">
+
+				<c:if test="${clienteLogado != null}">
 					<li class="nav-item"><a class="nav-link" href="listarColeta">
 							<i class="now-ui-icons files_paper"></i>
 							<p>Lista de Coletas Solicitadas</p>
 					</a></li>
 				</c:if>
 
-				<c:if test="${clienteLogado != null || motoristaLogado != null}">
+				<c:if test="${AdmLogado != null}">
 					<li class="nav-item"><a class="nav-link"
 						href="exibirTipoColeta"> <i class="now-ui-icons files_paper"></i>
 							<p>Cadastrar Tipo Coleta</p>
 					</a></li>
 				</c:if>
 
-				<c:if test="${clienteLogado != null || motoristaLogado != null}">
+				<c:if test="${AdmLogado != null}">
 					<li class="nav-item"><a class="nav-link"
 						href="listarTipocoleta"> <i class="now-ui-icons files_paper"></i>
 							<p>Lista Tipo Coleta</p>
 					</a></li>
 				</c:if>
-				<c:if test="${clienteLogado != null || motoristaLogado != null}">
+				<c:if test="${AdmLogado != null}">
 					<li class="nav-item"><a class="nav-link" href="listarClientes">
 							<i class="now-ui-icons files_paper"></i>
 							<p>Listar Clientes</p>
 					</a></li>
 				</c:if>
-		
-				<c:if test="${clienteLogado != null || motoristaLogado != null}">
+				<c:if test="${AdmLogado != null}">
 				<li class="nav-item"><a class="nav-link"
 					href="listaMotorista"> <i
 						class="now-ui-icons files_paper"></i>
 						<p>Listar Motorista</p>
 				</a></li>
 				</c:if>
-				<c:if test="${clienteLogado != null || motoristaLogado != null}">
-				<li class="nav-item"><a class="nav-link" href="logout"> <i
+			
+				<c:if test="${clienteLogado != null || motoristaLogado != null || AdmLogado != null}">
+					<li class="nav-item"><a class="nav-link" href="logout"> <i
 							class="now-ui-icons files_paper"></i>
 							<p>Deslogar</p>
 					</a></li>
-					</li>
 				</c:if>
+				
 				<li class="nav-item"><a class="nav-link btn btn-neutral"
 					href="login"> <i class="now-ui-icons users_single-02"></i>
-						<c:if test="${clienteLogado != null || motoristaLogado != null}">
-           			<p>${clienteLogado.nome}</p> 
-           			</c:if>
-           			<c:if test="${clienteLogado == null || motoristaLogado == null}">
-			          <p>Login</p>
-			          </c:if>
+					<c:choose>
+					<c:when
+
+								test="${clienteLogado != null || motoristaLogado != null || AdmLogado != null}">
+
+								<p>${clienteLogado.nome}${motoristaLogado.nome}${AdmLogado.nome}</p>
+
+							</c:when>
+
+							<c:otherwise>
+
+								<p>Login</p>
+
+							</c:otherwise>
+
+						</c:choose>
 				</a></li>
+				
 				<li class="nav-item"><a class="nav-link" rel="tooltip"
 					title="Follow us on Twitter" data-placement="bottom" href=""> <i
 						class="fa fa-twitter"></i>

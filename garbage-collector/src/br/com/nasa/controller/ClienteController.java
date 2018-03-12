@@ -9,8 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.com.nasa.dao.AdministradorDao;
 import br.com.nasa.dao.ClienteDao;
 import br.com.nasa.dao.MotoristaDao;
+import br.com.nasa.model.Administrador;
 import br.com.nasa.model.Cliente;
 import br.com.nasa.model.Motorista;
 
@@ -29,7 +31,7 @@ public class ClienteController {
 	}
 
 	@RequestMapping("efetuarLogin")
-	public String efetuarLogin(Cliente cliente,Motorista motorista, HttpSession session, Model model) {
+	public String efetuarLogin(Cliente cliente,Motorista motorista,Administrador adm, HttpSession session, Model model) {
 		ClienteDao dao = new ClienteDao();
 		Cliente clienteLogado = dao.buscarPorId(cliente);
 				
@@ -45,6 +47,14 @@ public class ClienteController {
 		if (motoristaLogado != null) {
 			session.setAttribute("motoristaLogado", motoristaLogado);
 			System.out.println("Motorista logado");
+			return "index";
+		}
+		
+		AdministradorDao dao2 = new AdministradorDao();
+		Administrador AdmLogado= dao2.buscarPorId(adm);
+		if (AdmLogado != null) {
+			session.setAttribute("AdmLogado", AdmLogado);
+			System.out.println("Administrador logado");
 			return "index";
 		}
 		
