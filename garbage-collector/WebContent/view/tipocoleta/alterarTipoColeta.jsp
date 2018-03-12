@@ -41,7 +41,7 @@
 		<form action="alterarTipoColeta" method="post">
 
 
-			<input type="text" name="id" value="${p.id}">
+			<input type="hidden" name="id" value="${p.id}">
 
 			<div>
 

@@ -128,8 +128,26 @@ public class ClienteDao {
 
 	public void alterar(Cliente cliente) throws SQLException {
 		
-		
-		String sql = "UPDATE cliente SET nome = ?, cpf = ?, dt_nasc = ?, login = ?, senha = ?, telefone = ?, email=? WHERE id = ?";
+		EnderecoDao dao = new EnderecoDao();
+
+		dao.alterar(cliente.getEndereco());
+
+		int idEndereco = 0;
+
+		String sql1 = "SELECT MAX(id) FROM endereco";
+
+		PreparedStatement stmt1 = this.connection.prepareStatement(sql1);
+
+		ResultSet rs = stmt1.executeQuery();
+
+		while (rs.next()) {
+
+			idEndereco = rs.getInt("max(id)");
+
+		}
+		stmt1.close();
+		rs.close();
+		String sql = "UPDATE cliente SET nome = ?, cpf = ?, dt_nasc = ?, login = ?, telefone = ?, email=?, id_endereco=? WHERE id = ?";
 		PreparedStatement stmt;
 		try {
 
@@ -139,9 +157,9 @@ public class ClienteDao {
 			stmt.setString(2, cliente.getCpf());
 			stmt.setDate(3, new java.sql.Date(cliente.getDataNascimento().getTime()));
 			stmt.setString(4, cliente.getLogin());
-			stmt.setString(5, cliente.getSenha());
-			stmt.setString(6, cliente.getTelefone());
-			stmt.setString(7, cliente.getEmail());
+			stmt.setString(5, cliente.getTelefone());
+			stmt.setString(6, cliente.getEmail());
+			stmt.setInt(7, idEndereco);
 			stmt.setInt(8, cliente.getId());
 			stmt.execute();
 			connection.close();
@@ -168,7 +186,6 @@ public class ClienteDao {
 				clienteCompleto.setCpf(rs.getString("cpf"));
 				clienteCompleto.setDataNascimento(rs.getDate("dt_nasc"));
 				clienteCompleto.setLogin(rs.getString("login"));
-				clienteCompleto.setSenha(rs.getString("senha"));
 				clienteCompleto.setTelefone(rs.getString("telefone"));
 				clienteCompleto.setEmail(rs.getString("email"));
 				
