@@ -54,6 +54,7 @@
 						class="now-ui-icons files_single-copy-04"></i>
 						<p>Sobre</p>
 				</a></li>
+<<<<<<< HEAD
 				<c:if
 					test="${clienteLogado.nome ==null || motoristaLogado.nome ==null}">
 					<li class="nav-item"><a class="nav-link"
@@ -70,6 +71,40 @@
 							<p>Cadastrar Motorista</p>
 					</a></li>
 				</c:if>
+=======
+
+				<c:choose>
+					<c:when test="${clienteLogado != null || motoristaLogado != null}">
+
+					</c:when>
+					<c:otherwise>
+						<li class="nav-item"><a class="nav-link"
+							href="exibirIncluirCliente"> <i
+								class="now-ui-icons files_paper"></i>
+								<p>Cadastrar Cliente</p>
+						</a></li>
+					</c:otherwise>
+				</c:choose>
+
+				<c:choose>
+					<c:when test="${clienteLogado != null || motoristaLogado != null}">
+
+					</c:when>
+					<c:otherwise>
+
+						<li class="nav-item"><a class="nav-link"
+							href="exibirCadastrarMotorista"> <i
+								class="now-ui-icons files_paper"></i>
+								<p>Cadastrar Motorista</p>
+						</a></li>
+					</c:otherwise>
+				</c:choose>
+
+
+
+
+
+>>>>>>> 9a2b0820bafbc358fb9fff43bfd01ffa95f44f6a
 				<c:if test="${clienteLogado != null || motoristaLogado != null}">
 					<li class="nav-item"><a class="nav-link"
 						href="exibirSolicitarColeta"> <i
@@ -78,10 +113,19 @@
 					</a></li>
 				</c:if>
 
-				<c:if test="${clienteLogado != null || motoristaLogado != null}">
-					<li class="nav-item"><a class="nav-link" href="listarColeta">
+				<c:if test="${clienteLogado != null}">
+					<li class="nav-item"><a class="nav-link" href="listarColetaCliente">
 							<i class="now-ui-icons files_paper"></i>
 							<p>Lista de Coletas Solicitadas</p>
+					</a></li>
+				</c:if>
+				
+				
+				
+				<c:if test="${motoristaLogado != null}">
+					<li class="nav-item"><a class="nav-link" href="listarColeta">
+							<i class="now-ui-icons files_paper"></i>
+							<p>Lista de Coletas</p>
 					</a></li>
 				</c:if>
 
@@ -104,6 +148,7 @@
 							<p>Listar Clientes</p>
 					</a></li>
 				</c:if>
+<<<<<<< HEAD
 				<c:if test="${clienteLogado != null || motoristaLogado != null}">
 				<li class="nav-item"><a class="nav-link"
 					href="listaMotorista"> <i
@@ -112,25 +157,34 @@
 				</a></li>
 				</c:if>
 			
+=======
+
+>>>>>>> 9a2b0820bafbc358fb9fff43bfd01ffa95f44f6a
 				<c:if test="${clienteLogado != null || motoristaLogado != null}">
 					<li class="nav-item"><a class="nav-link" href="logout"> <i
 							class="now-ui-icons files_paper"></i>
 							<p>Deslogar</p>
 					</a></li>
 				</c:if>
-				
+
 				<li class="nav-item"><a class="nav-link btn btn-neutral"
-					href="login"> <i class="now-ui-icons users_single-02"></i>
-					
-					<c:if test="${clienteLogado != null || motoristaLogado != null}">
-           			<p>${clienteLogado.nome}</p> 
-           			</c:if>
-           			<c:if test="${clienteLogado == null || motoristaLogado == null}">
-			          <p>Login</p>
-			          </c:if>
+					href="login"> <i class="now-ui-icons users_single-02"></i> <c:choose>
+							<c:when
+								test="${clienteLogado != null || motoristaLogado != null}">
+								<p>${clienteLogado.nome}</p>
+							</c:when>
+							<c:otherwise>
+								<p>Login</p>
+							</c:otherwise>
+						</c:choose>
+
 				</a></li>
-				
-				
+
+				<li class="nav-item"><a class="nav-link" rel="tooltip"
+					title="Follow us on Twitter" data-placement="bottom" href="listarColetaCliente"> <i
+						class="fa fa-twitter"></i>
+						<p class="d-lg-none d-xl-none">Leandro Vittar</p>
+				</a></li>
 				<li class="nav-item"><a class="nav-link" rel="tooltip"
 					title="Follow us on Twitter" data-placement="bottom" href=""> <i
 						class="fa fa-twitter"></i>

@@ -70,7 +70,7 @@ endereco varchar(50) not null,
 numero varchar(6) not null,
 cep varchar(9) not null,
 busca_material datetime,
-id_endereco int,s
+id_endereco int,
 id_tp_coleta int,
 id_cliente int,
 id_motorista int,

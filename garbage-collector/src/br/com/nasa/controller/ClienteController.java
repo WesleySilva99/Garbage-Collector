@@ -70,9 +70,9 @@ public class ClienteController {
 
 		} else if(dao.verificaLoginExistente(cliente.getLogin()) == false) {
 
-			model.addAttribute("msg", "O login j· existe!");
+			model.addAttribute("msg", "O login j·° existe!");
 			model.addAttribute("c", cliente);
-			System.out.println("Tente novamente, Login j· existente");
+			System.out.println("Tente novamente, Login j√° existente");
 			return "cliente/cadastrarCliente";
 		}
 		

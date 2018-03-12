@@ -28,20 +28,32 @@
 						class="now-ui-icons files_single-copy-04"></i>
 						<p>Sobre</p>
 				</a></li>
-				<c:if test="${clienteLogado == null || motoristaLogado == null}">
-				<li class="nav-item"><a class="nav-link"
-					href="exibirIncluirCliente"> <i
-						class="now-ui-icons files_paper"></i>
-						<p>Cadastrar Cliente</p>
-				</a></li>
-				</c:if>
-				<c:if test="${clienteLogado == null || motoristaLogado == null}">
-				<li class="nav-item"><a class="nav-link"
-					href="exibirCadastrarMotorista"> <i
-						class="now-ui-icons files_paper"></i>
-						<p>CadastrarMotorista</p>
-				</a></li>
-				</c:if>
+				<c:choose>
+					<c:when test="${clienteLogado != null || motoristaLogado != null}">
+
+					</c:when>
+					<c:otherwise>
+						<li class="nav-item"><a class="nav-link"
+							href="exibirIncluirCliente"> <i
+								class="now-ui-icons files_paper"></i>
+								<p>Cadastrar Cliente</p>
+						</a></li>
+					</c:otherwise>
+				</c:choose>
+
+				<c:choose>
+					<c:when test="${clienteLogado != null || motoristaLogado != null}">
+
+					</c:when>
+					<c:otherwise>
+
+						<li class="nav-item"><a class="nav-link"
+							href="exibirCadastrarMotorista"> <i
+								class="now-ui-icons files_paper"></i>
+								<p>Cadastrar Motorista</p>
+						</a></li>
+					</c:otherwise>
+				</c:choose>
 				<c:if test="${clienteLogado != null || motoristaLogado != null}">
 				<li class="nav-item"><a class="nav-link"
 					href="exibirSolicitarColeta"> <i
@@ -50,10 +62,19 @@
 				</a></li>
 				</c:if>
 				
-				<c:if test="${clienteLogado != null || motoristaLogado != null}">
-					<li class="nav-item"><a class="nav-link" href="listarColeta">
+				<c:if test="${clienteLogado != null}">
+					<li class="nav-item"><a class="nav-link" href="listarColetaCliente">
 							<i class="now-ui-icons files_paper"></i>
 							<p>Lista de Coletas Solicitadas</p>
+					</a></li>
+				</c:if>
+				
+				
+				
+				<c:if test="${motoristaLogado != null}">
+					<li class="nav-item"><a class="nav-link" href="listarColeta">
+							<i class="now-ui-icons files_paper"></i>
+							<p>Lista de Coletas</p>
 					</a></li>
 				</c:if>
 
