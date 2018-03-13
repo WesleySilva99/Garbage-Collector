@@ -17,14 +17,7 @@
               <ul class="nav navbar-nav">
                 <li class="active"><a href="exibirIncluirCliente">Cadastro Cliente</a></li>
                 <li class=""><a href="exibirCadastrarMotorista">Cadastro Motorista</a></li>
-                <li class=""><a href="listarClientes">Lista Cliente</a></li>
-                <li class=""><a href="listaMotorista">Lista Motorista</a></li>
-                  <li class=""><a href="exibirSolicitarColeta">Solicitar coleta</a></li>
-                  <li class=""><a href="listarColeta">Listar Coleta</a></li>
-                  <li class=""><a href="cancelarColeta">Cancelar coleta</a></li>
-                  <li class=""><a href="exibirTipoColeta">Tipo coleta</a></li>
-                  <li class=""><a href="painelLogin">Painel de Login</a></li>
-             
+                
                 <li class=""><a href="login">Login</a></li>
                
               </ul>

@@ -36,7 +36,7 @@ public class ClienteController {
 		if (clienteLogado != null) {
 			session.setAttribute("clienteLogado", clienteLogado);
 			System.out.println("Cliente logado");
-			return "index";
+			return "solicitarColeta/solicitarColeta";
 		}
 		MotoristaDao dao1 = new MotoristaDao();
 		Motorista motoristaLogado = dao1.buscarPorId(motorista);
@@ -116,10 +116,6 @@ public class ClienteController {
 		return "forward:listarClientes";
 	}
 	
-	@RequestMapping("/painelLogin")
-	public String exebirPainelLogin() {
-		
-		return "painelLogin";
-	}
+	
 
 }
