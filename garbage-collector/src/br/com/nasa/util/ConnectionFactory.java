@@ -8,7 +8,11 @@ public class ConnectionFactory {
 	public Connection getConnection() throws SQLException {
 		String nomeBanco = "gc";
 		String usuario = "root";
+<<<<<<< HEAD
 		String senha = "34815231";
+=======
+		String senha = "";
+>>>>>>> d28250ac0fe8cc1f5e15571d9c334b335c48d011
 
 	
 		
