@@ -357,7 +357,6 @@ aside ul li a span{
 <c:import url="/view/util/menu.jsp" />
 <c:import url="/view/util/menuLateral.jsp" />
 
-<<<<<<< HEAD
 	<div style="left: 1000px;">
 	
 		<div class="container">
@@ -366,36 +365,6 @@ aside ul li a span{
 			<hr>
 			<br>
 			<table class="table table-striped">
-=======
-	<c:import url="/view/util/menu.jsp" />
-	<div class="container">
-		<hr>
-		<h2 align="center">Lista de Usuários</h2>
-		<hr>
-		<br>
-		<h4 style="color: blue";>${msg}</h4>
-		<table class="table table-striped">
-
-			<tr>
-				<th>Nome</th>
-				<th>Cpf</th>
-				<th>Data de Nascimento</th>
-				<th>login</th>
-				<th>telefone</th>
-				<th>Email</th>
-				<th>Rua</th>
-				<th>Bairro</th>
-				<th>Cep</th>
-				<th>Número</th>
-				<th>Complemento</th>
-				<th>Alterar/Remover</th>
-				<th>Detalhes</th>
-			</tr>
-
-
-			<c:forEach var="u" items="${listaCliente}">
-
->>>>>>> d28250ac0fe8cc1f5e15571d9c334b335c48d011
 
 				<tr>
 					<th>Nome</th>

@@ -76,23 +76,4 @@ public class MotoristaController {
 		return "forward:listaMotorista";
 
 	}
-	@RequestMapping("exibiralterarMotorista")
-	public String exibiralterarMotorista(Motorista m, Model model) {
-
-		MotoristaDao dao = new MotoristaDao();
-		Motorista mCompleto = dao.pegarId(m.getId());
-		model.addAttribute("p", mCompleto);
-
-		return "motorista/alterarMotorista";
-	}
-
-	@RequestMapping("alterarMotorista")
-	public String alterarMotorista(Motorista m, Model model) {
-
-		MotoristaDao dao = new MotoristaDao();
-		dao.alterar(m);
-		model.addAttribute("msg", "Motorista alterado.");
-		System.out.println("motorista alterado com sucesso");
-		return "forward:listaMotorista";
-	}
 }

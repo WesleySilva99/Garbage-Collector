@@ -368,7 +368,7 @@ aside ul li a span{
 		<form action="alterarTipoColeta" method="post">
 
 
-			<input type="hidden" name="id" value="${p.id}">
+			<input type="text" name="id" value="${p.id}">
 
 			<div>
 

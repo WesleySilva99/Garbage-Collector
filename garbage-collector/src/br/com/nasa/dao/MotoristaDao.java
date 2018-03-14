@@ -8,7 +8,6 @@ import java.util.List;
 
 import com.mysql.jdbc.Connection;
 
-import br.com.nasa.model.Cliente;
 import br.com.nasa.model.Endereco;
 import br.com.nasa.model.Motorista;
 import br.com.nasa.model.Veiculo;
@@ -157,83 +156,6 @@ public class MotoristaDao {
 		}
 
 	}
-public void alterar(Motorista motorista) {
-		
-		
-		String sql = "UPDATE motorista SET nome=?, telefone=?, cpf=?, rg=?, sexo=?, n_abilitacao=?, dataVencimento=?, cat_abilitacao=?, login=?, email=? WHERE id = ?";
-		PreparedStatement stmt;
-		try {
-
-			stmt = connection.prepareStatement(sql);
-
-			stmt.setString(1, motorista.getNome());
-			stmt.setString(2, motorista.getTelefone());
-			stmt.setString(3, motorista.getCpf());
-			stmt.setString(4, motorista.getRg());
-			stmt.setString(5, motorista.getSexo());
-			stmt.setInt(6, motorista.getNumHabilitacao());
-			stmt.setDate(7, new java.sql.Date(motorista.getValidade().getTime()));
-			stmt.setString(8, motorista.getCategoria());
-			stmt.setString(9, motorista.getLogin());
-			stmt.setString(10, motorista.getEmail());
-			stmt.setInt(11, motorista.getId());
-			
-			stmt.execute();
-			connection.close();
-
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
-	}
-
-public Motorista pegarId(int id) {
-
-	try {
-
-		Motorista mCompleto = new Motorista();
-
-		PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM motorista WHERE id =  ?");
-		stmt.setInt(1, id);
-		ResultSet rs = stmt.executeQuery();
-
-		while (rs.next()) {
-
-			mCompleto.setId(rs.getInt("id"));
-			mCompleto.setNome(rs.getString("nome"));
-			mCompleto.setRg(rs.getString("rg"));
-			mCompleto.setCpf(rs.getString("cpf"));
-			mCompleto.setValidade(rs.getDate("dataVencimento"));
-			mCompleto.setTelefone(rs.getString("telefone"));
-			mCompleto.setNumHabilitacao(rs.getInt("n_abilitacao"));
-			mCompleto.setCategoria(rs.getString("cat_abilitacao"));
-			mCompleto.setSexo(rs.getString("sexo"));
-
-			int idEndereco = rs.getInt("id_endereco");
-			EnderecoDao dao = new EnderecoDao();
-			Endereco cp = dao.pegarId(idEndereco);
-			mCompleto.setEndereco(cp);
-
-			int idVeiculo = rs.getInt("id_veiculo");
-			VeiculoDao dao1 = new VeiculoDao();
-			Veiculo vCompleto = dao1.pegarId(idVeiculo);
-			mCompleto.setVeiculo(vCompleto);
-
-			mCompleto.setLogin(rs.getString("login"));
-			
-			
-		}
-
-		rs.close();
-		stmt.close();
-		connection.close();
-
-		return mCompleto;
-
-	} catch (SQLException e) {
-		throw new RuntimeException(e);
-	}
-}
-
 
 	private Motorista montarObjeto(ResultSet rs) throws SQLException {
 

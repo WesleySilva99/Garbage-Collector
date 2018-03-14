@@ -390,21 +390,10 @@ aside ul li a span{
 					<td>${u.rg}</td>
 					<td>${u.sexo}</td>
 					<td>${u.login}</td>
-<<<<<<< HEAD
 					
 					<td><a href="pegarMotorista?id=${u.id}" class='btn btn-info btn-xs'>Alterar</a> &nbsp;|
 					<a href="removerMotorista?id=${u.id}" class="btn btn-danger btn-xs"> Remover</a></td>
 					<td onclick="myFunction(this)"><h4 style="margin-top: 5px;"><span class="label label-success " >detalhes</span></h4></td> 
-=======
-					<td>${u.endereco.rua}</td>
-					<td>${u.endereco.bairro}</td>
-					<td>${u.endereco.cep}</td>
-					<td>${u.endereco.numero}</td>
-					<td>${u.endereco.complemento}</td>
-					<td><a href="exibiralterarMotorista?id=${u.id}">Alterar</a> &nbsp;|
-					<a href="removerMotorista?id=${u.id}">Remover</a></td>
-					<td onclick="myFunction(this)"><h4 style="margin-top: 50px;"><span class="label label-success " >detalhes</span></h4></td> 
->>>>>>> d28250ac0fe8cc1f5e15571d9c334b335c48d011
 
 				</tr>
 				<div class="modal fade item_view" id="item_view">
