@@ -377,7 +377,7 @@ aside ul li a span{
 
 	
 	
-	<h1 align="center">Cadastro de Tipos de Coletas</h1>
+	<h1 align="center" style="margin-top:200px; margin-left: 200px;">Cadastro de Tipos de Coletas</h1>
 	
 	<center>
 
@@ -387,7 +387,7 @@ aside ul li a span{
 		</div>
 		<form class="form-horizontal" action="cadastrarTipoColeta"
 			method="post" onsubmit="return validarCadastro();" name="formulario"
-			id="formulario">
+			id="formulario" style="margin-left: 200px;">
 
 			
 				

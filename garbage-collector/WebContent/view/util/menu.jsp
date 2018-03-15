@@ -57,7 +57,7 @@
 
 
 
-								<li class=""><a href="#">${clienteLogado.nome}${motoristaLogado.nome}${AdmLogado.nome}</a></li>
+								<li class=""><a href="#" class="fa fa-user-circle" >${clienteLogado.nome}${motoristaLogado.nome}${AdmLogado.nome}</a></li>
 
 
 

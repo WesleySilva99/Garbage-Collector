@@ -70,11 +70,7 @@ quantidade int not null,
 endereco varchar(50) not null,
 numero varchar(6) not null,
 cep varchar(9) not null,
-<<<<<<< HEAD
-busca_material datetime,
-=======
 material_dt_hr datetime,
->>>>>>> versao-3-gleibson
 id_endereco int,
 id_tp_coleta int,
 id_cliente int,
