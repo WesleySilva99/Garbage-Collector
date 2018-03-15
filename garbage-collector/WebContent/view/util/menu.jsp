@@ -11,7 +11,7 @@
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                
               </button>
-              <a class="navbar-brand" href="index"><img class="topo" src="view/novoTemplate/img/tiro2.png" style="width:200px;  margin-top: -16px;" class="img-responsive" ></a>
+              <a class="navbar-brand" href="/garbage-collector/"><img class="topo" src="view/novoTemplate/img/tiro2.png" style="width:200px;  margin-top: -16px;" class="img-responsive" ></a>
             </div>
             <div class="collapse navbar-collapse navbar-right" id="myNavbar">
               <ul class="nav navbar-nav">
@@ -43,9 +43,7 @@
                 <li class=""><a href="cancelarColeta">Listar coletas</a></li>
                 </c:if>
                 
-                <c:if test="${clienteLogado != null || motoristaLogado != null || AdmLogado != null}">
-                <li class=""><a href="logout">Deslogar</a></li>
-                </c:if>
+                
                 
                 <c:choose>
 
@@ -57,7 +55,7 @@
 
 
 
-								<li class=""><a href="#">${clienteLogado.nome}${motoristaLogado.nome}${AdmLogado.nome}</a></li>
+								<li class=""><a href="#">${clienteLogado.login}${motoristaLogado.nome}${AdmLogado.nome}</a></li>
 
 
 
@@ -78,6 +76,10 @@
 
 
 						</c:choose>
+						
+					<c:if test="${clienteLogado != null || motoristaLogado != null || AdmLogado != null}">
+	                	<li class=""><a href="logout">Deslogar</a></li>
+	                </c:if>
                 
                
               </ul>
