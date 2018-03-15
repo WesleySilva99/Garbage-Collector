@@ -35,7 +35,7 @@
                 </c:if>
                 
                 <c:if test="${clienteLogado != null}">
-                <li class=""><a href="listarColeta">Listar coletas solicitadas</a></li>
+                <li class=""><a href="listarColetaCliente">Listar coletas solicitadas</a></li>
                 </c:if>
                 
                 

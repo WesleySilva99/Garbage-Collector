@@ -75,12 +75,13 @@ public class ClienteController {
 		if (dao.verificaLoginExistente(cliente.getLogin()) == true && dao.verificaEmailExistente(cliente.getEmail()) == true) {
 			dao.Inserir(cliente);
 
-			model.addAttribute("msg", "VocÃª foi cadastrado com sucesso!");
+			model.addAttribute("msg", "Você foi cadastrado com sucesso!");
+			
 			System.out.println("Cadastrando Clientes");
 
 		} else if(dao.verificaLoginExistente(cliente.getLogin()) == false) {
 
-			model.addAttribute("msg", "O login já¡ existe!");
+			model.addAttribute("msg", "O login já existe!");
 			model.addAttribute("c", cliente);
 			System.out.println("Tente novamente, Login já¡ existente");
 			return "cliente/cadastrarCliente";
@@ -122,7 +123,7 @@ public class ClienteController {
 		ClienteDao dao = new ClienteDao();
 		dao.alterar(cliente);
 		model.addAttribute("msg", "cliente alterado.");
-		System.out.println("cliente alterado com sucesso");
+		System.out.println("Cliente alterado com sucesso");
 		return "forward:listarClientes";
 	}
 	
