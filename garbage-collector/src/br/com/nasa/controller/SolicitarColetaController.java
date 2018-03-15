@@ -1,5 +1,6 @@
 package br.com.nasa.controller;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -49,5 +50,29 @@ public class SolicitarColetaController {
 		model.addAttribute("msg", "Coleta cancelada com sucesso!");
 		return "forward:listarColeta";
 
+	}
+	
+	@RequestMapping("/exibiralterarPedido")
+	public String exibiralterarPedido(Pedido p, Model model) {
+
+		PedidoDao dao = new PedidoDao();
+		Pedido pCompleto = dao.pegarId(p.getId());
+		model.addAttribute("p", pCompleto);
+		
+		TipoColetaDao dao1 = new TipoColetaDao();
+		List<TipoColeta> tc = dao1.listar();
+		model.addAttribute("tc", tc);
+		return "solicitarColeta/alterarColeta";
+	}
+
+	@RequestMapping("/alterarPedido")
+	public String alterarPedido(Pedido p, Model model) throws SQLException {
+		
+		
+		PedidoDao dao = new PedidoDao();
+		dao.alterar(p);
+		model.addAttribute("msg", "cliente alterado.");
+		System.out.println("Coleta alterada com sucesso");
+		return "forward:listarColeta";
 	}
 }

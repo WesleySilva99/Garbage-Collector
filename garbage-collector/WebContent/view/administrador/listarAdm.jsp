@@ -30,7 +30,16 @@
 </head>
 <body>
 
-	<c:import url="/view/util/menu.jsp" />
+	<c:choose>
+					<c:when test="${AdmLogado != null}">
+					</c:when>
+					<c:otherwise>
+                	<c:import url="/view/util/menu.jsp" />
+                	</c:otherwise>
+					</c:choose>
+	<c:if test="${AdmLogado != null}">
+	<c:import url="/view/util/menuLateral.jsp" />
+	</c:if>
 	<div class="container">
 		<hr>
 		<h2 align="center">Lista de Administradores</h2>

@@ -9,8 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.com.nasa.dao.AdministradorDao;
 import br.com.nasa.dao.ClienteDao;
 import br.com.nasa.dao.MotoristaDao;
+import br.com.nasa.model.Administrador;
 import br.com.nasa.model.Cliente;
 import br.com.nasa.model.Motorista;
 
@@ -29,14 +31,14 @@ public class ClienteController {
 	}
 
 	@RequestMapping("efetuarLogin")
-	public String efetuarLogin(Cliente cliente,Motorista motorista, HttpSession session, Model model) {
+	public String efetuarLogin(Cliente cliente,Motorista motorista, Administrador adm,HttpSession session, Model model) {
 		ClienteDao dao = new ClienteDao();
 		Cliente clienteLogado = dao.buscarPorId(cliente);
 				
 		if (clienteLogado != null) {
 			session.setAttribute("clienteLogado", clienteLogado);
 			System.out.println("Cliente logado");
-			return "solicitarColeta/solicitarColeta";
+			return "index";
 		}
 		MotoristaDao dao1 = new MotoristaDao();
 		Motorista motoristaLogado = dao1.buscarPorId(motorista);
@@ -47,8 +49,16 @@ public class ClienteController {
 			System.out.println("Motorista logado");
 			return "index";
 		}
+		AdministradorDao dao2 = new AdministradorDao();
+		Administrador AdmLogado = dao2.buscarPorId(adm);
 		
-		model.addAttribute("msg", "N√£o foi encontrado um usu√°rio com o login e senha informados.");
+		if (AdmLogado != null) {
+			session.setAttribute("AdmLogado", AdmLogado);
+			System.out.println("Administrador logado");
+			return "index";
+		}
+		
+		model.addAttribute("msg", "N„o foi encontrado um usu·rio com o login e senha informados.");
 		return "login";
 	}
 
@@ -70,16 +80,16 @@ public class ClienteController {
 
 		} else if(dao.verificaLoginExistente(cliente.getLogin()) == false) {
 
-			model.addAttribute("msg", "O login j√° existe!");
+			model.addAttribute("msg", "O login j·° existe!");
 			model.addAttribute("c", cliente);
-			System.out.println("Tente novamente, Login j√° existente");
+			System.out.println("Tente novamente, Login j·° existente");
 			return "cliente/cadastrarCliente";
 		}
 		
 		else if (dao.verificaEmailExistente(cliente.getEmail()) == false) {
-			model.addAttribute("msg", "O email j√° existe!");
+			model.addAttribute("msg", "O email j· existe!");
 			model.addAttribute("c", cliente);
-			System.out.println("Tente novamente, email j√° existente");
+			System.out.println("Tente novamente, email j· existente");
 			return "cliente/cadastrarCliente";
 
 		}

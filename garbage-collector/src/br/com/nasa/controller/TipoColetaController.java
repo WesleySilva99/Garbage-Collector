@@ -33,7 +33,7 @@ public class TipoColetaController {
 		model.addAttribute("msg", "Tipo da Coleta cadastrado com sucesso!");
 		
 		}else {
-			model.addAttribute("msg", "O tipo da coleta já existe!");
+			model.addAttribute("msg", "O tipo da coleta j� existe!");
 			model.addAttribute("c", tc);
 			System.out.println("Tente novamente, Login já existente");
 			return "tipocoleta/cadastrarTipoColeta";

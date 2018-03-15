@@ -368,9 +368,16 @@ aside ul li a span{
 </head>
 <body class="index-page sidebar-collapse">
 
-	<c:import url="/view/util/menu.jsp" />
+	<c:choose>
+					<c:when test="${AdmLogado != null}">
+					</c:when>
+					<c:otherwise>
+                	<c:import url="/view/util/menu.jsp" />
+                	</c:otherwise>
+					</c:choose>
+	<c:if test="${AdmLogado != null}">
 	<c:import url="/view/util/menuLateral.jsp" />
-	
+	</c:if>
 	<h1 align="center">Solicite sua coleta</h1>
 
   <div align="center">${msg}</div>

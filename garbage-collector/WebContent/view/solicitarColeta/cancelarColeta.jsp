@@ -355,8 +355,16 @@ aside ul li a span{
 </head>
 <body>
 
-<c:import url="/view/util/menu.jsp"/>
-<c:import url="/view/util/menuLateral.jsp"/>
+<c:choose>
+					<c:when test="${AdmLogado != null}">
+					</c:when>
+					<c:otherwise>
+                	<c:import url="/view/util/menu.jsp" />
+                	</c:otherwise>
+					</c:choose>
+<c:if test="${AdmLogado != null}">
+	<c:import url="/view/util/menuLateral.jsp" />
+	</c:if>
 	<div class="container">
 		<hr>
 		<h2 align="center">Lista de Coletas Solicitadas</h2>
@@ -391,7 +399,7 @@ aside ul li a span{
 					<td>${u.cep}</td>
 
 					<td><a href="cancelarColeta?id=${u.id}" class="label label-warning">Cancelar Coleta</a>|
-					<a href="alteraColeta?id=${u.id}" class="btn btn-info btn-xs">Remarcar Coleta</a> &nbsp;</td>
+					<a href="exibiralterarPedido?id=${u.id}" class="btn btn-info btn-xs">Remarcar Coleta</a> &nbsp;</td>
 					
 				
 
