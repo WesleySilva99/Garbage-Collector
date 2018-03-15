@@ -13,20 +13,10 @@
 <link rel="icon" type="image/png" href="view/assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>Garbage Collector</title>
-<meta
-	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-	name='viewport' />
-<!--     Fonts and icons     -->
-<link
-	href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
-	rel="stylesheet" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-<!-- CSS Files -->
-<link href="view/assets/css/bootstrap.min.css" rel="stylesheet" />
-<link href="view/assets/css/now-ui-kit.css" rel="stylesheet" />
-<!-- CSS Just for demo purpose, don't include it in your project -->
-<link href="view/assets/css/demo.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal">
+  <link rel="stylesheet" type="text/css" href="view/novoTemplate/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="view/novoTemplate/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="view/novoTemplate/css/style.css">
 </head>
 
 <title>Cadastro de Administradores</title>
@@ -79,6 +69,16 @@
 
 </head>
 <body>
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<c:choose>
 					<c:when test="${AdmLogado != null}">
 					</c:when>
@@ -86,108 +86,170 @@
                 	<c:import url="/view/util/menu.jsp" />
                 	</c:otherwise>
 					</c:choose>
-	<c:if test="${AdmLogado != null}">
+ <c:if test="${AdmLogado != null}">
 	<c:import url="/view/util/menuLateral.jsp" />
 	</c:if>
-	<!-- Formulario -->
+ 
+<fieldset>
 
-	<br>
-	<hr>
-	<h1 align="center">Cadastro de Clientes</h1>
-	<hr>
-	<br>
-	<center>
-		<fieldset>
-			<legend>Informações Pessoais</legend>
+<br>
+<br>
+<br>
+<div class="panel panel-primary" style="    border-color: rgba(0,0,0,.5); margin-left: 250px;
+    margin-right: 30px;
+    margin-top: 50px;">
+    <div class="panel-heading" align="center" style="    background-color: rgba(0,0,0,.5);
+    border-color: #aa2b2b;">Cadastro Administrador</div>
+    
+    <div class="panel-body">
+<div class="form-group">
+<!--
+<div class="form-group">   
+<div class="col-md-4 control-label">
+    <img id="logo" src="http://blogdoporao.com.br/wp-content/uploads/2016/12/Faculdade-pitagoras.png"/>
+</div>
+<div class="col-md-4 control-label">
+    <h1>Cadastro de Cliente</h1>
+    
+</div>
+</div>
+    -->
+    <div id="newpost">
+   <div class="form-group">
+    <div class="col-md-3 control-label">
+        <h3>Informações Pessoais</h3>
+    </div>
+    </div>
+    <div align="center">
+    <h4 style="color: blue";>${msg}</h4>
+  </div>
+<div class="col-md-11 control-label">
+        <p class="help-block"><h11>*</h11> Campo Obrigatório </p>
+</div>
+</div>
 
-
-			<h4 style="color: blue";>${msg}</h4>
-			</div>
-			<form class="form-horizontal" action="cadastrarAdm" method="post"
+<form class="form-horizontal" action="cadastrarAdm" method="post"
 				onsubmit="return validarCadastro();" name="formulario"
 				id="formulario">
 
-				<div align="center">
-					<div class="form-row">
-						<div class="col-4">
-							<label for="exampleInputName" class="hora">Nome Completo:</label>
-							<input type="text" class="form-control" id="exampleInputName"
-								placeholder="João Melo Silva" style="width: 50%"
-								''
-					required="Para realizar o cadastro preencha este campo com o seu nome completo"
-								maxlength="40" name="nome"
-								pattern="[AÁÉÍÓÚÂÊÎÔÛ-ZáéíóúâêîôûçÁÉÍÓÚÂÊÎÔÛa-z ]+">
-						</div>
-					
-						<div class="col-4">
-							<label for="exampleInputTelefone" class="hora">Telefone:</label>
-							<input type="text" class="form-control" id="exampleInputTelefone"
-								placeholder="(00) 00000-0000" style="width: 50%"
-								;
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="exampleInputName">Nome <h11>*</h11></label>  
+  <div class="col-md-8">
+  <input id="exampleInputName" name="nome" placeholder="" class="form-control input-md" required="" type="text" placeholder="João Melo Silva"
+                
+          required="Para realizar o cadastro preencha este campo com o seu nome completo"
+                maxlength="40" name="nome"
+                pattern="[AÁÉÍÓÚÂÊÎÔÛ-ZáéíóúâêîôûçÁÉÍÓÚÂÊÎÔÛa-z ]+" >
+  </div>
+</div>
+
+
+
+<!-- Multiple Radios (inline) -->
+
+
+
+<!-- Prepended text-->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="prependedtext">Telefone <h11>*</h11></label>
+  <div class="col-md-2">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+      <input class="form-control" type="text"  id="exampleInputTelefone"
+								placeholder="(00) 00000-0000"
 				required="Para realizar o cadastro preencha este campo com o endereço da sua rua"
 								maxlength="15" name="telefone" onkeypress="validaTelefone()"
 								>
-						</div>
+    </div>
+  </div>
+  
+   
 
-						<div class="col-4">
-							<label for="exampleInputEmail" class="hora">E-mail:</label> <input
-								type="email" class="form-control" id="exampleInputEmail"
-								style="width: 50%" ;
+<!-- Prepended text-->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="prependedtext">Email <h11>*</h11></label>
+  <div class="col-md-4">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+      <input class="form-control" 
+								type="email" id="exampleInputEmail"
+								
 				placeholder="João@exemplo.com"
 								required="Para realizar o cadastro preencha este campo com o seu email"
 								pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" maxlength="50"
-								name="email">
-						</div>
-					</div>
+								name="email"  >
+    </div>
+  </div>
+</div>
 
 
-							<label for="exampleInputName" class="hora">Login</label> <input type="text" class="form-control"
+
+</div><!-- Text input-->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="Nome">Login:<h11>*</h11></label>  
+  <div class="col-md-2">
+  <input   class="form-control input-md" type="text" 
 								id="exampleInputName" placeholder="Mario15"
-								pattern="[a-zA-Z0-9]+" style="width: 50%"
-								;
+								pattern="[a-zA-Z0-9]+" 
 					required="Para realizar o cadastro preencha este campo com seu nome de usuário"
-								maxlength="15" name="login">
-						</div>
-						<div class="col-4">
-							<label for="exampleInputPassword1" class="hora">Senha:</label> <input
-								type="password" class="form-control" id="exampleInputPassword1"
+								maxlength="15" name="login" >
+  </div>
+
+  
+  <label class="col-md-1 control-label" for="Nome">Senha: <h11>*</h11></label>  
+  <div class="col-md-2">
+  <input class="form-control input-md" type="password"  id="exampleInputPassword1"
 								required="Para realizar o cadastro preencha este campo com sua senha"
 								pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8"
-								maxlength="32" name="senha" style="width: 50%" ; id="senha"
-								title="A senha deve ter no mínimo 8 e 32 no máximo, que sejam de pelo menos um número e uma letra maiúscula e minúscula.">
-						</div>
-					</div>
-					<!--     Fonts and icons     -->
-
-					<div class="form-row">
-
-						<div class="col-4">
-							<label for="exampleInputPassword1" class="hora">Repita
-								sua senha:</label> <input type="password" class="form-control"
+								maxlength="32" name="senha"  id="senha"
+								title="A senha deve ter no mínimo 8 e 32 no máximo, que sejam de pelo menos um número e uma letra maiúscula e minúscula." >
+  </div>
+  
+  <label class="col-md-1 control-label" for="Nome"> Repitir Senha: <h11>*</h11></label>  
+  <div class="col-md-2">
+  <input  class="form-control input-md" type="password" 
 								id="exampleInputPassword1"
 								required="Para realizar o cadastro preencha este campo repetindo novamente sua senha"
-								pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" style="width: 50%"
-								;
+								pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
 				 minlength="8" maxlength="32" id="passwd2"
 								title="A senha deve ser igual a da campo anterior."
 								name="passwd2">
-						</div>
-					</div>
+  </div>
+</div>
 
+ 
 
+<!-- Select Basic -->
+<br>
+<br>
+<div align="center">
+<!-- Button (Double) -->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="Cadastrar"></label>
+  <div class="col-md-8">
+    <button class="btn btn-success" style="background-color: #2c8972;
+    border-color: #2c8972;" type="Submit">Cadastrar</button>
+    <button id="Cancelar" name="Cancelar" class="btn btn-danger" style="background-color: #b72d29;
+    border-color: #b72d29;" type="Reset">Cancelar</button>
+  </div>
+</div>
 
-					<button type="reset" class="btn btn-warning">&nbsp; Limpar
-						&nbsp;</button>
-					&nbsp;
-					<button type="submit" class="btn btn-success"
-						onClick="validarCadastro()">Cadastrar</button>
-			</form>
+</div>
+</div>
+</div>
 
-		</fieldset>
-	</center>
+</fieldset>
+</form>
+	
+	
+	
+	
 	<!-- jQuery (necessario para Bootsrap plungins Java Script) -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="view/bootstrap/js/bootstrap.min.js"></script>
+	<script src="view/novoTemplate/js/jquery.min.js"></script>
+  <script src="view/novoTemplate/js/jquery.easing.min.js"></script>
+  <script src="view/novoTemplate/js/bootstrap.min.js"></script>
+  <script src="view/novoTemplate/js/custom.js"></script>
+  <script src="view/novoTemplate/contactform/contactform.js"></script>
 </body>
 </html>

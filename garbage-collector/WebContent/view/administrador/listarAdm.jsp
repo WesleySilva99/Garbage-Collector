@@ -17,16 +17,10 @@
 	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 	name='viewport' />
 <!--     Fonts and icons     -->
-<link
-	href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
-	rel="stylesheet" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-<!-- CSS Files -->
-<link href="view/assets/css/bootstrap.min.css" rel="stylesheet" />
-<link href="view/assets/css/now-ui-kit.css" rel="stylesheet" />
-<!-- CSS Just for demo purpose, don't include it in your project -->
-<link href="view/assets/css/demo.css" rel="stylesheet" />
+ <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal">
+  <link rel="stylesheet" type="text/css" href="view/novoTemplate/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="view/novoTemplate/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="view/novoTemplate/css/style.css">
 </head>
 <body>
 
@@ -72,8 +66,8 @@
 					
 					
 					
-					<td><a href="ExibitalterarAdm?id=${u.id}">Alterar</a> &nbsp;|
-					<a href="removerAdm?id=${u.id}">Remover</a> &nbsp;</td>
+					<td><a href="ExibitalterarAdm?id=${u.id} " class='btn btn-info btn-xs'><span class="fa fa-edit" >Alterar</a></span> &nbsp;|
+					<a href="removerAdm?id=${u.id}" class="btn btn-danger btn-xs"><span class="	fa fa-close">Remover</a></span> &nbsp;</td>
  
 				</tr>
 
@@ -89,14 +83,11 @@
 
 	<!-- jQuery (necessario para Bootsrap plungins Java Script) -->
 	
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="view/assets/js/now-ui-kit.js"></script>
-		<script src="view/assets/js/plugins/bootstrap-datepicker.js"></script>
-		<script src="view/assets/js/plugins/bootstrap-switch.js"></script>
-		<script src="view/assets/js/plugins/jquery.sharrre.js"></script>
-		<script src="view/assets/js/plugins/nouislider.min.js"></script>
-	<script src="view/bootstrap/js/bootstrap.min.js"></script>
+	<script src="view/novoTemplate/js/jquery.min.js"></script>
+  <script src="view/novoTemplate/js/jquery.easing.min.js"></script>
+  <script src="view/novoTemplate/js/bootstrap.min.js"></script>
+  <script src="view/novoTemplate/js/custom.js"></script>
+  <script src="view/novoTemplate/contactform/contactform.js"></script>
 	
 	
 </body>

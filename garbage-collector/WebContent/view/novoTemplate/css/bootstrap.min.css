@@ -1835,13 +1835,15 @@ pre code {
 
 @media ( min-width :768px) {
 	.container {
-		width: 750px
+		width: 750px	
+    margin-top: 120px
 	}
 }
 
 @media ( min-width :992px) {
 	.container {
-		width: 970px
+		width: 970p;
+    margin-top: 120px;
 	}
 }
 
