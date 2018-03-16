@@ -70,6 +70,11 @@ public class PedidoDao {
 				TipoColetaDao dao = new TipoColetaDao();
 				TipoColeta cp = dao.pegarId(idTipoColeta);
 				coleta.setTipocoleta(cp);
+				
+				int idCliente= rs.getInt("id_cliente");
+				ClienteDao dao1 = new ClienteDao();
+				Cliente cp1 = dao1.pegarId(idCliente);
+				coleta.setCliente(cp1);
 
 				listaColeta.add(coleta);
 			}

@@ -12,7 +12,7 @@
 	href="view/assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="view/assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Garbage Collector</title>
+<title>Login</title>
 <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
   <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
@@ -369,7 +369,7 @@ aside ul li a span{
 				<div class="col-4">
 				<label for="exampleInputName" class="hora">Login:</label> <input
 					type="text" class="form-control" id="exampleInputName"
-					placeholder="Mario15" pattern="[a-zA-Z0-9]+" style="width: 50%"
+					 pattern="[a-zA-Z0-9]+" style="width: 25%"
 					;
 					required="Para realizar o cadastro preencha este campo com seu nome de usuário"
 					maxlength="15" name="login">
@@ -379,7 +379,7 @@ aside ul li a span{
 						type="password" class="form-control" id="exampleInputPassword1"
 						required="Para realizar o cadastro preencha este campo com sua senha"
 						pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8"
-						maxlength="32" name="senha" style="width: 50%" ; id="senha"
+						maxlength="32" name="senha" style="width: 25%" ; id="senha"
 						title="A senha deve ter no mínimo 8 e 32 no máximo, que sejam de pelo menos um número e uma letra maiúscula e minúscula.">
 				</div>
 				<br><br>

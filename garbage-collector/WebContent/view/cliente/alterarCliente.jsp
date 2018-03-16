@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=iso-8859-1"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
@@ -12,7 +12,7 @@
 	href="view/assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="view/assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Garbage Collector</title>
+<title>Alterar Cliente</title>
 <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
   <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
@@ -131,7 +131,7 @@
 </div>
 
 <form  class="form-horizontal" id="formulario" name="formulario" action="alterarCliente2" method="post" enctype="multipart/form-data">
-
+<input type="hidden" name="id" value="${p.id}">
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-2 control-label" for="exampleInputName">Nome <h11>*</h11></label>  

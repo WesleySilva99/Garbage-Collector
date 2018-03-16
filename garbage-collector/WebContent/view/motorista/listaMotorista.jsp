@@ -12,7 +12,7 @@
 	href="view/assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="view/assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Garbage Collector</title>
+<title>Listar Motorista</title>
 <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
   <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
@@ -399,7 +399,7 @@ aside ul li a span{
 					<td>${u.sexo}</td>
 					<td>${u.login}</td>
 					
-					<td><a href="pegarMotorista?id=${u.id}" class='btn btn-info btn-xs'>Alterar</a> &nbsp;|
+					<td><a href="exibiralterarMotorista?id=${u.id}" class='btn btn-info btn-xs'>Alterar</a> &nbsp;|
 					<a href="removerMotorista?id=${u.id}" class="btn btn-danger btn-xs"> Remover</a></td>
 					<td onclick="myFunction(this)"><h4 style="margin-top: 5px;"><span class="label label-success " >detalhes</span></h4></td> 
 

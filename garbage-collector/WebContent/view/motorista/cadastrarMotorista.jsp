@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=iso-8859-1"
+	pageEncoding="UTF-8"%>
     
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Garbage Collector</title>
+<title>Cadastrar Motorista</title>
 <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
   <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
@@ -159,11 +159,15 @@
 					placeholder="0.000.000" required="required" maxlength="9" name="rg"
 					 onkeypress="validaRG()">
   </div>
-  
-  <label class="col-md-1 control-label" for="Nome">Nascimento<h11>*</h11></label>  
+  <label class="col-md-1 control-label" for="prependedtext">Email <h11>*</h11></label>
   <div class="col-md-2">
-  <input  name="dataNascimento" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="text" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
-</div>
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+      <input class="form-control" type="email"  id="exampleInputPassword1"
+				required="required" maxlength="45" name="email" 
+				onsubmit="validaEmail();" >
+    </div>
+  </div>
 
 </div>
 
@@ -202,15 +206,7 @@
 
 <!-- Prepended text-->
 <div class="form-group">
-  <label class="col-md-1 control-label" for="prependedtext">Email <h11>*</h11></label>
-  <div class="col-md-2">
-    <div class="input-group">
-      <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-      <input class="form-control" type="email"  id="exampleInputPassword1"
-				required="required" maxlength="45" name="email" 
-				onsubmit="validaEmail();" >
-    </div>
-  </div>
+  
 </div>
 
 
@@ -291,9 +287,7 @@
   
   <label class="col-md-2 control-label" for="Nome">Data de vencimento da carteira:<h11>*</h11></label>  
   <div class="col-md-2">
-  <input class="form-control input-md" type="text" 
-					id="exampleInputData" required="required" name="validade"
-					 maxlength="10">
+ <input id="dataNascimento" name="validade" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="text" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
 </div>
 
 </div>
@@ -301,7 +295,7 @@
   <label class="col-md-2 control-label" for="Nome">Placa do veiculo: <h11>*</h11></label>  
   <div class="col-md-2">
   <input class="form-control input-md" type="text"  id="exampleInputCep"
-						required="required" name="veiculo.placa">
+						required="required" name="veiculo.placa" maxlength="7">
   </div>
 
   
