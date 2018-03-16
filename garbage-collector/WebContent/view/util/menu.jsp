@@ -17,9 +17,7 @@
               <ul class="nav navbar-nav">
               
               <c:choose>
-
 					<c:when test="${clienteLogado != null || motoristaLogado != null || AdmLogado != null}">
-
 					</c:when>
 					<c:otherwise>
                 <li class="active"><a href="exibirIncluirCliente">Cadastro Cliente</a></li>
@@ -38,45 +36,18 @@
                 <li class=""><a href="listarColetaCliente">Listar coletas solicitadas</a></li>
                 </c:if>
                 
-                
                 <c:if test="${motoristaLogado != null}">
                 <li class=""><a href="cancelarColeta">Listar coletas</a></li>
                 </c:if>
-                
-                
-                
+               
                 <c:choose>
-
 					<c:when
-
-
-
 								test="${clienteLogado != null || motoristaLogado != null || AdmLogado != null}">
-
-
-
-
 								<li class=""><a href="#">${clienteLogado.login}${motoristaLogado.nome}${AdmLogado.nome}</a></li>
-
-
-
-
 							</c:when>
-
-
-
 							<c:otherwise>
-
-
-
 								<li class=""><a href="login">Login</a></li>
-
-
-
 							</c:otherwise>
-
-
-
 						</c:choose>
 						
 					<c:if test="${clienteLogado != null || motoristaLogado != null || AdmLogado != null}">
@@ -90,9 +61,6 @@
         </div>
       </nav>
       
-  </section>
-  <!--/ banner-->
 
-  <br>
   
   

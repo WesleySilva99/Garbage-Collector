@@ -1843,7 +1843,7 @@ pre code {
 @media ( min-width :992px) {
 	.container {
 		width: 970p;
-    margin-top: 120px;
+    margin-top: 0px;
 	}
 }
 

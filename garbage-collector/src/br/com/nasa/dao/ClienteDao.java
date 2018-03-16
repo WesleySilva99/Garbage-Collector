@@ -11,6 +11,7 @@ import java.util.List;
 
 import br.com.nasa.model.Cliente;
 import br.com.nasa.model.Endereco;
+import br.com.nasa.model.TipoColeta;
 import br.com.nasa.util.ConnectionFactory;
 
 public class ClienteDao {
@@ -187,6 +188,24 @@ public class ClienteDao {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
+	}
+	
+	public void remover(Cliente c) {
+
+		String sql = "DELETE FROM cliente WHERE id = ?";
+
+		try {
+			PreparedStatement stmt = connection.prepareStatement(sql);
+
+			stmt.setInt(1, c.getId());
+			
+			stmt.execute();
+			stmt.close();
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
 	}
 
 	public boolean verificaLoginExistente(String login) {

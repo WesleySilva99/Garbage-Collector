@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.nasa.dao.AdministradorDao;
 import br.com.nasa.dao.ClienteDao;
+import br.com.nasa.dao.EnderecoDao;
 import br.com.nasa.dao.MotoristaDao;
 import br.com.nasa.model.Administrador;
 import br.com.nasa.model.Cliente;
+import br.com.nasa.model.Endereco;
 import br.com.nasa.model.Motorista;
 
 @Controller
@@ -125,6 +127,16 @@ public class ClienteController {
 		model.addAttribute("msg", "cliente alterado.");
 		System.out.println("Cliente alterado com sucesso");
 		return "forward:listarClientes";
+	}
+	
+	@RequestMapping("/removerCliente")
+	public String removerCliente(Cliente c, Model model) {
+		ClienteDao dao = new ClienteDao();
+		dao.remover(c);
+		System.out.println("Removendo cliente");
+		model.addAttribute("msg", "Cliente removido com sucesso!");
+		return "forward:listarClientes";
+
 	}
 	
 	
