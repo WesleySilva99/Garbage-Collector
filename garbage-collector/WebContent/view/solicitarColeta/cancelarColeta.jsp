@@ -401,8 +401,8 @@ aside ul li a span{
 					<td>${u.cep}</td>
 					<td>${u.cliente.nome}</td>
 					<td>${u.cliente.telefone}</td>
-					<td><a href="cancelarColeta?id=${u.id}" class="label label-warning">Cancelar Coleta</a>|
-					<a href="exibiralterarPedido?id=${u.id}" class="btn btn-info btn-xs">Remarcar Coleta</a> &nbsp;</td>
+					
+					<td><a href="#" class="btn btn-info btn-xs">Coletar</a></td>
 					
 				
 
