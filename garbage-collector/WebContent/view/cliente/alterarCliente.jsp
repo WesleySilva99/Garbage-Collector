@@ -99,7 +99,9 @@
 <br>
 <br>
 
-<div class="panel panel-primary" style="    border-color: rgba(0,0,0,.5);">
+<div class="panel panel-primary" style="    border-color: rgba(0,0,0,.5);  margin-left: 250px;
+    margin-right: 50px;
+    margin-top: -50px;   ">
     <div class="panel-heading" align="center" style="    background-color: rgba(0,0,0,.5);
     border-color: #aa2b2b;">Alterar informações</div>
     
