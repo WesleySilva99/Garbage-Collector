@@ -20,8 +20,8 @@ ano_veiculo varchar(4) not null
 create table endereco(
 
 id int primary key auto_increment,
-bairro varchar(20) not null,
-complemento varchar(10) not null,
+bairro varchar(26) not null,
+complemento varchar(26) not null,
 rua varchar(50) not null,
 numero varchar(6) not null,
 cep varchar(9) not null
@@ -90,6 +90,6 @@ telefone varchar(15) not null,
 email varchar(45) not null
 );
 
-select * from administrador;
+select * from pedido;
 
 

@@ -372,7 +372,7 @@ aside ul li a span{
 					 pattern="[a-zA-Z0-9]+" style="width: 25%"
 					;
 					required="Para realizar o cadastro preencha este campo com seu nome de usuário"
-					maxlength="15" name="login">
+					maxlength="10" name="login" minlength="3">
 				</div>
 				<div class="col-4">
 					<label for="exampleInputPassword1" class="hora">Senha:</label> <input

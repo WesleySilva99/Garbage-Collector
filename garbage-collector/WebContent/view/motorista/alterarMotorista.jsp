@@ -119,13 +119,13 @@
   <div class="form-row">
     <div class="col-4">
     <label for="exampleInputName" class="hora">Nome Completo:</label> <input
-					type="text" class="form-control" id="exampleInputName"
+					type="text" class="form-control" id="exampleInputName" minlength="8"
 					placeholder="" required="required" maxlength="45" name="nome"
 					style="width: 50%;" value="${p.nome}">
     </div>
   <div class="col-4">
     <label for="exampleInputLogin" class="hora">Login:</label> <input
-					type="text" class="form-control" id="exampleInputLogin"
+					type="text" class="form-control" id="exampleInputLogin" minlength="3"
 					placeholder="" required="required" maxlength="10" name="login"
 					style="width: 50%;" value="${p.login}">
     </div>
@@ -146,21 +146,21 @@
     <div class="col-4">
     <label for="exampleInputCpf" class="hora">CPF:</label> <input
 					type="text" class="form-control" id="exampleInputCpf"
-					style="width: 50%;" placeholder="000.000.000-00" min="14"
+					style="width: 50%;" placeholder="000.000.000-00" minlength="14"
 					maxlength="14" required="required" name="cpf"
 					onkeypress="validaCpf();" value="${p.cpf}">
     </div>
     <div class="col-4">
     <label for="exampleInputName" class="hora">RG:</label> <input
 					type="text" class="form-control" id="exampleInputName"
-					placeholder="0.000.000" required="required" maxlength="10" name="rg"
+					placeholder="0.000.000" required="required" minlength="10" maxlength="10" name="rg"
 					style="width: 50%;" onkeypress="validaRG()" value="${p.rg}">
     </div>
     
 <div class="col-4">
     <label for="exampleInputTelefone" class="hora">Telefone:</label> <input
 					type="text" class="form-control fa fa-tablet" id="exampleInputTelefone"
-					placeholder="(00) 00000-0000" required="required" maxlength="15"
+					placeholder="(00) 00000-0000" required="required" maxlength="15" minlength="15"
 					name="telefone" style="width: 50%;" onkeypress="validaTelefone()" value="${p.telefone}">
     </div>
   </div>
@@ -170,14 +170,14 @@
   <div class="form-row">
  <div class="col-4">
     <label for="exampleInputEndereco" class="hora">Endereço:</label> <input
-					type="text" class="form-control" id="exampleInputEndereco"
+					type="text" class="form-control" id="exampleInputEndereco" minlength="8"
 					placeholder="Rua Don Juno nº 425" required="required" value="${p.endereco.rua}"
 					maxlength="50" name="endereco.rua" style="width: 50%;">
     </div>
  <div class="col-4">
     <label for="exampleInputEndereco" class="hora">Bairro:</label> <input
 					type="text" class="form-control" id="exampleInputEndereco"
-					required="required" maxlength="20" name="endereco.bairro"
+					required="required" minlength="8" maxlength="26" name="endereco.bairro"
 					style="width: 50%;" value="${p.endereco.bairro}">
     </div>
     <div class="col">
@@ -194,7 +194,7 @@
     <div class="col-4">
     <label for="exampleInputEndereco" class="hora">Complemento:</label> <input
 					type="text" class="form-control" id="exampleInputEndereco"
-					required="required" maxlength="10" name="endereco.complemento"
+					required="required" maxlength="26" minlength="2" name="endereco.complemento"
 					style="width: 50%;" value="${p.endereco.complemento}">
     </div>
     <div class="col-4">
@@ -204,10 +204,10 @@
 					style="width: 50%;" value="${p.endereco.numero}">
     </div>
     <div class="col-4">
-    <label for="exampleInputHabilitacao" class="hora">Numero da
+    <label for="exampleInputHabilitacao" class="hora">Número da
 					Habilitação:</label> <input type="number" class="form-control"
 					id="exampleInputHabilitacao" required="required" name="numHabilitacao"
-					style="width: 50%;" maxlength="11" value="${p.numHabilitacao}">
+					style="width: 50%;" minlength="11" maxlength="11" value="${p.numHabilitacao}">
     </div>
   </div>
    <!--     Fonts and icons     -->
@@ -223,13 +223,13 @@
     <div class="col-4">
     <label for="exampleInputData" class="hora">Data de
 					vencimento da carteira:</label> <input type="text" class="form-control"
-					id="exampleInputData" required="required" name="validade"
+					id="exampleInputData" required="required" name="validade" minlength="10"
 					style="width: 50%;" maxlength="10" value="<fmt:formatDate value='${p.validade}' pattern='dd/MM/yyyy' />">
     </div>
     <div class="col-4">
     <label for="exampleInputPassword1" class="hora">Email:</label>
 			<input type="email" class="form-control" id="exampleInputPassword1"
-				required="required" maxlength="45" name="email" style="width: 50%"
+				required="required" minlength="8" maxlength="45" name="email" style="width: 50%"
 				 value="${p.email}">
     </div>
 </div>
@@ -241,7 +241,7 @@
     
     <div class="col-4">
     <label for="exampleInputCep">Placa do veiculo:</label> <input
-						type="text" class="form-control" id="exampleInputCep" maxlength="7"
+						type="text" class="form-control" id="exampleInputCep" minlength="7" maxlength="7"
 						required="required" name="veiculo.placa" style="width: 50%;" value="${p.veiculo.placa}">
     </div>
     </div>
@@ -252,7 +252,7 @@
   
     <div class="col-4">
     <label for="exampleInputCep" class="hora">Marca:</label> <input
-						type="text" class="form-control" id="exampleInputCep" maxlength="10"
+						type="text" class="form-control" id="exampleInputCep" minlength="2" maxlength="10"
 						required="required" name="veiculo.marca" style="width: 50%;" value="${p.veiculo.marca}">
     </div>
     <div class="col-4">

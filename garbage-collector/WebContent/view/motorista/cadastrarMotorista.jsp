@@ -135,7 +135,7 @@
 <div class="form-group">
   <label class="col-md-2 control-label" for="Nome">Nome <h11>*</h11></label>  
   <div class="col-md-8">
-  <input  class="form-control input-md" type="text"  id="exampleInputName"
+  <input  class="form-control input-md" type="text"  id="exampleInputName" minlength="8"
 					placeholder="" required="required" maxlength="45" name="nome">
   </div>
 </div>
@@ -146,7 +146,7 @@
   <div class="col-md-2">
   <input class="form-control input-md" 
 					type="text"  id="exampleInputCpf"
-					 placeholder="000.000.000-00" min="14"
+					 placeholder="000.000.000-00" minlength="14"
 					maxlength="14" required="required" name="cpf"
 					onkeypress="validaCpf();">
   </div>
@@ -156,14 +156,14 @@
   <div class="col-md-2">
   <input class="form-control input-md" 
 					type="text"  id="exampleInputName"
-					placeholder="0.000.000" required="required" maxlength="9" name="rg"
+					placeholder="0.000.000" required="required" maxlength="9" minlength="9" name="rg"
 					 onkeypress="validaRG()">
   </div>
   <label class="col-md-1 control-label" for="prependedtext">Email <h11>*</h11></label>
   <div class="col-md-2">
     <div class="input-group">
       <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-      <input class="form-control" type="email"  id="exampleInputPassword1"
+      <input class="form-control" type="email"  id="exampleInputPassword1" minlength="8"
 				required="required" maxlength="45" name="email" 
 				onsubmit="validaEmail();" >
     </div>
@@ -183,7 +183,7 @@
     <div class="input-group">
       <span class="input-group-addon"><i class="fa fa-tablet"></i></span>
       <input  class="form-control" 
-					type="text"  id="exampleInputTelefone"
+					type="text"  id="exampleInputTelefone" minlength="8"
 					placeholder="(00) 00000-0000" required="required" maxlength="15"
 					name="telefone"  onkeypress="validaTelefone()">
     </div>
@@ -214,7 +214,7 @@
 <div class="form-group">
   <label class="col-md-2 control-label" for="CEP">CEP <h11>*</h11></label>
   <div class="col-md-2">
-    <input  name="endereco.cep" id="exampleInputCep"  placeholder="Apenas numero"  class="form-control input-md" required="Para realizar o cadastro preencha este campo com o cep da sua rua" value="" type="search" maxlength="8" pattern="[0-9]+$" onkeypress="validaCep()">
+    <input  name="endereco.cep" id="exampleInputCep"  placeholder="Apenas numero"  class="form-control input-md" required="Para realizar o cadastro preencha este campo com o cep da sua rua" value="" type="search" minlength="8" maxlength="8" pattern="[0-9]+$" onkeypress="validaCep()">
   </div>
   <div class="col-md-2">
       <button type="button" class="btn btn-primary" style="background-color: rgba(0,0,0,.5); border-color: rgba(0,0,0,.0001);" onclick="pesquisacep(getElementById('exampleInputCep').value)">Pesquisar</button>
@@ -224,10 +224,10 @@
       <span class="input-group-addon">Complemento <h11>*</h11></span>
       <input class="form-control" type="text"  id="exampleInputName"
 								
-				placeholder="Casa"
+				placeholder="Casa" minlength="3"
 								pattern="[a-zA-Z0-9]+"
 								required="Para realizar o cadastro preencha este campo com o seu complemento"
-								maxlength="15" name="endereco.complemento">
+								maxlength="20" name="endereco.complemento">
     </div>
     
   </div>
@@ -239,7 +239,7 @@
   <div class="col-md-4">
     <div class="input-group">
       <span class="input-group-addon">Rua</span>
-      <input id="rua" name="endereco.rua" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+      <input id="rua" name="endereco.rua" class="form-control" placeholder="" required="required" readonly="readonly" type="text" maxlength="50" minlength="8">
     </div>
     
   </div>
@@ -247,8 +247,8 @@
     <div class="input-group">
       <span class="input-group-addon">Nº <h11>*</h11></span>
       <input class="form-control" type="text" 
-								id="exampleInputEndereco" 
-				placeholder="Ex: 0000" required="required" maxlength="50"
+								id="exampleInputEndereco" minlength="2"
+				placeholder="Ex: 0000" required="required" maxlength="6"
 								name="endereco.numero">
     </div>
     
@@ -257,7 +257,7 @@
   <div class="col-md-3">
     <div class="input-group">
       <span class="input-group-addon">Bairro</span>
-      <input id="bairro" name="endereco.bairro" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+      <input id="bairro" name="endereco.bairro" class="form-control" placeholder="" required="required" readonly="readonly" type="text" maxlength="26" minlength="3">
     </div>
     
   </div>
@@ -275,40 +275,40 @@
   <label class="col-md-2 control-label" for="Nome">Numero da Habilitação: <h11>*</h11></label>  
   <div class="col-md-2">
   <input class="form-control input-md" type="number" 
-					id="exampleInputHabilitacao" required="required" name="numHabilitacao" maxlength="11">
+					id="exampleInputHabilitacao" required="required" name="numHabilitacao" maxlength="11" minlength="11">
   </div>
 
   
   <label class="col-md-1 control-label" for="Nome">Categoria: <h11>*</h11></label>  
   <div class="col-md-2">
   <input  class="form-control input-md" type="text"  id="exampleInputCep"
-					required="required" name="categoria"  maxlength="4">
+					required="required" name="categoria" minlength="1"  maxlength="4">
   </div>
   
   <label class="col-md-2 control-label" for="Nome">Data de vencimento da carteira:<h11>*</h11></label>  
   <div class="col-md-2">
- <input id="dataNascimento" name="validade" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="text" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
+ <input id="dataNascimento" name="validade" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="text" minlength="10" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
 </div>
 
 </div>
 <div class="form-group">
   <label class="col-md-2 control-label" for="Nome">Placa do veiculo: <h11>*</h11></label>  
   <div class="col-md-2">
-  <input class="form-control input-md" type="text"  id="exampleInputCep"
+  <input class="form-control input-md" type="text"  id="exampleInputCep" minlength="7"
 						required="required" name="veiculo.placa" maxlength="7">
   </div>
 
   
   <label class="col-md-1 control-label" for="Nome">Chassí: <h11>*</h11></label>  
   <div class="col-md-2">
-  <input  class="form-control input-md" ype="text" 
+  <input  class="form-control input-md" ype="text" maxlength="15" minlength="15"
 					id="exampleInputData" required="required" name="veiculo.chasi">
   </div>
   
   <label class="col-md-1 control-label" for="Nome">Marca:<h11>*</h11></label>  
   <div class="col-md-2">
   <input class="form-control input-md" type="text"  id="exampleInputCep"
-						required="required" name="veiculo.marca">
+						required="required" name="veiculo.marca" maxçength="20" minlength="2">
 </div>
 
 </div>
@@ -317,7 +317,7 @@
   <label class="col-md-2 control-label" for="Nome">Ano do veiculo:: <h11>*</h11></label>  
   <div class="col-md-2">
   <input class="form-control input-md" type="text"  id="exampleInputCep"
-						required="required" name="veiculo.anoVeiculo">
+						required="required" name="veiculo.anoVeiculo" maxlength="4" minlength="4">
   </div>
   </div>
 
@@ -341,7 +341,7 @@
   <div class="col-md-2">
   <input class="form-control input-md" 
 					type="text"  id="exampleInputLogin"
-					placeholder="" required="required" maxlength="10" name="login">
+					placeholder="" required="required" maxlength="10" name="login" minlength="3">
   </div>
 
   

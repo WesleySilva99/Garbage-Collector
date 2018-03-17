@@ -401,12 +401,13 @@ aside ul li a span{
 					<td>${u.cep}</td>
 					<td>${u.cliente.nome}</td>
 					<td>${u.cliente.telefone}</td>
-					
+					<c:if test="${motoristaLogado != null}">
 					<td><a href="#" class="btn btn-info btn-xs">Coletar</a></td>
-					
-				
-
-
+					</c:if>
+					<c:if test="${AdmLogado != null }">
+					<td><a href="cancelarColeta?id=${u.id}" class="btn btn-info btn-xs">Cancelar Coleta</a><br>
+					<a href="exibiralterarPedido?id=${u.id}" class="btn btn-info btn-xs">Remarcar Coleta</a></td> &nbsp;
+					</c:if>
 					
 
 				</tr>

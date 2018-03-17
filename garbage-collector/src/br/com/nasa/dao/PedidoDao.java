@@ -142,7 +142,7 @@ public class PedidoDao {
 	
 	public void cancelar(Pedido p) {
 
-		String sql = "DELETE FROM pedido where id =?";
+		String sql = "DELETE FROM pedido WHERE id =?";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);

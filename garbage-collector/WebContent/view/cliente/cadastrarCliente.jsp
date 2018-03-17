@@ -134,7 +134,7 @@
   <label class="col-md-2 control-label" for="exampleInputName">Nome <h11>*</h11></label>  
   <div class="col-md-8">
   <input id="exampleInputName" name="nome" placeholder="" class="form-control input-md" required="" type="text" placeholder="João Melo Silva"
-                
+                minlength="8"
           required="Para realizar o cadastro preencha este campo com o seu nome completo"
                 maxlength="40" name="nome"
                 pattern="[AÁÉÍÓÚÂÊÎÔÛ-ZáéíóúâêîôûçÁÉÍÓÚÂÊÎÔÛa-z ]+" >
@@ -153,7 +153,7 @@
   
   <label class="col-md-1 control-label" for="Nome"> Data de Nascimento<h11>*</h11></label>  
   <div class="col-md-2">
- <input id="dataNascimento" name="dataNascimento" value="<fmt:formatDate value="${p.dataNascimento}" pattern="dd/MM/yyyy" />" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="text" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
+ <input id="dataNascimento" name="dataNascimento" value="<fmt:formatDate value="${p.dataNascimento}" pattern="dd/MM/yyyy" />" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="text" maxlength="10" minlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
 </div>
 </div>
 
@@ -168,7 +168,7 @@
     <div class="input-group">
       <span class="input-group-addon"><i class="fa fa-tablet"></i></span>
       <input class="form-control" type="text"  id="exampleInputTelefone"
-								placeholder="(00) 00000-0000"
+								placeholder="(00) 00000-0000" minlength="15"
 				required="Para realizar o cadastro preencha este campo com o endereço da sua rua"
 								maxlength="15" name="telefone" onkeypress="validaTelefone()"
 								>
@@ -185,7 +185,7 @@
       <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
       <input class="form-control" 
 								type="email" id="exampleInputEmail"
-								
+								minlength="8"
 				placeholder="João@exemplo.com"
 								required="Para realizar o cadastro preencha este campo com o seu email"
 								pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" maxlength="50"
@@ -199,7 +199,7 @@
 <div class="form-group">
   <label class="col-md-2 control-label" for="CEP">CEP <h11>*</h11></label>
   <div class="col-md-2">
-    <input  name="endereco.cep" id="exampleInputCep"  placeholder="Apenas numero"  class="form-control input-md" required="Para realizar o cadastro preencha este campo com o cep da sua rua" value="" type="search" maxlength="8" pattern="[0-9]+$" onkeypress="validaCep()">
+    <input  name="endereco.cep" id="exampleInputCep"  placeholder="Apenas numero"  class="form-control input-md" required="Para realizar o cadastro preencha este campo com o cep da sua rua" value="" type="search" maxlength="8" minlength="8" pattern="[0-9]+$" onkeypress="validaCep()">
   </div>
   <div class="col-md-2">
       <button type="button" class="btn btn-primary" style="background-color: rgba(0,0,0,.5); border-color: rgba(0,0,0,.0001);" onclick="pesquisacep(getElementById('exampleInputCep').value)">Pesquisar</button>
@@ -210,9 +210,9 @@
       <input class="form-control" type="text"  id="exampleInputName"
 								
 				placeholder="Casa"
-								pattern="[a-zA-Z0-9]+"
+								pattern="[a-zA-Z0-9]+" minlength="3"
 								required="Para realizar o cadastro preencha este campo com o seu complemento"
-								maxlength="10" name="endereco.complemento">
+								maxlength="20" name="endereco.complemento">
     </div>
     
   </div>
@@ -224,7 +224,7 @@
   <div class="col-md-4">
     <div class="input-group">
       <span class="input-group-addon">Rua</span>
-      <input id="rua" name="endereco.rua" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+      <input id="rua" name="endereco.rua" class="form-control" placeholder="" required="required" readonly="readonly" type="text" maxlength="50" minlength="8">
     </div>
     
   </div>
@@ -232,8 +232,8 @@
     <div class="input-group">
       <span class="input-group-addon">Nº <h11>*</h11></span>
       <input class="form-control" type="text" 
-								id="exampleInputEndereco" 
-				placeholder="Ex: 0000" required="required" maxlength="5"
+								id="exampleInputEndereco" minlength="2"
+				placeholder="Ex: 0000" required="required" maxlength="6"
 								name="endereco.numero">
     </div>
     
@@ -242,7 +242,7 @@
   <div class="col-md-3">
     <div class="input-group">
       <span class="input-group-addon">Bairro</span>
-      <input id="bairro" name="endereco.bairro" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+      <input id="bairro" name="endereco.bairro" class="form-control" placeholder="" required="required" readonly="readonly" type="text" maxlength="26" minlength="3">
     </div>
     
   </div>
@@ -262,7 +262,7 @@
 								id="exampleInputName" placeholder="Mario15"
 								pattern="[a-zA-Z0-9]+" 
 					required="Para realizar o cadastro preencha este campo com seu nome de usuário"
-								maxlength="15" name="login" >
+								minlength="3" maxlength="10" name="login" >
   </div>
 
   

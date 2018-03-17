@@ -394,10 +394,10 @@ aside ul li a span{
 					<div class="col-4">
 						<label for="exampleInputName" class="hora">Tipo da Coleta:</label>
 						<input type="text" class="form-control" id="exampleInputName"
-							placeholder="Plástico" style="width: 50%"
+							placeholder="Plástico" style="width: 50%" maxlength="15" minlength="3"
 							''
 					required="Para realizar o cadastro preencha este campo com o tipo da coleta desejado"
-							maxlength="40" name="descricao"
+							 name="descricao"
 							pattern="[AÁÉÍÓÚÂÊÎÔÛ-ZáéíóúâêîôûçÁÉÍÓÚÂÊÎÔÛa-z ]+">
 					</div>
 				

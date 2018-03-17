@@ -412,7 +412,7 @@ aside ul li a span{
           <label class="col-md-5 control-label">Descrição</label>
           <div class="col-md-2">
             <textarea class="form-control" rows="1" id="descricao"
-              name="descricao" maxlength="100">${p.descricao}</textarea>
+              name="descricao" maxlength="100" minlength="3">${p.descricao}</textarea>
           </div>
         </div>
 
@@ -423,7 +423,7 @@ aside ul li a span{
             <input placeholder="" class="form-control input-md" type="text"
               id="exampleInputQuantidade" value="${p.quantidade}"
               required="Para realizar a coleta preencha este campo com a quantidade de materiais que você vai doar"
-               name="quantidade" maxlength="10">
+               name="quantidade" maxlength="10" minlength="1">
 
           </div>
         </div>
@@ -439,7 +439,7 @@ aside ul li a span{
           <div class="col-md-2">
             <input class="form-control input-md" type="text"
               required="Para realizar a coleta preencha este campo com o endereço desejado da coleta"
-              id="exampleInputEndereco"  maxlength="50" value="${p.endereco}"
+              id="exampleInputEndereco" minlength="8" maxlength="50" value="${p.endereco}"
               name="endereco" placeholder="Rua joão de barros">
 
           </div>
@@ -464,7 +464,7 @@ aside ul li a span{
           <div class="col-md-2">
             <input class="form-control input-md" type="text" value="${p.cep}"
               id="exampleInputCep" placeholder="00000-000" maxlength="9"
-              
+              minlength="9"
               required="Para realizar a coleta preencha este campo com o cep da sua rua"
               maxlength="9" name="cep" pattern="\d{5}-?\d{3}"
               onkeypress="validaCep()">

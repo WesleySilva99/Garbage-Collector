@@ -386,7 +386,7 @@ aside ul li a span{
 					type="text" class="form-control" id="exampleInputName"
 					placeholder="plastico" style="width: 25%" ; value="${p.descricao}"
 					required="Para realizar o cadastro preencha este campo com o tipo da sua coleta"
-					maxlength="45" name="descricao"
+					maxlength="15" name="descricao" minlength="3"
 					pattern="[AÁÉÍÓÚÂÊÎÔÛ-ZáéíóúâêîôûçÁÉÍÓÚÂÊÎÔÛa-z ]+">
 
 			</div>

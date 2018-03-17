@@ -415,7 +415,7 @@ aside ul li a span{
           <label class="col-md-5 control-label">Descrição</label>
           <div class="col-md-2">
             <textarea class="form-control" rows="1" id="descricao"
-              name="descricao" maxlength="100"></textarea>
+              name="descricao" maxlength="100" minlength="3"></textarea>
           </div>
         </div>
 
@@ -423,10 +423,10 @@ aside ul li a span{
         <div class="form-group">
           <label class="col-md-5 control-label" for="exampleInputQuantidade">Quantidade:</label>
           <div class="col-md-2">
-            <input placeholder="" class="form-control input-md" type="text"
+            <input placeholder="" class="form-control input-md" type="number"
               id="exampleInputQuantidade"
               required="Para realizar a coleta preencha este campo com a quantidade de materiais que você vai doar"
-               name="quantidade" maxlength="10">
+               name="quantidade" maxlength="10" minlength="1">
 
           </div>
         </div>
@@ -442,7 +442,7 @@ aside ul li a span{
           <div class="col-md-2">
             <input class="form-control input-md" type="text"
               required="Para realizar a coleta preencha este campo com o endereço desejado da coleta"
-              id="exampleInputEndereco"  maxlength="50"
+              id="exampleInputEndereco" minlength="8" maxlength="50"
               name="endereco" placeholder="Rua joão de barros">
 
           </div>
@@ -456,7 +456,7 @@ aside ul li a span{
             <input class="form-control input-md" type="text"
               required="Para realizar a coleta preencha este campo com o número da casa desejada da coleta"
               id="exampleInputNumero"  minlength="2"
-              maxlength="6" name="numero" placeholder="Rua joão de barros">
+              maxlength="6" name="numero" placeholder="A000">
 
           </div>
         </div>
@@ -467,7 +467,7 @@ aside ul li a span{
           <div class="col-md-2">
             <input class="form-control input-md" type="text"
               id="exampleInputCep" placeholder="00000-000" maxlength="9"
-              
+              minlength="9"
               required="Para realizar a coleta preencha este campo com o cep da sua rua"
               maxlength="9" name="cep" pattern="\d{5}-?\d{3}"
               onkeypress="validaCep()">

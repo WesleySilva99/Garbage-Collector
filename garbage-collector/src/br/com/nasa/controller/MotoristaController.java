@@ -45,7 +45,7 @@ public class MotoristaController {
 		model.addAttribute("msg", "O login já existe!");
 		model.addAttribute("m", motorista);
 		System.out.println("Tente novamente, Login já existente");
-		return "motorista/cadastrarMotorista";
+		return "forward:exibirCadastrarMotorista";
 
 	}else if (dao.verificaEmailExistente(motorista.getEmail()) == false) {
 		model.addAttribute("msg", "O email já existe!");
