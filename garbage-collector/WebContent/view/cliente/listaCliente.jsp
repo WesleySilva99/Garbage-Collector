@@ -117,9 +117,9 @@
 
 						<td><a href="alterarCliente?id=${u.id}"
 							class='btn btn-info btn-xs'><span class="fa fa-edit" >Alterar</a></span> &nbsp; <a
-							href="removerCliente?id${u.id}" class="btn btn-danger btn-xs" ><span class="	fa fa-close"> Remover</a></span></td>
+							href="removerCliente?id=${u.id}" class="btn btn-danger btn-xs" ><span class="	fa fa-close"> Remover</a></span></td>
 						<td data-toggle="modal" data-target="#exampleModal" onclick="teste('${u.nome}','${u.endereco.rua}','${u.endereco.bairro}','${u.endereco.cep}','${u.endereco.numero}','${u.endereco.complemento}');"><h4 style="margin-top: 5px;">
-								<span class="label label-success  " >detalhes</span>
+								<span class="label label-success " >detalhes</span>
 							</h4></td>
 					</tr>
 

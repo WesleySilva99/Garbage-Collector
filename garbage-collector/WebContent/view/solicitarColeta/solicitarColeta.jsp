@@ -33,7 +33,7 @@ label.hora {
 	width: 120px;
 }
 </style>
-${msg}
+
 
 <style type="text/css">
       /*  MENU LATERAL */
@@ -380,7 +380,10 @@ aside ul li a span{
 	</c:if>
 	<h1 align="center">Solicite sua coleta</h1>
 
-  <div align="center">${msg}</div>
+<div class="alert alert-primary" role="alert">
+ 	${msg}
+</div>
+
   <form class="form-horizontal" action="CadastraSolicitarColeta"
     method="post" name="formulario" style="border: 2px;">
     <fieldset>

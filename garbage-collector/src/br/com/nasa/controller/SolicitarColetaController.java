@@ -60,7 +60,7 @@ public class SolicitarColetaController {
 	@RequestMapping("/cancelarColeta")
 	public String cancelarColeta(Pedido solicitarcoleta, Model model) {
 		PedidoDao dao = new PedidoDao();
-		dao.remover(solicitarcoleta);
+		dao.cancelar(solicitarcoleta);
 		model.addAttribute("msg", "Coleta cancelada com sucesso!");
 		return "forward:listarColeta";
 
@@ -87,6 +87,6 @@ public class SolicitarColetaController {
 		dao.alterar(p);
 		model.addAttribute("msg", "Coleta alterada com sucesso.");
 		System.out.println("Coleta alterada com sucesso");
-		return "forward:listarColeta";
+		return "forward:listarColetaCliente";
 	}
 }

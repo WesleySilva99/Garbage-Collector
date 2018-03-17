@@ -122,14 +122,32 @@ public class PedidoDao {
 			throw new RuntimeException(e);
 		}
 	}
-	public void remover(Pedido solicitarcoleta) {
+	public void remover(int id) {
+
+		String sql = "DELETE FROM pedido where id_cliente = ?";
+
+		try {
+			PreparedStatement stmt = connection.prepareStatement(sql);
+
+			stmt.setInt(1, id);
+			
+			stmt.execute();
+			stmt.close();
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
+	}
+	
+	public void cancelar(Pedido p) {
 
 		String sql = "DELETE FROM pedido where id =?";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
-			stmt.setInt(1, solicitarcoleta.getId());
+			stmt.setInt(1, p.getId());
 			
 			stmt.execute();
 			stmt.close();

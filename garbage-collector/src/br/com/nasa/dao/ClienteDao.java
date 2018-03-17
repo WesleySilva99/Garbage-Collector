@@ -180,7 +180,6 @@ public class ClienteDao {
 
 			rs.close();
 			stmt.close();
-			connection.close();
 
 			return clienteCompleto;
 

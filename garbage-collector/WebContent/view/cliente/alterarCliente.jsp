@@ -132,7 +132,9 @@
 
 <form  class="form-horizontal" id="formulario" name="formulario" action="alterarCliente2" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id" value="${p.id}">
+<input type="hidden" name="id" value="${p.endereco.id}">
 <!-- Text input-->
+
 <div class="form-group">
   <label class="col-md-2 control-label" for="exampleInputName">Nome <h11>*</h11></label>  
   <div class="col-md-8">

@@ -32,6 +32,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 			<list>
 				<bean class="br.com.nasa.controller.EnderecoConverter" />
 				<bean class="br.com.nasa.controller.TipoColetaConverter" />
+				<bean class="br.com.nasa.controller.DataConverter" /> 
 			</list>
 		</property>
 	</bean>

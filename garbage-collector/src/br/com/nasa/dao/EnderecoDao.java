@@ -121,7 +121,7 @@ public class EnderecoDao {
 
 			rs.close();
 			stmt.close();
-			connection.close();
+			
 
 			return enderecoCompleto;
 

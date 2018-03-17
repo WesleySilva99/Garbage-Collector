@@ -351,7 +351,7 @@ aside ul li a span{
             <span class="nav-icon"><i class="fa fa-edit" aria-hidden="true"></i></span>
             <span class="remove_text">Cadastrar Tipo Coleta</span></a></li>
               <li><a href="exibirIncluirAdm">
-            <span class="nav-icon"><i class="fa fa-power-off" aria-hidden="true"></i></span>
+            <span class="nav-icon"><i class="fa fa-edit" aria-hidden="true"></i></span>
             <span class="remove_text">Cadastrar Adm</span> </a></li>
                 <li><a href="listarColeta">
             <span class="nav-icon"><i class="fa fa-file-text" aria-hidden="true"></i></span>
@@ -366,7 +366,7 @@ aside ul li a span{
             <span class="nav-icon"><i class="fa fa-file-text" aria-hidden="true"></i></span>
             <span class="remove_text">Listar Tipo de coletas</span> </a></li>
               <li><a href="listarAdms">
-            <span class="nav-icon"><i class="fa fa-power-off" aria-hidden="true"></i></span>
+            <span class="nav-icon"><i class="fa fa-file-text" aria-hidden="true"></i></span>
             <span class="remove_text">Listar Adms</span> </a></li>
                 <li><a href="logout">
             <span class="nav-icon"><i class="fa fa-power-off" aria-hidden="true"></i></span>

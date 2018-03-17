@@ -13,6 +13,7 @@ import br.com.nasa.dao.AdministradorDao;
 import br.com.nasa.dao.ClienteDao;
 import br.com.nasa.dao.EnderecoDao;
 import br.com.nasa.dao.MotoristaDao;
+import br.com.nasa.dao.PedidoDao;
 import br.com.nasa.model.Administrador;
 import br.com.nasa.model.Cliente;
 import br.com.nasa.model.Endereco;
@@ -124,6 +125,8 @@ public class ClienteController {
 
 		ClienteDao dao = new ClienteDao();
 		dao.alterar(cliente);
+		EnderecoDao dao1 = new EnderecoDao();
+		dao1.alterar(cliente.getEndereco());
 		model.addAttribute("msg", "cliente alterado.");
 		System.out.println("Cliente alterado com sucesso");
 		return "forward:listarClientes";
@@ -132,7 +135,12 @@ public class ClienteController {
 	@RequestMapping("/removerCliente")
 	public String removerCliente(Cliente c, Model model) {
 		ClienteDao dao = new ClienteDao();
+		c= dao.pegarId(c.getId());
 		dao.remover(c);
+		EnderecoDao dao1 = new EnderecoDao();
+		dao1.remover(c.getEndereco());
+		PedidoDao dao2 = new PedidoDao();
+		dao2.remover(c.getId());
 		System.out.println("Removendo cliente");
 		model.addAttribute("msg", "Cliente removido com sucesso!");
 		return "forward:listarClientes";

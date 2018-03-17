@@ -71,7 +71,13 @@ public class MotoristaController {
 	@RequestMapping("/removerMotorista")
 	public String removerMotorista(Motorista m, Model model) {
 		MotoristaDao dao = new MotoristaDao();
+		m= dao.pegarId(m.getId());
 		dao.remover(m);
+		EnderecoDao dao1 = new EnderecoDao();
+		dao1.remover(m.getEndereco());
+		VeiculoDao dao2 = new VeiculoDao();
+		dao2.remover(m.getVeiculo());
+		System.out.println("Removendo motorista");
 		model.addAttribute("msg", "Motorista removido com sucesso!");
 		return "forward:listaMotorista";
 

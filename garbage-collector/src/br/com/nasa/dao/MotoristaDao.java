@@ -226,7 +226,7 @@ public Motorista pegarId(int id) {
 
 		rs.close();
 		stmt.close();
-		connection.close();
+		
 
 		return mCompleto;
 
