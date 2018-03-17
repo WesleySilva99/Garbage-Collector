@@ -12,7 +12,7 @@
 	href="view/assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="view/assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Garbage Collector</title>
+<title>Lista de Coletas Solicitadas</title>
 <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
   <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
@@ -362,7 +362,7 @@ aside ul li a span{
                 	<c:import url="/view/util/menu.jsp" />
                 	</c:otherwise>
 					</c:choose>
-<c:if test="${AdmLogado != null}">
+					<c:if test="${AdmLogado != null}">
 	<c:import url="/view/util/menuLateral.jsp" />
 	</c:if>
 	<div class="container">
@@ -380,6 +380,8 @@ aside ul li a span{
 				<th>Endereço da Coleta</th>
 				<th>Número da Casa</th>
 				<th>CEP</th>
+				<th>Nome do Cliente</th>
+				<th>Telefone do Cliente</th>
 				<th>Opções de coleta</th>
 				
 
@@ -397,9 +399,10 @@ aside ul li a span{
 					<td>${u.endereco}</td>
 					<td>${u.numero}</td>
 					<td>${u.cep}</td>
-
-					<td><a href="cancelarColeta?id=${u.id}" class="label label-warning">Cancelar Coleta</a>|
-					<a href="exibiralterarPedido?id=${u.id}" class="btn btn-info btn-xs">Remarcar Coleta</a> &nbsp;</td>
+					<td>${u.cliente.nome}</td>
+					<td>${u.cliente.telefone}</td>
+					
+					<td><a href="#" class="btn btn-info btn-xs">Coletar</a></td>
 					
 				
 

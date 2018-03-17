@@ -12,7 +12,7 @@
 	href="view/assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="view/assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Garbage Collector</title>
+<title>Alterar Tipo Coleta</title>
 <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
   <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
@@ -377,7 +377,7 @@ aside ul li a span{
 		<form action="alterarTipoColeta" method="post">
 
 
-			<input type="text" name="id" value="${p.id}">
+			<input type="hidden" name="id" value="${p.id}">
 
 			<div>
 

@@ -85,7 +85,7 @@ public class SolicitarColetaController {
 		
 		PedidoDao dao = new PedidoDao();
 		dao.alterar(p);
-		model.addAttribute("msg", "cliente alterado.");
+		model.addAttribute("msg", "Coleta alterada com sucesso.");
 		System.out.println("Coleta alterada com sucesso");
 		return "forward:listarColeta";
 	}

@@ -12,7 +12,7 @@
 	href="view/assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="view/assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Garbage Collector</title>
+<title>Cadastrar Administrador</title>
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal">
   <link rel="stylesheet" type="text/css" href="view/novoTemplate/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="view/novoTemplate/css/bootstrap.min.css">
