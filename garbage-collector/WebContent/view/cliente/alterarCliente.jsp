@@ -169,7 +169,7 @@
   <label class="col-md-2 control-label" for="prependedtext">Telefone <h11>*</h11></label>
   <div class="col-md-2">
     <div class="input-group">
-      <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+      <span class="input-group-addon"><i class="fa fa-tablet"></i></span>
       <input class="form-control"  value="${p.telefone}" type="text"  id="exampleInputTelefone"
 								placeholder="(00) 00000-0000"
 				required="Para realizar o cadastro preencha este campo com o endereço da sua rua"

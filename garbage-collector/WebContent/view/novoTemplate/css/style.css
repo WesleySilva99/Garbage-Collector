@@ -131,7 +131,8 @@ banner
 
 .navbar-brand img {
     padding-top: 2px;
-    width: 200px !important;
+    width: 235px !important;
+    border-radius: 2px;
 }
 
 .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
@@ -192,7 +193,7 @@ banner
 }
 .bg-color{
 	background-color: RGBA(13, 70, 83, 0.78);
-	min-height: 771px;
+	min-height: 802px;
 }
 .banner-info{
 	padding-top: 190px;
