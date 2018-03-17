@@ -99,7 +99,9 @@
 <br>
 <br>
 
-<div class="panel panel-primary" style="    border-color: rgba(0,0,0,.5);">
+<div class="panel panel-primary" style="    border-color: rgba(0,0,0,.5);  margin-left: 250px;
+    margin-right: 50px;
+    margin-top: -50px;   ">
     <div class="panel-heading" align="center" style="    background-color: rgba(0,0,0,.5);
     border-color: #aa2b2b;">Alterar informações</div>
     
@@ -171,7 +173,7 @@
   <label class="col-md-2 control-label" for="prependedtext">Telefone <h11>*</h11></label>
   <div class="col-md-2">
     <div class="input-group">
-      <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+      <span class="input-group-addon"><i class="fa fa-tablet"></i></span>
       <input class="form-control"  value="${p.telefone}" type="text"  id="exampleInputTelefone"
 								placeholder="(00) 00000-0000"
 				required="Para realizar o cadastro preencha este campo com o endereço da sua rua"

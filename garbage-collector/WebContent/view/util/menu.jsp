@@ -11,7 +11,7 @@
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                
               </button>
-              <a class="navbar-brand" href="/garbage-collector/"><img class="topo" src="view/novoTemplate/img/tiro2.png" style="width:200px;  margin-top: -16px;" class="img-responsive" ></a>
+              <a class="navbar-brand" href="/garbage-collector/"><img class="topo" src="view/novoTemplate/img/tiro2.png" style="width:200px;  margin-top: -25px;" class="img-responsive" ></a>
             </div>
             <div class="collapse navbar-collapse navbar-right" id="myNavbar">
               <ul class="nav navbar-nav">

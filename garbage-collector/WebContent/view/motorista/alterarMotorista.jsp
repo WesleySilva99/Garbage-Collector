@@ -159,7 +159,7 @@
     
 <div class="col-4">
     <label for="exampleInputTelefone" class="hora">Telefone:</label> <input
-					type="text" class="form-control" id="exampleInputTelefone"
+					type="text" class="form-control fa fa-tablet" id="exampleInputTelefone"
 					placeholder="(00) 00000-0000" required="required" maxlength="15"
 					name="telefone" style="width: 50%;" onkeypress="validaTelefone()" value="${p.telefone}">
     </div>

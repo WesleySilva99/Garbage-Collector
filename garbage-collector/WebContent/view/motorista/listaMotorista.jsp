@@ -78,7 +78,7 @@
       Cep : <h5 id="cepMotorista"></h5>
       número : <h5 id="numeroMotorista"></h5>
       complemento : <h5 id="complementoMotorista"></h5>
-      Número da Habilitação : <h5 id="numeroHabilitacaoMotorista"></h5>
+      Número da Habilitação : <h5 id="numeroHabiliatacaoMotorista"></h5>
       Validade : <h5 id="validadeMotorista"></h5>
       Categoria : <h5 id="categoriaMotorista"></h5>
       Chasi : <h5 id="chasiMotorista"></h5>

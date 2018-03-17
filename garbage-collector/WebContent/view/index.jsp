@@ -39,7 +39,7 @@
     <div class="bg-color"> 
       <div class="container">
         <div class="row">
-          <div class="banner-info">
+          <div class="banner-info" style="margin-right: 200px;">
             <div class="banner-logo text-center">
               <img src="view/novoTemplate/img/recycling.png" class="img-responsive">
             </div>
@@ -49,7 +49,7 @@
               
             </div>
             
-            <div align="center" style="position: absolute; top: 700px; left: 650px;">
+            <div align="center" style="position: absolute; top: 700px; left: 550px;">
             	<h6 class="category category-absolute">Designed by
                     <a href="" target="_blank">
                         <img src="view/novoTemplate/img/logooo.png" style="width:80px;" class="invision-logo" />

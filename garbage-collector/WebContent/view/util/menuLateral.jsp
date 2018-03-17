@@ -340,9 +340,13 @@ aside ul li a span{
                     
 
         <aside class="hit_sidebar open_sidbar sidebar-slide-push">
+                      <a class="navbar-brand" href="/garbage-collector/"><img class="topo" src="view/novoTemplate/img/tiro2.png" style="width:200px;  margin-top: -60px; background-color: #12bfb299;" class="img-responsive" ></a>
+        
             <ul>
-                <li><a href="#">
+                <li><a>
+                
             <span class="nav-icon"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+            
             <span class="remove_text">Admin ${AdmLogado.nome}</span></a></li>
                 <li><a href="exibirCadastrarMotorista" class="activ">
             <span class="nav-icon"><i class="fa fa-edit" aria-hidden="true"></i></span>
