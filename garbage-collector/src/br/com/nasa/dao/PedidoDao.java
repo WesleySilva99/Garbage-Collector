@@ -9,8 +9,9 @@ import java.util.List;
 import com.mysql.jdbc.Connection;
 
 import br.com.nasa.model.Cliente;
-import br.com.nasa.model.Endereco;
+import br.com.nasa.model.Motorista;
 import br.com.nasa.model.Pedido;
+import br.com.nasa.model.Rank;
 import br.com.nasa.model.TipoColeta;
 import br.com.nasa.util.ConnectionFactory;
 
@@ -75,7 +76,13 @@ public class PedidoDao {
 				ClienteDao dao1 = new ClienteDao();
 				Cliente cp1 = dao1.pegarId(idCliente);
 				coleta.setCliente(cp1);
-
+				
+				/*int idMotorista= rs.getInt("id_motorista");
+				MotoristaDao dao2 = new MotoristaDao();
+				Motorista cp2 = dao2.pegarId(idMotorista);
+				coleta.setMotorista(cp2);
+				*/
+				
 				listaColeta.add(coleta);
 			}
 			stmt.execute();
@@ -84,6 +91,32 @@ public class PedidoDao {
 			connection.close();
 
 			return listaColeta;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public List<Rank> listarRank() {
+		try {
+			List<Rank> listaRank = new ArrayList<Rank>();
+			PreparedStatement stmt = this.connection.prepareStatement("select c.nome,sum(quantidade) as quantidade from pedido p, cliente c where p.id_cliente = c.id group by c.nome order by sum(quantidade) desc limit 10;" );
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				Rank r = new Rank();
+				
+				r.setQuantidade(rs.getShort("quantidade"));
+				
+				r.setNome(rs.getString("nome"));
+
+				listaRank.add(r);
+			}
+			stmt.execute();
+			stmt.close();
+			rs.close();
+			connection.close();
+
+			return listaRank;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -201,7 +234,7 @@ public class PedidoDao {
 public void alterar(Pedido pedido) throws SQLException {
 		
 		
-		String sql = "UPDATE pedido SET descricao = ?, quantidade = ?, endereco = ?, numero = ?, cep = ?, id_tp_coleta= ? WHERE id = ?";
+		String sql = "UPDATE pedido SET descricao = ?, quantidade = ?, endereco = ?, numero = ?, cep = ?, id_tp_coleta= ?, id_motorista = ? WHERE id = ?";
 		PreparedStatement stmt;
 		try {
 
@@ -213,7 +246,8 @@ public void alterar(Pedido pedido) throws SQLException {
 			stmt.setString(4, pedido.getNumero());
 			stmt.setString(5, pedido.getCep());
 			stmt.setInt(6, pedido.getTipocoleta().getId());
-			stmt.setInt(7, pedido.getId());
+			stmt.setInt(7, pedido.getMotorista().getId());
+			stmt.setInt(8, pedido.getId());
 			stmt.execute();
 			connection.close();
 
@@ -221,4 +255,24 @@ public void alterar(Pedido pedido) throws SQLException {
 			throw new RuntimeException(e);
 		}
 	}
+
+public void alterar2(Pedido pedido) throws SQLException {
+	
+	
+	String sql = "UPDATE pedido SET id_motorista=? WHERE id = ?";
+	PreparedStatement stmt;
+	try {
+
+		stmt = connection.prepareStatement(sql);
+
+	
+		stmt.setInt(1, pedido.getMotorista().getId());
+		stmt.setInt(2, pedido.getId());
+		stmt.execute();
+
+
+	} catch (SQLException e) {
+		throw new RuntimeException(e);
+	}
+}
 }

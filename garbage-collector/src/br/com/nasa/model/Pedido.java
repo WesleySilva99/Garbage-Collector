@@ -9,6 +9,16 @@ public class Pedido {
 	private String numero;
 	private String cep;
 	private Cliente cliente;
+	private Motorista motorista;
+
+	
+	public Motorista getMotorista() {
+		return motorista;
+	}
+
+	public void setMotorista(Motorista motorista) {
+		this.motorista = motorista;
+	}
 
 	public Cliente getCliente() {
 		return cliente;

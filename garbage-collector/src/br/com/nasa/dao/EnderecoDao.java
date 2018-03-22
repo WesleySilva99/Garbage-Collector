@@ -91,7 +91,7 @@ public class EnderecoDao {
 			stmt.setString(5, endereco.getNumero());
 			stmt.setInt(6, endereco.getId());
 			stmt.execute();
-			connection.close();
+			
 
 		} catch (SQLException e) {
 			throw new RuntimeException(e);

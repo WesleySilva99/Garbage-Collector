@@ -374,7 +374,7 @@ aside ul li a span{
 		<table class="table table-striped">
 
 			<tr>
-				<th>Tipo da Coleta</th>
+				
 				<th>Descrição</th>
 				<th>Quantidade</th>
 				<th>Endereço da Coleta</th>
@@ -393,7 +393,7 @@ aside ul li a span{
 
 
 				<tr>
-					<td>${u.tipocoleta.descricao}</td>
+					
 					<td>${u.descricao}</td>
 					<td>${u.quantidade}</td>
 					<td>${u.endereco}</td>
@@ -401,9 +401,16 @@ aside ul li a span{
 					<td>${u.cep}</td>
 					<td>${u.cliente.nome}</td>
 					<td>${u.cliente.telefone}</td>
-					<c:if test="${motoristaLogado != null}">
-					<td><a href="#" class="btn btn-info btn-xs">Coletar</a></td>
-					</c:if>
+					<td>
+					<c:choose>
+					<c:when test="${u.motorista.id == null}">
+					<a href="coletaFeita?id=${u.id}" class="btn btn-info btn-xs">Coletar</a>
+					</c:when>
+					<c:otherwise>
+                		<p>Coleta Realizada!</p>
+                	</c:otherwise>
+					</c:choose>
+				</td>
 					<c:if test="${AdmLogado != null }">
 					<td><a href="cancelarColeta?id=${u.id}" class="btn btn-info btn-xs">Cancelar Coleta</a><br>
 					<a href="exibiralterarPedido?id=${u.id}" class="btn btn-info btn-xs">Remarcar Coleta</a></td> &nbsp;

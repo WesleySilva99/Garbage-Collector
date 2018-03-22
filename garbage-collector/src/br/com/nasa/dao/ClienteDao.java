@@ -127,7 +127,7 @@ public class ClienteDao {
 			return cliente;
 		    }
 
-	public void alterar(Cliente cliente) throws SQLException {
+	public void alterar(Cliente cliente){
 		
 		
 		String sql = "UPDATE cliente SET nome = ?, cpf = ?, dt_nasc = ?, login = ?, telefone = ?, email=? WHERE id = ?";
@@ -144,7 +144,7 @@ public class ClienteDao {
 			stmt.setString(6, cliente.getEmail());
 			stmt.setInt(7, cliente.getId());
 			stmt.execute();
-			connection.close();
+			
 
 		} catch (SQLException e) {
 			throw new RuntimeException(e);

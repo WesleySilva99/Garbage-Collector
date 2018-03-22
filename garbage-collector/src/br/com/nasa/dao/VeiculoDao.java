@@ -60,7 +60,6 @@ public class VeiculoDao {
 			stmt.setString(4, v.getAnoVeiculo());
 			stmt.setInt(5, v.getId());
 			stmt.execute();
-			connection.close();
 
 		} catch (SQLException e) {
 			throw new RuntimeException(e);

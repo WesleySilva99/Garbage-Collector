@@ -115,6 +115,8 @@
 			method="post" name="formulario">
 			<fieldset>
 			<input type="hidden" name="id" value="${p.id}">
+			<input type="hidden" name="id" value="${p.endereco.id}">
+			<input type="hidden" name="id" value="${p.veiculo.id}">
 				<div align="center">
   <div class="form-row">
     <div class="col-4">
@@ -132,7 +134,7 @@
     
     <div class="col-4">
  <label for="sexo" class="hora">Sexo</label> <select
-					class="form-control" name="sexo" style="width: 50%;">
+					class="form-control" name="sexo" style="width: 50%;" value="${p.sexo}">
 					<option value="">Escolha seu sexo</option>
 					<option value="M">Masculino</option>
 					<option value="F">Feminino</option>
