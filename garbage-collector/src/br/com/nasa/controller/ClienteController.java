@@ -67,17 +67,25 @@ public class ClienteController {
 		ClienteDao dao = new ClienteDao();
 		Cliente clienteCompleto = dao.pegarId(cliente.getId());
 		model.addAttribute("p", clienteCompleto);
+		
+		
 
 		return "cliente/alterarCliente";
 	}
 
 	@RequestMapping("alterarCliente2")
 	public String alterarProduto2(Cliente cliente, Model model) throws SQLException {
-
+		
+		
 		ClienteDao dao = new ClienteDao();
+		
 		dao.alterar(cliente);
 		EnderecoDao dao1 = new EnderecoDao();
 		dao1.alterar(cliente.getEndereco());
+		
+		
+		
+		
 		model.addAttribute("msg", "cliente alterado.");
 		System.out.println("Cliente alterado com sucesso");
 		return "forward:listarClientes";
@@ -85,17 +93,23 @@ public class ClienteController {
 
 	@RequestMapping("/removerCliente")
 	public String removerCliente(Cliente c, Model model) {
+		try {
+			
+		
 		ClienteDao dao = new ClienteDao();
 		c= dao.pegarId(c.getId());
 		dao.remover(c);
 		EnderecoDao dao1 = new EnderecoDao();
 		dao1.remover(c.getEndereco());
-		PedidoDao dao2 = new PedidoDao();
-		dao2.remover(c.getId());
 		System.out.println("Removendo cliente");
-		model.addAttribute("msg", "Cliente removido com sucesso!");
+		
+		
+		} catch (RuntimeException run) {
+			model.addAttribute("msg", "Cliente removido com sucesso!");
+		}
+		model.addAttribute("msg", "Cliente não pode ser deletado por quem tem relação com pedido");
+		
 		return "forward:listarClientes";
-
 	}
 
 }

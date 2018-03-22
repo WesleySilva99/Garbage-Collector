@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import br.com.nasa.dao.PedidoDao;
 import br.com.nasa.dao.TipoColetaDao;
 import br.com.nasa.model.Cliente;
+import br.com.nasa.model.Motorista;
 import br.com.nasa.model.Pedido;
+import br.com.nasa.model.Rank;
 import br.com.nasa.model.TipoColeta;
 
 @Controller
@@ -44,6 +46,13 @@ public class SolicitarColetaController {
 		List<Pedido> listaColeta = dao.listar();
 		model.addAttribute("listaColeta", listaColeta);
 		return "solicitarColeta/cancelarColeta";
+	}
+	@RequestMapping("/rank")
+	public String rank(Model model) {
+		PedidoDao dao = new PedidoDao();
+		List<Rank> listaRank = dao.listarRank();
+		model.addAttribute("listaRank", listaRank);
+		return "rank/rank";
 	}
 	
 	@RequestMapping("/listarColetaCliente")
@@ -88,5 +97,16 @@ public class SolicitarColetaController {
 		model.addAttribute("msg", "Coleta alterada com sucesso.");
 		System.out.println("Coleta alterada com sucesso");
 		return "forward:listarColetaCliente";
+	}
+	
+	@RequestMapping("/coletaFeita")
+	public String coletaFeita(Pedido solicitarcoleta, HttpSession session, Model model) throws SQLException {
+		PedidoDao dao = new PedidoDao();
+		Motorista motorista = (Motorista) session.getAttribute("motoristaLogado");
+		solicitarcoleta.setMotorista(motorista);
+		dao.alterar2(solicitarcoleta);
+		System.out.println("Coleta feita com sucesso");
+		
+		return "forward:listarColeta";
 	}
 }

@@ -129,6 +129,7 @@ public class ClienteDao {
 		}
 	}
 
+
 	private Cliente montarObjeto(ResultSet rs) throws SQLException {
 
 		Cliente cliente = new Cliente();
@@ -165,7 +166,7 @@ public class ClienteDao {
 			stmt.setString(6, cliente.getEmail());
 			stmt.setInt(7, cliente.getId());
 			stmt.execute();
-			connection.close();
+			
 
 		} catch (SQLException e) {
 			throw new RuntimeException(e);

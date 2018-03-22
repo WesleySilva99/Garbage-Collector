@@ -52,6 +52,9 @@
 	<c:import url="/view/util/menuLateral.jsp" />
 	</c:if>
 	 <!--  Modal  -->
+	 <div align="center">
+    <h4 style="color: blue";>${msg}</h4>
+  </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

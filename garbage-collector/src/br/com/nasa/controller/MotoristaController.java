@@ -88,6 +88,7 @@ public class MotoristaController {
 
 		MotoristaDao dao = new MotoristaDao();
 		Motorista mCompleto = dao.pegarId(m.getId());
+		
 		model.addAttribute("p", mCompleto);
 
 		return "motorista/alterarMotorista";
@@ -98,6 +99,10 @@ public class MotoristaController {
 
 		MotoristaDao dao = new MotoristaDao();
 		dao.alterar(m);
+		EnderecoDao dao1 = new EnderecoDao();
+		dao1.alterar(m.getEndereco());
+		VeiculoDao dao2 = new VeiculoDao();
+		dao2.alterar(m.getVeiculo());
 		model.addAttribute("msg", "Motorista alterado.");
 		System.out.println("motorista alterado com sucesso");
 		return "forward:listaMotorista";
