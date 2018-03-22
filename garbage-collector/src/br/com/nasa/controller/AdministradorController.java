@@ -25,13 +25,13 @@ public class AdministradorController {
 	public String cadastrarAdm(Administrador adm, Model model) throws SQLException {
 		AdministradorDao dao = new AdministradorDao();
 
-		if (dao.verificaLoginExistente(adm.getLogin()) == true && dao.verificaEmailExistente(adm.getEmail()) == true) {
+		if (dao.verificaLoginExistente(adm.getUsuario().getLogin()) == true && dao.verificaEmailExistente(adm.getEmail()) == true) {
 			dao.Inserir(adm);
 
 			model.addAttribute("msg", "Você foi cadastrado com sucesso!");
 			System.out.println("Cadastrando Adms");
 
-		} else if(dao.verificaLoginExistente(adm.getLogin()) == false) {
+		} else if(dao.verificaLoginExistente(adm.getUsuario().getLogin()) == false) {
 
 			model.addAttribute("msg", "O login já existe!");
 			model.addAttribute("c", adm);

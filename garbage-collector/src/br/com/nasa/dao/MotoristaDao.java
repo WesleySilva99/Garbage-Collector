@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.mysql.jdbc.Connection;
 
+import br.com.nasa.model.Cliente;
 import br.com.nasa.model.Endereco;
 import br.com.nasa.model.Motorista;
 import br.com.nasa.model.Veiculo;
@@ -66,7 +67,7 @@ public class MotoristaDao {
 		stmt2.close();
 
 		sql = "INSERT INTO motorista"
-				+ "(nome, telefone, cpf, rg, sexo, n_abilitacao, dataVencimento, cat_abilitacao, login, senha, email, id_endereco, id_veiculo)"
+				+ "(nome, telefone, cpf, rg, sexo, n_abilitacao, dataVencimento, cat_abilitacao, email, id_endereco, id_veiculo)"
 				+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		try {
@@ -79,8 +80,8 @@ public class MotoristaDao {
 			stmt.setInt(6, motorista.getNumHabilitacao());
 			stmt.setDate(7, new java.sql.Date(motorista.getValidade().getTime()));
 			stmt.setString(8, motorista.getCategoria());
-			stmt.setString(9, motorista.getLogin());
-			stmt.setString(10, motorista.getSenha());
+			stmt.setString(9, motorista.getUsuario().getLogin());
+			stmt.setString(10, motorista.getUsuario().getSenha());
 			stmt.setString(11, motorista.getEmail());
 			stmt.setInt(12, idEndereco);
 			stmt.setInt(13, idVeiculo);
@@ -91,6 +92,8 @@ public class MotoristaDao {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
+		
+		sql = "SELECT * FROM motorista where id = max(id)";
 
 	}
 
@@ -123,8 +126,8 @@ public class MotoristaDao {
 				Veiculo vCompleto = dao1.pegarId(idVeiculo);
 				motorista.setVeiculo(vCompleto);
 
-				motorista.setLogin(rs.getString("login"));
-				motorista.setSenha(rs.getString("senha"));
+				motorista.getUsuario().setLogin(rs.getString("login"));
+				motorista.getUsuario().setSenha(rs.getString("senha"));
 				listaMotorista.add(motorista);
 
 			}
@@ -157,10 +160,8 @@ public class MotoristaDao {
 
 	}
 
-	
-public void alterar(Motorista motorista) {
-		
-		
+	public void alterar(Motorista motorista) {
+
 		String sql = "UPDATE motorista SET nome=?, telefone=?, cpf=?, rg=?, sexo=?, n_abilitacao=?, dataVencimento=?, cat_abilitacao=?, login=?, email=? WHERE id = ?";
 		PreparedStatement stmt;
 		try {
@@ -175,10 +176,10 @@ public void alterar(Motorista motorista) {
 			stmt.setInt(6, motorista.getNumHabilitacao());
 			stmt.setDate(7, new java.sql.Date(motorista.getValidade().getTime()));
 			stmt.setString(8, motorista.getCategoria());
-			stmt.setString(9, motorista.getLogin());
+			stmt.setString(9, motorista.getUsuario().getLogin());
 			stmt.setString(10, motorista.getEmail());
 			stmt.setInt(11, motorista.getId());
-			
+
 			stmt.execute();
 			connection.close();
 
@@ -187,53 +188,53 @@ public void alterar(Motorista motorista) {
 		}
 	}
 
-public Motorista pegarId(int id) {
+	public Motorista pegarId(int id) {
 
-	try {
+		try {
 
-		Motorista mCompleto = new Motorista();
+			Motorista mCompleto = new Motorista();
 
-		PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM motorista WHERE id =  ?");
-		stmt.setInt(1, id);
-		ResultSet rs = stmt.executeQuery();
+			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM motorista WHERE id =  ?");
+			stmt.setInt(1, id);
+			ResultSet rs = stmt.executeQuery();
 
-		while (rs.next()) {
+			while (rs.next()) {
 
-			mCompleto.setId(rs.getInt("id"));
-			mCompleto.setNome(rs.getString("nome"));
-			mCompleto.setRg(rs.getString("rg"));
-			mCompleto.setCpf(rs.getString("cpf"));
-			mCompleto.setValidade(rs.getDate("dataVencimento"));
-			mCompleto.setTelefone(rs.getString("telefone"));
-			mCompleto.setNumHabilitacao(rs.getInt("n_abilitacao"));
-			mCompleto.setCategoria(rs.getString("cat_abilitacao"));
-			mCompleto.setSexo(rs.getString("sexo"));
+				mCompleto.setId(rs.getInt("id"));
+				mCompleto.setNome(rs.getString("nome"));
+				mCompleto.setRg(rs.getString("rg"));
+				mCompleto.setCpf(rs.getString("cpf"));
+				mCompleto.setValidade(rs.getDate("dataVencimento"));
+				mCompleto.setTelefone(rs.getString("telefone"));
+				mCompleto.setNumHabilitacao(rs.getInt("n_abilitacao"));
+				mCompleto.setCategoria(rs.getString("cat_abilitacao"));
+				mCompleto.setSexo(rs.getString("sexo"));
 
-			int idEndereco = rs.getInt("id_endereco");
-			EnderecoDao dao = new EnderecoDao();
-			Endereco cp = dao.pegarId(idEndereco);
-			mCompleto.setEndereco(cp);
+				int idEndereco = rs.getInt("id_endereco");
+				EnderecoDao dao = new EnderecoDao();
+				Endereco cp = dao.pegarId(idEndereco);
+				mCompleto.setEndereco(cp);
 
-			int idVeiculo = rs.getInt("id_veiculo");
-			VeiculoDao dao1 = new VeiculoDao();
-			Veiculo vCompleto = dao1.pegarId(idVeiculo);
-			mCompleto.setVeiculo(vCompleto);
+				int idVeiculo = rs.getInt("id_veiculo");
+				VeiculoDao dao1 = new VeiculoDao();
+				Veiculo vCompleto = dao1.pegarId(idVeiculo);
+				mCompleto.setVeiculo(vCompleto);
 
-			mCompleto.setLogin(rs.getString("login"));
-			
-			
+				mCompleto.getUsuario().setLogin(rs.getString("login"));
+
+			}
+
+			rs.close();
+			stmt.close();
+			connection.close();
+
+			return mCompleto;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		}
-
-		rs.close();
-		stmt.close();
-		connection.close();
-
-		return mCompleto;
-
-	} catch (SQLException e) {
-		throw new RuntimeException(e);
 	}
-}
+
 	private Motorista montarObjeto(ResultSet rs) throws SQLException {
 
 		Motorista m = new Motorista();
@@ -257,29 +258,27 @@ public Motorista pegarId(int id) {
 		Veiculo vCompleto = dao1.pegarId(idVeiculo);
 		m.setVeiculo(vCompleto);
 
-		m.setLogin(rs.getString("login"));
-		m.setSenha(rs.getString("senha"));
+		m.getUsuario().setLogin(rs.getString("login"));
+		m.getUsuario().setSenha(rs.getString("senha"));
 		return m;
 	}
 
-	public Motorista buscarPorId(Motorista motorista) {
+	public Motorista buscarPorId(int id) {
 
 		try {
 
 			Motorista motoristaConsultado = null;
+			PreparedStatement stmt = this.connection.prepareStatement("select * from motorista where id = ?");
+			stmt.setInt(1, id);
 
-			PreparedStatement stmt = this.connection.prepareStatement("select * from motorista where login = ? and senha = ?");
-			stmt.setString(1, motorista.getLogin());
-			stmt.setString(2, motorista.getSenha());
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next()) {
-				motoristaConsultado = montarObjeto(rs);
 
+				motoristaConsultado = montarObjeto(rs);
 			}
 
 			rs.close();
 			stmt.close();
-			connection.close();
 
 			return motoristaConsultado;
 
@@ -315,7 +314,7 @@ public Motorista pegarId(int id) {
 			throw new RuntimeException(e);
 		}
 	}
-	
+
 	public boolean verificaEmailExistente(String email) {
 		boolean existe = true;
 		String sql = "SELECT email FROM motorista WHERE email = ?";

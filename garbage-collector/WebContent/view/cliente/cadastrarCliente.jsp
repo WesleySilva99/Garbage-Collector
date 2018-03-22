@@ -262,7 +262,7 @@
 								id="exampleInputName" placeholder="Mario15"
 								pattern="[a-zA-Z0-9]+" 
 					required="Para realizar o cadastro preencha este campo com seu nome de usuário"
-								maxlength="15" name="login" >
+								maxlength="15" name="usuario.login" >
   </div>
 
   
@@ -271,7 +271,7 @@
   <input class="form-control input-md" type="password"  id="exampleInputPassword1"
 								required="Para realizar o cadastro preencha este campo com sua senha"
 								pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8"
-								maxlength="32" name="senha"  id="senha"
+								maxlength="32" name="usuario.senha"  id="senha"
 								title="A senha deve ter no mínimo 8 e 32 no máximo, que sejam de pelo menos um número e uma letra maiúscula e minúscula." >
   </div>
   

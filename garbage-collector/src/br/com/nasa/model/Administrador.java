@@ -3,10 +3,18 @@ package br.com.nasa.model;
 public class Administrador {
 	private int id;
 	private String nome;
-	private String login;
-	private String senha;
+	private Usuario usuario;
 	private String email;
 	private String telefone;
+
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 	public int getId() {
 		return id;
@@ -24,22 +32,6 @@ public class Administrador {
 		this.nome = nome;
 	}
 
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -55,5 +47,6 @@ public class Administrador {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
+	
 
 }

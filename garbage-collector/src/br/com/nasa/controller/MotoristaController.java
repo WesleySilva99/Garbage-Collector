@@ -32,7 +32,7 @@ public class MotoristaController {
 		MotoristaDao dao = new MotoristaDao();
 		
 
-		if (dao.verificaLoginExistente(motorista.getLogin()) == true  && dao.verificaEmailExistente(motorista.getEmail()) == true) {
+		if (dao.verificaLoginExistente(motorista.getUsuario().getLogin()) == true  && dao.verificaEmailExistente(motorista.getEmail()) == true) {
 
 			dao.Inserir(motorista);
 			
@@ -40,7 +40,7 @@ public class MotoristaController {
 			model.addAttribute("msg", "Motorista Cadastrado!");
 			return "forward:exibirCadastrarMotorista";
 		
-	} else if(dao.verificaLoginExistente(motorista.getLogin()) == false) {
+	} else if(dao.verificaLoginExistente(motorista.getUsuario().getLogin()) == false) {
 
 		model.addAttribute("msg", "O login já existe!");
 		model.addAttribute("m", motorista);

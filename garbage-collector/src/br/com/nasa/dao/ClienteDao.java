@@ -8,10 +8,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import br.com.nasa.model.Cliente;
 import br.com.nasa.model.Endereco;
-import br.com.nasa.model.TipoColeta;
+import br.com.nasa.model.TipoUsuario;
 import br.com.nasa.util.ConnectionFactory;
 
 public class ClienteDao {
@@ -48,20 +47,20 @@ public class ClienteDao {
 		stmt1.close();
 		rs.close();
 
-		String sql = "INSERT INTO cliente" + "(nome, login, email, dt_nasc, cpf,  senha, telefone, id_endereco)"
-				+ "VALUES (?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO cliente" + "(nome, email, dt_nasc, cpf, telefone, id_endereco)"
+				+ "VALUES (?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
 			stmt.setString(1, cliente.getNome());
-			stmt.setString(2, cliente.getLogin());
-			stmt.setString(3, cliente.getEmail());
-			stmt.setDate(4, new Date(cliente.getDataNascimento().getTime()));
-			stmt.setString(5, cliente.getCpf());
-			stmt.setString(6, cliente.getSenha());
-			stmt.setString(7, cliente.getTelefone());
-			stmt.setInt(8, idEndereco);
+
+			stmt.setString(2, cliente.getEmail());
+			stmt.setDate(3, new Date(cliente.getDataNascimento().getTime()));
+			stmt.setString(4, cliente.getCpf());
+			
+			stmt.setString(5, cliente.getTelefone());
+			stmt.setInt(6, idEndereco);
 
 			stmt.execute();
 			stmt.close();
@@ -69,6 +68,29 @@ public class ClienteDao {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
+
+		String sqlBusca = "SELECT max(id) id from cliente";
+
+		PreparedStatement stmt2 = this.connection.prepareStatement(sql1);
+
+		ResultSet rs2 = stmt2.executeQuery();
+		
+		int idCliente = 0;
+
+		while (rs2.next()) {
+
+			idCliente = rs2.getInt("max(id)");
+
+		}
+		stmt1.close();
+		rs.close();
+		
+		
+		UsuarioDao daoUser = new UsuarioDao();
+		
+		daoUser.inseriUsuario(cliente.getUsuario(), idCliente, TipoUsuario.CLIENTE);
+
+		
 
 	}
 
@@ -82,12 +104,12 @@ public class ClienteDao {
 				Cliente cliente = new Cliente();
 				cliente.setId(rs.getInt("id"));
 				cliente.setNome(rs.getString("nome"));
-				cliente.setLogin(rs.getString("login"));
+				cliente.getUsuario().setLogin(rs.getString("login"));
 				cliente.setCpf(rs.getString("cpf"));
 				cliente.setDataNascimento(rs.getDate("dt_nasc"));
 				cliente.setTelefone(rs.getString("telefone"));
 				cliente.setEmail(rs.getString("email"));
-				cliente.setSenha(rs.getString("senha"));
+				cliente.getUsuario().setSenha(rs.getString("senha"));
 
 				int idEndereco = rs.getInt("id_endereco");
 				EnderecoDao dao = new EnderecoDao();
@@ -106,30 +128,29 @@ public class ClienteDao {
 			throw new RuntimeException(e);
 		}
 	}
-	
-	 private Cliente montarObjeto(ResultSet rs) throws SQLException {
 
-		 Cliente cliente = new Cliente();
-			cliente.setId(rs.getInt("id"));
-			cliente.setNome(rs.getString("nome"));
-			cliente.setLogin(rs.getString("login"));
-			cliente.setCpf(rs.getString("cpf"));
-			cliente.setDataNascimento(rs.getDate("dt_nasc"));
-			cliente.setTelefone(rs.getString("telefone"));
-			cliente.setEmail(rs.getString("email"));
-			cliente.setSenha(rs.getString("senha"));
-			
-			int idEndereco = rs.getInt("id_endereco");
-			EnderecoDao dao = new EnderecoDao();
-			Endereco cp = dao.pegarId(idEndereco);
-			cliente.setEndereco(cp);
-			
-			return cliente;
-		    }
+	private Cliente montarObjeto(ResultSet rs) throws SQLException {
+
+		Cliente cliente = new Cliente();
+		cliente.setId(rs.getInt("id"));
+		cliente.setNome(rs.getString("nome"));
+		
+		cliente.setCpf(rs.getString("cpf"));
+		cliente.setDataNascimento(rs.getDate("dt_nasc"));
+		cliente.setTelefone(rs.getString("telefone"));
+		cliente.setEmail(rs.getString("email"));
+		
+
+		int idEndereco = rs.getInt("id_endereco");
+		EnderecoDao dao = new EnderecoDao();
+		Endereco cp = dao.pegarId(idEndereco);
+		cliente.setEndereco(cp);
+
+		return cliente;
+	}
 
 	public void alterar(Cliente cliente) throws SQLException {
-		
-		
+
 		String sql = "UPDATE cliente SET nome = ?, cpf = ?, dt_nasc = ?, login = ?, telefone = ?, email=? WHERE id = ?";
 		PreparedStatement stmt;
 		try {
@@ -139,7 +160,7 @@ public class ClienteDao {
 			stmt.setString(1, cliente.getNome());
 			stmt.setString(2, cliente.getCpf());
 			stmt.setDate(3, new java.sql.Date(cliente.getDataNascimento().getTime()));
-			stmt.setString(4, cliente.getLogin());
+			stmt.setString(4, cliente.getUsuario().getLogin());
 			stmt.setString(5, cliente.getTelefone());
 			stmt.setString(6, cliente.getEmail());
 			stmt.setInt(7, cliente.getId());
@@ -167,11 +188,11 @@ public class ClienteDao {
 				clienteCompleto.setNome(rs.getString("nome"));
 				clienteCompleto.setCpf(rs.getString("cpf"));
 				clienteCompleto.setDataNascimento(rs.getDate("dt_nasc"));
-				clienteCompleto.setLogin(rs.getString("login"));
-				clienteCompleto.setSenha(rs.getString("senha"));
+				clienteCompleto.getUsuario().setLogin(rs.getString("login"));
+				clienteCompleto.getUsuario().setSenha(rs.getString("senha"));
 				clienteCompleto.setTelefone(rs.getString("telefone"));
 				clienteCompleto.setEmail(rs.getString("email"));
-				
+
 				int idEndereco = rs.getInt("id_endereco");
 				EnderecoDao dao = new EnderecoDao();
 				Endereco cp = dao.pegarId(idEndereco);
@@ -188,7 +209,7 @@ public class ClienteDao {
 			throw new RuntimeException(e);
 		}
 	}
-	
+
 	public void remover(Cliente c) {
 
 		String sql = "DELETE FROM cliente WHERE id = ?";
@@ -197,7 +218,7 @@ public class ClienteDao {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
 			stmt.setInt(1, c.getId());
-			
+
 			stmt.execute();
 			stmt.close();
 
@@ -209,7 +230,7 @@ public class ClienteDao {
 
 	public boolean verificaLoginExistente(String login) {
 		boolean existe = true;
-		String sql = "SELECT login FROM cliente WHERE login = ?";
+		String sql = "SELECT login FROM usuario WHERE login = ?";
 
 		try {
 
@@ -233,7 +254,7 @@ public class ClienteDao {
 			throw new RuntimeException(e);
 		}
 	}
-	
+
 	public boolean verificaEmailExistente(String email) {
 		boolean existe = true;
 		String sql = "SELECT email FROM cliente WHERE email = ?";
@@ -260,16 +281,15 @@ public class ClienteDao {
 			throw new RuntimeException(e);
 		}
 	}
-	
-	
-	public Cliente buscarPorId(Cliente cliente) {
+
+	public Cliente buscarPorId(int id) {
 
 		try {
 
 			Cliente clienteConsultado = null;
-			PreparedStatement stmt = this.connection.prepareStatement("select * from cliente where login = ? and senha = ?");
-			stmt.setString(1, cliente.getLogin());
-			stmt.setString(2, cliente.getSenha());
+			PreparedStatement stmt = this.connection.prepareStatement("select * from cliente where id = ?");
+			stmt.setInt(1, id);
+			
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next()) {
 
@@ -278,16 +298,13 @@ public class ClienteDao {
 
 			rs.close();
 			stmt.close();
-			
 
 			return clienteConsultado;
 
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
-		
+
 	}
-	
-	
 
 }
