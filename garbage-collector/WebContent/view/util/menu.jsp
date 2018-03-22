@@ -43,7 +43,7 @@
                 <c:choose>
 					<c:when
 								test="${clienteLogado != null || motoristaLogado != null || AdmLogado != null}">
-								<li class=""><a href="#">${clienteLogado.login}${motoristaLogado.nome}${AdmLogado.nome}</a></li>
+								<li class=""><a href="#">${clienteLogado.usuario.login}${motoristaLogado.nome}${AdmLogado.nome}</a></li>
 							</c:when>
 							<c:otherwise>
 								<li class=""><a href="login">Login</a></li>

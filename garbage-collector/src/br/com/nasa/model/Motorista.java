@@ -8,7 +8,6 @@ public class Motorista {
 	
 	private int id;
 	private String nome;
-	private String login;
 	private String cpf;
 	private String rg;
 	private String telefone;
@@ -20,10 +19,19 @@ public class Motorista {
 	private String categoria;
 	private Veiculo veiculo;
 	private String email;
-	private String senha;
+	private Usuario usuario;
 	
 	
 	
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -46,22 +54,6 @@ public class Motorista {
 
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
-	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
 	}
 
 	public String getNome() {
