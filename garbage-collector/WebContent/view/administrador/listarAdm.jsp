@@ -44,7 +44,6 @@
 
 			<tr>
 				<th>Nome</th>
-				<th>login</th>
 				<th>telefone</th>
 				<th>Email</th>
 				<th>Alterar/Remover</th>
@@ -57,7 +56,6 @@
 
 				<tr>
 					<td>${u.nome}</td>
-					<td>${u.login}</td>
 					<td>${u.telefone}</td>
 					<td>${u.email}</td>
 					

@@ -380,8 +380,8 @@ aside ul li a span{
 	</c:if>
 	<h1 align="center">Solicite sua coleta</h1>
 
-<div class="alert alert-primary" role="alert">
- 	${msg}
+<div>
+    <h4 style="color: blue;">${msg}</h4>
 </div>
 
   <form class="form-horizontal" action="CadastraSolicitarColeta"

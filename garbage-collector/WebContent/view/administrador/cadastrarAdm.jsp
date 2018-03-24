@@ -101,7 +101,7 @@
     <div class="panel-heading" align="center" style="    background-color: rgba(0,0,0,.5);
     border-color: #aa2b2b;">Cadastro Administrador</div>
     
-    <div class="panel-body">
+    <div class="panel-body" aling="center">
 <div class="form-group">
 <!--
 <div class="form-group">   
@@ -120,8 +120,9 @@
         <h3>Informações Pessoais</h3>
     </div>
     </div>
-    <div align="center">
-    <h4 style="color: blue";>${msg}</h4>
+   
+    <div>
+    <h4 style="color: blue;">${msg}</h4>
   </div>
 <div class="col-md-11 control-label">
         <p class="help-block"><h11>*</h11> Campo Obrigatório </p>

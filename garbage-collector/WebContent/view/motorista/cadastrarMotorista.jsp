@@ -4,6 +4,12 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<c:choose>
+<c:when test="${AdmLogado != null}">
+					</c:when>
+					<c:otherwise>
+                	
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -183,7 +189,7 @@
     <div class="input-group">
       <span class="input-group-addon"><i class="fa fa-tablet"></i></span>
       <input  class="form-control" 
-					type="text"  id="exampleInputTelefone" minlength="8"
+					type="text"  id="exampleInputTelefone" minlength="15"
 					placeholder="(00) 00000-0000" required="required" maxlength="15"
 					name="telefone"  onkeypress="validaTelefone()">
     </div>
@@ -224,7 +230,7 @@
       <span class="input-group-addon">Complemento <h11>*</h11></span>
       <input class="form-control" type="text"  id="exampleInputName"
 								
-				placeholder="Casa" minlength="3"
+				placeholder="Casa" minlength="3" 
 								pattern="[a-zA-Z0-9]+"
 								required="Para realizar o cadastro preencha este campo com o seu complemento"
 								maxlength="20" name="endereco.complemento">
@@ -287,7 +293,7 @@
   
   <label class="col-md-2 control-label" for="Nome">Data de vencimento da carteira:<h11>*</h11></label>  
   <div class="col-md-2">
- <input id="dataNascimento" name="validade" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="text" minlength="10" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
+ <input id="dataNascimento" name="validade" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="text" minlength="10" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()" value="<fmt:formatDate value='${p.validade}' pattern='dd/MM/yyyy' />">
 </div>
 
 </div>
@@ -341,7 +347,7 @@
   <div class="col-md-2">
   <input class="form-control input-md" 
 					type="text"  id="exampleInputLogin"
-					placeholder="" required="required" maxlength="10" name="login" minlength="3">
+					placeholder="" required="required" maxlength="10" name="usuario.login" minlength="3">
   </div>
 
   
@@ -350,7 +356,7 @@
   <input class="form-control input-md" 
 					type="password"  id="exampleInputPassword1"
 					required="required" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-					maxlength="32" name="senha"  minlength="8"
+					maxlength="32" name="usuario.senha"  minlength="8"
 					title="A senha deve ter no mínimo 8 e 32 no máximo, que sejam de pelo menos um número e uma letra maiúscula e minúscula:">
   </div>
   
@@ -398,3 +404,6 @@
   <script src="view/novoTemplate/contactform/contactform.js"></script>
 </body>
 </html>
+
+                	</c:otherwise>
+					</c:choose>

@@ -62,8 +62,9 @@
 			<hr>
 			<br>
 			<table class="table table-striped">
-
+				
 				<tr>
+					
 					<th>Nome</th>
 					<th>Quantidade Doada</th>
 				</tr>
@@ -77,6 +78,7 @@
 						<td>${u.quantidade}</td>
 					
 					</tr>
+					
 
 				</c:forEach>
 			</table>

@@ -61,6 +61,7 @@ public class UsuarioDao {
 			stmt.setString(3, usuario.getSenha());
 			stmt.setString(4, tpUser.toString());
 			
+			
 			stmt.execute();
 			stmt.close();
 
@@ -123,6 +124,24 @@ public class UsuarioDao {
 		}
 		
 		return usuarioEncontrado;
+	}
+	
+	public void remover(int id) {
+
+		String sql = "DELETE FROM usuario where id_usuario = ?";
+
+		try {
+			PreparedStatement stmt = connection.prepareStatement(sql);
+
+			stmt.setInt(1, id);
+			
+			stmt.execute();
+			stmt.close();
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
 	}
 
 }

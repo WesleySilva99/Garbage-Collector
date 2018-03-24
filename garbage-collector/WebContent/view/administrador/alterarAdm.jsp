@@ -81,15 +81,7 @@
 						</div>
 					</div>
 
-						<div class="col-4">
-							<label for="exampleInputName" class="hora">Nome do
-								Usuário:</label> <input type="text" class="form-control"
-								id="exampleInputName" placeholder="Mario15"
-								pattern="[a-zA-Z0-9]+" style="width: 50%"
-								; value="${p.login}"
-					required="Para realizar o cadastro preencha este campo com seu nome de usuário"
-								maxlength="15" name="login">
-						</div>
+						
   
      
      <button type="submit" class="btn btn-success">Alterar</button>

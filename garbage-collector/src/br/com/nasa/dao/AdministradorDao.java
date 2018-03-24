@@ -77,10 +77,9 @@ public class AdministradorDao {
 				Administrador adm = new Administrador();
 				adm.setId(rs.getInt("id"));
 				adm.setNome(rs.getString("nome"));
-				adm.getUsuario().setLogin(rs.getString("login"));
 				adm.setTelefone(rs.getString("telefone"));
 				adm.setEmail(rs.getString("email"));
-				adm.getUsuario().setSenha(rs.getString("senha"));
+				
 
 				listaAdm.add(adm);
 			}
@@ -142,7 +141,6 @@ public class AdministradorDao {
 
 				admCompleto.setId(rs.getInt("id"));
 				admCompleto.setNome(rs.getString("nome"));
-
 				admCompleto.setTelefone(rs.getString("telefone"));
 				admCompleto.setEmail(rs.getString("email"));
 

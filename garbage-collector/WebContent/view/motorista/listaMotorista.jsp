@@ -107,7 +107,6 @@
 				<th>CPF</th>
 				<th>Rg</th>
 				<th>Sexo</th>
-				<th>Login</th>	
 				<th>Ações de Motorista</th>
 				<th> Detalhes</th>
 				
@@ -125,7 +124,7 @@
 					<td>${u.cpf}</td>
 					<td>${u.rg}</td>
 					<td>${u.sexo}</td>
-					<td>${u.login}</td>
+					
 					
 					<td><a href="exibiralterarMotorista?id=${u.id}" class='btn btn-info btn-xs'>Alterar</a> &nbsp;|
 					<a href="removerMotorista?id=${u.id}" class="btn btn-danger btn-xs"> Remover</a></td>

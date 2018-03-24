@@ -11,6 +11,7 @@ import java.util.List;
 import br.com.nasa.model.Cliente;
 import br.com.nasa.model.Endereco;
 import br.com.nasa.model.TipoUsuario;
+import br.com.nasa.model.Usuario;
 import br.com.nasa.util.ConnectionFactory;
 
 public class ClienteDao {
@@ -54,11 +55,9 @@ public class ClienteDao {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
 			stmt.setString(1, cliente.getNome());
-
 			stmt.setString(2, cliente.getEmail());
 			stmt.setDate(3, new Date(cliente.getDataNascimento().getTime()));
 			stmt.setString(4, cliente.getCpf());
-			
 			stmt.setString(5, cliente.getTelefone());
 			stmt.setInt(6, idEndereco);
 
@@ -74,7 +73,7 @@ public class ClienteDao {
 		PreparedStatement stmt2 = this.connection.prepareStatement(sql1);
 
 		ResultSet rs2 = stmt2.executeQuery();
-		
+
 		int idCliente = 0;
 
 		while (rs2.next()) {
@@ -84,32 +83,29 @@ public class ClienteDao {
 		}
 		stmt1.close();
 		rs.close();
-		
-		
-		UsuarioDao daoUser = new UsuarioDao();
-		
-		daoUser.inseriUsuario(cliente.getUsuario(), idCliente, TipoUsuario.CLIENTE);
 
-		
+		UsuarioDao daoUser = new UsuarioDao();
+
+		daoUser.inseriUsuario(cliente.getUsuario(), idCliente, TipoUsuario.CLIENTE);
 
 	}
 
 	public List<Cliente> listar() {
 		try {
 			List<Cliente> listaCliente = new ArrayList<Cliente>();
-			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM cliente ORDER BY nome");
+			PreparedStatement stmt = this.connection.prepareStatement("select c.*, u.login as login from cliente c, usuario u where c.id = u.id_usuario && tipo_usuario = 'CLIENTE';");
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
 				Cliente cliente = new Cliente();
+				
 				cliente.setId(rs.getInt("id"));
 				cliente.setNome(rs.getString("nome"));
-				cliente.getUsuario().setLogin(rs.getString("login"));
 				cliente.setCpf(rs.getString("cpf"));
 				cliente.setDataNascimento(rs.getDate("dt_nasc"));
 				cliente.setTelefone(rs.getString("telefone"));
 				cliente.setEmail(rs.getString("email"));
-				cliente.getUsuario().setSenha(rs.getString("senha"));
+				
 
 				int idEndereco = rs.getInt("id_endereco");
 				EnderecoDao dao = new EnderecoDao();
@@ -129,18 +125,16 @@ public class ClienteDao {
 		}
 	}
 
-
 	private Cliente montarObjeto(ResultSet rs) throws SQLException {
 
 		Cliente cliente = new Cliente();
 		cliente.setId(rs.getInt("id"));
 		cliente.setNome(rs.getString("nome"));
-		
+
 		cliente.setCpf(rs.getString("cpf"));
 		cliente.setDataNascimento(rs.getDate("dt_nasc"));
 		cliente.setTelefone(rs.getString("telefone"));
 		cliente.setEmail(rs.getString("email"));
-		
 
 		int idEndereco = rs.getInt("id_endereco");
 		EnderecoDao dao = new EnderecoDao();
@@ -152,7 +146,7 @@ public class ClienteDao {
 
 	public void alterar(Cliente cliente) throws SQLException {
 
-		String sql = "UPDATE cliente SET nome = ?, cpf = ?, dt_nasc = ?, login = ?, telefone = ?, email=? WHERE id = ?";
+		String sql = "UPDATE cliente SET nome = ?, cpf = ?, dt_nasc = ?, telefone = ?, email=? WHERE id = ?";
 		PreparedStatement stmt;
 		try {
 
@@ -161,12 +155,10 @@ public class ClienteDao {
 			stmt.setString(1, cliente.getNome());
 			stmt.setString(2, cliente.getCpf());
 			stmt.setDate(3, new java.sql.Date(cliente.getDataNascimento().getTime()));
-			stmt.setString(4, cliente.getUsuario().getLogin());
-			stmt.setString(5, cliente.getTelefone());
-			stmt.setString(6, cliente.getEmail());
-			stmt.setInt(7, cliente.getId());
+			stmt.setString(4, cliente.getTelefone());
+			stmt.setString(5, cliente.getEmail());
+			stmt.setInt(6, cliente.getId());
 			stmt.execute();
-			
 
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -189,8 +181,6 @@ public class ClienteDao {
 				clienteCompleto.setNome(rs.getString("nome"));
 				clienteCompleto.setCpf(rs.getString("cpf"));
 				clienteCompleto.setDataNascimento(rs.getDate("dt_nasc"));
-				clienteCompleto.getUsuario().setLogin(rs.getString("login"));
-				clienteCompleto.getUsuario().setSenha(rs.getString("senha"));
 				clienteCompleto.setTelefone(rs.getString("telefone"));
 				clienteCompleto.setEmail(rs.getString("email"));
 
@@ -289,7 +279,7 @@ public class ClienteDao {
 			Cliente clienteConsultado = null;
 			PreparedStatement stmt = this.connection.prepareStatement("select * from cliente where id = ?");
 			stmt.setInt(1, id);
-			
+
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next()) {
 

@@ -7,14 +7,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Cliente {
 	private int id;
 	private String nome;
-	private Usuario usuario;
 	private String cpf;
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date dataNascimento;
 	private Endereco endereco = new Endereco();
 	private String telefone;
 	private String email;
-
+	private Usuario usuario;
 	
 	public Usuario getUsuario() {
 		return usuario;

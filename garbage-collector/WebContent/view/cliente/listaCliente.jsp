@@ -94,7 +94,6 @@
 					<th>Nome</th>
 					<th>Cpf</th>
 					<th>Data de Nascimento</th>
-					<th>login</th>
 					<th>telefone</th>
 					<th>Email</th>
 					<th>Alterar/Remover</th>
@@ -110,9 +109,9 @@
 						<td>${u.cpf}</td>
 						<td><fmt:formatDate value="${u.dataNascimento}"
 								pattern="dd/MM/yyyy" /></td>
-						<td>${u.login}</td>
 						<td>${u.telefone}</td>
 						<td>${u.email}</td>
+						
 
 
 

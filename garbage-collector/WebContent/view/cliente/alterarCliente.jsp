@@ -257,21 +257,7 @@
 </div>
 <br>
 <br>
-<div align="center">
-<p class="help-block"><h11>*</h11> Informe um Login e Senha para acessar o sistema. </p>
-</div>
 
-
-</div><!-- Text input-->
-<div class="form-group">
-  <label class="col-md-2 control-label" for="Nome">Login:<h11>*</h11></label>  
-  <div class="col-md-2">
-  <input   class="form-control input-md" type="text"  value="${p.login}"
-								id="exampleInputName" placeholder="Mario15"
-								pattern="[a-zA-Z0-9]+" 
-					required="Para realizar o cadastro preencha este campo com seu nome de usuário"
-								maxlength="10" minlength="3" name="login" >
-  </div>
 
   
 

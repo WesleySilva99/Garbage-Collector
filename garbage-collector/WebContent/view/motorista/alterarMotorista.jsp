@@ -126,11 +126,7 @@
 					style="width: 50%;" value="${p.nome}">
     </div>
   <div class="col-4">
-    <label for="exampleInputLogin" class="hora">Login:</label> <input
-					type="text" class="form-control" id="exampleInputLogin" minlength="3"
-					placeholder="" required="required" maxlength="10" name="login"
-					style="width: 50%;" value="${p.login}">
-    </div>
+   
     
     <div class="col-4">
  <label for="sexo" class="hora">Sexo</label> <select

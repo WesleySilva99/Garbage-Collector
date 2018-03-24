@@ -21,12 +21,13 @@ import br.com.nasa.model.Veiculo;
 @Controller
 public class MotoristaController {
 
+	
 	@RequestMapping("/exibirCadastrarMotorista")
 	public String exibirCadastrarMotorista() {
 		System.out.println("Exibindo tela de cadastrar motorista!");
 		return "motorista/cadastrarMotorista";
 	}
-
+	
 	@RequestMapping("/cadastrarMotorista")
 	public String cadastrarMotorista(Motorista motorista, Model model) throws SQLException {
 		MotoristaDao dao = new MotoristaDao();
@@ -51,7 +52,7 @@ public class MotoristaController {
 		model.addAttribute("msg", "O email já existe!");
 		model.addAttribute("m", motorista);
 		System.out.println("Tente novamente, email já existente");
-		return "motorista/cadastrarMotorista";
+		return "forward:exibirCadastrarMotorista";
 
 	}
 			return "forward:exibirCadastrarMotorista";

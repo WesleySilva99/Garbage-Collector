@@ -153,7 +153,7 @@
   
   <label class="col-md-1 control-label" for="Nome"> Data de Nascimento<h11>*</h11></label>  
   <div class="col-md-2">
-  <input id="dataNascimento" name="dataNascimento" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="text" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
+  <input id="dataNascimento" name="dataNascimento" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="text" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()"value="<fmt:formatDate value='${p.dataNascimento}' pattern='dd/MM/yyyy' />">
 </div>
 </div>
 

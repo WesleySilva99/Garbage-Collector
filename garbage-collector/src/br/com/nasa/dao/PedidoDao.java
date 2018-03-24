@@ -234,7 +234,7 @@ public class PedidoDao {
 public void alterar(Pedido pedido) throws SQLException {
 		
 		
-		String sql = "UPDATE pedido SET descricao = ?, quantidade = ?, endereco = ?, numero = ?, cep = ?, id_tp_coleta= ?, id_motorista = ? WHERE id = ?";
+		String sql = "UPDATE pedido SET descricao = ?, quantidade = ?, endereco = ?, numero = ?, cep = ?, id_tp_coleta= ? WHERE id = ?";
 		PreparedStatement stmt;
 		try {
 
@@ -246,8 +246,7 @@ public void alterar(Pedido pedido) throws SQLException {
 			stmt.setString(4, pedido.getNumero());
 			stmt.setString(5, pedido.getCep());
 			stmt.setInt(6, pedido.getTipocoleta().getId());
-			stmt.setInt(7, pedido.getMotorista().getId());
-			stmt.setInt(8, pedido.getId());
+			stmt.setInt(7, pedido.getId());
 			stmt.execute();
 			connection.close();
 

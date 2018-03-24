@@ -7,9 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
 import br.com.nasa.dao.AdministradorDao;
+import br.com.nasa.dao.UsuarioDao;
 import br.com.nasa.model.Administrador;
+import br.com.nasa.model.Usuario;
 
 
 @Controller
@@ -36,14 +37,14 @@ public class AdministradorController {
 			model.addAttribute("msg", "O login já existe!");
 			model.addAttribute("c", adm);
 			System.out.println("Tente novamente, Login já existente");
-			return "cliente/cadastrarAdm";
+			return "administrador/cadastrarAdm";
 		}
 		
 		else if (dao.verificaEmailExistente(adm.getEmail()) == false) {
 			model.addAttribute("msg", "O email já existe!");
 			model.addAttribute("c", adm);
 			System.out.println("Tente novamente, email já existente");
-			return "cliente/cadastrarCliente";
+			return "administrador/cadastrarAdm";
 
 		}
 		return "forward:exibirIncluirAdm";
@@ -84,6 +85,9 @@ public class AdministradorController {
 
 		 AdministradorDao dao = new AdministradorDao();
 		dao.remover(adm);
+		UsuarioDao dao2 = new UsuarioDao();
+		Usuario c = dao2.buscarPorId(adm.getUsuario());
+		dao2.remover(c.getIdUsuario());
 		model.addAttribute("msg", "Administrador Removido com Sucesso !");
 
 		return "forward:listarAdms";

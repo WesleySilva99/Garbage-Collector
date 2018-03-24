@@ -11,6 +11,7 @@ import com.mysql.jdbc.Connection;
 import br.com.nasa.model.Cliente;
 import br.com.nasa.model.Endereco;
 import br.com.nasa.model.Motorista;
+import br.com.nasa.model.TipoUsuario;
 import br.com.nasa.model.Veiculo;
 import br.com.nasa.util.ConnectionFactory;
 
@@ -68,7 +69,7 @@ public class MotoristaDao {
 
 		sql = "INSERT INTO motorista"
 				+ "(nome, telefone, cpf, rg, sexo, n_abilitacao, dataVencimento, cat_abilitacao, email, id_endereco, id_veiculo)"
-				+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				+ "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
@@ -80,22 +81,39 @@ public class MotoristaDao {
 			stmt.setInt(6, motorista.getNumHabilitacao());
 			stmt.setDate(7, new java.sql.Date(motorista.getValidade().getTime()));
 			stmt.setString(8, motorista.getCategoria());
-			stmt.setString(9, motorista.getUsuario().getLogin());
-			stmt.setString(10, motorista.getUsuario().getSenha());
-			stmt.setString(11, motorista.getEmail());
-			stmt.setInt(12, idEndereco);
-			stmt.setInt(13, idVeiculo);
+			stmt.setString(9, motorista.getEmail());
+			stmt.setInt(10, idEndereco);
+			stmt.setInt(11, idVeiculo);
 
 			stmt.execute();
 			stmt.close();
-			connection.close();
+			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
 		
-		sql = "SELECT * FROM motorista where id = max(id)";
+		String sql1 = "SELECT max(id) id from motorista";
+		PreparedStatement stmt3 = this.connection.prepareStatement(sql);
+
+		ResultSet rs2 = stmt3.executeQuery();
+
+		int idMotorista = 0;
+
+		while (rs2.next()) {
+
+			idMotorista = rs2.getInt("max(id)");
+
+		}
+		stmt1.close();
+		rs.close();
+
+		UsuarioDao daoUser = new UsuarioDao();
+
+		daoUser.inseriUsuario(motorista.getUsuario(), idMotorista, TipoUsuario.MOTORISTA);
 
 	}
+
+	
 
 	public List<Motorista> listar() {
 		try {
@@ -126,8 +144,6 @@ public class MotoristaDao {
 				Veiculo vCompleto = dao1.pegarId(idVeiculo);
 				motorista.setVeiculo(vCompleto);
 
-				motorista.getUsuario().setLogin(rs.getString("login"));
-				motorista.getUsuario().setSenha(rs.getString("senha"));
 				listaMotorista.add(motorista);
 
 			}
@@ -162,7 +178,7 @@ public class MotoristaDao {
 
 	public void alterar(Motorista motorista) {
 
-		String sql = "UPDATE motorista SET nome=?, telefone=?, cpf=?, rg=?, sexo=?, n_abilitacao=?, dataVencimento=?, cat_abilitacao=?, login=?, email=? WHERE id = ?";
+		String sql = "UPDATE motorista SET nome=?, telefone=?, cpf=?, rg=?, sexo=?, n_abilitacao=?, dataVencimento=?, cat_abilitacao=?, email=? WHERE id = ?";
 		PreparedStatement stmt;
 		try {
 
@@ -176,9 +192,8 @@ public class MotoristaDao {
 			stmt.setInt(6, motorista.getNumHabilitacao());
 			stmt.setDate(7, new java.sql.Date(motorista.getValidade().getTime()));
 			stmt.setString(8, motorista.getCategoria());
-			stmt.setString(9, motorista.getUsuario().getLogin());
-			stmt.setString(10, motorista.getEmail());
-			stmt.setInt(11, motorista.getId());
+			stmt.setString(9, motorista.getEmail());
+			stmt.setInt(10, motorista.getId());
 
 			stmt.execute();
 			connection.close();
@@ -220,7 +235,7 @@ public class MotoristaDao {
 				Veiculo vCompleto = dao1.pegarId(idVeiculo);
 				mCompleto.setVeiculo(vCompleto);
 
-				mCompleto.getUsuario().setLogin(rs.getString("login"));
+
 
 
 			}
@@ -291,7 +306,7 @@ public class MotoristaDao {
 
 	public boolean verificaLoginExistente(String login) {
 		boolean existe = true;
-		String sql = "SELECT login FROM motorista WHERE login = ?";
+		String sql = "SELECT login FROM usuario WHERE login = ?";
 
 		try {
 

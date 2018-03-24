@@ -7,6 +7,7 @@ public class Usuario {
 	private String Senha;
 	private TipoUsuario tpUsuario;
 
+	
 	public int getIdUsuario() {
 		return idUsuario;
 	}
