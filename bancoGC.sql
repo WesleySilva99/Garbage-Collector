@@ -90,6 +90,11 @@ telefone varchar(15) not null,
 email varchar(45) not null
 );
 
-select * from pedido;
 
+create table usuario(
+id_usuario int,
+login varchar(32),
+senha varchar(32),
+tipo_usuario varchar(30)
+)
 
