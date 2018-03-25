@@ -343,8 +343,8 @@ aside ul li a span{
                       <a class="navbar-brand" href="/garbage-collector/"><img class="topo" src="view/novoTemplate/img/tiro2.png" style="width:200px;  margin-top: -60px; background-color: #12bfb299;" class="img-responsive" ></a>
         
             <ul>
-                <li><a>
-                
+                <li>
+                <a href="ExibitalterarAdm?id=${AdmLogado.id}" class="activ">
             <span class="nav-icon"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
             
             <span class="remove_text">Admin ${AdmLogado.nome}</span></a></li>

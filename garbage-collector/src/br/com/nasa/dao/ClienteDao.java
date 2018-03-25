@@ -70,7 +70,7 @@ public class ClienteDao {
 
 		String sqlBusca = "SELECT max(id) id from cliente";
 
-		PreparedStatement stmt2 = this.connection.prepareStatement(sql1);
+		PreparedStatement stmt2 = this.connection.prepareStatement(sqlBusca);
 
 		ResultSet rs2 = stmt2.executeQuery();
 
@@ -78,7 +78,7 @@ public class ClienteDao {
 
 		while (rs2.next()) {
 
-			idCliente = rs2.getInt("max(id)");
+			idCliente = rs2.getInt("id");
 
 		}
 		stmt1.close();

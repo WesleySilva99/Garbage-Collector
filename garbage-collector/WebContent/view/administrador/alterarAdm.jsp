@@ -4,8 +4,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="apple-touch-icon" sizes="76x76"
@@ -13,23 +14,72 @@
 <link rel="icon" type="image/png" href="view/assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>Alterar Administrador</title>
-<meta
-	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-	name='viewport' />
-<!--     Fonts and icons     -->
-<link
-	href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
-	rel="stylesheet" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-<!-- CSS Files -->
-<link href="view/assets/css/bootstrap.min.css" rel="stylesheet" />
-<link href="view/assets/css/now-ui-kit.css" rel="stylesheet" />
-<!-- CSS Just for demo purpose, don't include it in your project -->
-<link href="view/assets/css/demo.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal">
+  <link rel="stylesheet" type="text/css" href="view/novoTemplate/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="view/novoTemplate/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="view/novoTemplate/css/style.css">
+</head>
+
+<title>Alterar Administradores</title>
+
+<script type="text/javascript">
+	function validarCadastro() {
+		var senha = document.formulario.senha.value;
+		var passwd2 = document.formulario.passwd2.value;
+		if (senha != passwd2) {
+			alert("As senhas não conferem. Repita a senha corretamente!");
+			document.formulario.passwd2.focus();
+			return false;
+		}
+		return true;
+	}
+
+	
+
+	function validaTelefone() {
+
+		var tel = document.formulario.telefone;
+		if (tel.value.length == 0) {
+			tel.value += "(";
+		}
+		if (tel.value.length == 3) {
+			tel.value += ")";
+		}
+		if (tel.value.length == 4) {
+			tel.value += " ";
+		}
+
+		if (tel.value.length == 10) {
+			tel.value += "-";
+		}
+	}
+	
+	
+	function validaEmail() {
+		if (document.formulario.email.value == ""
+				|| document.formulario.email.value.indexOf('@') == -1
+				|| document.formulario.email.value.indexOf('.') == -1) {
+			alert("Preencha corretamente o campo email!");
+			document.formulario.email.focus();
+			return false;
+		}
+	}
+	
+</script>
+
+
 </head>
 <body>
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<c:choose>
 					<c:when test="${AdmLogado != null}">
 					</c:when>
@@ -37,56 +87,143 @@
                 	<c:import url="/view/util/menu.jsp" />
                 	</c:otherwise>
 					</c:choose>
-	<c:if test="${AdmLogado != null}">
+ <c:if test="${AdmLogado != null}">
 	<c:import url="/view/util/menuLateral.jsp" />
 	</c:if>
-<div align="center">
-	<hr><h3>Alterar Administrador</h3><hr>
-	</div>
+ 
+<fieldset>
 
-	<form  class="" action="alterarAdm" method="post" enctype="multipart/form-data">
+<br>
+<br>
+<br>
+<div class="panel panel-primary" style="border-color: rgba(0,0,0,.5); margin-left: 250px;
+    margin-right: 50px;
+    margin-top: -50px;">
+    <div class="panel-heading" align="center" style="    background-color: rgba(0,0,0,.5);
+    border-color: #aa2b2b;">Alterar Administrador</div>
+    
+    <div class="panel-body">
+<div class="form-group">
+<!--
+<div class="form-group">   
+<div class="col-md-4 control-label">
+    <img id="logo" src="http://blogdoporao.com.br/wp-content/uploads/2016/12/Faculdade-pitagoras.png"/>
+</div>
+<div class="col-md-4 control-label">
+    <h1>Cadastro de Cliente</h1>
+    
+</div>
+</div>
+    -->
+    <div id="newpost">
+   <div class="form-group">
+    <div class="col-md-3 control-label">
+        <h3>Informações Pessoais</h3>
+    </div>
+    </div>
+   
+     <div align="center">
+    <h4 style="color: blue";>${msg}</h4>
+  </div>
+<div class="col-md-11 control-label">
+        <p class="help-block"><h11>*</h11> Campo Obrigatório </p>
+</div>
+</div>
+
+<form class="form-horizontal" action="alterarAdm" method="post"
+				onsubmit="return validarCadastro();" name="formulario"
+				id="formulario">
+				<input type="hidden" name="id"  value="${p.id}">
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="exampleInputName">Nome <h11>*</h11></label>  
+  <div class="col-md-8">
+  <input id="exampleInputName" name="nome" placeholder="" class="form-control input-md" required="" type="text" placeholder="João Melo Silva"
+                
+          required="Para realizar o cadastro preencha este campo com o seu nome completo"
+                maxlength="40" name="nome" value="${p.nome}"
+                pattern="[AÁÉÍÓÚÂÊÎÔÛ-ZáéíóúâêîôûçÁÉÍÓÚÂÊÎÔÛa-z ]+" >
+  </div>
+</div>
 
 
-<input type="hidden" name="id" value="${p.id}">
-<div align="center">
-					<div class="form-row">
-						<div class="col-4">
-							<label for="exampleInputName" class="hora">Nome Completo:</label>
-							<input type="text" class="form-control" id="exampleInputName"
-								placeholder="João Melo Silva" style="width: 50%"
-								''
-					required="Para realizar o cadastro preencha este campo com o seu nome completo"
-								maxlength="40" name="nome" value="${p.nome}"
-								pattern="[AÁÉÍÓÚÂÊÎÔÛ-ZáéíóúâêîôûçÁÉÍÓÚÂÊÎÔÛa-z ]+">
-						</div>
 
-						<div class="col-4">
-							<label for="exampleInputTelefone" class="hora">Telefone:</label>
-							<input type="text" class="form-control" id="exampleInputTelefone"
-								placeholder="(00) 00000-0000" style="width: 50%"
-								; 
+<!-- Multiple Radios (inline) -->
+
+
+
+<!-- Prepended text-->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="prependedtext">Telefone <h11>*</h11></label>
+  <div class="col-md-2">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-tablet"></i></span>
+      <input class="form-control" type="text"  id="exampleInputTelefone"
+						 value="${p.telefone}"		placeholder="(00) 00000-0000"
 				required="Para realizar o cadastro preencha este campo com o endereço da sua rua"
 								maxlength="15" name="telefone" onkeypress="validaTelefone()"
-								value="${p.telefone}">
-						</div>
+								>
+    </div>
+  </div>
+  
+   
 
-						<div class="col-4">
-							<label for="exampleInputEmail" class="hora">E-mail:</label> <input
-								type="email" class="form-control" id="exampleInputEmail"
-								style="width: 50%" ;
-				placeholder="João@exemplo.com" value="${p.email}"
+<!-- Prepended text-->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="prependedtext">Email <h11>*</h11></label>
+  <div class="col-md-4">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+      <input class="form-control" 
+								type="email" id="exampleInputEmail"
+								 value="${p.email}"
+				placeholder="João@exemplo.com"
 								required="Para realizar o cadastro preencha este campo com o seu email"
 								pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" maxlength="50"
-								name="email">
-						</div>
-					</div>
+								name="email"  >
+    </div>
+  </div>
+</div>
 
-						
-  
-     
-     <button type="submit" class="btn btn-success">Alterar</button>
+
+
+</div><!-- Text input-->
+
+</div>
+
+ 
+
+<!-- Select Basic -->
+<br>
+<br>
+<div align="center">
+<!-- Button (Double) -->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="Cadastrar"></label>
+  <div class="col-md-8">
+    <button class="btn btn-success" style="background-color: #2c8972;
+    border-color: #2c8972;" type="Submit">Altera</button>
+    <button id="Cancelar" name="Cancelar" class="btn btn-danger" style="background-color: #b72d29;
+    border-color: #b72d29;" type="Reset">Cancelar</button>
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+
+</fieldset>
 </form>
-	</form>
-
+	
+	
+	
+	
+	<!-- jQuery (necessario para Bootsrap plungins Java Script) -->
+	<script src="view/novoTemplate/js/jquery.min.js"></script>
+  <script src="view/novoTemplate/js/jquery.easing.min.js"></script>
+  <script src="view/novoTemplate/js/bootstrap.min.js"></script>
+  <script src="view/novoTemplate/js/custom.js"></script>
+  <script src="view/novoTemplate/contactform/contactform.js"></script>
 </body>
 </html>

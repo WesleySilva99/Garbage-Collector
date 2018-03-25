@@ -85,9 +85,6 @@ public class AdministradorController {
 
 		 AdministradorDao dao = new AdministradorDao();
 		dao.remover(adm);
-		UsuarioDao dao2 = new UsuarioDao();
-		Usuario c = dao2.buscarPorId(adm.getUsuario());
-		dao2.remover(c.getIdUsuario());
 		model.addAttribute("msg", "Administrador Removido com Sucesso !");
 
 		return "forward:listarAdms";

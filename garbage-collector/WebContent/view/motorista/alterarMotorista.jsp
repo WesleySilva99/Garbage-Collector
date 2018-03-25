@@ -4,35 +4,31 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<!DOCTYPE html>
-<html lang="pt-br">
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="apple-touch-icon" sizes="76x76"
-	href="view/assets/img/apple-icon.png">
-<link rel="icon" type="image/png" href="view/assets/img/favicon.png">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Alterar Motorista</title>
-<meta
-	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-	name='viewport' />
-<!--     Fonts and icons     -->
- <link
-	href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
-	rel="stylesheet" /> 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-<!-- CSS Files -->
-<link href="view/assets/css/bootstrap.min.css" rel="stylesheet" /> 
-<link href="view/assets/css/now-ui-kit.css" rel="stylesheet" />
-<!-- CSS Just for demo purpose, don't include it in your project -->
- <link href="view/assets/css/demo.css" rel="stylesheet" />
-</head>
+<meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
+  <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
-<title>Alterar Motorista</title>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal">
+  <link rel="stylesheet" type="text/css" href="view/novoTemplate/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="view/novoTemplate/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="view/novoTemplate/css/style.css">
+  
+  <script type="text/javascript">
+	function validarCadastro() {
+		var senha = document.formulario.senha.value;
+		var passwd2 = document.formulario.passwd2.value;
+		if (senha != passwd2) {
+			alert("As senhas não conferem. Repita a senha corretamente!");
+			document.formulario.passwd2.focus();
+			return false;
+		}
+		return true;
+	}
 
-<script>
 	function validaCpf() {
 		var cpf = document.formulario.cpf;
 		if (cpf.value.length == 3 || cpf.value.length == 7) {
@@ -63,20 +59,12 @@
 		if (tel.value.length == 4) {
 			tel.value += " ";
 		}
-		
+
 		if (tel.value.length == 10) {
 			tel.value += "-";
 		}
 	}
-	function validaCep() {
-
-		var cep = document.formulario.cep;
-		
-		if (cep.value.length == 5) {
-			cep.value += "-";
-		}
-
-	}
+	
 	function validaEmail() {
 		if (document.formulario.email.value == ""
 				|| document.formulario.email.value.indexOf('@') == -1
@@ -86,202 +74,307 @@
 			return false;
 		}
 	}
+	
 </script>
-
 </head>
 <body>
-	<c:choose>
+<c:choose>
 					<c:when test="${AdmLogado != null}">
 					</c:when>
 					<c:otherwise>
                 	<c:import url="/view/util/menu.jsp" />
                 	</c:otherwise>
 					</c:choose>
-	<c:if test="${AdmLogado != null}">
+ <c:if test="${AdmLogado != null}">
 	<c:import url="/view/util/menuLateral.jsp" />
 	</c:if>
-	${msg}
-	<br>
-	<hr>
-	<h1 align="center">Alterar Motorista</h1>
-	<hr>
-	
-	<br>
-	<center>
-	<!-- Formulario -->
-	<fieldset>
-		<legend>Informações Pessoais</legend>
-		<form class="form-horizontal" action="alterarMotorista"
-			method="post" name="formulario">
-			<fieldset>
-			<input type="hidden" name="id" value="${p.id}">
-			<input type="hidden" name="id" value="${p.endereco.id}">
-			<input type="hidden" name="id" value="${p.veiculo.id}">
-				<div align="center">
-  <div class="form-row">
-    <div class="col-4">
-    <label for="exampleInputName" class="hora">Nome Completo:</label> <input
-					type="text" class="form-control" id="exampleInputName" minlength="8"
-					placeholder="" required="required" maxlength="45" name="nome"
-					style="width: 50%;" value="${p.nome}">
-    </div>
-  <div class="col-4">
-   
+ 
+<fieldset>
+<br>
+<br>
+<br>
+<div class="panel panel-primary" style="    border-color: rgba(0,0,0,.5);     margin-left: 250px;
+    margin-right: 50px;
+    margin-top: -50px;  "  >
+    <div class="panel-heading" align="center" style="    background-color: rgba(0,0,0,.5);
+    border-color: #aa2b2b;">Alterar Motorista</div>
     
-    <div class="col-4">
- <label for="sexo" class="hora">Sexo</label> <select
-					class="form-control" name="sexo" style="width: 50%;" value="${p.sexo}">
-					<option value="">Escolha seu sexo</option>
-					<option value="M">Masculino</option>
-					<option value="F">Feminino</option>
-					<option value="O">Outros</option>
-				</select>
-    </div>
+    <div class="panel-body">
+<div class="form-group">
+<!--
+<div class="form-group">   
+<div class="col-md-4 control-label">
+    <img id="logo" src="http://blogdoporao.com.br/wp-content/uploads/2016/12/Faculdade-pitagoras.png"/>
+</div>
+<div class="col-md-4 control-label">
+    <h1>Cadastro de Cliente</h1>
     
-  </div>
-  <!--     Fonts and icons     -->
-  <div class="form-row">
-    <div class="col-4">
-    <label for="exampleInputCpf" class="hora">CPF:</label> <input
-					type="text" class="form-control" id="exampleInputCpf"
-					style="width: 50%;" placeholder="000.000.000-00" minlength="14"
-					maxlength="14" required="required" name="cpf"
-					onkeypress="validaCpf();" value="${p.cpf}">
-    </div>
-    <div class="col-4">
-    <label for="exampleInputName" class="hora">RG:</label> <input
-					type="text" class="form-control" id="exampleInputName"
-					placeholder="0.000.000" required="required" minlength="10" maxlength="10" name="rg"
-					style="width: 50%;" onkeypress="validaRG()" value="${p.rg}">
-    </div>
+</div>
+</div>
+    -->
     
-<div class="col-4">
-    <label for="exampleInputTelefone" class="hora">Telefone:</label> <input
-					type="text" class="form-control fa fa-tablet" id="exampleInputTelefone"
-					placeholder="(00) 00000-0000" required="required" maxlength="15" minlength="15"
-					name="telefone" style="width: 50%;" onkeypress="validaTelefone()" value="${p.telefone}">
-    </div>
-  </div>
-  
-  
-  <!--     Fonts and icons     -->
-  <div class="form-row">
- <div class="col-4">
-    <label for="exampleInputEndereco" class="hora">Endereço:</label> <input
-					type="text" class="form-control" id="exampleInputEndereco" minlength="8"
-					placeholder="Rua Don Juno nº 425" required="required" value="${p.endereco.rua}"
-					maxlength="50" name="endereco.rua" style="width: 50%;">
-    </div>
- <div class="col-4">
-    <label for="exampleInputEndereco" class="hora">Bairro:</label> <input
-					type="text" class="form-control" id="exampleInputEndereco"
-					required="required" minlength="8" maxlength="26" name="endereco.bairro"
-					style="width: 50%;" value="${p.endereco.bairro}">
-    </div>
-    <div class="col">
-    <label for="exampleInputCep" class="hora">CEP:</label> <input
-					type="text" class="form-control" id="exampleInputCep"
-					placeholder="00.000-000" maxlength="9" required="required" value="${p.endereco.cep}"
-					name="endereco.cep" style="width: 50%;" onkeypress="validaCep()">
-    </div>
-  </div>
-  <!--     Fonts and icons     -->
-  
-  <div class="form-row">
-  
-    <div class="col-4">
-    <label for="exampleInputEndereco" class="hora">Complemento:</label> <input
-					type="text" class="form-control" id="exampleInputEndereco"
-					required="required" maxlength="26" minlength="2" name="endereco.complemento"
-					style="width: 50%;" value="${p.endereco.complemento}">
-    </div>
-    <div class="col-4">
-    <label for="exampleInputEndereco" class="hora">Número do Complemento:</label> <input
-					type="text" class="form-control" id="exampleInputEndereco"
-					required="required" maxlength="6" name="endereco.numero"
-					style="width: 50%;" value="${p.endereco.numero}">
-    </div>
-    <div class="col-4">
-    <label for="exampleInputHabilitacao" class="hora">Número da
-					Habilitação:</label> <input type="number" class="form-control"
-					id="exampleInputHabilitacao" required="required" name="numHabilitacao"
-					style="width: 50%;" minlength="11" maxlength="11" value="${p.numHabilitacao}">
-    </div>
-  </div>
-   <!--     Fonts and icons     -->
-  
-  <div class="form-row">
-  
-    <div class="col-4">
-    <label for="exampleInputCep" class="hora">Categoria:</label> <input
-					type="text" class="form-control" id="exampleInputCep" value="${p.categoria}"
-					required="required" name="categoria" style="width: 50%;" maxlength="4">
-    </div>
     
-    <div class="col-4">
-    <label for="exampleInputData" class="hora">Data de
-					vencimento da carteira:</label> <input type="text" class="form-control"
-					id="exampleInputData" required="required" name="validade" minlength="10"
-					style="width: 50%;" maxlength="10" value="<fmt:formatDate value='${p.validade}' pattern='dd/MM/yyyy' />">
+    <div align="center">
+    <h4 style="color: blue";>${msg}</h4>
+  </div>
+    <div id="newpost">
+   <div class="form-group">
+    <div class="col-md-3 control-label">
+        <h3>Informações Pessoais</h3>
     </div>
-    <div class="col-4">
-    <label for="exampleInputPassword1" class="hora">Email:</label>
-			<input type="email" class="form-control" id="exampleInputPassword1"
-				required="required" minlength="8" maxlength="45" name="email" style="width: 50%"
-				 value="${p.email}">
     </div>
+<div class="col-md-11 control-label">
+        <p class="help-block"><h11>*</h11> Campo Obrigatório </p>
+</div>
 </div>
 
- <!--     Fonts and icons     -->
+<form class="form-horizontal" action="alterarMotorista"
+			method="post" name="formulario">
+			
+<input type="hidden" name="id" value="${p.id}">
+<input type="hidden" name="endereco.id" value="${p.endereco.id}">
+<input type="hidden" name="veiculo.id" value="${p.veiculo.id}">
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="Nome">Nome <h11>*</h11></label>  
+  <div class="col-md-8">
+  <input  class="form-control input-md" type="text"  id="exampleInputName" minlength="8"
+				value="${p.nome}"	placeholder="" required="required" maxlength="45" name="nome">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="Nome">CPF <h11>*</h11></label>  
+  <div class="col-md-2">
+  <input class="form-control input-md" 
+					type="text"  id="exampleInputCpf"
+					 placeholder="000.000.000-00" minlength="14"
+					maxlength="14" required="required" name="cpf"
+					onkeypress="validaCpf();" value="${p.cpf}">
+  </div>
+
   
-  <div class="form-row">
+  <label class="col-md-1 control-label" for="Nome">RG: <h11>*</h11></label>  
+  <div class="col-md-2">
+  <input class="form-control input-md"  value="${p.rg}"
+					type="text"  id="exampleInputName"
+					placeholder="0.000.000" required="required" maxlength="9" minlength="9" name="rg"
+					 onkeypress="validaRG()">
+  </div>
+  <label class="col-md-1 control-label" for="prependedtext">Email <h11>*</h11></label>
+  <div class="col-md-2">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+      <input class="form-control" type="email"  id="exampleInputPassword1" minlength="8"
+				required="required" maxlength="45" name="email" value="${p.email}"
+				onsubmit="validaEmail();" >
+    </div>
+  </div>
+
+</div>
+
+<!-- Multiple Radios (inline) -->
+
+
+
+<!-- Prepended text-->
+
+<div class="form-group">
+  <label class="col-md-2 control-label" for="prependedtext">Telefone <h11>*</h11></label>
+  <div class="col-md-2">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-tablet"></i></span>
+      <input  class="form-control" 
+					type="text"  id="exampleInputTelefone" minlength="15" value="${p.telefone}"
+					placeholder="(00) 00000-0000" required="required" maxlength="15"
+					name="telefone"  onkeypress="validaTelefone()">
+    </div>
+  </div>
   
+  <div class="col-md-3">
+    <div class="input-group">
+ <label for="sexo" class="hora col-md-4 control-label">Sexo</label> <select
+          class="form-control" name="sexo" style="width: 50%;" value="${p.sexo}">
+          
+          <option value=""> sexo</option>
+          <option value="M">Masculino</option>
+          <option value="F">Feminino</option>
+          <option value="O">Outros</option>
+        </select>
+    </div>
+  </div>
+
+   
+
+<!-- Prepended text-->
+<div class="form-group">
+  
+</div>
+
+
+<!-- Search input-->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="CEP">CEP <h11>*</h11></label>
+  <div class="col-md-2">
+    <input  name="endereco.cep" id="exampleInputCep" value="${p.endereco.cep}"  placeholder="Apenas numero"  class="form-control input-md" required="Para realizar o cadastro preencha este campo com o cep da sua rua" value="" type="search" minlength="8" maxlength="8" pattern="[0-9]+$" onkeypress="validaCep()">
+  </div>
+  <div class="col-md-2">
+      <button type="button" class="btn btn-primary" style="background-color: rgba(0,0,0,.5); border-color: rgba(0,0,0,.0001);" onclick="pesquisacep(getElementById('exampleInputCep').value)">Pesquisar</button>
+    </div>
+    <div class="col-md-3">
+    <div class="input-group">
+      <span class="input-group-addon">Complemento <h11>*</h11></span>
+      <input class="form-control" type="text"  id="exampleInputName"
+								value="${p.endereco.complemento}"
+				placeholder="Casa" minlength="3" 
+								pattern="[a-zA-Z0-9]+"
+								required="Para realizar o cadastro preencha este campo com o seu complemento"
+								maxlength="20" name="endereco.complemento">
+    </div>
     
-    <div class="col-4">
-    <label for="exampleInputCep">Placa do veiculo:</label> <input
-						type="text" class="form-control" id="exampleInputCep" minlength="7" maxlength="7"
-						required="required" name="veiculo.placa" style="width: 50%;" value="${p.veiculo.placa}">
-    </div>
+  </div>
+</div>
+
+<!-- Prepended text-->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="prependedtext">Endereço</label>
+  <div class="col-md-4">
+    <div class="input-group">
+      <span class="input-group-addon">Rua</span>
+      <input id="rua" name="endereco.rua" value="${p.endereco.rua}" class="form-control" placeholder="" required="required" readonly="readonly" type="text" maxlength="50" minlength="8">
     </div>
     
-    <!--     Fonts and icons     -->
+  </div>
+    <div class="col-md-2">
+    <div class="input-group">
+      <span class="input-group-addon">Nº <h11>*</h11></span>
+      <input class="form-control" type="text" 
+						value="${p.endereco.numero}"		id="exampleInputEndereco" minlength="2"
+				placeholder="Ex: 0000" required="required" maxlength="6"
+								name="endereco.numero">
+    </div>
+    
+  </div>
   
-  <div class="form-row">
+  <div class="col-md-3">
+    <div class="input-group">
+      <span class="input-group-addon">Bairro</span>
+      <input id="bairro" name="endereco.bairro" value="${p.endereco.bairro}" class="form-control" placeholder="" required="required" readonly="readonly" type="text" maxlength="26" minlength="3">
+    </div>
+    
+  </div>
+</div>
+<br>
+<br>
+<div id="newpost">
+   <div class="form-group">
+    <div class="col-md-3 control-label">
+        <h3>Informações do Veiculo</h3>
+    </div>
+    </div>
+
+<div class="form-group">
+  <label class="col-md-2 control-label" for="Nome">Numero da Habilitação: <h11>*</h11></label>  
+  <div class="col-md-2">
+  <input class="form-control input-md" type="number" value="${p.numHabilitacao}"
+					id="exampleInputHabilitacao" required="required" name="numHabilitacao" maxlength="11" minlength="11">
+  </div>
+
   
-    <div class="col-4">
-    <label for="exampleInputCep" class="hora">Marca:</label> <input
-						type="text" class="form-control" id="exampleInputCep" minlength="2" maxlength="10"
-						required="required" name="veiculo.marca" style="width: 50%;" value="${p.veiculo.marca}">
-    </div>
-    <div class="col-4">
-    <label for="exampleInputCep" class="hora">Ano do veiculo:</label> <input
-						type="text" class="form-control" id="exampleInputCep" maxlength="4" value="${p.veiculo.anoVeiculo}"
-						required="required" name="veiculo.anoVeiculo" style="width: 50%;">
-    </div>
-    <div class="col-4">
-    <label for="exampleInputData" class="hora">Chassí:</label> <input type="text" class="form-control"
-					id="exampleInputData" required="required" name="veiculo.chasi"  maxlength="30"
-					style="width: 50%;" value="${p.veiculo.chasi}">
-    </div>
-    </div>
-			</fieldset>
+  <label class="col-md-1 control-label" for="Nome">Categoria: <h11>*</h11></label>  
+  <div class="col-md-2">
+  <input  class="form-control input-md" type="text"  id="exampleInputCep" value="${p.categoria}"
+					required="required" name="categoria" minlength="1"  maxlength="4">
+  </div>
+  
+  <label class="col-md-2 control-label" for="Nome">Data de vencimento da carteira:<h11>*</h11></label>  
+  <div class="col-md-2">
+ <input id="dataNascimento" name="validade" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="text" minlength="10" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()" value="<fmt:formatDate value='${p.validade}' pattern='dd/MM/yyyy' />">
+</div>
+
+</div>
+<div class="form-group">
+  <label class="col-md-2 control-label" for="Nome">Placa do veiculo: <h11>*</h11></label>  
+  <div class="col-md-2">
+  <input class="form-control input-md" type="text"  id="exampleInputCep" minlength="7"
+					value="${p.veiculo.placa}"	required="required" name="veiculo.placa" maxlength="7">
+  </div>
+
+  
+  <label class="col-md-1 control-label" for="Nome">Chassí: <h11>*</h11></label>  
+  <div class="col-md-2">
+  <input  class="form-control input-md" ype="text" maxlength="15" minlength="15"
+				value="${p.veiculo.chasi}"	id="exampleInputData" required="required" name="veiculo.chasi">
+  </div>
+  
+  <label class="col-md-1 control-label" for="Nome">Marca:<h11>*</h11></label>  
+  <div class="col-md-2">
+  <input class="form-control input-md" type="text"  id="exampleInputCep"
+				value="${p.veiculo.marca}"		required="required" name="veiculo.marca" maxçength="20" minlength="2">
+</div>
+
+</div>
+
+<div class="form-group">
+  <label class="col-md-2 control-label" for="Nome">Ano do veiculo: <h11>*</h11></label>  
+  <div class="col-md-2">
+  <input class="form-control input-md" type="text"  id="exampleInputCep"
+					value="${p.veiculo.anoVeiculo}"	required="required" name="veiculo.anoVeiculo" maxlength="4" minlength="4">
+  </div>
+  </div>
 
 
 
-			<button type="reset" class="btn btn-warning">&nbsp; Limpar
-				&nbsp;</button>
-			&nbsp;
-			<button type="submit" class="btn btn-success">Alterar</button>
 
-		</form>
-	</fieldset>
-	</center>
-	<br>
-	<!-- jQuery (necessario para Bootsrap plungins Java Script) -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="view/bootstrap/js/bootstrap.min.js"></script>
+
+
+<div id="newpost">
+   <div class="form-group">
+    <div class="col-md-5 control-label">
+        <h3>Informe um Login e Senha para acessar o sistema.</h3>
+    </div>
+    </div>
+
+
+
+
+</div>
+
+
+
+ 
+
+<!-- Select Basic -->
+<br>
+<br>
+<div align="center">
+<!-- Button (Double) -->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="Cadastrar"></label>
+  <div class="col-md-8">
+    <button  class="btn btn-success" style="background-color: #2c8972;
+    border-color: #2c8972;" type="Submit">Cadastrar</button>
+    <button  class="btn btn-danger" style="background-color: #b72d29;
+    border-color: #b72d29;" type="Reset">Cancelar</button>
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+
+</fieldset>
+</form>
+
+  
+  <!--/ footer-->
+
+  <script src="view/novoTemplate/js/jquery.min.js"></script>
+  <script src="view/novoTemplate/js/jquery.easing.min.js"></script>
+  <script src="view/novoTemplate/js/bootstrap.min.js"></script>
+  <script src="view/novoTemplate/js/custom.js"></script>
+  <script src="view/novoTemplate/contactform/contactform.js"></script>
 </body>
 </html>
-
-<!-- Testando um novo branch -->

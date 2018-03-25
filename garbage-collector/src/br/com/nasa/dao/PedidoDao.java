@@ -215,6 +215,7 @@ public class PedidoDao {
 				pCompleto.setEndereco(rs.getString("endereco"));
 				pCompleto.setNumero(rs.getString("numero"));
 				pCompleto.setCep(rs.getString("cep"));
+				pCompleto.setIdMotorista(rs.getInt("id_motorista"));
 				
 				
 				

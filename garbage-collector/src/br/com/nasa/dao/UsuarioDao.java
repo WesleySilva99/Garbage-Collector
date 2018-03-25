@@ -126,14 +126,14 @@ public class UsuarioDao {
 		return usuarioEncontrado;
 	}
 	
-	public void remover(int id) {
+	public void remover(String login) {
 
-		String sql = "DELETE FROM usuario where id_usuario = ?";
+		String sql = "DELETE FROM usuario where login = ? ";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
-			stmt.setInt(1, id);
+			stmt.setString(1, login);
 			
 			stmt.execute();
 			stmt.close();

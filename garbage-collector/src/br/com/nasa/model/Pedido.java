@@ -8,10 +8,18 @@ public class Pedido {
 	private String endereco;
 	private String numero;
 	private String cep;
+	private int idMotorista;
 	private Cliente cliente;
 	private Motorista motorista;
 
 	
+	public int getIdMotorista() {
+		return idMotorista;
+	}
+
+	public void setIdMotorista(int idMotorista) {
+		this.idMotorista = idMotorista;
+	}
 	public Motorista getMotorista() {
 		return motorista;
 	}

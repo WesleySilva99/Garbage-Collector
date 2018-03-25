@@ -47,7 +47,7 @@ public class VeiculoDao {
 	
 	public void alterar(Veiculo v) {
 
-		String sql = "UPDATE endereco SET CHASI = ?, marca = ?, placa = ?, anoVeiculo = ? WHERE id = ?";
+		String sql = "UPDATE veiculo SET CHASI = ?, marca = ?, placa = ?, ano_veiculo = ? WHERE id = ?";
 		PreparedStatement stmt;
 		try {
 

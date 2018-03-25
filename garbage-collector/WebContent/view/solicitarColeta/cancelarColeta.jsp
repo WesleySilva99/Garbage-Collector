@@ -403,11 +403,11 @@ aside ul li a span{
 					<td>${u.cliente.telefone}</td>
 					<td>
 					<c:choose>
-					<c:when test="${u.motorista.id != null}">
-					<a href="coletaFeita?id=${u.id}" class="btn btn-info btn-xs">Coletar</a>
+					<c:when test="${u.idMotorista == null}">
+					<p>Coleta Realizada!</p>
 					</c:when>
 					<c:otherwise>
-                		<p>Coleta Realizada!</p>
+						<a href="coletaFeita?id=${u.id}" class="btn btn-info btn-xs">Coletar</a>
                 	</c:otherwise>
 					</c:choose>
 				</td>

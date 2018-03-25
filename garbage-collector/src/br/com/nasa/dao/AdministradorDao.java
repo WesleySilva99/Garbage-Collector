@@ -108,7 +108,7 @@ public class AdministradorDao {
 
 	public void alterar(Administrador adm) throws SQLException {
 
-		String sql = "UPDATE administrador SET nome = ?, login = ?, telefone = ?, email=? WHERE id = ?";
+		String sql = "UPDATE administrador SET nome = ?, telefone = ?, email=? WHERE id = ?";
 		PreparedStatement stmt;
 		try {
 
@@ -116,9 +116,9 @@ public class AdministradorDao {
 
 			stmt.setString(1, adm.getNome());
 
-			stmt.setString(3, adm.getTelefone());
-			stmt.setString(4, adm.getEmail());
-			stmt.setInt(5, adm.getId());
+			stmt.setString(2, adm.getTelefone());
+			stmt.setString(3, adm.getEmail());
+			stmt.setInt(4, adm.getId());
 			stmt.execute();
 			connection.close();
 

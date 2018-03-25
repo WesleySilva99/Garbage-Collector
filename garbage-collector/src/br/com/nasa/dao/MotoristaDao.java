@@ -92,8 +92,8 @@ public class MotoristaDao {
 			throw new RuntimeException(e);
 		}
 		
-		String sql1 = "SELECT max(id) id from motorista";
-		PreparedStatement stmt3 = this.connection.prepareStatement(sql);
+		String sql2 = "SELECT max(id) id from motorista"; 
+		PreparedStatement stmt3 = this.connection.prepareStatement(sql2);
 
 		ResultSet rs2 = stmt3.executeQuery();
 
@@ -101,7 +101,7 @@ public class MotoristaDao {
 
 		while (rs2.next()) {
 
-			idMotorista = rs2.getInt("max(id)");
+			idMotorista = rs2.getInt("id");
 
 		}
 		stmt1.close();
@@ -224,6 +224,7 @@ public class MotoristaDao {
 				mCompleto.setNumHabilitacao(rs.getInt("n_abilitacao"));
 				mCompleto.setCategoria(rs.getString("cat_abilitacao"));
 				mCompleto.setSexo(rs.getString("sexo"));
+				mCompleto.setEmail(rs.getString("email"));
 				
 				int idEndereco = rs.getInt("id_endereco");
 				EnderecoDao dao = new EnderecoDao();
@@ -242,7 +243,6 @@ public class MotoristaDao {
 
 			rs.close();
 			stmt.close();
-			connection.close();
 
 			return mCompleto;
 
@@ -274,8 +274,6 @@ public class MotoristaDao {
 		Veiculo vCompleto = dao1.pegarId(idVeiculo);
 		m.setVeiculo(vCompleto);
 
-		m.getUsuario().setLogin(rs.getString("login"));
-		m.getUsuario().setSenha(rs.getString("senha"));
 		return m;
 	}
 

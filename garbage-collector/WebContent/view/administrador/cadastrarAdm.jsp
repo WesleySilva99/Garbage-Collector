@@ -95,13 +95,13 @@
 <br>
 <br>
 <br>
-<div class="panel panel-primary" style="    border-color: rgba(0,0,0,.5); margin-left: 250px;
-    margin-right: 30px;
-    margin-top: 50px;">
+<div class="panel panel-primary" style="border-color: rgba(0,0,0,.5); margin-left: 250px;
+    margin-right: 50px;
+    margin-top: -50px;">
     <div class="panel-heading" align="center" style="    background-color: rgba(0,0,0,.5);
     border-color: #aa2b2b;">Cadastro Administrador</div>
     
-    <div class="panel-body" aling="center">
+    <div class="panel-body">
 <div class="form-group">
 <!--
 <div class="form-group">   
@@ -121,8 +121,8 @@
     </div>
     </div>
    
-    <div>
-    <h4 style="color: blue;">${msg}</h4>
+     <div align="center">
+    <h4 style="color: blue";>${msg}</h4>
   </div>
 <div class="col-md-11 control-label">
         <p class="help-block"><h11>*</h11> Campo Obrigatório </p>

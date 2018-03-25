@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import br.com.nasa.dao.ClienteDao;
 import br.com.nasa.dao.EnderecoDao;
 import br.com.nasa.dao.PedidoDao;
+import br.com.nasa.dao.UsuarioDao;
 import br.com.nasa.model.Cliente;
 
 @Controller
@@ -101,6 +102,7 @@ public class ClienteController {
 		dao.remover(c);
 		EnderecoDao dao1 = new EnderecoDao();
 		dao1.remover(c.getEndereco());
+		UsuarioDao dao2= new UsuarioDao();
 		System.out.println("Removendo cliente");
 		
 		
