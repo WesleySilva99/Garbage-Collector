@@ -93,12 +93,9 @@ insert into administrador (nome, telefone, email) values ('Administrador', '(81)
 
 create table usuario(
 id_usuario int,
-login varchar(10),
+login varchar(10) primary key,
 senha varchar(32),
 tipo_usuario varchar(30)
 );
 
 insert into usuario (id_usuario, login, senha, tipo_usuario) values (1, 'admin', '123456789@Gg','ADMINISTRADOR');
-
-
-
