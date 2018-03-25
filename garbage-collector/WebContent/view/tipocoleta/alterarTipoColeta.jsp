@@ -369,12 +369,15 @@ aside ul li a span{
 	</c:if>
 
 	<div align="center">
-		<hr>
-		<h3>Alterar Tipo da Coleta</h3>
-		<hr>
+		
+		<h1 align="center" style="margin-top:100px; margin-left: 200px;">Alterar Tipo da Coleta</h1>
+		
 	</div>
+	<div align="center">
+    <h4 style="color: blue";>${msg}</h4>
+  	</div>
 	<center>
-		<form action="alterarTipoColeta" method="post">
+		<form action="alterarTipoColeta" method="post"  style="margin-left: 200px;">
 
 
 			<input type="hidden" name="id" value="${p.id}">

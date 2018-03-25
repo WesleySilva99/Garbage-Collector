@@ -8,7 +8,6 @@ import java.util.List;
 
 import com.mysql.jdbc.Connection;
 
-import br.com.nasa.model.TipoColeta;
 import br.com.nasa.model.TipoUsuario;
 import br.com.nasa.model.Usuario;
 import br.com.nasa.util.ConnectionFactory;
@@ -171,14 +170,15 @@ public class UsuarioDao {
 			throw new RuntimeException(e);
 		}
 	}
-	public Usuario buscarPorId2(Usuario usuario) {
+	public Usuario buscarPorId2(int idUsuario, TipoUsuario tpUsuario) {
 
 		try {
 
 			Usuario usuarioConsultado = null;
 			PreparedStatement stmt = this.connection
-					.prepareStatement("select * from usuario where login= ?");
-			stmt.setString(1, usuario.getLogin());
+					.prepareStatement("select * from usuario where id_usuario = ? and tipo_usuario = ?");
+			stmt.setInt(1, idUsuario);
+			stmt.setString(2, tpUsuario.toString());
 
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next()) {
@@ -190,7 +190,6 @@ public class UsuarioDao {
 			stmt.close();
 
 			return usuarioConsultado;
-
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

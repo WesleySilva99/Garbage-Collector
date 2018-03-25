@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.nasa.dao.ClienteDao;
 import br.com.nasa.dao.EnderecoDao;
-import br.com.nasa.dao.PedidoDao;
 import br.com.nasa.dao.UsuarioDao;
 import br.com.nasa.model.Cliente;
+import br.com.nasa.model.TipoUsuario;
+import br.com.nasa.model.Usuario;
 
 @Controller
 public class ClienteController {
@@ -103,14 +104,16 @@ public class ClienteController {
 		EnderecoDao dao1 = new EnderecoDao();
 		dao1.remover(c.getEndereco());
 		UsuarioDao dao2= new UsuarioDao();
-		System.out.println("Removendo cliente");
+		 Usuario b = dao2.buscarPorId2(c.getId(), TipoUsuario.CLIENTE);
+		 dao2.remover(b.getLogin());
+		 System.out.println("Removendo cliente");
 		
 		
 		} catch (RuntimeException run) {
-			model.addAttribute("msg", "Cliente removido com sucesso!");
+			model.addAttribute("msg", "Cliente não pode ser deletado porque existem pedidos");
 		}
-		model.addAttribute("msg", "Cliente não pode ser deletado por quem tem relação com pedido");
 		
+		model.addAttribute("msg", "Cliente removido com sucesso!");
 		return "forward:listarClientes";
 	}
 

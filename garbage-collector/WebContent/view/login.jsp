@@ -356,7 +356,7 @@ aside ul li a span{
 	<br>
 	<center>
 		<fieldset>
-			<legend>Login</legend>
+			<h4 align="center">Login</h1><br><br>
 
 
 			<h4 style="color: blue";>${msg}</h4>

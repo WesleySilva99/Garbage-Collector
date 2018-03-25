@@ -39,7 +39,9 @@
 		<h2 align="center">Lista de Administradores</h2>
 		<hr>
 		<br>
-		<h4 style="color: blue";>${msg}</h4>
+		<div align="center">
+    <h4 style="color: blue";>${msg}</h4>
+  	</div>
 		<table class="table table-striped">
 
 			<tr>

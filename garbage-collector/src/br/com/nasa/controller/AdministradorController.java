@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import br.com.nasa.dao.AdministradorDao;
 import br.com.nasa.dao.UsuarioDao;
 import br.com.nasa.model.Administrador;
+import br.com.nasa.model.TipoUsuario;
 import br.com.nasa.model.Usuario;
 
 
@@ -85,6 +86,9 @@ public class AdministradorController {
 
 		 AdministradorDao dao = new AdministradorDao();
 		dao.remover(adm);
+		UsuarioDao dao2= new UsuarioDao();
+		 Usuario b = dao2.buscarPorId2(adm.getId(), TipoUsuario.ADMINISTRADOR);
+		 dao2.remover(b.getLogin());
 		model.addAttribute("msg", "Administrador Removido com Sucesso !");
 
 		return "forward:listarAdms";

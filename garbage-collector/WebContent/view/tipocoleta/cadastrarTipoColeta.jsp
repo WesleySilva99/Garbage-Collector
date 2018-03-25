@@ -354,7 +354,7 @@ aside ul li a span{
   
 </head>
 
-<title>Cadastro de Usuário</title>
+<title>Cadastro de Tipo de Coleta</title>
 
 <script type="text/javascript">
 	

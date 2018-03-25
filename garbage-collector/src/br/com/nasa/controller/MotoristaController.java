@@ -11,11 +11,14 @@ import br.com.nasa.dao.ClienteDao;
 import br.com.nasa.dao.EnderecoDao;
 import br.com.nasa.dao.MotoristaDao;
 import br.com.nasa.dao.TipoColetaDao;
+import br.com.nasa.dao.UsuarioDao;
 import br.com.nasa.dao.VeiculoDao;
 import br.com.nasa.model.Cliente;
 import br.com.nasa.model.Endereco;
 import br.com.nasa.model.Motorista;
 import br.com.nasa.model.TipoColeta;
+import br.com.nasa.model.TipoUsuario;
+import br.com.nasa.model.Usuario;
 import br.com.nasa.model.Veiculo;
 
 @Controller
@@ -71,6 +74,8 @@ public class MotoristaController {
 	
 	@RequestMapping("/removerMotorista")
 	public String removerMotorista(Motorista m, Model model) {
+		
+		try {
 		MotoristaDao dao = new MotoristaDao();
 		m= dao.pegarId(m.getId());
 		dao.remover(m);
@@ -78,6 +83,12 @@ public class MotoristaController {
 		dao1.remover(m.getEndereco());
 		VeiculoDao dao2 = new VeiculoDao();
 		dao2.remover(m.getVeiculo());
+		UsuarioDao dao3= new UsuarioDao();
+		 Usuario b = dao3.buscarPorId2(m.getId(), TipoUsuario.MOTORISTA);
+		 dao3.remover(b.getLogin());
+		} catch (RuntimeException run) {
+			model.addAttribute("msg", "Motorista não pode ser deletado porque existem pedidos");
+		}
 		System.out.println("Removendo motorista");
 		model.addAttribute("msg", "Motorista removido com sucesso!");
 		return "forward:listaMotorista";
