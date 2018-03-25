@@ -38,9 +38,12 @@
                 
                 <c:if test="${motoristaLogado != null}">
                 <li class=""><a href="listarColeta">Listar coletas</a></li>
-                </c:if>
 
+                </c:if>
+				
+  
                <li class=""><a href="rank">Rank de Coletas</a></li>
+            
                 <c:choose>
 					<c:when
 								test="${clienteLogado != null || motoristaLogado != null || AdmLogado != null}">

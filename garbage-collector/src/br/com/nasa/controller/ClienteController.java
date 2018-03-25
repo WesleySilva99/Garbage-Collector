@@ -68,7 +68,10 @@ public class ClienteController {
 
 		ClienteDao dao = new ClienteDao();
 		Cliente clienteCompleto = dao.pegarId(cliente.getId());
+		UsuarioDao dao2 = new UsuarioDao();
+		Usuario uCompleto =dao2.buscarPorId2(cliente.getId(), TipoUsuario.CLIENTE);
 		model.addAttribute("p", clienteCompleto);
+		model.addAttribute("u", uCompleto);
 		
 		
 
@@ -76,7 +79,7 @@ public class ClienteController {
 	}
 
 	@RequestMapping("alterarCliente2")
-	public String alterarProduto2(Cliente cliente, Model model) throws SQLException {
+	public String alterarProduto2(Cliente cliente,Usuario u, Model model) throws SQLException {
 		
 		
 		ClienteDao dao = new ClienteDao();
@@ -84,7 +87,8 @@ public class ClienteController {
 		dao.alterar(cliente);
 		EnderecoDao dao1 = new EnderecoDao();
 		dao1.alterar(cliente.getEndereco());
-		
+		UsuarioDao dao3 = new UsuarioDao();
+		dao3.alterar(u,cliente.getId(), TipoUsuario.CLIENTE);
 		
 		
 		

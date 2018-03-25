@@ -100,14 +100,17 @@ public class MotoristaController {
 
 		MotoristaDao dao = new MotoristaDao();
 		Motorista mCompleto = dao.pegarId(m.getId());
+		UsuarioDao dao2 = new UsuarioDao();
+		Usuario uCompleto =dao2.buscarPorId2(m.getId(), TipoUsuario.MOTORISTA);
 		
 		model.addAttribute("p", mCompleto);
+		model.addAttribute("u", uCompleto);
 
 		return "motorista/alterarMotorista";
 	}
 
 	@RequestMapping("alterarMotorista")
-	public String alterarMotorista(Motorista m, Model model) {
+	public String alterarMotorista(Motorista m,Usuario u, Model model) throws SQLException {
 
 		MotoristaDao dao = new MotoristaDao();
 		dao.alterar(m);
@@ -115,6 +118,8 @@ public class MotoristaController {
 		dao1.alterar(m.getEndereco());
 		VeiculoDao dao2 = new VeiculoDao();
 		dao2.alterar(m.getVeiculo());
+		UsuarioDao dao3 = new UsuarioDao();
+		dao3.alterar(u,m.getId(), TipoUsuario.MOTORISTA);
 		model.addAttribute("msg", "Motorista alterado.");
 		System.out.println("motorista alterado com sucesso");
 		return "forward:listaMotorista";

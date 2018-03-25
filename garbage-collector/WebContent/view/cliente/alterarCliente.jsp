@@ -257,9 +257,23 @@
 </div>
 <br>
 <br>
+<div align="center">
+<p class="help-block"><h11>*</h11> Informe um Login e Senha para acessar o sistema. </p>
+</div>
 
+<input type="hidden" name="usuario.tpUsuario" value="${u.tpUsuario}">
+<input type="hidden" name="idUsuario" value="${u.idUsuario}">
+</div><!-- Text input-->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="Nome">Login:<h11>*</h11></label>  
+  <div class="col-md-2">
+  <input   class="form-control input-md" type="text" 
+								id="exampleInputName" placeholder="Mario15"
+								pattern="[a-zA-Z0-9]+" value="${u.login}"
+					required="Para realizar o cadastro preencha este campo com seu nome de usuário"
+								maxlength="15" name="login" >
+  </div>
 
-  
 
 </div>
 
@@ -271,10 +285,10 @@
 <div align="center">
 <!-- Button (Double) -->
 <div class="form-group">
-  <label class="col-md-2 control-label" for="alterar"></label>
+  <label class="col-md-2 control-label" for="Cadastrar"></label>
   <div class="col-md-8">
-    <button  class="btn btn-success" style="background-color: #2c8972;
-    border-color: #2c8972;" type="Submit">alterar</button>
+    <button class="btn btn-success" style="background-color: #2c8972;
+    border-color: #2c8972;" type="Submit">Alterar</button>
     <button id="Cancelar" name="Cancelar" class="btn btn-danger" style="background-color: #b72d29;
     border-color: #b72d29;" type="Reset">Cancelar</button>
   </div>
@@ -282,10 +296,12 @@
 
 </div>
 </div>
-</div>
 
-</fieldset>
+</div>
 </form>
+</fieldset>
+
+
 	<script src="view/novoTemplate/js/jquery.min.js"></script>
   <script src="view/novoTemplate/js/jquery.easing.min.js"></script>
   <script src="view/novoTemplate/js/bootstrap.min.js"></script>

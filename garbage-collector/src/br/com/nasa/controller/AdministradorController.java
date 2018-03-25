@@ -66,16 +66,20 @@ public class AdministradorController {
 
 		AdministradorDao dao = new AdministradorDao();
 		Administrador admCompleto = dao.pegarId(adm.getId());
+		UsuarioDao dao2 = new UsuarioDao();
+		Usuario uCompleto =dao2.buscarPorId2(adm.getId(), TipoUsuario.ADMINISTRADOR);
 		model.addAttribute("p", admCompleto);
-
+		model.addAttribute("u", uCompleto);
 		return "administrador/alterarAdm";
 	}
 
 	@RequestMapping("alterarAdm")
-	public String alterarAdm(Administrador adm, Model model) throws SQLException {
+	public String alterarAdm(Administrador adm,Usuario u, Model model) throws SQLException {
 
 		AdministradorDao dao = new AdministradorDao();
 		dao.alterar(adm);
+		UsuarioDao dao3 = new UsuarioDao();
+		dao3.alterar(u,adm.getId(), TipoUsuario.ADMINISTRADOR);
 		model.addAttribute("msg", "Administrador alterado.");
 		System.out.println("Administrador alterado com sucesso");
 		return "forward:listarAdms";

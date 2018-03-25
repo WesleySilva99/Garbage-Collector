@@ -338,7 +338,16 @@
     </div>
 
 
-
+<input type="hidden" name="usuario.tpUsuario" value="${u.tpUsuario}">
+<input type="hidden" name="idUsuario" value="${u.idUsuario}">
+</div><!-- Text input-->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="Nome">Login:<h11>*</h11></label>  
+  <div class="col-md-2">
+  <input class="form-control input-md" 
+					type="text"  id="exampleInputLogin"
+					placeholder="" required="required" maxlength="10" name="login" minlength="3" value="${u.login}"	>
+  </div>
 
 </div>
 
@@ -355,7 +364,7 @@
   <label class="col-md-2 control-label" for="Cadastrar"></label>
   <div class="col-md-8">
     <button  class="btn btn-success" style="background-color: #2c8972;
-    border-color: #2c8972;" type="Submit">Cadastrar</button>
+    border-color: #2c8972;" type="Submit">Alterar</button>
     <button  class="btn btn-danger" style="background-color: #b72d29;
     border-color: #b72d29;" type="Reset">Cancelar</button>
   </div>

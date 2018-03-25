@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.mysql.jdbc.Connection;
 
+import br.com.nasa.model.Administrador;
 import br.com.nasa.model.TipoUsuario;
 import br.com.nasa.model.Usuario;
 import br.com.nasa.util.ConnectionFactory;
@@ -194,6 +195,23 @@ public class UsuarioDao {
 			throw new RuntimeException(e);
 		}
 
+	}
+	public void alterar(Usuario usu,int idUsuario, TipoUsuario tpUsuario) throws SQLException {
+
+		String sql = "UPDATE usuario SET login = ? where id_usuario = ? and tipo_usuario = ?";
+		PreparedStatement stmt;
+		try {
+			stmt = connection.prepareStatement(sql);
+
+			stmt.setString(1, usu.getLogin());
+			stmt.setInt(2, idUsuario);
+			stmt.setString(3, tpUsuario.toString());
+			stmt.execute();
+			
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 
