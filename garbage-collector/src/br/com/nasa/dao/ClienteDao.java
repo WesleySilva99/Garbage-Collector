@@ -106,6 +106,7 @@ public class ClienteDao {
 				cliente.setTelefone(rs.getString("telefone"));
 				cliente.setEmail(rs.getString("email"));
 				
+				
 
 				int idEndereco = rs.getInt("id_endereco");
 				EnderecoDao dao = new EnderecoDao();

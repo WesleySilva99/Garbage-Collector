@@ -39,6 +39,7 @@
                 <c:if test="${motoristaLogado != null}">
                 <li class=""><a href="listarColeta">Listar coletas</a></li>
                 </c:if>
+
                <li class=""><a href="rank">Rank de Coletas</a></li>
                 <c:choose>
 					<c:when

@@ -111,6 +111,7 @@
 								pattern="dd/MM/yyyy" /></td>
 						<td>${u.telefone}</td>
 						<td>${u.email}</td>
+						<td>${u.usuario.login}</td>
 						
 
 

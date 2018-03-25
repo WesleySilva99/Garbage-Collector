@@ -7,7 +7,12 @@ create table tipo_coleta(
 id int primary key auto_increment,
 descricao varchar(45) not null
 );
-
+INSERT INTO tipo_coleta (descricao) values ('Papel');
+INSERT INTO tipo_coleta (descricao) values ('Plástico');
+INSERT INTO tipo_coleta (descricao) values ('Papel');
+INSERT INTO tipo_coleta (descricao) values ('Metal');
+INSERT INTO tipo_coleta (descricao) values ('Vidro');
+INSERT INTO tipo_coleta (descricao) values ('Papelão');
 create table veiculo(
 
 id int primary key auto_increment,
@@ -33,8 +38,6 @@ id int primary key auto_increment,
 nome varchar(40) not null,
 cpf varchar(14) not null,
 dt_nasc date not null,
-login varchar(10) not null,
-senha varchar(32) not null,
 telefone varchar(15) not null,
 email varchar(45) not null,
 id_endereco int,
@@ -52,8 +55,6 @@ CREATE TABLE motorista (
     cat_abilitacao VARCHAR(4) NOT NULL,
     dataVencimento DATE NOT NULL,
     email VARCHAR(45) NOT NULL,
-    login VARCHAR(10) NOT NULL,
-    senha VARCHAR(32) NOT NULL,
     id_endereco INT NOT NULL,
     id_veiculo INT,
     FOREIGN KEY (id_endereco)
@@ -84,17 +85,20 @@ foreign key (id_motorista) references motorista(id)
 create table administrador(
 id int primary key auto_increment,
 nome varchar(40) not null,
-login varchar(10) not null,
-senha varchar(32) not null,
 telefone varchar(15) not null,
 email varchar(45) not null
 );
 
+insert into administrador (nome, telefone, email) values ('Administrador', '(81) 95584-8758', 'administrador@gmail.com');
 
 create table usuario(
 id_usuario int,
-login varchar(32),
+login varchar(10),
 senha varchar(32),
 tipo_usuario varchar(30)
-)
+);
+
+insert into usuario (id_usuario, login, senha, tipo_usuario) values (1, 'admin', '123456789@Gg','ADMINISTRADOR');
+
+
 

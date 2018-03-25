@@ -77,11 +77,11 @@ public class PedidoDao {
 				Cliente cp1 = dao1.pegarId(idCliente);
 				coleta.setCliente(cp1);
 				
-				/*int idMotorista= rs.getInt("id_motorista");
+				int idMotorista= rs.getInt("id_motorista");
 				MotoristaDao dao2 = new MotoristaDao();
 				Motorista cp2 = dao2.pegarId(idMotorista);
 				coleta.setMotorista(cp2);
-				*/
+				
 				
 				listaColeta.add(coleta);
 			}
@@ -142,6 +142,10 @@ public class PedidoDao {
 				TipoColetaDao dao = new TipoColetaDao();
 				TipoColeta cp = dao.pegarId(idTipoColeta);
 				coleta.setTipocoleta(cp);
+				int idMotorista= rs.getInt("id_motorista");
+				MotoristaDao dao2 = new MotoristaDao();
+				Motorista cp2 = dao2.pegarId(idMotorista);
+				coleta.setMotorista(cp2);
 
 				listaColeta.add(coleta);
 			}
@@ -215,7 +219,7 @@ public class PedidoDao {
 				pCompleto.setEndereco(rs.getString("endereco"));
 				pCompleto.setNumero(rs.getString("numero"));
 				pCompleto.setCep(rs.getString("cep"));
-				pCompleto.setIdMotorista(rs.getInt("id_motorista"));
+				
 				
 				
 				

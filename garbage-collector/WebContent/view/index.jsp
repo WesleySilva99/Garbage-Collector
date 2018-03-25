@@ -33,8 +33,6 @@
 	<c:import url="/view/util/menuLateral.jsp" />
 	</c:if>
 <!--banner-->
-
-
   <section id="banner" class="banner">
     <div class="bg-color"> 
       <div class="container">

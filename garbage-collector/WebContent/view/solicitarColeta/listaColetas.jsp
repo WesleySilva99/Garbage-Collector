@@ -397,9 +397,18 @@ aside ul li a span{
 					<td>${u.endereco}</td>
 					<td>${u.numero}</td>
 					<td>${u.cep}</td>
-
-					<td><a href="cancelarColeta?id=${u.id}">Cancelar Coleta</a>|
-					<a href="exibiralterarPedido?id=${u.id}">Remarcar Coleta</a> &nbsp;</td>
+					<td>
+					<c:choose>
+					<c:when test="${u.motorista.nome != null}">
+					<p>Coleta Já Feita!</p>
+					</c:when>
+					<c:otherwise>
+					<a href="cancelarColeta?id=${u.id}">Cancelar Coleta</a>|
+					<a href="exibiralterarPedido?id=${u.id}">Remarcar Coleta</a> &nbsp;
+                	</c:otherwise>
+					</c:choose>
+					</td>
+					
 					
 				
 

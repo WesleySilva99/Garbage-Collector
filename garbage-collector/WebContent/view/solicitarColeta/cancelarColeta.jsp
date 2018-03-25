@@ -403,7 +403,7 @@ aside ul li a span{
 					<td>${u.cliente.telefone}</td>
 					<td>
 					<c:choose>
-					<c:when test="${u.idMotorista == null}">
+					<c:when test="${u.motorista.nome != null}">
 					<p>Coleta Realizada!</p>
 					</c:when>
 					<c:otherwise>

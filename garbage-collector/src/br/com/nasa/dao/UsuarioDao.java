@@ -3,9 +3,12 @@ package br.com.nasa.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.mysql.jdbc.Connection;
 
+import br.com.nasa.model.TipoColeta;
 import br.com.nasa.model.TipoUsuario;
 import br.com.nasa.model.Usuario;
 import br.com.nasa.util.ConnectionFactory;
@@ -79,7 +82,7 @@ public class UsuarioDao {
 			PreparedStatement stmt = this.connection
 					.prepareStatement("select * from usuario where id_usuario = ? and tipo_usuario = ?");
 			stmt.setInt(1, usuario.getIdUsuario());
-			stmt.setString(2, usuario.getTpUsuario().toString());
+
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next()) {
 
@@ -143,5 +146,58 @@ public class UsuarioDao {
 		}
 
 	}
+
+	
+	public List<Usuario> listar() {
+		try {
+			List<Usuario> listaU = new ArrayList<Usuario>();
+			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM usuario");
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				Usuario tc = new Usuario();
+				tc.setIdUsuario(rs.getInt("id_usuario"));
+				tc.setLogin(rs.getString("login"));
+
+				listaU.add(tc);
+			}
+			stmt.execute();
+			stmt.close();
+			rs.close();
+			connection.close();
+
+			return listaU;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	public Usuario buscarPorId2(Usuario usuario) {
+
+		try {
+
+			Usuario usuarioConsultado = null;
+			PreparedStatement stmt = this.connection
+					.prepareStatement("select * from usuario where login= ?");
+			stmt.setString(1, usuario.getLogin());
+
+			ResultSet rs = stmt.executeQuery();
+			if (rs.next()) {
+
+				usuarioConsultado = montarObjeto(rs);
+			}
+
+			rs.close();
+			stmt.close();
+
+			return usuarioConsultado;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
+	}
+
+
+	
 
 }
