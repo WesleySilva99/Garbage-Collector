@@ -114,9 +114,11 @@
     -->
     
     
-    <div align="center">
+    <c:if test="${msg ne null}">
+     <div align="center">
     <h4 style="color: blue";>${msg}</h4>
   </div>
+  </c:if>
     <div id="newpost">
    <div class="form-group">
     <div class="col-md-3 control-label">
@@ -278,8 +280,8 @@
 <div class="form-group">
   <label class="col-md-2 control-label" for="Nome">Numero da Habilitação: <h11>*</h11></label>  
   <div class="col-md-2">
-  <input class="form-control input-md" type="number" value="${p.numHabilitacao}"
-					id="exampleInputHabilitacao" required="required" name="numHabilitacao" maxlength="11" minlength="11">
+  <input class="form-control input-md" type="number" value="${p.numHabilitacao}" pattern="[0-9]+$" title="só com números e com 10 caracteres"
+					id="exampleInputHabilitacao" required="O Rg tem que ter 11 números" name="numHabilitacao" maxlength="11" minlength="11">
   </div>
 
   

@@ -372,7 +372,11 @@ aside ul li a span{
 		<hr>
 		<br>
 		<table class="table table-striped">
-		<div align="center"><h4 style="color:blue";>${msg}</h4></div>
+		<c:if test="${msg ne null}">
+     <div align="center">
+    <h4 style="color: blue";>${msg}</h4>
+  </div>
+  </c:if>
 			<tr>
 				<th>Descrição</th>
 				<th>Ações</th>

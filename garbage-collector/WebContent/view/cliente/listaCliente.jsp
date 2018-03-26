@@ -52,9 +52,11 @@
 	<c:import url="/view/util/menuLateral.jsp" />
 	</c:if>
 	 <!--  Modal  -->
-	 <div align="center">
+	 <c:if test="${msg ne null}">
+     <div align="center">
     <h4 style="color: blue";>${msg}</h4>
   </div>
+  </c:if>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -111,7 +113,7 @@
 								pattern="dd/MM/yyyy" /></td>
 						<td>${u.telefone}</td>
 						<td>${u.email}</td>
-						<td>${u.usuario.login}</td>
+						
 						
 
 

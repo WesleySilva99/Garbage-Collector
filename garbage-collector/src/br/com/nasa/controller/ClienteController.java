@@ -29,7 +29,8 @@ public class ClienteController {
 		ClienteDao dao = new ClienteDao();
 
 		if (dao.verificaLoginExistente(cliente.getUsuario().getLogin()) == true
-				&& dao.verificaEmailExistente(cliente.getEmail()) == true) {
+				&& dao.verificaEmailExistente(cliente.getEmail()) == true && 
+				dao.verificaCpfExistente(cliente.getCpf()) == true) {
 			dao.Inserir(cliente);
 
 			model.addAttribute("msg", "Você foi cadastrado com sucesso!");
@@ -39,7 +40,7 @@ public class ClienteController {
 
 			model.addAttribute("msg", "O login já existe!");
 			model.addAttribute("c", cliente);
-			System.out.println("Tente novamente, Login já¡ existente");
+			System.out.println("Tente novamente, Login já existente");
 			return "cliente/cadastrarCliente";
 		}
 
@@ -47,6 +48,13 @@ public class ClienteController {
 			model.addAttribute("msg", "O email já existe!");
 			model.addAttribute("c", cliente);
 			System.out.println("Tente novamente, email já existente");
+			return "cliente/cadastrarCliente";
+
+		}
+		else if (dao.verificaCpfExistente(cliente.getCpf()) == false) {
+			model.addAttribute("msg", "O cpf já existe!");
+			model.addAttribute("c", cliente);
+			System.out.println("Tente novamente, cpf já existente");
 			return "cliente/cadastrarCliente";
 
 		}

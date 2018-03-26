@@ -36,7 +36,10 @@ public class MotoristaController {
 		MotoristaDao dao = new MotoristaDao();
 		
 
-		if (dao.verificaLoginExistente(motorista.getUsuario().getLogin()) == true  && dao.verificaEmailExistente(motorista.getEmail()) == true) {
+		if (dao.verificaLoginExistente(motorista.getUsuario().getLogin()) == true  && 
+				dao.verificaEmailExistente(motorista.getEmail()) == true &&
+				dao.verificaCpfExistente(motorista.getCpf()) == true &&
+				dao.verificaRgExistente(motorista.getRg()) == true) {
 
 			dao.Inserir(motorista);
 			
@@ -55,6 +58,18 @@ public class MotoristaController {
 		model.addAttribute("msg", "O email já existe!");
 		model.addAttribute("m", motorista);
 		System.out.println("Tente novamente, email já existente");
+		return "forward:exibirCadastrarMotorista";
+
+	}else if (dao.verificaCpfExistente(motorista.getCpf()) == false) {
+		model.addAttribute("msg", "O cpf já existe!");
+		model.addAttribute("m", motorista);
+		System.out.println("Tente novamente, cpf já existente");
+		return "forward:exibirCadastrarMotorista";
+
+	}else if (dao.verificaRgExistente(motorista.getRg()) == false) {
+		model.addAttribute("msg", "O rg já existe!");
+		model.addAttribute("m", motorista);
+		System.out.println("Tente novamente, rg já existente");
 		return "forward:exibirCadastrarMotorista";
 
 	}
