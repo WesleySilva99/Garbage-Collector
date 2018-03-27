@@ -99,9 +99,11 @@
     <h2 align="center">Lista de Motoristas</h2>
     <hr>
     <br>
-    <div align="center">
+    <c:if test="${msg ne null}">
+     <div align="center">
     <h4 style="color: blue";>${msg}</h4>
-  	</div>
+  </div>
+  </c:if>
 		<table class="table table-striped">
 
 			<tr>

@@ -383,8 +383,11 @@ aside ul li a span{
 
 
 
-		<h4 style="color: blue";>${msg}</h4>
-		</div>
+		<c:if test="${msg ne null}">
+     <div align="center">
+    <h4 style="color: blue";>${msg}</h4>
+  </div>
+  </c:if>
 		<form class="form-horizontal" action="cadastrarTipoColeta"
 			method="post" onsubmit="return validarCadastro();" name="formulario"
 			id="formulario" style="margin-left: 200px;">

@@ -370,7 +370,11 @@ aside ul li a span{
 		<h2 align="center">Lista de Coletas Solicitadas</h2>
 		<hr>
 		<br>
-		<div align="center"><h4 style="color:blue";>${msg}</h4></div>
+		<c:if test="${msg ne null}">
+     <div align="center">
+    <h4 style="color: blue";>${msg}</h4>
+  </div>
+  </c:if>
 		<table class="table table-striped">
 
 			<tr>

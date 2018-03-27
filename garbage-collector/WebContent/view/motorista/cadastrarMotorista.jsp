@@ -114,9 +114,11 @@
     -->
     
     
-    <div align="center">
+    <c:if test="${msg ne null}">
+     <div align="center">
     <h4 style="color: blue";>${msg}</h4>
   </div>
+  </c:if>
     <div id="newpost">
    <div class="form-group">
     <div class="col-md-3 control-label">
@@ -155,7 +157,7 @@
   <label class="col-md-1 control-label" for="Nome">RG: <h11>*</h11></label>  
   <div class="col-md-2">
   <input class="form-control input-md" 
-					type="text"  id="exampleInputName"
+					type="text"  id="exampleInputName" 
 					placeholder="0.000.000" required="required" maxlength="9" minlength="9" name="rg"
 					 onkeypress="validaRG()">
   </div>
@@ -274,20 +276,20 @@
 <div class="form-group">
   <label class="col-md-2 control-label" for="Nome">Numero da Habilitação: <h11>*</h11></label>  
   <div class="col-md-2">
-  <input class="form-control input-md" type="number" 
-					id="exampleInputHabilitacao" required="required" name="numHabilitacao" maxlength="11" minlength="11">
+  <input class="form-control input-md" type="text"  pattern="[0-9]+$" placeholder="00000000000" title="só com números e com 10 caracteres"
+					id="exampleInputHabilitacao" required="Você deve preencher o campo apenas com números" name="numHabilitacao" maxlength="10" ng-minlength="10">
   </div>
 
   
   <label class="col-md-1 control-label" for="Nome">Categoria: <h11>*</h11></label>  
   <div class="col-md-2">
   <input  class="form-control input-md" type="text"  id="exampleInputCep"
-					required="required" name="categoria" minlength="1"  maxlength="4">
+					required="required" name="categoria" ng-minlength="1"  maxlength="4">
   </div>
   
   <label class="col-md-2 control-label" for="Nome">Data de vencimento da carteira:<h11>*</h11></label>  
   <div class="col-md-2">
- <input id="dataNascimento" name="validade" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="text" minlength="10" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()" value="<fmt:formatDate value='${p.validade}' pattern='dd/MM/yyyy' />">
+ <input id="dataNascimento" name="validade" placeholder="DD/MM/AAAA" class="form-control input-md" required="Preencha o campo com sua data de nascimento" type="text" minlength="10" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()" value="<fmt:formatDate value='${p.validade}' pattern='dd/MM/yyyy' />">
 </div>
 
 </div>

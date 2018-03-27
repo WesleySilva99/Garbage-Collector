@@ -355,5 +355,59 @@ public class MotoristaDao {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public boolean verificaCpfExistente(String cpf) {
+		boolean existe = true;
+		String sql = "SELECT cpf FROM motorista WHERE cpf = ?";
+
+		try {
+
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
+			stmt.setString(1, cpf);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				if ((rs.getString("cpf").equals(cpf))) {
+					existe = false;
+					break;
+				} else {
+					existe = true;
+					break;
+				}
+			}
+			rs.close();
+			stmt.close();
+
+			return existe;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public boolean verificaRgExistente(String rg) {
+		boolean existe = true;
+		String sql = "SELECT rg FROM motorista WHERE rg = ?";
+
+		try {
+
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
+			stmt.setString(1, rg);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				if ((rs.getString("rg").equals(rg))) {
+					existe = false;
+					break;
+				} else {
+					existe = true;
+					break;
+				}
+			}
+			rs.close();
+			stmt.close();
+
+			return existe;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 }

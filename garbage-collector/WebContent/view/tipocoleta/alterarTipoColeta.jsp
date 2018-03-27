@@ -372,10 +372,11 @@ aside ul li a span{
 		
 		<h1 align="center" style="margin-top:100px; margin-left: 200px;">Alterar Tipo da Coleta</h1>
 		
-	</div>
-	<div align="center">
+	<c:if test="${msg ne null}">
+     <div align="center">
     <h4 style="color: blue";>${msg}</h4>
-  	</div>
+  </div>
+  </c:if>
 	<center>
 		<form action="alterarTipoColeta" method="post"  style="margin-left: 200px;">
 

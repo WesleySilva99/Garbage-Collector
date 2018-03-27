@@ -297,5 +297,31 @@ public class ClienteDao {
 		}
 
 	}
+	
+	public boolean verificaCpfExistente(String cpf) {
+		boolean existe = true;
+		String sql = "SELECT cpf FROM cliente WHERE cpf = ?";
 
+		try {
+
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
+			stmt.setString(1, cpf);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				if ((rs.getString("cpf").equals(cpf))) {
+					existe = false;
+					break;
+				} else {
+					existe = true;
+					break;
+				}
+			}
+			rs.close();
+			stmt.close();
+
+			return existe;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }

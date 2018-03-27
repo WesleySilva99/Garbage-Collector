@@ -111,15 +111,18 @@
 </div>
 </div>
     -->
+    <c:if test="${msg ne null}">
+     <div align="center">
+    <h4 style="color: blue";>${msg}</h4>
+  </div>
+  </c:if>
     <div id="newpost">
    <div class="form-group">
     <div class="col-md-3 control-label">
         <h3>Informações Pessoais</h3>
     </div>
     </div>
-    <div align="center">
-    <h4 style="color: blue";>${msg}</h4>
-  </div>
+    
 <div class="col-md-11 control-label">
         <p class="help-block"><h11>*</h11> Campo Obrigatório </p>
 </div>
@@ -262,7 +265,7 @@
 								id="exampleInputName" placeholder="Mario15"
 								pattern="[a-zA-Z0-9]+" 
 					required="Para realizar o cadastro preencha este campo com seu nome de usuário"
-								maxlength="15" name="usuario.login" >
+								maxlength="10" name="usuario.login" >
   </div>
 
   

@@ -380,9 +380,11 @@ aside ul li a span{
 	</c:if>
 	<h1 align="center">Solicite sua coleta</h1>
 
-<div>
-    <h4 style="color: blue;">${msg}</h4>
-</div>
+<c:if test="${msg ne null}">
+     <div align="center">
+    <h4 style="color: blue";>${msg}</h4>
+  </div>
+  </c:if>
 
   <form class="form-horizontal" action="CadastraSolicitarColeta"
     method="post" name="formulario" style="border: 2px;">
@@ -424,9 +426,9 @@ aside ul li a span{
           <label class="col-md-5 control-label" for="exampleInputQuantidade">Quantidade:</label>
           <div class="col-md-2">
             <input placeholder="" class="form-control input-md" type="number"
-              id="exampleInputQuantidade"
+              id="exampleInputQuantidade" pattern="[0-9]+$"
               required="Para realizar a coleta preencha este campo com a quantidade de materiais que você vai doar"
-               name="quantidade" maxlength="10" minlength="1">
+               name="quantidade" maxlength="10" ng-minlength="1">
 
           </div>
         </div>
