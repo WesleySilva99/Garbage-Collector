@@ -71,7 +71,7 @@ public class SolicitarColetaController {
 		PedidoDao dao = new PedidoDao();
 		dao.cancelar(solicitarcoleta);
 		model.addAttribute("msg", "Coleta cancelada com sucesso!");
-		return "forward:listarColeta";
+		return "forward:listarColetaCliente";
 
 	}
 	

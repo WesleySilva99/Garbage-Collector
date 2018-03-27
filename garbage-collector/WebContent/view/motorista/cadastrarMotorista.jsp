@@ -227,7 +227,7 @@
       <input class="form-control" type="text"  id="exampleInputName"
 								
 				placeholder="Casa" minlength="3" 
-								pattern="[a-zA-Z0-9]+"
+								pattern="[AÁÉÍÓÚÂÊÎÔÛ-ZáéíóúâêîôûçÁÉÍÓÚÂÊÎÔÛa-z ]+"
 								required="Para realizar o cadastro preencha este campo com o seu complemento"
 								maxlength="20" name="endereco.complemento">
     </div>

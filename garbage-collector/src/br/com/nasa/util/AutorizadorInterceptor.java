@@ -22,7 +22,11 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 
 		if (request.getSession().getAttribute("clienteLogado") != null && (uri.endsWith("garbage-collector/")
 				|| uri.endsWith("garbage-collector/exibirSolicitarColeta")
+				|| uri.endsWith("garbage-collector/CadastraSolicitarColeta")
 				|| uri.endsWith("garbage-collector/listarColetaCliente")
+				|| uri.endsWith("garbage-collector/cancelarColeta")
+				|| uri.endsWith("garbage-collector/exibiralterarPedido")
+				|| uri.endsWith("garbage-collector/alterarPedido")
 				|| uri.endsWith("garbage-collector/rank")
 				|| uri.contains("garbage-collector/alterarCliente")
 				|| uri.contains("garbage-collector/alterarCliente2")
@@ -32,6 +36,7 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 
 		if (request.getSession().getAttribute("motoristaLogado") != null && 
 				(uri.endsWith("garbage-collector/listarColeta")
+				|| uri.endsWith("garbage-collector/coletaFeita")
 				|| uri.endsWith("garbage-collector/rank")
 				|| uri.contains("garbage-collector/exibiralterarMotorista")
 				|| uri.endsWith("garbage-collector/logout"))) {
