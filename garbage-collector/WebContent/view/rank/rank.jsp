@@ -61,6 +61,8 @@
 			<h2 align="center">Rank de Coletas</h2>
 			<hr>
 			<br>
+			<h3 align="center">Todo mês entregamos ao primeiro colocado no rank de coletas uma premiação.</h3>
+			<h3 align="center">Premiação do mês: Uma Geladeira Brastemp Frost Free Duplex.</h3>
 			<table class="table table-striped">
 				
 				<tr>
