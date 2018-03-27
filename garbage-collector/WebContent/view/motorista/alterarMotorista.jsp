@@ -88,6 +88,8 @@
  <c:if test="${AdmLogado != null}">
 	<c:import url="/view/util/menuLateral.jsp" />
 	</c:if>
+	
+
  
 <fieldset>
 <br>
@@ -114,15 +116,16 @@
     -->
     
     
-    <div align="center">
-    <h4 style="color: blue";>${msg}</h4>
-  </div>
     <div id="newpost">
    <div class="form-group">
     <div class="col-md-3 control-label">
         <h3>Informações Pessoais</h3>
     </div>
     </div>
+    
+    <div align="center">
+    	<h4 style="color: blue";>${msg}</h4>
+	</div>
 <div class="col-md-11 control-label">
         <p class="help-block"><h11>*</h11> Campo Obrigatório </p>
 </div>

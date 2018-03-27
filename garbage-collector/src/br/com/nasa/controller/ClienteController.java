@@ -94,7 +94,7 @@ public class ClienteController {
 		
 		model.addAttribute("msg", "cliente alterado.");
 		System.out.println("Cliente alterado com sucesso");
-		return "forward:listarClientes";
+		return "forward:alterarCliente";
 	}
 
 	@RequestMapping("/removerCliente")

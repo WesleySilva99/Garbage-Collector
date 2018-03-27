@@ -93,6 +93,10 @@
 	<c:import url="/view/util/menuLateral.jsp" />
 	</c:if>
 	
+	
+<div align="center">
+    <h4 style="color: blue";>${msg}</h4>
+</div>
 <fieldset>
 
 <br>

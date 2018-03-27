@@ -45,9 +45,12 @@
                <li class=""><a href="rank">Rank de Coletas</a></li>
             
                 <c:choose>
-					<c:when
-								test="${clienteLogado != null || motoristaLogado != null || AdmLogado != null}">
-								<li class=""><a href="#">${clienteLogado.usuario.login}${motoristaLogado.nome}${AdmLogado.nome}</a></li>
+					<c:when test="${clienteLogado != null}">
+								<li class=""><a href="alterarCliente?id=${clienteLogado.id}">${clienteLogado.usuario.login}</a></li>
+							</c:when>
+							<c:when
+								test="${motoristaLogado != null}">
+								<li class=""><a href="exibiralterarMotorista?id=${motoristaLogado.id}">${motoristaLogado.usuario.login}</a></li>
 							</c:when>
 							<c:otherwise>
 								<li class=""><a href="login">Login</a></li>

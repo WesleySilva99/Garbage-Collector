@@ -19,7 +19,7 @@
   
   <script type="text/javascript">
 	function validarCadastro() {
-		var senha = document.formulario.senha.value;
+		var senha = document.formulario.usuario.senha.value;
 		var passwd2 = document.formulario.passwd2.value;
 		if (senha != passwd2) {
 			alert("As senhas não conferem. Repita a senha corretamente!");

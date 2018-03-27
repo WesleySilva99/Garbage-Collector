@@ -122,7 +122,7 @@ public class MotoristaController {
 		dao3.alterar(u,m.getId(), TipoUsuario.MOTORISTA);
 		model.addAttribute("msg", "Motorista alterado.");
 		System.out.println("motorista alterado com sucesso");
-		return "forward:listaMotorista";
+		return "forward:exibiralterarMotorista";
 	}
 	
 }
