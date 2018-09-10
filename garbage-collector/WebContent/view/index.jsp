@@ -43,12 +43,12 @@
             </div>
             <div class="banner-text text-center">
               <h1 class="white">Garbage Collector</h1>
-              <p>Sistema Integrado de Coleta Seletiva .</p>
+              <p>Sistema Integrado de Coleta Seletiva.</p>
               
             </div>
             
             <div align="center" style="position: absolute; top: 700px; left: 550px;">
-            	<h6 class="category category-absolute">Designed by
+            	<h6 class="category category-absolute" style="color: white;">Designed by
                     <a href="" target="_blank">
                         <img src="view/novoTemplate/img/logooo.png" style="width:80px;" class="invision-logo" />
                     </a>. Coded by
